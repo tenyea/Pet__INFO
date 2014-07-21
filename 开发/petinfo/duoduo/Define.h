@@ -40,3 +40,16 @@
 #define UD_nowPosition_Str @"UD_nowPosition"//当前位置
 
 #endif
+
+#pragma mark Servlet
+// 注册
+#define URL_RegisterServlet @"AppRegister"
+// 登录
+#define URL_Login @"AppLogin"
+
+#pragma mark color
+#define TextColor COLOR(247, 247, 247)
+
+#pragma mark String
+
+#define button_loading @"正在加载"
