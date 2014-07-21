@@ -8,6 +8,14 @@
 
 #import "TenyeaBaseViewController.h"
 
-@interface LoginViewController : TenyeaBaseViewController
+@interface LoginViewController : TenyeaBaseViewController<UITextFieldDelegate>
+{
+    UILabel *hudLabel;
+}
+@property (strong, nonatomic) IBOutlet UITextField *userNameTF;
+
+@property (strong, nonatomic) IBOutlet UITextField *passwordTF;
+- (IBAction)loginBtnAction:(id)sender;
+
 
 @end

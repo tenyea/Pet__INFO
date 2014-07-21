@@ -8,6 +8,16 @@
 
 #import "TenyeaBaseViewController.h"
 
-@interface RegisterViewController : TenyeaBaseViewController
-
+@interface RegisterViewController : TenyeaBaseViewController<UITextFieldDelegate>
+- (IBAction)registerBtn:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *userNameTF;
+@property (weak, nonatomic) IBOutlet UITextField *emailTF;
+@property (weak, nonatomic) IBOutlet UITextField *passwordTF;
+@property (weak, nonatomic) IBOutlet UITextField *passwordAgainTF;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+@property (weak, nonatomic) IBOutlet UILabel *passwordLabel;
+@property (weak, nonatomic) IBOutlet UILabel *passwordAgainLabel;
+@property (strong, nonatomic) IBOutlet UIView *backgroundView;
+@property (weak, nonatomic) IBOutlet UIImageView *registerBackground;
 @end

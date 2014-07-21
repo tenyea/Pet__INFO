@@ -7,20 +7,124 @@
 //
 
 #import "LoginViewController.h"
+#define parametersLost @"请输入完整信息"
+#define wrongInformation @"用户名或密码错误"
 
 @interface LoginViewController ()
 
 @end
 
 @implementation LoginViewController
-
+@synthesize userNameTF;
+@synthesize passwordTF;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+        
+        [[UINavigationBar appearance] setBarTintColor:[UIColor orangeColor]];
+        self.title=@"登录";
+        
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    passwordTF.delegate=self;
+    userNameTF.delegate=self;
+    userNameTF.clearButtonMode=UITextFieldViewModeWhileEditing;
+    passwordTF.clearButtonMode=UITextFieldViewModeWhileEditing;
+    passwordTF.secureTextEntry=YES;
 }
 
 
+// 键盘下一步，返回事件
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if(textField.tag==123)
+    {
+        
+        [userNameTF resignFirstResponder];
+        [passwordTF becomeFirstResponder];
+        
+        return YES;
+        
+    }else if(textField.tag==124)
+    {
+        [userNameTF resignFirstResponder];
+        [passwordTF resignFirstResponder];
+        return YES;
+    }else
+    {
+        return NO;
+    }
+    
+}
 
+// 解析数据存储在 NSUserDefaults
+-(void)showResult:(NSDictionary *)resultobject
+{
+    //解析数据
+    
+}
+// 登录失败取消HUD
+-(void)timerFiredFailure:(NSTimer *)timer{
+    [hudLabel removeFromSuperview];
+    hudLabel = nil;
+}
+
+-(void)showHUDinView:(NSString *)title{
+    if (!hudLabel) {
+        hudLabel = [[UILabel alloc]initWithFrame:CGRectMake((ScreenWidth - 120)/2, (ScreenHeight - 100)/2 -100, 120, 20)];
+        hudLabel.backgroundColor = [UIColor grayColor];
+        hudLabel.textAlignment = NSTextAlignmentCenter;
+        hudLabel.textColor = [UIColor whiteColor];
+        hudLabel.font = [UIFont boldSystemFontOfSize:14];
+        hudLabel.hidden = YES;
+        [self.view addSubview:hudLabel];
+    }
+    hudLabel.text = title;
+    hudLabel.hidden = NO;
+}
+
+- (IBAction)loginBtnAction:(id)sender {
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+    [dic setValue:userNameTF.text forKey:@"username"];
+    [dic setValue:passwordTF.text forKey:@"password"];
+    [self getDate:URL_Login andParams:dic andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSString *code =[responseObject objectForKey:@"code"];
+        NSLog(@"%@",code);
+        NSString *loginMessage;
+        int a = [code intValue];
+        if(a==0)
+        {
+            [self showResult:responseObject];
+            NSLog(@"登录成功");
+        }else if(a==1001)
+        {
+            loginMessage = parametersLost;
+            [self showHUDinView:loginMessage];
+            NSLog(@"请输入完整信息");
+            NSTimer *connectionTimer;  //timer对象
+            connectionTimer=[NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(timerFiredFailure:) userInfo:nil repeats:NO];
+        }else if (a==1002)
+        {
+            loginMessage=wrongInformation;
+            [self showHUDinView:loginMessage];
+            NSLog(@"用户名或密码错误");
+            NSTimer *connectionTimer;  //timer对象
+            connectionTimer=[NSTimer scheduledTimerWithTimeInterval:1.5 target:self selector:@selector(timerFiredFailure:) userInfo:nil repeats:NO];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    [userNameTF resignFirstResponder];
+    [passwordTF resignFirstResponder];
+    
+}
 @end
