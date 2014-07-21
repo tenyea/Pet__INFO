@@ -13,6 +13,7 @@
 		546A9A5C197CE24A00C34E0D /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 546A9A56197CE24A00C34E0D /* login.png */; };
 		546A9A5D197CE24A00C34E0D /* login_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 546A9A57197CE24A00C34E0D /* login_background.png */; };
 		546A9A5E197CE24A00C34E0D /* register.png in Resources */ = {isa = PBXBuildFile; fileRef = 546A9A58197CE24A00C34E0D /* register.png */; };
+		546A9A60197CE41F00C34E0D /* libBPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 546A9A5F197CE41F00C34E0D /* libBPush.a */; };
 		EB0635521979049900A4A005 /* MyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0635511979049900A4A005 /* MyInfoViewController.m */; };
 		EB25A7FF196B867A00987F0B /* StoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB25A7FE196B867A00987F0B /* StoryViewController.m */; };
 		EB25A802196B86CD00987F0B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB25A801196B86CD00987F0B /* MainViewController.m */; };
@@ -106,7 +107,6 @@
 		EB8F816218E1175900EED294 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8F814A18E1175900EED294 /* UIKit.framework */; };
 		EB8F816A18E1175900EED294 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB8F816818E1175900EED294 /* InfoPlist.strings */; };
 		EB8F816C18E1175900EED294 /* duoduoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8F816B18E1175900EED294 /* duoduoTests.m */; };
-		EB8F818518E1214D00EED294 /* libBPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8F817818E1214D00EED294 /* libBPush.a */; };
 		EB8F818618E1214D00EED294 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8F817B18E1214D00EED294 /* Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		EB8F818718E1214D00EED294 /* GzipCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8F817E18E1214D00EED294 /* GzipCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		EB8F818918E1214D00EED294 /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8F818218E1214D00EED294 /* OpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -180,6 +180,8 @@
 		546A9A56197CE24A00C34E0D /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		546A9A57197CE24A00C34E0D /* login_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_background.png; sourceTree = "<group>"; };
 		546A9A58197CE24A00C34E0D /* register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = register.png; sourceTree = "<group>"; };
+		546A9A5F197CE41F00C34E0D /* libBPush.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBPush.a; sourceTree = "<group>"; };
+		546A9A61197CE51F00C34E0D /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		EB0635501979049900A4A005 /* MyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInfoViewController.h; sourceTree = "<group>"; };
 		EB0635511979049900A4A005 /* MyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInfoViewController.m; sourceTree = "<group>"; };
 		EB25A7FD196B867A00987F0B /* StoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryViewController.h; sourceTree = "<group>"; };
@@ -387,7 +389,6 @@
 		EB8F816918E1175900EED294 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EB8F816B18E1175900EED294 /* duoduoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = duoduoTests.m; sourceTree = "<group>"; };
 		EB8F817718E1214D00EED294 /* BPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPush.h; sourceTree = "<group>"; };
-		EB8F817818E1214D00EED294 /* libBPush.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBPush.a; sourceTree = "<group>"; };
 		EB8F817A18E1214D00EED294 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
 		EB8F817B18E1214D00EED294 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
 		EB8F817C18E1214D00EED294 /* Base64Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Defines.h; sourceTree = "<group>"; };
@@ -492,6 +493,7 @@
 			files = (
 				EB5FBB52197CC1CA0082917D /* CoreLocation.framework in Frameworks */,
 				EB8F819718E1360B00EED294 /* SystemConfiguration.framework in Frameworks */,
+				546A9A60197CE41F00C34E0D /* libBPush.a in Frameworks */,
 				EB28F76B197CC1550084BE84 /* libbaidumapapi.a in Frameworks */,
 				EB6AC0F318E1643400B84E34 /* MobileCoreServices.framework in Frameworks */,
 				EB8F81D218E14EC000EED294 /* Security.framework in Frameworks */,
@@ -508,7 +510,6 @@
 				EB8F819518E135F900EED294 /* libz.dylib in Frameworks */,
 				EB8F814918E1175900EED294 /* CoreGraphics.framework in Frameworks */,
 				EB8F814B18E1175900EED294 /* UIKit.framework in Frameworks */,
-				EB8F818518E1214D00EED294 /* libBPush.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +538,7 @@
 		EB25A7F7196B857500987F0B /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				546A9A61197CE51F00C34E0D /* Header.h */,
 				EB25A800196B86CD00987F0B /* MainViewController.h */,
 				EB25A801196B86CD00987F0B /* MainViewController.m */,
 				EB25A7F9196B862E00987F0B /* Story */,
@@ -1051,7 +1053,7 @@
 			isa = PBXGroup;
 			children = (
 				EB8F817718E1214D00EED294 /* BPush.h */,
-				EB8F817818E1214D00EED294 /* libBPush.a */,
+				546A9A5F197CE41F00C34E0D /* libBPush.a */,
 				EB8F817918E1214D00EED294 /* opensource */,
 			);
 			path = lib;
@@ -1569,6 +1571,7 @@
 					"/Users/tenyea/项目/duoduo/duoduo/duoduo/ios_api/Release-iphonesimulator",
 					"/Users/tenyea/项目/duoduo/duoduo/duoduo/ios_api/universal-bin",
 					"$(PROJECT_DIR)/duoduo",
+					"/Users/guidapeng/Desktop/Pet__INFO/开发/petinfo/duoduo/lib",
 				);
 				PRODUCT_NAME = "宠信";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1592,6 +1595,7 @@
 					"/Users/tenyea/项目/duoduo/duoduo/duoduo/ios_api/Release-iphonesimulator",
 					"/Users/tenyea/项目/duoduo/duoduo/duoduo/ios_api/universal-bin",
 					"$(PROJECT_DIR)/duoduo",
+					"/Users/guidapeng/Desktop/Pet__INFO/开发/petinfo/duoduo/lib",
 				);
 				PRODUCT_NAME = "宠信";
 				TARGETED_DEVICE_FAMILY = 1;

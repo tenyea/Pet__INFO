@@ -42,7 +42,7 @@
     [button setTitle:@"提交" forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
     
-    UIButton *logOutButton = [UIButton alloc]initWithFrame:CGRectMake(20, 425, ScreenWidth, <#CGFloat height#>)
+//    UIButton *logOutButton = [UIButton alloc]initWithFrame:CGRectMake(20, 425, ScreenWidth, <#CGFloat height#>)
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
