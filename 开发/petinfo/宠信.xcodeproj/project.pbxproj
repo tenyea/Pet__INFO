@@ -145,7 +145,6 @@
 		EBB9BC9B19762C24005776FB /* PetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB9BC9A19762C24005776FB /* PetModel.m */; };
 		EBB9BC9F19764AA1005776FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB9BC9D19764AA1005776FB /* LoginViewController.m */; };
 		EBB9BCA019764AA1005776FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBB9BC9E19764AA1005776FB /* LoginViewController.xib */; };
-		EBBBAB4719736B78004F3E5F /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBBAB4619736B78004F3E5F /* SettingViewController.m */; };
 		EBC6E6BB196FE2DB0056E817 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC6E6B9196FE2DB0056E817 /* RegisterViewController.m */; };
 		EBC6E6BC196FE2DB0056E817 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBC6E6BA196FE2DB0056E817 /* RegisterViewController.xib */; };
 		EBDF7257196BCA4D00B818EF /* nav_background7.png in Resources */ = {isa = PBXBuildFile; fileRef = EBDF7256196BCA4D00B818EF /* nav_background7.png */; };
@@ -181,7 +180,6 @@
 		546A9A57197CE24A00C34E0D /* login_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_background.png; sourceTree = "<group>"; };
 		546A9A58197CE24A00C34E0D /* register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = register.png; sourceTree = "<group>"; };
 		546A9A5F197CE41F00C34E0D /* libBPush.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBPush.a; sourceTree = "<group>"; };
-		546A9A61197CE51F00C34E0D /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		EB0635501979049900A4A005 /* MyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInfoViewController.h; sourceTree = "<group>"; };
 		EB0635511979049900A4A005 /* MyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInfoViewController.m; sourceTree = "<group>"; };
 		EB25A7FD196B867A00987F0B /* StoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryViewController.h; sourceTree = "<group>"; };
@@ -459,8 +457,6 @@
 		EBB9BC9C19764AA1005776FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		EBB9BC9D19764AA1005776FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		EBB9BC9E19764AA1005776FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		EBBBAB4519736B78004F3E5F /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
-		EBBBAB4619736B78004F3E5F /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		EBC6E6B8196FE2DB0056E817 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		EBC6E6B9196FE2DB0056E817 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		EBC6E6BA196FE2DB0056E817 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
@@ -538,7 +534,6 @@
 		EB25A7F7196B857500987F0B /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				546A9A61197CE51F00C34E0D /* Header.h */,
 				EB25A800196B86CD00987F0B /* MainViewController.h */,
 				EB25A801196B86CD00987F0B /* MainViewController.m */,
 				EB25A7F9196B862E00987F0B /* Story */,
@@ -592,8 +587,6 @@
 				EBC6E6B8196FE2DB0056E817 /* RegisterViewController.h */,
 				EBC6E6B9196FE2DB0056E817 /* RegisterViewController.m */,
 				EBC6E6BA196FE2DB0056E817 /* RegisterViewController.xib */,
-				EBBBAB4519736B78004F3E5F /* SettingViewController.h */,
-				EBBBAB4619736B78004F3E5F /* SettingViewController.m */,
 				EB06354F1979047E00A4A005 /* myInfo */,
 				EBF8436D1977B1F500DE6835 /* SecondVC */,
 				EBB9BC7A19762AE2005776FB /* petInfo */,
@@ -1368,7 +1361,6 @@
 				EBB9BC67197617A5005776FB /* AFURLConnectionOperation.m in Sources */,
 				EB51887718E152400086BAE6 /* NSData+GIF.m in Sources */,
 				EB51887C18E152400086BAE6 /* SDWebImageDownloaderOperation.m in Sources */,
-				EBBBAB4719736B78004F3E5F /* SettingViewController.m in Sources */,
 				EB51888218E152400086BAE6 /* UIImage+MultiFormat.m in Sources */,
 				EB51887A18E152400086BAE6 /* SDWebImageDecoder.m in Sources */,
 				EB51887818E152400086BAE6 /* SDImageCache.m in Sources */,
