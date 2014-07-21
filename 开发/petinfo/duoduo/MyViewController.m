@@ -7,7 +7,6 @@
 //
 
 #import "MyViewController.h"
-#import "SettingViewController.h"
 #import "TenyeaBaseNavigationViewController.h"
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
@@ -23,7 +22,7 @@
 {
     NSString *_userName;
     UITableView *_tableView;
-//    顶部背景图
+    //    顶部背景图
     UIView *_topView;
     
     NSArray *_noLoginNameArr;
@@ -31,16 +30,16 @@
     
     NSArray *_petArr;
     
-//    登陆后和未登录的背景view
+    //    登陆后和未登录的背景view
     UIView *_bgView;
     
-//    头像
+    //    头像
     UIButton *_headButton;
-//    用户名
+    //    用户名
     UILabel *_usernameLabel;
-//    地址
+    //    地址
     UILabel *_addressLabel;
-//    性别
+    //    性别
     UIImageView *_sexImageView;
 }
 @end
@@ -59,52 +58,40 @@
     _tableView.showsVerticalScrollIndicator = NO;
     _tableView.separatorInset = UIEdgeInsetsMake(0, 90, 0, 0);
     [self.view addSubview:_tableView];
-//    headview
+    //    headview
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 170)];
     _tableView.tableHeaderView = headerView;
     
     _topView = [[UIView alloc]initWithFrame:CGRectMake(0, 100, ScreenWidth, 70)];
     _topView.backgroundColor = [UIColor redColor];
     [headerView addSubview:_topView];
-
-//    top的背景图
+    
+    //    top的背景图
     UIImageView *topImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, -330, ScreenWidth, 400)];
     topImageView.image = [UIImage imageNamed:@"test.png"];
     [_topView addSubview:topImageView];
-
+    
     _bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, _topView.height)];
     [_topView addSubview: _bgView];
-    
-    
-
-    
-    
-//    右侧按钮
-    UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
-    [button setTitle:@"设置" forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(settingAction) forControlEvents:UIControlEventTouchUpInside];
-    button.titleLabel.font = [UIFont boldSystemFontOfSize:13];
-    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:button];
-    self.navigationItem.rightBarButtonItem = item;
     
 }
 -(void)_initData{
     _noLoginNameArr = @[@[@"我的问诊",@"我的帖子",@"个人资料"],@[@"打个分,鼓励一下"],@[@"用户协议",@"关于我们"]];
     _noLoginImageArr = @[@[@"my_ask.png",@"my_dynamic.png",@"my_myInfo.png"],@[@"my_score@.png"],@[@"my_agreement.png",@"my_about.png"]];
-
+    
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     _userName = [[NSUserDefaults standardUserDefaults] stringForKey:UD_userName_Str];
     _userName = @"1234";
     [_tableView reloadData];
-//    移除所有视图
+    //    移除所有视图
     NSArray *arr = [_bgView subviews];
     for (UIView *view in arr) {
         [view removeFromSuperview];
-//        view  = ;
+        //        view  = ;
     }
-//    判断是否登陆
+    //    判断是否登陆
     if (_userName)
     {
         NSDictionary *dic = [[NSUserDefaults standardUserDefaults ]dictionaryForKey:UD_userInfo_DIC];
@@ -118,7 +105,7 @@
         _headButton.layer.cornerRadius = 30;
         [_headButton addTarget:self action:@selector(uploadHeadAction) forControlEvents:UIControlEventTouchUpInside];
         [_bgView addSubview:_headButton];
-
+        
         //        白色背景图
         UIView *view = [[UIView alloc]initWithFrame:CGRectMake(100, 25, 160, 35)];
         view.backgroundColor = [UIColor whiteColor];
@@ -143,7 +130,7 @@
         [_bgView addSubview:_sexImageView];
         _sexImageView.left = _usernameLabel.right + 5;
         
-//        普通图标
+        //        普通图标
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 20, 30, 15)];
         imageView.image = [UIImage imageNamed:@"my_address@2x.png"];
         [view addSubview:imageView];
@@ -156,7 +143,7 @@
         _addressLabel.font = [UIFont boldSystemFontOfSize:13];
         [_bgView addSubview:_addressLabel];
         _addressLabel.text = @"辽宁|沈阳|铁西区";
-//        读取宠物信息
+        //        读取宠物信息
         _petArr = [[NSUserDefaults standardUserDefaults]arrayForKey:UD_pet_Array];
         
     }
@@ -168,8 +155,8 @@
         view.alpha = .7;
         [_bgView addSubview:view];
         
-
-//        登录和注册按钮
+        
+        //        登录和注册按钮
         UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 59, 50)];
         [button setTitle:@"登录" forState:UIControlStateNormal];
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -182,7 +169,7 @@
         button1.tag = 101;
         [button1 addTarget:self action:@selector(loginAction:) forControlEvents:UIControlEventTouchUpInside];
         [view addSubview:button1];
-
+        
         UIView *line = [[UIView alloc]initWithFrame:CGRectMake(59, 10, 2, 30)];
         line.backgroundColor = [UIColor grayColor];
         [view addSubview:line];
@@ -190,14 +177,11 @@
 }
 
 #pragma mark =
-#pragma mark Action 
+#pragma mark Action
 //上传用户头像
 -(void)uploadHeadAction{
     UIActionSheet *as=[[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"马上照一张" otherButtonTitles:@"从手机相册选择", nil ];
     [as showInView:self.view];
-}
--(void)settingAction{
-    [self.navigationController pushViewController:[[SettingViewController alloc]init] animated:YES];
 }
 -(void)loginAction:(UIButton *)button{
     switch (button.tag) {
@@ -214,9 +198,9 @@
 
 -(void)addPetAction:(UIButton *)button{
     [self.navigationController pushViewController:[[AddPetViewController alloc]initWithPetDic:nil] animated:YES];
-//    [self presentViewController:[[AddPetViewController alloc]init]  animated:YES completion:NULL];
+    //    [self presentViewController:[[AddPetViewController alloc]init]  animated:YES completion:NULL];
 }
-#pragma mark - 
+#pragma mark -
 #pragma mark UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     float contentoffset_y = scrollView.contentOffset.y;
@@ -243,7 +227,7 @@
 #pragma mark -
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-
+    
     if (_userName) {
         if (section == 0 ) {
             return _petArr.count == 0 ? 1:_petArr.count;
@@ -256,11 +240,11 @@
     NSArray *arr = _noLoginNameArr[section];
     return [arr count];
     
-
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-
+    
     
     static NSString *myCellIdentifier = @"myCellIdentifier";
     
@@ -280,7 +264,7 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
+    
     if (_userName) {
         UILabel *label = (UILabel *)VIEWWITHTAG(cell.contentView, 101);
         UIImageView *imageView = (UIImageView *)VIEWWITHTAG(cell.contentView, 100);
@@ -289,8 +273,8 @@
         
         if (indexPath.section == 0 ) {
             cell.accessoryType = UITableViewCellAccessoryNone;
-
-//            尚未有宠物
+            
+            //            尚未有宠物
             if (_petArr.count == 0 ) {
                 label.text = @"添加宠物";
                 imageView.image = [UIImage imageNamed:@"my_petlogo@2x.png"];
@@ -327,7 +311,7 @@
         return ([_noLoginNameArr count] + 1 );
     }
     return [_noLoginNameArr count];
-
+    
 }
 #pragma mark -
 #pragma mark UITableViewDelegate
@@ -345,7 +329,7 @@
                 [self.navigationController pushViewController:[[MyPostViewController alloc]init] animated:YES];
             }else{//个人资料
                 [self.navigationController pushViewController:[[MyInfoViewController alloc]init] animated:YES];
-
+                
             }
         }else if(indexPath.section == 2){//打分
             NSString *str = [NSString stringWithFormat:
