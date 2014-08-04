@@ -12,6 +12,7 @@
 @interface TenyeaBaseViewController ()
 {
     UILabel *_titleLabel;
+    UILabel *_bgLabel;
 }
 @end
 
@@ -34,8 +35,25 @@
     NSArray *VCS = self.navigationController.viewControllers;
     if (VCS.count > 1) {
         [self needReturnButton];
+
     }
 }
+
+-(void)setBgStr:(NSString *)bgStr{
+    if (!_bgStr) {
+        _bgLabel = [[UILabel alloc]init];
+        _bgLabel.frame = CGRectMake(0, 0, ScreenWidth , ScreenHeight);
+        _bgLabel.textAlignment = NSTextAlignmentCenter;
+        _bgLabel.backgroundColor = [UIColor whiteColor];
+        [self.view addSubview:_bgLabel];
+    }
+    _bgStr = bgStr;
+    _bgLabel.text = bgStr;
+    [self.view bringSubviewToFront:_bgLabel];
+}
+
+
+
 -(AppDelegate *)appDelegate{
     AppDelegate *appDelegate=(AppDelegate *)[UIApplication sharedApplication].delegate;
     return  appDelegate;

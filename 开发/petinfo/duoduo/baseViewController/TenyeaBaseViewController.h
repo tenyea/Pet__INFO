@@ -30,7 +30,8 @@
 #pragma mark property
 //取消按钮
 @property (nonatomic,assign)BOOL isCancelButton;
-
+//背景文字
+@property (nonatomic,strong) NSString *bgStr;
 //需要返回按钮
 -(void)needReturnButton;
 //返回事件
