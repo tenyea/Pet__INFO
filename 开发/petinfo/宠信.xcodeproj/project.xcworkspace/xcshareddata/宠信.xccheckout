@@ -5,31 +5,19 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-<<<<<<< HEAD
-	<string>378E6A32-CD36-4A20-820B-C67096297DF3</string>
-=======
-	<string>1B5E9236-27FE-47FF-9F17-52BD20334F80</string>
->>>>>>> FETCH_HEAD
+	<string>90737022-FD10-4676-AAD5-290712E8A4C3</string>
 	<key>IDESourceControlProjectName</key>
 	<string>宠信</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-<<<<<<< HEAD
-		<key>1DB14838-0842-45D5-9A44-BAE4B1BD7830</key>
-=======
-		<key>390540C3-A21C-43B6-807D-B74DF98AD6A4</key>
->>>>>>> FETCH_HEAD
+		<key>F9D33ED5-B5AE-41C5-97A0-5A2E309DDA6C</key>
 		<string>https://github.com/tenyea/Pet__INFO.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>开发/petinfo/宠信.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-<<<<<<< HEAD
-		<key>1DB14838-0842-45D5-9A44-BAE4B1BD7830</key>
-=======
-		<key>390540C3-A21C-43B6-807D-B74DF98AD6A4</key>
->>>>>>> FETCH_HEAD
+		<key>F9D33ED5-B5AE-41C5-97A0-5A2E309DDA6C</key>
 		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -37,22 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-<<<<<<< HEAD
-	<string>1DB14838-0842-45D5-9A44-BAE4B1BD7830</string>
-=======
-	<string>390540C3-A21C-43B6-807D-B74DF98AD6A4</string>
->>>>>>> FETCH_HEAD
+	<string>F9D33ED5-B5AE-41C5-97A0-5A2E309DDA6C</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-<<<<<<< HEAD
-			<string>1DB14838-0842-45D5-9A44-BAE4B1BD7830</string>
-=======
-			<string>390540C3-A21C-43B6-807D-B74DF98AD6A4</string>
->>>>>>> FETCH_HEAD
+			<string>F9D33ED5-B5AE-41C5-97A0-5A2E309DDA6C</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Pet__INFO</string>
 		</dict>
