@@ -9,6 +9,7 @@
 #import "BaseModel.h"
 
 @interface PetModel : BaseModel
+@property (nonatomic,strong) NSNumber *petId;
 @property (nonatomic,strong ) NSString *petName;//昵称
 @property (nonatomic,strong) NSString *petHeadImage;//头像
 @property (nonatomic,strong) NSString *petBirthday;//生日
