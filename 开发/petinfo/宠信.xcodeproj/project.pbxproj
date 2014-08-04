@@ -20,16 +20,24 @@
 		EB25A807196B874C00987F0B /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB25A806196B874C00987F0B /* MyViewController.m */; };
 		EB25A80A196B875500987F0B /* AskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB25A809196B875500987F0B /* AskViewController.m */; };
 		EB25A80D196B87C400987F0B /* TenyeaBaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB25A80C196B87C400987F0B /* TenyeaBaseNavigationViewController.m */; };
-		EB25A818196B88D600987F0B /* main_story_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB25A810196B88D600987F0B /* main_story_selected@2x.png */; };
-		EB25A819196B88D600987F0B /* main_story@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB25A811196B88D600987F0B /* main_story@2x.png */; };
-		EB25A81A196B88D600987F0B /* main_home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB25A812196B88D600987F0B /* main_home@2x.png */; };
-		EB25A81B196B88D600987F0B /* main_home_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB25A813196B88D600987F0B /* main_home_selected@2x.png */; };
-		EB25A81C196B88D600987F0B /* main_ask_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB25A814196B88D600987F0B /* main_ask_selected@2x.png */; };
-		EB25A81D196B88D600987F0B /* main_my@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB25A815196B88D600987F0B /* main_my@2x.png */; };
-		EB25A81E196B88D700987F0B /* main_my_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB25A816196B88D600987F0B /* main_my_selected@2x.png */; };
-		EB25A81F196B88D700987F0B /* main_ask@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB25A817196B88D600987F0B /* main_ask@2x.png */; };
 		EB28F76B197CC1550084BE84 /* libbaidumapapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB28F769197CC1550084BE84 /* libbaidumapapi.a */; };
 		EB28F76C197CC1550084BE84 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB28F76A197CC1550084BE84 /* mapapi.bundle */; };
+		EB28F7AD197CFA6E0084BE84 /* UpdatePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB28F7AB197CFA6E0084BE84 /* UpdatePasswordViewController.m */; };
+		EB28F7AE197CFA6E0084BE84 /* UpdatePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB28F7AC197CFA6E0084BE84 /* UpdatePasswordViewController.xib */; };
+		EB28F7B2197CFD6A0084BE84 /* DataCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB28F7B1197CFD6A0084BE84 /* DataCenter.m */; };
+		EB28F7B5197CFD8F0084BE84 /* FileUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = EB28F7B4197CFD8F0084BE84 /* FileUrl.m */; };
+		EB38F4671981EC730016DD90 /* my_askcount.png in Resources */ = {isa = PBXBuildFile; fileRef = EB38F4651981EC730016DD90 /* my_askcount.png */; };
+		EB38F46F1981F5190016DD90 /* MyAskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB38F46E1981F5190016DD90 /* MyAskViewController.m */; };
+		EB38F4721981F5250016DD90 /* MyPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB38F4711981F5250016DD90 /* MyPostViewController.m */; };
+		EB38F4761981F5700016DD90 /* MyAskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB38F4741981F5700016DD90 /* MyAskCell.m */; };
+		EB38F4771981F5700016DD90 /* MyAskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB38F4751981F5700016DD90 /* MyAskCell.xib */; };
+		EB38F47B1981F5800016DD90 /* MyPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB38F4791981F5800016DD90 /* MyPostCell.m */; };
+		EB38F47C1981F5800016DD90 /* MyPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB38F47A1981F5800016DD90 /* MyPostCell.xib */; };
+		EB38F47E1981F8930016DD90 /* my_goodcount.png in Resources */ = {isa = PBXBuildFile; fileRef = EB38F47D1981F8930016DD90 /* my_goodcount.png */; };
+		EB38F4841981FBC20016DD90 /* MyAskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB38F4821981FBC20016DD90 /* MyAskDetailViewController.m */; };
+		EB38F4851981FBC20016DD90 /* MyAskDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB38F4831981FBC20016DD90 /* MyAskDetailViewController.xib */; };
+		EB38F48919820AB40016DD90 /* MyPostDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB38F48719820AB40016DD90 /* MyPostDetailViewController.m */; };
+		EB38F48A19820AB40016DD90 /* MyPostDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB38F48819820AB40016DD90 /* MyPostDetailViewController.xib */; };
 		EB43DB351977991300A3B8B0 /* nav_back.png in Resources */ = {isa = PBXBuildFile; fileRef = EB43DB341977991300A3B8B0 /* nav_back.png */; };
 		EB51883218E152090086BAE6 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB51882D18E152090086BAE6 /* BaseModel.m */; };
 		EB51885118E1522F0086BAE6 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = EB51885018E1522F0086BAE6 /* NSString+URLEncoding.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -63,8 +71,16 @@
 		EB5188AF18E1540E0086BAE6 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB5188AA18E1540E0086BAE6 /* MBProgressHUD.bundle */; };
 		EB5188B018E1540E0086BAE6 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5188AC18E1540E0086BAE6 /* MBProgressHUD.m */; };
 		EB5188B418E15C840086BAE6 /* TenyeaBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5188B318E15C840086BAE6 /* TenyeaBaseViewController.m */; };
+		EB5509301980D997003CFC69 /* EnvironmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB55092E1980D997003CFC69 /* EnvironmentCell.m */; };
+		EB5509311980D997003CFC69 /* EnvironmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB55092F1980D997003CFC69 /* EnvironmentCell.xib */; };
 		EB5BB1F0196B9FC90027B590 /* StoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5BB1EE196B9FC90027B590 /* StoryCell.m */; };
 		EB5BB1F1196B9FC90027B590 /* StoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB5BB1EF196B9FC90027B590 /* StoryCell.xib */; };
+		EB5C0F47197E0DE9008113A8 /* ask_Location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5C0F45197E0DE9008113A8 /* ask_Location@2x.png */; };
+		EB5C0F48197E0DE9008113A8 /* ask_phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5C0F46197E0DE9008113A8 /* ask_phone@2x.png */; };
+		EB5C0F56197E36E8008113A8 /* HospitalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5C0F55197E36E8008113A8 /* HospitalModel.m */; };
+		EB5C0F59197E389B008113A8 /* PetHospitalDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5C0F58197E389B008113A8 /* PetHospitalDetailViewController.m */; };
+		EB5C0F5C197E4492008113A8 /* ask_yellow_start.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5C0F5A197E4492008113A8 /* ask_yellow_start.png */; };
+		EB5C0F5D197E4492008113A8 /* ask_gray_start.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5C0F5B197E4492008113A8 /* ask_gray_start.png */; };
 		EB5FBB52197CC1CA0082917D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5FBB51197CC1CA0082917D /* CoreLocation.framework */; };
 		EB606A601970FA61008F47E8 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB606A5F1970FA61008F47E8 /* HomeViewController.m */; };
 		EB606A621970FD24008F47E8 /* home_horn.png in Resources */ = {isa = PBXBuildFile; fileRef = EB606A611970FD24008F47E8 /* home_horn.png */; };
@@ -95,12 +111,19 @@
 		EB7641A1196E733B00972EED /* story_edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB7641A0196E733B00972EED /* story_edit@2x.png */; };
 		EB7641A3196E770100972EED /* home_cell_line.png in Resources */ = {isa = PBXBuildFile; fileRef = EB7641A2196E770100972EED /* home_cell_line.png */; };
 		EB7641A5196E783600972EED /* home_item_date@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB7641A4196E783600972EED /* home_item_date@2x.png */; };
+		EB77AD0A19888ADF00FD13E8 /* MyAskDetailTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB77AD0C19888ADF00FD13E8 /* MyAskDetailTopCell.xib */; };
+		EB77AD0F1988A12F00FD13E8 /* PostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB77AD0E1988A12F00FD13E8 /* PostModel.m */; };
+		EB77AD131988D42200FD13E8 /* MyPostTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB77AD111988D42200FD13E8 /* MyPostTopCell.m */; };
+		EB77AD141988D42200FD13E8 /* MyPostTopCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB77AD121988D42200FD13E8 /* MyPostTopCell.xib */; };
+		EB77AD181988D43B00FD13E8 /* MyPostDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB77AD161988D43B00FD13E8 /* MyPostDetailCell.m */; };
+		EB77AD191988D43B00FD13E8 /* MyPostDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB77AD171988D43B00FD13E8 /* MyPostDetailCell.xib */; };
+		EB7DCB5B198350FF00D323C6 /* InquiryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB7DCB5A198350FF00D323C6 /* InquiryModel.m */; };
 		EB8F814718E1175900EED294 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8F814618E1175900EED294 /* Foundation.framework */; };
 		EB8F814918E1175900EED294 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8F814818E1175900EED294 /* CoreGraphics.framework */; };
 		EB8F814B18E1175900EED294 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8F814A18E1175900EED294 /* UIKit.framework */; };
 		EB8F815118E1175900EED294 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB8F814F18E1175900EED294 /* InfoPlist.strings */; };
 		EB8F815318E1175900EED294 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8F815218E1175900EED294 /* main.m */; };
-		EB8F815718E1175900EED294 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8F815618E1175900EED294 /* AppDelegate.m */; };
+		EB8F815718E1175900EED294 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = EB8F815618E1175900EED294 /* AppDelegate.mm */; };
 		EB8F815918E1175900EED294 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB8F815818E1175900EED294 /* Images.xcassets */; };
 		EB8F816018E1175900EED294 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8F815F18E1175900EED294 /* XCTest.framework */; };
 		EB8F816118E1175900EED294 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8F814618E1175900EED294 /* Foundation.framework */; };
@@ -118,6 +141,22 @@
 		EB8F819D18E14AD800EED294 /* BPushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB8F819C18E14AD800EED294 /* BPushConfig.plist */; };
 		EB8F81D218E14EC000EED294 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8F81D118E14EC000EED294 /* Security.framework */; };
 		EB8F81D618E14ED700EED294 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8F81D518E14ED700EED294 /* libz.1.2.5.dylib */; };
+		EB9B4CF7197F522A00DF7AC0 /* PetHosDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB9B4CF6197F522A00DF7AC0 /* PetHosDetailView.xib */; };
+		EB9B4CFA197F524B00DF7AC0 /* PetHosDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB9B4CF9197F524B00DF7AC0 /* PetHosDetailView.m */; };
+		EB9B4CFC197F5B4F00DF7AC0 /* ask_hospital@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB9B4CFB197F5B4F00DF7AC0 /* ask_hospital@2x.png */; };
+		EB9B4CFF197F7F6C00DF7AC0 /* 黄星.png in Resources */ = {isa = PBXBuildFile; fileRef = EB9B4CFD197F7F6C00DF7AC0 /* 黄星.png */; };
+		EB9B4D00197F7F6C00DF7AC0 /* 灰星.png in Resources */ = {isa = PBXBuildFile; fileRef = EB9B4CFE197F7F6C00DF7AC0 /* 灰星.png */; };
+		EBB6581C197DF12B00A72876 /* my_sex_man@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBB6581A197DF12B00A72876 /* my_sex_man@2x.png */; };
+		EBB6581D197DF12B00A72876 /* my_sex_woman@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBB6581B197DF12B00A72876 /* my_sex_woman@2x.png */; };
+		EBB6581F197DF1A700A72876 /* my_addpet@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBB6581E197DF1A700A72876 /* my_addpet@2x.png */; };
+		EBB65821197DF1AF00A72876 /* my_address@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBB65820197DF1AF00A72876 /* my_address@2x.png */; };
+		EBB65827197DFFCE00A72876 /* AskOnlineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB65825197DFFCE00A72876 /* AskOnlineViewController.m */; };
+		EBB65828197DFFCE00A72876 /* AskOnlineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBB65826197DFFCE00A72876 /* AskOnlineViewController.xib */; };
+		EBB6582D197DFFEE00A72876 /* PetHospitalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB6582B197DFFEE00A72876 /* PetHospitalViewController.m */; };
+		EBB6582E197DFFEE00A72876 /* PetHospitalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBB6582C197DFFEE00A72876 /* PetHospitalViewController.xib */; };
+		EBB65832197E000A00A72876 /* HospitalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB65830197E000A00A72876 /* HospitalCell.m */; };
+		EBB65833197E000A00A72876 /* HospitalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBB65831197E000A00A72876 /* HospitalCell.xib */; };
+		EBB6583C197E074200A72876 /* ask_online@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBB6583A197E074200A72876 /* ask_online@2x.png */; };
 		EBB9BC62197617A5005776FB /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB9BC3E197617A5005776FB /* AFHTTPRequestOperation.m */; };
 		EBB9BC63197617A5005776FB /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB9BC40197617A5005776FB /* AFHTTPRequestOperationManager.m */; };
 		EBB9BC64197617A5005776FB /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB9BC42197617A5005776FB /* AFHTTPSessionManager.m */; };
@@ -145,21 +184,53 @@
 		EBB9BC9B19762C24005776FB /* PetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB9BC9A19762C24005776FB /* PetModel.m */; };
 		EBB9BC9F19764AA1005776FB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB9BC9D19764AA1005776FB /* LoginViewController.m */; };
 		EBB9BCA019764AA1005776FB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBB9BC9E19764AA1005776FB /* LoginViewController.xib */; };
+		EBBA761E19809530007FA9AE /* DoctorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBA761D19809530007FA9AE /* DoctorModel.m */; };
+		EBBA762119809905007FA9AE /* Network.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBA762019809905007FA9AE /* Network.m */; };
+		EBBA762419809D93007FA9AE /* TenyeaBaseHosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBA762319809D93007FA9AE /* TenyeaBaseHosViewController.m */; };
+		EBBA762D1980A845007FA9AE /* EquipCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBBA762B1980A845007FA9AE /* EquipCell.m */; };
+		EBBA762E1980A845007FA9AE /* EquipCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBBA762C1980A845007FA9AE /* EquipCell.xib */; };
+		EBBBA516198C817F0061C996 /* main_home_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = EBBBA50E198C817F0061C996 /* main_home_selected.png */; };
+		EBBBA517198C817F0061C996 /* main_home.png in Resources */ = {isa = PBXBuildFile; fileRef = EBBBA50F198C817F0061C996 /* main_home.png */; };
+		EBBBA518198C817F0061C996 /* main_ask_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = EBBBA510198C817F0061C996 /* main_ask_selected.png */; };
+		EBBBA519198C817F0061C996 /* main_ask.png in Resources */ = {isa = PBXBuildFile; fileRef = EBBBA511198C817F0061C996 /* main_ask.png */; };
+		EBBBA51A198C817F0061C996 /* main_my_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = EBBBA512198C817F0061C996 /* main_my_selected.png */; };
+		EBBBA51B198C817F0061C996 /* main_my.png in Resources */ = {isa = PBXBuildFile; fileRef = EBBBA513198C817F0061C996 /* main_my.png */; };
+		EBBBA51C198C817F0061C996 /* main_story_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = EBBBA514198C817F0061C996 /* main_story_selected.png */; };
+		EBBBA51D198C817F0061C996 /* main_story.png in Resources */ = {isa = PBXBuildFile; fileRef = EBBBA515198C817F0061C996 /* main_story.png */; };
 		EBC6E6BB196FE2DB0056E817 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC6E6B9196FE2DB0056E817 /* RegisterViewController.m */; };
 		EBC6E6BC196FE2DB0056E817 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBC6E6BA196FE2DB0056E817 /* RegisterViewController.xib */; };
+		EBC76106197F9F1200D6E3CE /* UserCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC76104197F9F1200D6E3CE /* UserCommentCell.m */; };
+		EBC76107197F9F1200D6E3CE /* UserCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBC76105197F9F1200D6E3CE /* UserCommentCell.xib */; };
+		EBC7610B197FAFCD00D6E3CE /* ask_user@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBC7610A197FAFCD00D6E3CE /* ask_user@2x.png */; };
+		EBC7610F197FB44400D6E3CE /* PetHosContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC7610E197FB44400D6E3CE /* PetHosContentViewController.m */; };
+		EBC76112197FB82B00D6E3CE /* DoctorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC76111197FB82B00D6E3CE /* DoctorViewController.m */; };
+		EBC76115197FB85C00D6E3CE /* HospNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC76114197FB85C00D6E3CE /* HospNewsViewController.m */; };
+		EBC76118197FB8D600D6E3CE /* EnvironmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC76117197FB8D600D6E3CE /* EnvironmentViewController.m */; };
+		EBC7611B197FB8FE00D6E3CE /* EquipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC7611A197FB8FE00D6E3CE /* EquipViewController.m */; };
+		EBC7611F197FB92C00D6E3CE /* DoctorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC7611D197FB92C00D6E3CE /* DoctorCell.m */; };
+		EBC76120197FB92C00D6E3CE /* DoctorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBC7611E197FB92C00D6E3CE /* DoctorCell.xib */; };
 		EBDF7257196BCA4D00B818EF /* nav_background7.png in Resources */ = {isa = PBXBuildFile; fileRef = EBDF7256196BCA4D00B818EF /* nav_background7.png */; };
+		EBE19239198F353E00B221CF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBE19238198F353E00B221CF /* MessageUI.framework */; };
+		EBE1923B198F354600B221CF /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBE1923A198F354600B221CF /* OpenGLES.framework */; };
 		EBF6A593197A07BE00493C26 /* LatestAskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF6A591197A07BE00493C26 /* LatestAskCell.m */; };
 		EBF6A594197A07BE00493C26 /* LatestAskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBF6A592197A07BE00493C26 /* LatestAskCell.xib */; };
 		EBF6A598197A684A00493C26 /* HospitalListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF6A597197A684A00493C26 /* HospitalListViewController.m */; };
 		EBF6A59B197A68CA00493C26 /* HospitalDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF6A59A197A68CA00493C26 /* HospitalDetailViewController.m */; };
 		EBF6A59F197A693600493C26 /* HospitalListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF6A59D197A693600493C26 /* HospitalListCell.m */; };
 		EBF6A5A0197A693600493C26 /* HospitalListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBF6A59E197A693600493C26 /* HospitalListCell.xib */; };
-		EBF843701977B21800DE6835 /* MyAskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF8436F1977B21800DE6835 /* MyAskViewController.m */; };
-		EBF843731977B24700DE6835 /* MyPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF843721977B24700DE6835 /* MyPostViewController.m */; };
 		EBF843781977B29300DE6835 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBF843751977B29300DE6835 /* AboutViewController.m */; };
 		EBF843791977B29300DE6835 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBF843761977B29300DE6835 /* AboutViewController.xib */; };
 		EBF8437A1977B29300DE6835 /* agreement.html in Resources */ = {isa = PBXBuildFile; fileRef = EBF843771977B29300DE6835 /* agreement.html */; };
 		EBF8437C1977B41200DE6835 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = EBF8437B1977B41200DE6835 /* about.html */; };
+		EBFCB2CE198B3B94000974BB /* my_petlogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBFCB2CD198B3B94000974BB /* my_petlogo@2x.png */; };
+		EBFCB2D2198B4465000974BB /* load_headimg_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = EBFCB2D1198B4465000974BB /* load_headimg_bg.png */; };
+		EBFCB2D4198B6A83000974BB /* ask_addImage.png in Resources */ = {isa = PBXBuildFile; fileRef = EBFCB2D3198B6A83000974BB /* ask_addImage.png */; };
+		EBFF222419861D0000F6ACAC /* MyAskDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFF222219861D0000F6ACAC /* MyAskDetailCell.m */; };
+		EBFF222519861D0000F6ACAC /* MyAskDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBFF222319861D0000F6ACAC /* MyAskDetailCell.xib */; };
+		EBFF2229198625EA00F6ACAC /* MyAskDetailTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFF2227198625EA00F6ACAC /* MyAskDetailTopCell.m */; };
+		EBFF222D1986260800F6ACAC /* MyAskDocView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFF222C1986260800F6ACAC /* MyAskDocView.m */; };
+		EBFF222F1986271E00F6ACAC /* MyAskDocView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBFF222E1986271E00F6ACAC /* MyAskDocView.xib */; };
+		EBFFEEB0198A16530089C9EC /* MyViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFFEEAF198A16530089C9EC /* MyViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -192,14 +263,6 @@
 		EB25A809196B875500987F0B /* AskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskViewController.m; sourceTree = "<group>"; };
 		EB25A80B196B87C400987F0B /* TenyeaBaseNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TenyeaBaseNavigationViewController.h; sourceTree = "<group>"; };
 		EB25A80C196B87C400987F0B /* TenyeaBaseNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TenyeaBaseNavigationViewController.m; sourceTree = "<group>"; };
-		EB25A810196B88D600987F0B /* main_story_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_story_selected@2x.png"; sourceTree = "<group>"; };
-		EB25A811196B88D600987F0B /* main_story@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_story@2x.png"; sourceTree = "<group>"; };
-		EB25A812196B88D600987F0B /* main_home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_home@2x.png"; sourceTree = "<group>"; };
-		EB25A813196B88D600987F0B /* main_home_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_home_selected@2x.png"; sourceTree = "<group>"; };
-		EB25A814196B88D600987F0B /* main_ask_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_ask_selected@2x.png"; sourceTree = "<group>"; };
-		EB25A815196B88D600987F0B /* main_my@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_my@2x.png"; sourceTree = "<group>"; };
-		EB25A816196B88D600987F0B /* main_my_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_my_selected@2x.png"; sourceTree = "<group>"; };
-		EB25A817196B88D600987F0B /* main_ask@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "main_ask@2x.png"; sourceTree = "<group>"; };
 		EB28F72E197CC1550084BE84 /* BMapKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMapKit.h; sourceTree = "<group>"; };
 		EB28F72F197CC1550084BE84 /* BMKActionPaopaoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKActionPaopaoView.h; sourceTree = "<group>"; };
 		EB28F730197CC1550084BE84 /* BMKAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKAnnotation.h; sourceTree = "<group>"; };
@@ -261,6 +324,31 @@
 		EB28F768197CC1550084BE84 /* BMKVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKVersion.h; sourceTree = "<group>"; };
 		EB28F769197CC1550084BE84 /* libbaidumapapi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbaidumapapi.a; sourceTree = "<group>"; };
 		EB28F76A197CC1550084BE84 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
+		EB28F7AA197CFA6E0084BE84 /* UpdatePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdatePasswordViewController.h; sourceTree = "<group>"; };
+		EB28F7AB197CFA6E0084BE84 /* UpdatePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdatePasswordViewController.m; sourceTree = "<group>"; };
+		EB28F7AC197CFA6E0084BE84 /* UpdatePasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdatePasswordViewController.xib; sourceTree = "<group>"; };
+		EB28F7B0197CFD6A0084BE84 /* DataCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataCenter.h; sourceTree = "<group>"; };
+		EB28F7B1197CFD6A0084BE84 /* DataCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataCenter.m; sourceTree = "<group>"; };
+		EB28F7B3197CFD8F0084BE84 /* FileUrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUrl.h; sourceTree = "<group>"; };
+		EB28F7B4197CFD8F0084BE84 /* FileUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUrl.m; sourceTree = "<group>"; };
+		EB38F4651981EC730016DD90 /* my_askcount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = my_askcount.png; sourceTree = "<group>"; };
+		EB38F46D1981F5190016DD90 /* MyAskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAskViewController.h; sourceTree = "<group>"; };
+		EB38F46E1981F5190016DD90 /* MyAskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAskViewController.m; sourceTree = "<group>"; };
+		EB38F4701981F5250016DD90 /* MyPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPostViewController.h; sourceTree = "<group>"; };
+		EB38F4711981F5250016DD90 /* MyPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPostViewController.m; sourceTree = "<group>"; };
+		EB38F4731981F56F0016DD90 /* MyAskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAskCell.h; sourceTree = "<group>"; };
+		EB38F4741981F5700016DD90 /* MyAskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAskCell.m; sourceTree = "<group>"; };
+		EB38F4751981F5700016DD90 /* MyAskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyAskCell.xib; sourceTree = "<group>"; };
+		EB38F4781981F5800016DD90 /* MyPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPostCell.h; sourceTree = "<group>"; };
+		EB38F4791981F5800016DD90 /* MyPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPostCell.m; sourceTree = "<group>"; };
+		EB38F47A1981F5800016DD90 /* MyPostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPostCell.xib; sourceTree = "<group>"; };
+		EB38F47D1981F8930016DD90 /* my_goodcount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = my_goodcount.png; sourceTree = "<group>"; };
+		EB38F4811981FBC20016DD90 /* MyAskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAskDetailViewController.h; sourceTree = "<group>"; };
+		EB38F4821981FBC20016DD90 /* MyAskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAskDetailViewController.m; sourceTree = "<group>"; };
+		EB38F4831981FBC20016DD90 /* MyAskDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyAskDetailViewController.xib; sourceTree = "<group>"; };
+		EB38F48619820AB40016DD90 /* MyPostDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPostDetailViewController.h; sourceTree = "<group>"; };
+		EB38F48719820AB40016DD90 /* MyPostDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPostDetailViewController.m; sourceTree = "<group>"; };
+		EB38F48819820AB40016DD90 /* MyPostDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPostDetailViewController.xib; sourceTree = "<group>"; };
 		EB43DB341977991300A3B8B0 /* nav_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_back.png; sourceTree = "<group>"; };
 		EB51882A18E151880086BAE6 /* Define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
 		EB51882C18E152090086BAE6 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
@@ -326,9 +414,20 @@
 		EB5188AC18E1540E0086BAE6 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		EB5188B218E15C840086BAE6 /* TenyeaBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TenyeaBaseViewController.h; sourceTree = "<group>"; };
 		EB5188B318E15C840086BAE6 /* TenyeaBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TenyeaBaseViewController.m; sourceTree = "<group>"; };
+		EB55092D1980D997003CFC69 /* EnvironmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvironmentCell.h; sourceTree = "<group>"; };
+		EB55092E1980D997003CFC69 /* EnvironmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnvironmentCell.m; sourceTree = "<group>"; };
+		EB55092F1980D997003CFC69 /* EnvironmentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EnvironmentCell.xib; sourceTree = "<group>"; };
 		EB5BB1ED196B9FC90027B590 /* StoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryCell.h; sourceTree = "<group>"; };
 		EB5BB1EE196B9FC90027B590 /* StoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryCell.m; sourceTree = "<group>"; };
 		EB5BB1EF196B9FC90027B590 /* StoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoryCell.xib; sourceTree = "<group>"; };
+		EB5C0F45197E0DE9008113A8 /* ask_Location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ask_Location@2x.png"; sourceTree = "<group>"; };
+		EB5C0F46197E0DE9008113A8 /* ask_phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ask_phone@2x.png"; sourceTree = "<group>"; };
+		EB5C0F54197E36E8008113A8 /* HospitalModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HospitalModel.h; sourceTree = "<group>"; };
+		EB5C0F55197E36E8008113A8 /* HospitalModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HospitalModel.m; sourceTree = "<group>"; };
+		EB5C0F57197E389B008113A8 /* PetHospitalDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetHospitalDetailViewController.h; sourceTree = "<group>"; };
+		EB5C0F58197E389B008113A8 /* PetHospitalDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetHospitalDetailViewController.m; sourceTree = "<group>"; };
+		EB5C0F5A197E4492008113A8 /* ask_yellow_start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ask_yellow_start.png; sourceTree = "<group>"; };
+		EB5C0F5B197E4492008113A8 /* ask_gray_start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ask_gray_start.png; sourceTree = "<group>"; };
 		EB5FBB51197CC1CA0082917D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		EB606A5E1970FA61008F47E8 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		EB606A5F1970FA61008F47E8 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
@@ -370,6 +469,17 @@
 		EB7641A0196E733B00972EED /* story_edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "story_edit@2x.png"; sourceTree = "<group>"; };
 		EB7641A2196E770100972EED /* home_cell_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_cell_line.png; sourceTree = "<group>"; };
 		EB7641A4196E783600972EED /* home_item_date@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_item_date@2x.png"; sourceTree = "<group>"; };
+		EB77AD0B19888ADF00FD13E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MyAskDetailTopCell.xib; sourceTree = "<group>"; };
+		EB77AD0D1988A12F00FD13E8 /* PostModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostModel.h; sourceTree = "<group>"; };
+		EB77AD0E1988A12F00FD13E8 /* PostModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostModel.m; sourceTree = "<group>"; };
+		EB77AD101988D42200FD13E8 /* MyPostTopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPostTopCell.h; sourceTree = "<group>"; };
+		EB77AD111988D42200FD13E8 /* MyPostTopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPostTopCell.m; sourceTree = "<group>"; };
+		EB77AD121988D42200FD13E8 /* MyPostTopCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPostTopCell.xib; sourceTree = "<group>"; };
+		EB77AD151988D43B00FD13E8 /* MyPostDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPostDetailCell.h; sourceTree = "<group>"; };
+		EB77AD161988D43B00FD13E8 /* MyPostDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPostDetailCell.m; sourceTree = "<group>"; };
+		EB77AD171988D43B00FD13E8 /* MyPostDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPostDetailCell.xib; sourceTree = "<group>"; };
+		EB7DCB59198350FF00D323C6 /* InquiryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InquiryModel.h; sourceTree = "<group>"; };
+		EB7DCB5A198350FF00D323C6 /* InquiryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InquiryModel.m; sourceTree = "<group>"; };
 		EB8F814318E1175900EED294 /* 宠信.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "宠信.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB8F814618E1175900EED294 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EB8F814818E1175900EED294 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -379,7 +489,7 @@
 		EB8F815218E1175900EED294 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EB8F815418E1175900EED294 /* 宠信-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "宠信-Prefix.pch"; sourceTree = "<group>"; };
 		EB8F815518E1175900EED294 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		EB8F815618E1175900EED294 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EB8F815618E1175900EED294 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		EB8F815818E1175900EED294 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EB8F815E18E1175900EED294 /* 宠信Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "宠信Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB8F815F18E1175900EED294 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -404,6 +514,26 @@
 		EB8F819C18E14AD800EED294 /* BPushConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = BPushConfig.plist; sourceTree = "<group>"; };
 		EB8F81D118E14EC000EED294 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		EB8F81D518E14ED700EED294 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		EB9B4CF6197F522A00DF7AC0 /* PetHosDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PetHosDetailView.xib; sourceTree = "<group>"; };
+		EB9B4CF8197F524B00DF7AC0 /* PetHosDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetHosDetailView.h; sourceTree = "<group>"; };
+		EB9B4CF9197F524B00DF7AC0 /* PetHosDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetHosDetailView.m; sourceTree = "<group>"; };
+		EB9B4CFB197F5B4F00DF7AC0 /* ask_hospital@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ask_hospital@2x.png"; sourceTree = "<group>"; };
+		EB9B4CFD197F7F6C00DF7AC0 /* 黄星.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "黄星.png"; sourceTree = "<group>"; };
+		EB9B4CFE197F7F6C00DF7AC0 /* 灰星.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "灰星.png"; sourceTree = "<group>"; };
+		EBB6581A197DF12B00A72876 /* my_sex_man@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my_sex_man@2x.png"; sourceTree = "<group>"; };
+		EBB6581B197DF12B00A72876 /* my_sex_woman@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my_sex_woman@2x.png"; sourceTree = "<group>"; };
+		EBB6581E197DF1A700A72876 /* my_addpet@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my_addpet@2x.png"; sourceTree = "<group>"; };
+		EBB65820197DF1AF00A72876 /* my_address@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my_address@2x.png"; sourceTree = "<group>"; };
+		EBB65824197DFFCE00A72876 /* AskOnlineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AskOnlineViewController.h; sourceTree = "<group>"; };
+		EBB65825197DFFCE00A72876 /* AskOnlineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AskOnlineViewController.m; sourceTree = "<group>"; };
+		EBB65826197DFFCE00A72876 /* AskOnlineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AskOnlineViewController.xib; sourceTree = "<group>"; };
+		EBB6582A197DFFEE00A72876 /* PetHospitalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetHospitalViewController.h; sourceTree = "<group>"; };
+		EBB6582B197DFFEE00A72876 /* PetHospitalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetHospitalViewController.m; sourceTree = "<group>"; };
+		EBB6582C197DFFEE00A72876 /* PetHospitalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PetHospitalViewController.xib; sourceTree = "<group>"; };
+		EBB6582F197E000A00A72876 /* HospitalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HospitalCell.h; sourceTree = "<group>"; };
+		EBB65830197E000A00A72876 /* HospitalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HospitalCell.m; sourceTree = "<group>"; };
+		EBB65831197E000A00A72876 /* HospitalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HospitalCell.xib; sourceTree = "<group>"; };
+		EBB6583A197E074200A72876 /* ask_online@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ask_online@2x.png"; sourceTree = "<group>"; };
 		EBB9BC3D197617A5005776FB /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		EBB9BC3E197617A5005776FB /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		EBB9BC3F197617A5005776FB /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -457,10 +587,46 @@
 		EBB9BC9C19764AA1005776FB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		EBB9BC9D19764AA1005776FB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		EBB9BC9E19764AA1005776FB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		EBBA761C19809530007FA9AE /* DoctorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorModel.h; sourceTree = "<group>"; };
+		EBBA761D19809530007FA9AE /* DoctorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorModel.m; sourceTree = "<group>"; };
+		EBBA761F19809905007FA9AE /* Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Network.h; sourceTree = "<group>"; };
+		EBBA762019809905007FA9AE /* Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Network.m; sourceTree = "<group>"; };
+		EBBA762219809D93007FA9AE /* TenyeaBaseHosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TenyeaBaseHosViewController.h; sourceTree = "<group>"; };
+		EBBA762319809D93007FA9AE /* TenyeaBaseHosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TenyeaBaseHosViewController.m; sourceTree = "<group>"; };
+		EBBA762A1980A845007FA9AE /* EquipCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipCell.h; sourceTree = "<group>"; };
+		EBBA762B1980A845007FA9AE /* EquipCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipCell.m; sourceTree = "<group>"; };
+		EBBA762C1980A845007FA9AE /* EquipCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EquipCell.xib; sourceTree = "<group>"; };
+		EBBBA50E198C817F0061C996 /* main_home_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_home_selected.png; sourceTree = "<group>"; };
+		EBBBA50F198C817F0061C996 /* main_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_home.png; sourceTree = "<group>"; };
+		EBBBA510198C817F0061C996 /* main_ask_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_ask_selected.png; sourceTree = "<group>"; };
+		EBBBA511198C817F0061C996 /* main_ask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_ask.png; sourceTree = "<group>"; };
+		EBBBA512198C817F0061C996 /* main_my_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_my_selected.png; sourceTree = "<group>"; };
+		EBBBA513198C817F0061C996 /* main_my.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_my.png; sourceTree = "<group>"; };
+		EBBBA514198C817F0061C996 /* main_story_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_story_selected.png; sourceTree = "<group>"; };
+		EBBBA515198C817F0061C996 /* main_story.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_story.png; sourceTree = "<group>"; };
 		EBC6E6B8196FE2DB0056E817 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		EBC6E6B9196FE2DB0056E817 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		EBC6E6BA196FE2DB0056E817 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		EBC76103197F9F1200D6E3CE /* UserCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCommentCell.h; sourceTree = "<group>"; };
+		EBC76104197F9F1200D6E3CE /* UserCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCommentCell.m; sourceTree = "<group>"; };
+		EBC76105197F9F1200D6E3CE /* UserCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCommentCell.xib; sourceTree = "<group>"; };
+		EBC7610A197FAFCD00D6E3CE /* ask_user@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ask_user@2x.png"; sourceTree = "<group>"; };
+		EBC7610D197FB44400D6E3CE /* PetHosContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetHosContentViewController.h; sourceTree = "<group>"; };
+		EBC7610E197FB44400D6E3CE /* PetHosContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetHosContentViewController.m; sourceTree = "<group>"; };
+		EBC76110197FB82B00D6E3CE /* DoctorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorViewController.h; sourceTree = "<group>"; };
+		EBC76111197FB82B00D6E3CE /* DoctorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorViewController.m; sourceTree = "<group>"; };
+		EBC76113197FB85C00D6E3CE /* HospNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HospNewsViewController.h; sourceTree = "<group>"; };
+		EBC76114197FB85C00D6E3CE /* HospNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HospNewsViewController.m; sourceTree = "<group>"; };
+		EBC76116197FB8D600D6E3CE /* EnvironmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvironmentViewController.h; sourceTree = "<group>"; };
+		EBC76117197FB8D600D6E3CE /* EnvironmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnvironmentViewController.m; sourceTree = "<group>"; };
+		EBC76119197FB8FE00D6E3CE /* EquipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EquipViewController.h; sourceTree = "<group>"; };
+		EBC7611A197FB8FE00D6E3CE /* EquipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EquipViewController.m; sourceTree = "<group>"; };
+		EBC7611C197FB92C00D6E3CE /* DoctorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorCell.h; sourceTree = "<group>"; };
+		EBC7611D197FB92C00D6E3CE /* DoctorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorCell.m; sourceTree = "<group>"; };
+		EBC7611E197FB92C00D6E3CE /* DoctorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoctorCell.xib; sourceTree = "<group>"; };
 		EBDF7256196BCA4D00B818EF /* nav_background7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_background7.png; sourceTree = "<group>"; };
+		EBE19238198F353E00B221CF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		EBE1923A198F354600B221CF /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		EBF6A590197A07BE00493C26 /* LatestAskCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LatestAskCell.h; sourceTree = "<group>"; };
 		EBF6A591197A07BE00493C26 /* LatestAskCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LatestAskCell.m; sourceTree = "<group>"; };
 		EBF6A592197A07BE00493C26 /* LatestAskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LatestAskCell.xib; sourceTree = "<group>"; };
@@ -471,15 +637,24 @@
 		EBF6A59C197A693600493C26 /* HospitalListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HospitalListCell.h; sourceTree = "<group>"; };
 		EBF6A59D197A693600493C26 /* HospitalListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HospitalListCell.m; sourceTree = "<group>"; };
 		EBF6A59E197A693600493C26 /* HospitalListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HospitalListCell.xib; sourceTree = "<group>"; };
-		EBF8436E1977B21800DE6835 /* MyAskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAskViewController.h; sourceTree = "<group>"; };
-		EBF8436F1977B21800DE6835 /* MyAskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAskViewController.m; sourceTree = "<group>"; };
-		EBF843711977B24700DE6835 /* MyPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPostViewController.h; sourceTree = "<group>"; };
-		EBF843721977B24700DE6835 /* MyPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPostViewController.m; sourceTree = "<group>"; };
 		EBF843741977B29300DE6835 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		EBF843751977B29300DE6835 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		EBF843761977B29300DE6835 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		EBF843771977B29300DE6835 /* agreement.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = agreement.html; sourceTree = "<group>"; };
 		EBF8437B1977B41200DE6835 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
+		EBFCB2CD198B3B94000974BB /* my_petlogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "my_petlogo@2x.png"; sourceTree = "<group>"; };
+		EBFCB2D1198B4465000974BB /* load_headimg_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = load_headimg_bg.png; sourceTree = "<group>"; };
+		EBFCB2D3198B6A83000974BB /* ask_addImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ask_addImage.png; sourceTree = "<group>"; };
+		EBFF222119861D0000F6ACAC /* MyAskDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAskDetailCell.h; sourceTree = "<group>"; };
+		EBFF222219861D0000F6ACAC /* MyAskDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAskDetailCell.m; sourceTree = "<group>"; };
+		EBFF222319861D0000F6ACAC /* MyAskDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyAskDetailCell.xib; sourceTree = "<group>"; };
+		EBFF2226198625EA00F6ACAC /* MyAskDetailTopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAskDetailTopCell.h; sourceTree = "<group>"; };
+		EBFF2227198625EA00F6ACAC /* MyAskDetailTopCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAskDetailTopCell.m; sourceTree = "<group>"; };
+		EBFF222B1986260800F6ACAC /* MyAskDocView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAskDocView.h; sourceTree = "<group>"; };
+		EBFF222C1986260800F6ACAC /* MyAskDocView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAskDocView.m; sourceTree = "<group>"; };
+		EBFF222E1986271E00F6ACAC /* MyAskDocView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyAskDocView.xib; sourceTree = "<group>"; };
+		EBFFEEAE198A16530089C9EC /* MyViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewCell.h; sourceTree = "<group>"; };
+		EBFFEEAF198A16530089C9EC /* MyViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -487,12 +662,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBE1923B198F354600B221CF /* OpenGLES.framework in Frameworks */,
+				EBE19239198F353E00B221CF /* MessageUI.framework in Frameworks */,
+				EB8F81D218E14EC000EED294 /* Security.framework in Frameworks */,
 				EB5FBB52197CC1CA0082917D /* CoreLocation.framework in Frameworks */,
 				EB8F819718E1360B00EED294 /* SystemConfiguration.framework in Frameworks */,
 				546A9A60197CE41F00C34E0D /* libBPush.a in Frameworks */,
 				EB28F76B197CC1550084BE84 /* libbaidumapapi.a in Frameworks */,
 				EB6AC0F318E1643400B84E34 /* MobileCoreServices.framework in Frameworks */,
-				EB8F81D218E14EC000EED294 /* Security.framework in Frameworks */,
 				EB6AC10318E165FC00B84E34 /* libxml2.2.dylib in Frameworks */,
 				EB6AC0F118E1642900B84E34 /* CFNetwork.framework in Frameworks */,
 				EB6AC0EB18E163E200B84E34 /* QuartzCore.framework in Frameworks */,
@@ -527,6 +704,9 @@
 			children = (
 				EB0635501979049900A4A005 /* MyInfoViewController.h */,
 				EB0635511979049900A4A005 /* MyInfoViewController.m */,
+				EB28F7AA197CFA6E0084BE84 /* UpdatePasswordViewController.h */,
+				EB28F7AB197CFA6E0084BE84 /* UpdatePasswordViewController.m */,
+				EB28F7AC197CFA6E0084BE84 /* UpdatePasswordViewController.xib */,
 			);
 			name = myInfo;
 			sourceTree = "<group>";
@@ -572,6 +752,8 @@
 				EBF6A58F197A072500493C26 /* cell */,
 				EB25A808196B875500987F0B /* AskViewController.h */,
 				EB25A809196B875500987F0B /* AskViewController.m */,
+				EBB65823197DFFA200A72876 /* hospital */,
+				EBB65822197DFF9800A72876 /* online */,
 			);
 			name = Ask;
 			sourceTree = "<group>";
@@ -581,6 +763,8 @@
 			children = (
 				EB25A805196B874C00987F0B /* MyViewController.h */,
 				EB25A806196B874C00987F0B /* MyViewController.m */,
+				EBFFEEAE198A16530089C9EC /* MyViewCell.h */,
+				EBFFEEAF198A16530089C9EC /* MyViewCell.m */,
 				EBB9BC9C19764AA1005776FB /* LoginViewController.h */,
 				EBB9BC9D19764AA1005776FB /* LoginViewController.m */,
 				EBB9BC9E19764AA1005776FB /* LoginViewController.xib */,
@@ -597,6 +781,7 @@
 		EB25A80E196B88AD00987F0B /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				EBB65834197E051700A72876 /* ask */,
 				EBBBAB4E1973BD29004F3E5F /* my */,
 				EB7641A6196E783A00972EED /* home */,
 				EB76418B196E702B00972EED /* story */,
@@ -609,15 +794,15 @@
 		EB25A80F196B88B400987F0B /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				EBBBA50E198C817F0061C996 /* main_home_selected.png */,
+				EBBBA50F198C817F0061C996 /* main_home.png */,
+				EBBBA510198C817F0061C996 /* main_ask_selected.png */,
+				EBBBA511198C817F0061C996 /* main_ask.png */,
+				EBBBA512198C817F0061C996 /* main_my_selected.png */,
+				EBBBA513198C817F0061C996 /* main_my.png */,
+				EBBBA514198C817F0061C996 /* main_story_selected.png */,
+				EBBBA515198C817F0061C996 /* main_story.png */,
 				EB43DB341977991300A3B8B0 /* nav_back.png */,
-				EB25A811196B88D600987F0B /* main_story@2x.png */,
-				EB25A810196B88D600987F0B /* main_story_selected@2x.png */,
-				EB25A812196B88D600987F0B /* main_home@2x.png */,
-				EB25A813196B88D600987F0B /* main_home_selected@2x.png */,
-				EB25A817196B88D600987F0B /* main_ask@2x.png */,
-				EB25A814196B88D600987F0B /* main_ask_selected@2x.png */,
-				EB25A815196B88D600987F0B /* main_my@2x.png */,
-				EB25A816196B88D600987F0B /* main_my_selected@2x.png */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -696,6 +881,64 @@
 				EB28F768197CC1550084BE84 /* BMKVersion.h */,
 			);
 			path = inc;
+			sourceTree = "<group>";
+		};
+		EB28F7AF197CFD5C0084BE84 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				EB28F7B0197CFD6A0084BE84 /* DataCenter.h */,
+				EB28F7B1197CFD6A0084BE84 /* DataCenter.m */,
+				EB28F7B3197CFD8F0084BE84 /* FileUrl.h */,
+				EB28F7B4197CFD8F0084BE84 /* FileUrl.m */,
+				EBBA761F19809905007FA9AE /* Network.h */,
+				EBBA762019809905007FA9AE /* Network.m */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		EB38F47F1981F8C90016DD90 /* ask */ = {
+			isa = PBXGroup;
+			children = (
+				EB38F46D1981F5190016DD90 /* MyAskViewController.h */,
+				EB38F46E1981F5190016DD90 /* MyAskViewController.m */,
+				EB38F4731981F56F0016DD90 /* MyAskCell.h */,
+				EB38F4741981F5700016DD90 /* MyAskCell.m */,
+				EB38F4751981F5700016DD90 /* MyAskCell.xib */,
+				EB38F4811981FBC20016DD90 /* MyAskDetailViewController.h */,
+				EB38F4821981FBC20016DD90 /* MyAskDetailViewController.m */,
+				EB38F4831981FBC20016DD90 /* MyAskDetailViewController.xib */,
+				EBFF222119861D0000F6ACAC /* MyAskDetailCell.h */,
+				EBFF222219861D0000F6ACAC /* MyAskDetailCell.m */,
+				EBFF222319861D0000F6ACAC /* MyAskDetailCell.xib */,
+				EBFF2226198625EA00F6ACAC /* MyAskDetailTopCell.h */,
+				EBFF2227198625EA00F6ACAC /* MyAskDetailTopCell.m */,
+				EB77AD0C19888ADF00FD13E8 /* MyAskDetailTopCell.xib */,
+				EBFF222B1986260800F6ACAC /* MyAskDocView.h */,
+				EBFF222C1986260800F6ACAC /* MyAskDocView.m */,
+				EBFF222E1986271E00F6ACAC /* MyAskDocView.xib */,
+			);
+			name = ask;
+			sourceTree = "<group>";
+		};
+		EB38F4801981FB410016DD90 /* post */ = {
+			isa = PBXGroup;
+			children = (
+				EB38F4701981F5250016DD90 /* MyPostViewController.h */,
+				EB38F4711981F5250016DD90 /* MyPostViewController.m */,
+				EB38F4781981F5800016DD90 /* MyPostCell.h */,
+				EB38F4791981F5800016DD90 /* MyPostCell.m */,
+				EB38F47A1981F5800016DD90 /* MyPostCell.xib */,
+				EB38F48619820AB40016DD90 /* MyPostDetailViewController.h */,
+				EB38F48719820AB40016DD90 /* MyPostDetailViewController.m */,
+				EB38F48819820AB40016DD90 /* MyPostDetailViewController.xib */,
+				EB77AD101988D42200FD13E8 /* MyPostTopCell.h */,
+				EB77AD111988D42200FD13E8 /* MyPostTopCell.m */,
+				EB77AD121988D42200FD13E8 /* MyPostTopCell.xib */,
+				EB77AD151988D43B00FD13E8 /* MyPostDetailCell.h */,
+				EB77AD161988D43B00FD13E8 /* MyPostDetailCell.m */,
+				EB77AD171988D43B00FD13E8 /* MyPostDetailCell.xib */,
+			);
+			name = post;
 			sourceTree = "<group>";
 		};
 		EB51882B18E152090086BAE6 /* baseModel */ = {
@@ -854,6 +1097,14 @@
 			children = (
 				EBB9BC9919762C24005776FB /* PetModel.h */,
 				EBB9BC9A19762C24005776FB /* PetModel.m */,
+				EB5C0F54197E36E8008113A8 /* HospitalModel.h */,
+				EB5C0F55197E36E8008113A8 /* HospitalModel.m */,
+				EBBA761C19809530007FA9AE /* DoctorModel.h */,
+				EBBA761D19809530007FA9AE /* DoctorModel.m */,
+				EB7DCB59198350FF00D323C6 /* InquiryModel.h */,
+				EB7DCB5A198350FF00D323C6 /* InquiryModel.m */,
+				EB77AD0D1988A12F00FD13E8 /* PostModel.h */,
+				EB77AD0E1988A12F00FD13E8 /* PostModel.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -865,13 +1116,6 @@
 				EB6AC0B818E160C000B84E34 /* UtilDefine.h */,
 			);
 			name = define;
-			sourceTree = "<group>";
-		};
-		EB6D3E7D196CD11700128DE3 /* 下拉上拉 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "下拉上拉";
 			sourceTree = "<group>";
 		};
 		EB6D3E7E196CD12800128DE3 /* MJRefresh */ = {
@@ -950,6 +1194,8 @@
 		EB8F814518E1175900EED294 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EBE1923A198F354600B221CF /* OpenGLES.framework */,
+				EBE19238198F353E00B221CF /* MessageUI.framework */,
 				EB5FBB51197CC1CA0082917D /* CoreLocation.framework */,
 				EB6AC10218E165FC00B84E34 /* libxml2.2.dylib */,
 				EB6AC0F418E1643D00B84E34 /* libxml2.dylib */,
@@ -976,7 +1222,7 @@
 			isa = PBXGroup;
 			children = (
 				EB8F815518E1175900EED294 /* AppDelegate.h */,
-				EB8F815618E1175900EED294 /* AppDelegate.m */,
+				EB8F815618E1175900EED294 /* AppDelegate.mm */,
 				EB8F815818E1175900EED294 /* Images.xcassets */,
 				EB25A7F7196B857500987F0B /* VC */,
 				EB8F814D18E1175900EED294 /* Supporting Files */,
@@ -988,8 +1234,8 @@
 		EB8F814D18E1175900EED294 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EB28F7AF197CFD5C0084BE84 /* Util */,
 				EBB9BC3B197617A5005776FB /* AFNET */,
-				EB6D3E7D196CD11700128DE3 /* 下拉上拉 */,
 				EB6D3E7E196CD12800128DE3 /* MJRefresh */,
 				EBDF724F196BC2CD00B818EF /* TenyeaView */,
 				EB25A80E196B88AD00987F0B /* Image */,
@@ -1070,6 +1316,52 @@
 			path = opensource;
 			sourceTree = "<group>";
 		};
+		EBB65822197DFF9800A72876 /* online */ = {
+			isa = PBXGroup;
+			children = (
+				EBB65824197DFFCE00A72876 /* AskOnlineViewController.h */,
+				EBB65825197DFFCE00A72876 /* AskOnlineViewController.m */,
+				EBB65826197DFFCE00A72876 /* AskOnlineViewController.xib */,
+			);
+			name = online;
+			sourceTree = "<group>";
+		};
+		EBB65823197DFFA200A72876 /* hospital */ = {
+			isa = PBXGroup;
+			children = (
+				EBB6582A197DFFEE00A72876 /* PetHospitalViewController.h */,
+				EBB6582B197DFFEE00A72876 /* PetHospitalViewController.m */,
+				EBB6582C197DFFEE00A72876 /* PetHospitalViewController.xib */,
+				EB5C0F57197E389B008113A8 /* PetHospitalDetailViewController.h */,
+				EB5C0F58197E389B008113A8 /* PetHospitalDetailViewController.m */,
+				EBC76103197F9F1200D6E3CE /* UserCommentCell.h */,
+				EBC76104197F9F1200D6E3CE /* UserCommentCell.m */,
+				EBC76105197F9F1200D6E3CE /* UserCommentCell.xib */,
+				EB9B4CF8197F524B00DF7AC0 /* PetHosDetailView.h */,
+				EB9B4CF9197F524B00DF7AC0 /* PetHosDetailView.m */,
+				EB9B4CF6197F522A00DF7AC0 /* PetHosDetailView.xib */,
+				EBC7610C197FB36100D6E3CE /* hospitalInfo */,
+			);
+			name = hospital;
+			sourceTree = "<group>";
+		};
+		EBB65834197E051700A72876 /* ask */ = {
+			isa = PBXGroup;
+			children = (
+				EBFCB2D3198B6A83000974BB /* ask_addImage.png */,
+				EB9B4CFD197F7F6C00DF7AC0 /* 黄星.png */,
+				EB9B4CFE197F7F6C00DF7AC0 /* 灰星.png */,
+				EBC7610A197FAFCD00D6E3CE /* ask_user@2x.png */,
+				EB9B4CFB197F5B4F00DF7AC0 /* ask_hospital@2x.png */,
+				EB5C0F45197E0DE9008113A8 /* ask_Location@2x.png */,
+				EB5C0F46197E0DE9008113A8 /* ask_phone@2x.png */,
+				EBB6583A197E074200A72876 /* ask_online@2x.png */,
+				EB5C0F5A197E4492008113A8 /* ask_yellow_start.png */,
+				EB5C0F5B197E4492008113A8 /* ask_gray_start.png */,
+			);
+			name = ask;
+			sourceTree = "<group>";
+		};
 		EBB9BC3B197617A5005776FB /* AFNET */ = {
 			isa = PBXGroup;
 			children = (
@@ -1148,11 +1440,87 @@
 			name = petInfo;
 			sourceTree = "<group>";
 		};
+		EBBA762F1980A979007FA9AE /* equip */ = {
+			isa = PBXGroup;
+			children = (
+				EBC76119197FB8FE00D6E3CE /* EquipViewController.h */,
+				EBC7611A197FB8FE00D6E3CE /* EquipViewController.m */,
+				EBBA762A1980A845007FA9AE /* EquipCell.h */,
+				EBBA762B1980A845007FA9AE /* EquipCell.m */,
+				EBBA762C1980A845007FA9AE /* EquipCell.xib */,
+			);
+			name = equip;
+			sourceTree = "<group>";
+		};
+		EBBA76301980A986007FA9AE /* environment */ = {
+			isa = PBXGroup;
+			children = (
+				EBC76116197FB8D600D6E3CE /* EnvironmentViewController.h */,
+				EBC76117197FB8D600D6E3CE /* EnvironmentViewController.m */,
+				EB55092D1980D997003CFC69 /* EnvironmentCell.h */,
+				EB55092E1980D997003CFC69 /* EnvironmentCell.m */,
+				EB55092F1980D997003CFC69 /* EnvironmentCell.xib */,
+			);
+			name = environment;
+			sourceTree = "<group>";
+		};
+		EBBA76311980AA42007FA9AE /* doctor */ = {
+			isa = PBXGroup;
+			children = (
+				EBC76110197FB82B00D6E3CE /* DoctorViewController.h */,
+				EBC76111197FB82B00D6E3CE /* DoctorViewController.m */,
+				EBC7611C197FB92C00D6E3CE /* DoctorCell.h */,
+				EBC7611D197FB92C00D6E3CE /* DoctorCell.m */,
+				EBC7611E197FB92C00D6E3CE /* DoctorCell.xib */,
+			);
+			name = doctor;
+			sourceTree = "<group>";
+		};
+		EBBA76321980AA50007FA9AE /* base */ = {
+			isa = PBXGroup;
+			children = (
+				EBBA762219809D93007FA9AE /* TenyeaBaseHosViewController.h */,
+				EBBA762319809D93007FA9AE /* TenyeaBaseHosViewController.m */,
+			);
+			name = base;
+			sourceTree = "<group>";
+		};
+		EBBA76331980AA65007FA9AE /* news */ = {
+			isa = PBXGroup;
+			children = (
+				EBC76113197FB85C00D6E3CE /* HospNewsViewController.h */,
+				EBC76114197FB85C00D6E3CE /* HospNewsViewController.m */,
+			);
+			name = news;
+			sourceTree = "<group>";
+		};
 		EBBBAB4E1973BD29004F3E5F /* my */ = {
 			isa = PBXGroup;
 			children = (
+				EBFCB2CD198B3B94000974BB /* my_petlogo@2x.png */,
+				EB38F47D1981F8930016DD90 /* my_goodcount.png */,
+				EB38F4651981EC730016DD90 /* my_askcount.png */,
+				EBB65820197DF1AF00A72876 /* my_address@2x.png */,
+				EBB6581E197DF1A700A72876 /* my_addpet@2x.png */,
+				EBB6581A197DF12B00A72876 /* my_sex_man@2x.png */,
+				EBB6581B197DF12B00A72876 /* my_sex_woman@2x.png */,
+				EBFCB2D1198B4465000974BB /* load_headimg_bg.png */,
 			);
 			name = my;
+			sourceTree = "<group>";
+		};
+		EBC7610C197FB36100D6E3CE /* hospitalInfo */ = {
+			isa = PBXGroup;
+			children = (
+				EBBA76321980AA50007FA9AE /* base */,
+				EBC7610D197FB44400D6E3CE /* PetHosContentViewController.h */,
+				EBC7610E197FB44400D6E3CE /* PetHosContentViewController.m */,
+				EBBA76311980AA42007FA9AE /* doctor */,
+				EBBA76331980AA65007FA9AE /* news */,
+				EBBA76301980A986007FA9AE /* environment */,
+				EBBA762F1980A979007FA9AE /* equip */,
+			);
+			name = hospitalInfo;
 			sourceTree = "<group>";
 		};
 		EBDF724F196BC2CD00B818EF /* TenyeaView */ = {
@@ -1178,6 +1546,9 @@
 				EBF6A590197A07BE00493C26 /* LatestAskCell.h */,
 				EBF6A591197A07BE00493C26 /* LatestAskCell.m */,
 				EBF6A592197A07BE00493C26 /* LatestAskCell.xib */,
+				EBB6582F197E000A00A72876 /* HospitalCell.h */,
+				EBB65830197E000A00A72876 /* HospitalCell.m */,
+				EBB65831197E000A00A72876 /* HospitalCell.xib */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -1199,10 +1570,8 @@
 		EBF8436D1977B1F500DE6835 /* SecondVC */ = {
 			isa = PBXGroup;
 			children = (
-				EBF8436E1977B21800DE6835 /* MyAskViewController.h */,
-				EBF8436F1977B21800DE6835 /* MyAskViewController.m */,
-				EBF843711977B24700DE6835 /* MyPostViewController.h */,
-				EBF843721977B24700DE6835 /* MyPostViewController.m */,
+				EB38F4801981FB410016DD90 /* post */,
+				EB38F47F1981F8C90016DD90 /* ask */,
 				EBF843741977B29300DE6835 /* AboutViewController.h */,
 				EBF843751977B29300DE6835 /* AboutViewController.m */,
 				EBF843761977B29300DE6835 /* AboutViewController.xib */,
@@ -1287,50 +1656,86 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB25A81B196B88D600987F0B /* main_home_selected@2x.png in Resources */,
 				EBF6A5A0197A693600493C26 /* HospitalListCell.xib in Resources */,
+				EB77AD141988D42200FD13E8 /* MyPostTopCell.xib in Resources */,
+				EBFCB2D4198B6A83000974BB /* ask_addImage.png in Resources */,
 				EBC6E6BC196FE2DB0056E817 /* RegisterViewController.xib in Resources */,
+				EBBBA518198C817F0061C996 /* main_ask_selected.png in Resources */,
+				EB38F4771981F5700016DD90 /* MyAskCell.xib in Resources */,
 				EB28F76C197CC1550084BE84 /* mapapi.bundle in Resources */,
+				EB28F7AE197CFA6E0084BE84 /* UpdatePasswordViewController.xib in Resources */,
 				EBB9BCA019764AA1005776FB /* LoginViewController.xib in Resources */,
-				EB25A819196B88D600987F0B /* main_story@2x.png in Resources */,
+				EBBBA51A198C817F0061C996 /* main_my_selected.png in Resources */,
+				EBB6582E197DFFEE00A72876 /* PetHospitalViewController.xib in Resources */,
+				EBBBA519198C817F0061C996 /* main_ask.png in Resources */,
+				EB5C0F5C197E4492008113A8 /* ask_yellow_start.png in Resources */,
+				EB38F48A19820AB40016DD90 /* MyPostDetailViewController.xib in Resources */,
 				546A9A59197CE24A00C34E0D /* password.png in Resources */,
 				EB76419B196E725B00972EED /* story_sentiment@2x.png in Resources */,
 				EB5188AD18E1540E0086BAE6 /* 37x-Checkmark.png in Resources */,
 				EB606A621970FD24008F47E8 /* home_horn.png in Resources */,
+				EBC76120197FB92C00D6E3CE /* DoctorCell.xib in Resources */,
 				EB606A641970FD2D008F47E8 /* main_top.png in Resources */,
+				EBC7610B197FAFCD00D6E3CE /* ask_user@2x.png in Resources */,
+				EBFCB2CE198B3B94000974BB /* my_petlogo@2x.png in Resources */,
+				EBBBA51C198C817F0061C996 /* main_story_selected.png in Resources */,
+				EB9B4CF7197F522A00DF7AC0 /* PetHosDetailView.xib in Resources */,
 				EB7641A3196E770100972EED /* home_cell_line.png in Resources */,
 				EB5BB1F1196B9FC90027B590 /* StoryCell.xib in Resources */,
 				546A9A5C197CE24A00C34E0D /* login.png in Resources */,
-				EB25A81D196B88D600987F0B /* main_my@2x.png in Resources */,
+				EBB65833197E000A00A72876 /* HospitalCell.xib in Resources */,
+				EBFF222F1986271E00F6ACAC /* MyAskDocView.xib in Resources */,
+				EB5509311980D997003CFC69 /* EnvironmentCell.xib in Resources */,
 				EB76419D196E725B00972EED /* story_star@2x.png in Resources */,
 				546A9A5E197CE24A00C34E0D /* register.png in Resources */,
+				EB9B4CFC197F5B4F00DF7AC0 /* ask_hospital@2x.png in Resources */,
 				EB8F815118E1175900EED294 /* InfoPlist.strings in Resources */,
+				EBB65821197DF1AF00A72876 /* my_address@2x.png in Resources */,
+				EB38F4671981EC730016DD90 /* my_askcount.png in Resources */,
+				EB5C0F48197E0DE9008113A8 /* ask_phone@2x.png in Resources */,
+				EB5C0F5D197E4492008113A8 /* ask_gray_start.png in Resources */,
 				546A9A5D197CE24A00C34E0D /* login_background.png in Resources */,
 				EBF6A594197A07BE00493C26 /* LatestAskCell.xib in Resources */,
 				EBF843791977B29300DE6835 /* AboutViewController.xib in Resources */,
 				EBB9BC8219762B15005776FB /* PetBirthdayViewController.xib in Resources */,
 				EB76419A196E725B00972EED /* story_near@2x.png in Resources */,
-				EB25A81A196B88D600987F0B /* main_home@2x.png in Resources */,
+				EB77AD191988D43B00FD13E8 /* MyPostDetailCell.xib in Resources */,
 				EBF8437A1977B29300DE6835 /* agreement.html in Resources */,
+				EBB65828197DFFCE00A72876 /* AskOnlineViewController.xib in Resources */,
 				EB5188AF18E1540E0086BAE6 /* MBProgressHUD.bundle in Resources */,
+				EBFCB2D2198B4465000974BB /* load_headimg_bg.png in Resources */,
 				546A9A5B197CE24A00C34E0D /* username.png in Resources */,
-				EB25A81E196B88D700987F0B /* main_my_selected@2x.png in Resources */,
-				EB25A818196B88D600987F0B /* main_story_selected@2x.png in Resources */,
+				EB77AD0A19888ADF00FD13E8 /* MyAskDetailTopCell.xib in Resources */,
 				EB606A661970FD36008F47E8 /* main_pedia.png in Resources */,
+				EBB6581F197DF1A700A72876 /* my_addpet@2x.png in Resources */,
 				EB8F815918E1175900EED294 /* Images.xcassets in Resources */,
+				EBB6583C197E074200A72876 /* ask_online@2x.png in Resources */,
 				EBF8437C1977B41200DE6835 /* about.html in Resources */,
+				EB9B4D00197F7F6C00DF7AC0 /* 灰星.png in Resources */,
 				EB7641A5196E783600972EED /* home_item_date@2x.png in Resources */,
 				EB8F819D18E14AD800EED294 /* BPushConfig.plist in Resources */,
+				EBBBA516198C817F0061C996 /* main_home_selected.png in Resources */,
 				EBDF7257196BCA4D00B818EF /* nav_background7.png in Resources */,
 				EB606A681970FD3A008F47E8 /* main_praise.png in Resources */,
-				EB25A81C196B88D600987F0B /* main_ask_selected@2x.png in Resources */,
+				EBC76107197F9F1200D6E3CE /* UserCommentCell.xib in Resources */,
+				EBBBA517198C817F0061C996 /* main_home.png in Resources */,
+				EB38F47C1981F5800016DD90 /* MyPostCell.xib in Resources */,
+				EBFF222519861D0000F6ACAC /* MyAskDetailCell.xib in Resources */,
 				EB7641A1196E733B00972EED /* story_edit@2x.png in Resources */,
+				EBBBA51B198C817F0061C996 /* main_my.png in Resources */,
+				EBBBA51D198C817F0061C996 /* main_story.png in Resources */,
+				EB38F47E1981F8930016DD90 /* my_goodcount.png in Resources */,
+				EB5C0F47197E0DE9008113A8 /* ask_Location@2x.png in Resources */,
+				EB9B4CFF197F7F6C00DF7AC0 /* 黄星.png in Resources */,
 				EB76419C196E725B00972EED /* story_image@2x.png in Resources */,
 				EB6D3E8F196CD12800128DE3 /* MJRefresh.bundle in Resources */,
+				EBB6581C197DF12B00A72876 /* my_sex_man@2x.png in Resources */,
 				EBB9BC9819762C08005776FB /* PetNameAndVarietyViewController.xib in Resources */,
 				EB43DB351977991300A3B8B0 /* nav_back.png in Resources */,
+				EBB6581D197DF12B00A72876 /* my_sex_woman@2x.png in Resources */,
 				546A9A5A197CE24A00C34E0D /* register_backgroundg.png in Resources */,
-				EB25A81F196B88D700987F0B /* main_ask@2x.png in Resources */,
+				EB38F4851981FBC20016DD90 /* MyAskDetailViewController.xib in Resources */,
+				EBBA762E1980A845007FA9AE /* EquipCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1351,52 +1756,77 @@
 			files = (
 				EB51883218E152090086BAE6 /* BaseModel.m in Sources */,
 				EBF6A59F197A693600493C26 /* HospitalListCell.m in Sources */,
+				EB9B4CFA197F524B00DF7AC0 /* PetHosDetailView.m in Sources */,
 				EB6D3E94196CD12800128DE3 /* UIScrollView+Extension.m in Sources */,
+				EBFF222419861D0000F6ACAC /* MyAskDetailCell.m in Sources */,
 				EB51887F18E152400086BAE6 /* SDWebImagePrefetcher.m in Sources */,
 				EB25A7FF196B867A00987F0B /* StoryViewController.m in Sources */,
+				EB38F4761981F5700016DD90 /* MyAskCell.m in Sources */,
+				EBC76112197FB82B00D6E3CE /* DoctorViewController.m in Sources */,
+				EBC76106197F9F1200D6E3CE /* UserCommentCell.m in Sources */,
 				EB6D3E92196CD12800128DE3 /* MJRefreshFooterView.m in Sources */,
+				EBB6582D197DFFEE00A72876 /* PetHospitalViewController.m in Sources */,
 				EBB9BC9F19764AA1005776FB /* LoginViewController.m in Sources */,
 				EB5BB1F0196B9FC90027B590 /* StoryCell.m in Sources */,
 				EB25A802196B86CD00987F0B /* MainViewController.m in Sources */,
+				EBB65832197E000A00A72876 /* HospitalCell.m in Sources */,
+				EB77AD0F1988A12F00FD13E8 /* PostModel.m in Sources */,
 				EBB9BC67197617A5005776FB /* AFURLConnectionOperation.m in Sources */,
 				EB51887718E152400086BAE6 /* NSData+GIF.m in Sources */,
+				EB38F4721981F5250016DD90 /* MyPostViewController.m in Sources */,
+				EB7DCB5B198350FF00D323C6 /* InquiryModel.m in Sources */,
 				EB51887C18E152400086BAE6 /* SDWebImageDownloaderOperation.m in Sources */,
 				EB51888218E152400086BAE6 /* UIImage+MultiFormat.m in Sources */,
 				EB51887A18E152400086BAE6 /* SDWebImageDecoder.m in Sources */,
+				EBFF2229198625EA00F6ACAC /* MyAskDetailTopCell.m in Sources */,
 				EB51887818E152400086BAE6 /* SDImageCache.m in Sources */,
+				EBFF222D1986260800F6ACAC /* MyAskDocView.m in Sources */,
+				EB5C0F56197E36E8008113A8 /* HospitalModel.m in Sources */,
+				EB38F4841981FBC20016DD90 /* MyAskDetailViewController.m in Sources */,
+				EB77AD131988D42200FD13E8 /* MyPostTopCell.m in Sources */,
 				EBB9BC70197617A5005776FB /* UIProgressView+AFNetworking.m in Sources */,
-				EB8F815718E1175900EED294 /* AppDelegate.m in Sources */,
+				EB8F815718E1175900EED294 /* AppDelegate.mm in Sources */,
 				EB5188A118E1527B0086BAE6 /* FMDatabase.m in Sources */,
 				EBB9BC6C197617A5005776FB /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				EBB9BC8119762B15005776FB /* PetBirthdayViewController.m in Sources */,
+				EBBA762D1980A845007FA9AE /* EquipCell.m in Sources */,
 				EB51888118E152400086BAE6 /* UIImage+GIF.m in Sources */,
 				EB8F818618E1214D00EED294 /* Base64.m in Sources */,
 				EBF6A598197A684A00493C26 /* HospitalListViewController.m in Sources */,
 				EBB9BC8A19762B5E005776FB /* PetSexViewController.m in Sources */,
 				EB5188AE18E1540E0086BAE6 /* MBProgressHUD+Add.m in Sources */,
 				EB51887918E152400086BAE6 /* SDWebImageCompat.m in Sources */,
+				EB28F7AD197CFA6E0084BE84 /* UpdatePasswordViewController.m in Sources */,
 				EB8F818718E1214D00EED294 /* GzipCompressor.m in Sources */,
 				EBB9BC62197617A5005776FB /* AFHTTPRequestOperation.m in Sources */,
+				EB77AD181988D43B00FD13E8 /* MyPostDetailCell.m in Sources */,
 				EBB9BC65197617A5005776FB /* AFNetworkReachabilityManager.m in Sources */,
 				EB51887E18E152400086BAE6 /* SDWebImageManager.m in Sources */,
+				EBC76115197FB85C00D6E3CE /* HospNewsViewController.m in Sources */,
 				EBB9BC7919762ACE005776FB /* AddPetViewController.m in Sources */,
+				EBC7611B197FB8FE00D6E3CE /* EquipViewController.m in Sources */,
 				EB8F818A18E1214D00EED294 /* Reachability.m in Sources */,
 				EBB9BC6B197617A5005776FB /* AFNetworkActivityIndicatorManager.m in Sources */,
 				EB51889018E1524F0086BAE6 /* WXHLGlobalUICommon.m in Sources */,
+				EBB65827197DFFCE00A72876 /* AskOnlineViewController.m in Sources */,
 				EB51887D18E152400086BAE6 /* SDWebImageManager+MJ.m in Sources */,
+				EB38F48919820AB40016DD90 /* MyPostDetailViewController.m in Sources */,
 				EB606A601970FA61008F47E8 /* HomeViewController.m in Sources */,
+				EBBA761E19809530007FA9AE /* DoctorModel.m in Sources */,
 				EB51885118E1522F0086BAE6 /* NSString+URLEncoding.m in Sources */,
 				EBB9BC69197617A5005776FB /* AFURLResponseSerialization.m in Sources */,
 				EB25A807196B874C00987F0B /* MyViewController.m in Sources */,
+				EBBA762419809D93007FA9AE /* TenyeaBaseHosViewController.m in Sources */,
 				EBB9BC66197617A5005776FB /* AFSecurityPolicy.m in Sources */,
 				EB51888C18E152480086BAE6 /* UIViewExt.m in Sources */,
+				EB5509301980D997003CFC69 /* EnvironmentCell.m in Sources */,
 				EBF6A593197A07BE00493C26 /* LatestAskCell.m in Sources */,
 				EB51888B18E152480086BAE6 /* UIView+Additions.m in Sources */,
+				EBFFEEB0198A16530089C9EC /* MyViewCell.m in Sources */,
 				EB51887518E152400086BAE6 /* XLCycleScrollView.m in Sources */,
 				EB51887618E152400086BAE6 /* MKAnnotationView+WebCache.m in Sources */,
 				EBC6E6BB196FE2DB0056E817 /* RegisterViewController.m in Sources */,
 				EB0635521979049900A4A005 /* MyInfoViewController.m in Sources */,
-				EBF843731977B24700DE6835 /* MyPostViewController.m in Sources */,
 				EBF843781977B29300DE6835 /* AboutViewController.m in Sources */,
 				EB51888418E152400086BAE6 /* UIImageView+WebCache.m in Sources */,
 				EB8F818918E1214D00EED294 /* OpenUDID.m in Sources */,
@@ -1411,13 +1841,18 @@
 				EB6D3E90196CD12800128DE3 /* MJRefreshBaseView.m in Sources */,
 				EBB9BC71197617A5005776FB /* UIRefreshControl+AFNetworking.m in Sources */,
 				EB5188A318E1527B0086BAE6 /* FMDatabasePool.m in Sources */,
+				EBC7610F197FB44400D6E3CE /* PetHosContentViewController.m in Sources */,
 				EB6D3E95196CD12800128DE3 /* UIScrollView+MJRefresh.m in Sources */,
+				EB28F7B2197CFD6A0084BE84 /* DataCenter.m in Sources */,
 				EB6D3E96196CD12800128DE3 /* UIView+Extension.m in Sources */,
 				EBB9BC6A197617A5005776FB /* AFURLSessionManager.m in Sources */,
+				EB38F47B1981F5800016DD90 /* MyPostCell.m in Sources */,
 				EBB9BC6E197617A5005776FB /* UIButton+AFNetworking.m in Sources */,
 				EB5188A518E1527B0086BAE6 /* FMResultSet.m in Sources */,
-				EBF843701977B21800DE6835 /* MyAskViewController.m in Sources */,
+				EBBA762119809905007FA9AE /* Network.m in Sources */,
+				EB5C0F59197E389B008113A8 /* PetHospitalDetailViewController.m in Sources */,
 				EBB9BC9B19762C24005776FB /* PetModel.m in Sources */,
+				EB28F7B5197CFD8F0084BE84 /* FileUrl.m in Sources */,
 				EB51887B18E152400086BAE6 /* SDWebImageDownloader.m in Sources */,
 				EB25A80D196B87C400987F0B /* TenyeaBaseNavigationViewController.m in Sources */,
 				EB8F819318E1348100EED294 /* JSONKit.m in Sources */,
@@ -1427,10 +1862,13 @@
 				EBB9BC63197617A5005776FB /* AFHTTPRequestOperationManager.m in Sources */,
 				EBB9BC6F197617A5005776FB /* UIImageView+AFNetworking.m in Sources */,
 				EBB9BC6D197617A5005776FB /* UIAlertView+AFNetworking.m in Sources */,
+				EBC76118197FB8D600D6E3CE /* EnvironmentViewController.m in Sources */,
 				EB6D3E93196CD12800128DE3 /* MJRefreshHeaderView.m in Sources */,
+				EB38F46F1981F5190016DD90 /* MyAskViewController.m in Sources */,
 				EB76418A196E5A0900972EED /* MoveButton.m in Sources */,
 				EB8F815318E1175900EED294 /* main.m in Sources */,
 				EB5188A018E1527B0086BAE6 /* FMDatabase+InMemoryOnDiskIO.m in Sources */,
+				EBC7611F197FB92C00D6E3CE /* DoctorCell.m in Sources */,
 				EB51888318E152400086BAE6 /* UIImage+WebP.m in Sources */,
 				EB5188B418E15C840086BAE6 /* TenyeaBaseViewController.m in Sources */,
 				EB5188B018E1540E0086BAE6 /* MBProgressHUD.m in Sources */,
@@ -1456,6 +1894,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		EB77AD0C19888ADF00FD13E8 /* MyAskDetailTopCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EB77AD0B19888ADF00FD13E8 /* en */,
+			);
+			name = MyAskDetailTopCell.xib;
+			sourceTree = "<group>";
+		};
 		EB8F814F18E1175900EED294 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
