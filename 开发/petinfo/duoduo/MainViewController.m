@@ -32,21 +32,12 @@
 #pragma mark Location
 //定位
 -(void)Location {
-    //开启定位服务
-//    if([CLLocationManager locationServicesEnabled]){
-    if ([CLLocationManager locationServicesEnabled] &&([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized|| [CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined)) {
-            _po(@"开始定位");
-            CLLocationManager *locationManager = [[CLLocationManager alloc] init];
-            locationManager.delegate = self;
-            //设置不筛选，(距离筛选器distanceFilter,下面表示设备至少移动1000米,才通知委托更新）
-            locationManager.distanceFilter = kCLDistanceFilterNone;
-            //精度10米
-            [locationManager setDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
-            [locationManager startUpdatingLocation];
-        }else{
-            _po(@"出错了");
-        }
+
     
+    _locService =  [[BMKLocationService alloc]init];
+    _locService.delegate = self;
+    [_locService startUserLocationService];
+//    [_locService stopUserLocationService];
 
 }
 
@@ -100,40 +91,58 @@
 }
 
 #pragma mark -
-#pragma mark CLLocationManagerDelegate
-- (void)locationManager:(CLLocationManager *)manager
-	didUpdateToLocation:(CLLocation *)newLocation
-		   fromLocation:(CLLocation *)oldLocation
-{
-    [manager stopUpdatingLocation];
-    float longitude = newLocation.coordinate.longitude;
-    float latitude = newLocation.coordinate.latitude;
-    NSDictionary *dic = @{@"longitude": [NSNumber numberWithFloat:longitude],@"latitude":[NSNumber numberWithFloat:latitude]};
-    [[NSUserDefaults standardUserDefaults] setObject:dic forKey:UD_Locationnow_DIC];
-    //    获取当前城市名称
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    [geocoder reverseGeocodeLocation:newLocation
-                   completionHandler:^(NSArray *placemarks, NSError *error){
-                       
-                       for (CLPlacemark *place in placemarks) {
-                           NSLog(@"locality,%@",place.locality);               // 市
-                           NSLog(@"subLocality,%@",place.subLocality);         //区
-                           NSLog(@"subThoroughfare,%@",place.subThoroughfare);
-#warning 写入到userdefaults中
-                       }
-                   }];
+#pragma mark BMKLocationServiceDelegate
 
+//实现相关delegate 处理位置信息更新
+//处理方向变更信息
+- (void)didUpdateUserHeading:(BMKUserLocation *)userLocation
+{
+    NSLog(@"heading is %@",userLocation.heading);
+
+    _pf(userLocation.location.coordinate.latitude);
+    _pf(userLocation.location.coordinate.longitude);
+    [_locService stopUserLocationService];
+    CLLocation *location = userLocation.location;
     
+    CLGeocoder *geocoder = [[CLGeocoder alloc]init];
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        for (CLPlacemark *place in placemarks) {
+            NSLog(@"locality,%@",place.locality);               // 市
+            NSLog(@"subLocality,%@",place.subLocality);         //区
+            _po(place.administrativeArea); //省
+            [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@-%@",place.location,place.subLocality] forKey:UD_nowPosition_Str];
+            [[NSUserDefaults standardUserDefaults] setObject:
+                            @{@"latitude": [NSNumber numberWithFloat:location.coordinate.latitude],
+                              @"longitude":[NSNumber numberWithFloat:location.coordinate.longitude]}
+                                                      forKey:UD_Locationnow_DIC];
+            [[NSUserDefaults standardUserDefaults]synchronize];
+        }
+
+    }];
+}
+//处理位置坐标更新
+- (void)didUpdateUserLocation:(BMKUserLocation *)userLocation
+{
+    [_locService stopUserLocationService];
+    CLLocation *location = userLocation.location;
+    CLGeocoder *geocoder = [[CLGeocoder alloc]init];
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        for (CLPlacemark *place in placemarks) {
+            NSLog(@"locality,%@",place.locality);               // 市
+            NSLog(@"subLocality,%@",place.subLocality);         //区
+            _po(place.administrativeArea); //省
+            [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@-%@",place.location,place.subLocality] forKey:UD_nowPosition_Str];
+            [[NSUserDefaults standardUserDefaults] setObject:
+             @{@"latitude": [NSNumber numberWithFloat:location.coordinate.latitude],
+               @"longitude":[NSNumber numberWithFloat:location.coordinate.longitude]}
+                                                      forKey:UD_Locationnow_DIC];
+            [[NSUserDefaults standardUserDefaults]synchronize];
+        }
+        
+    }];
+
 }
 
-
-- (void)locationManager:(CLLocationManager *)manager
-       didFailWithError:(NSError *)error
-{
-    _po([error localizedDescription]);
-    [manager stopUpdatingLocation];
-    
-}
 #pragma mark -
 #pragma mark 按钮事件
 //tabbar选中事件

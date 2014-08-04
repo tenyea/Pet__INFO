@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "TenyeaBaseNavigationViewController.h"
-#import <CoreLocation/CoreLocation.h>
+#import "BMKLocationService.h"
 
-@interface MainViewController : UITabBarController<CLLocationManagerDelegate,UINavigationControllerDelegate>
+@interface MainViewController : UITabBarController<UINavigationControllerDelegate,BMKLocationServiceDelegate>
 {
     UIView *_tabbarView;//tabbar
+    BMKLocationService *_locService;//定位服务
+    
 }
 -(void)setTabbarShow:(BOOL)isshow;
 @end
