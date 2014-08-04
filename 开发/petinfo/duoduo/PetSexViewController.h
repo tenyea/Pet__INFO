@@ -10,4 +10,5 @@
 
 @interface PetSexViewController : TenyeaBaseViewController <UITableViewDataSource,UITableViewDelegate>
 
+-(id)initWithType :(int) type;//0 宠物，1 人
 @end

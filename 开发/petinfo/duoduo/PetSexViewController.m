@@ -11,11 +11,27 @@
 @interface PetSexViewController ()
 {
     int _select;
+    int _type;
+    NSString *_userDefaults_name;
+    NSString *_keyName ;
 }
 @end
 
 @implementation PetSexViewController
-
+-(id)initWithType :(int) type{
+    self = [super init];
+    if (self) {
+        _type = type;
+        if (type == 0 ) {
+            _userDefaults_name = UD_petInfo_temp_PetModel;
+            _keyName = @"petSex";
+        }else{
+            _userDefaults_name = UD_userInfo_temp_DIC;
+            _keyName = @"userSex";
+        }
+    }
+    return self;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -28,7 +44,7 @@
     table.delegate = self;
     table.dataSource = self;
     [self.view addSubview:table];
-    NSString *sexStr =[[[NSUserDefaults standardUserDefaults]dictionaryForKey:UD_petInfo_temp_PetModel] objectForKey:@"petSex"];
+    NSString *sexStr =[[[NSUserDefaults standardUserDefaults]dictionaryForKey:_userDefaults_name] objectForKey:_keyName];
     _select = sexStr == nil ? 0 :[sexStr intValue];
     
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 30)];
@@ -66,10 +82,17 @@
     }
     
     if (indexPath.row == 0) {
-        
-        cell.textLabel.text = @"公";
+        if (_type == 0 ) {
+            cell.textLabel.text = @"公";
+        }else{
+            cell.textLabel.text = @"男";
+        }
     }else if (indexPath.row == 1) {
-        cell.textLabel.text = @"母";
+        if (_type == 0) {
+            cell.textLabel.text = @"母";
+        }else{
+            cell.textLabel.text = @"女";
+        }
     }
     if (indexPath.row ==_select ) {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -95,10 +118,10 @@
 }
 -(void)popVC {
     
-    NSDictionary *dic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UD_petInfo_temp_PetModel ];
+    NSDictionary *dic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:_userDefaults_name ];
     NSMutableDictionary *muDic = [NSMutableDictionary dictionaryWithDictionary:dic];
-    [muDic setValue:[NSString stringWithFormat:@"%d",_select] forKey:@"petSex"];
-    [[NSUserDefaults standardUserDefaults]setValue:muDic forKeyPath:UD_petInfo_temp_PetModel];
+    [muDic setValue:[NSString stringWithFormat:@"%d",_select] forKey:_keyName];
+    [[NSUserDefaults standardUserDefaults]setValue:muDic forKeyPath:_userDefaults_name];
     [[NSUserDefaults standardUserDefaults]synchronize];
     //    返回上一级菜单
     [self.navigationController popViewControllerAnimated:YES];
