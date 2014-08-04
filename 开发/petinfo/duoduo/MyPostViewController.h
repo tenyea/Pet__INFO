@@ -8,6 +8,7 @@
 
 #import "TenyeaBaseViewController.h"
 
-@interface MyPostViewController : TenyeaBaseViewController
+@interface MyPostViewController : TenyeaBaseViewController <UITableViewDataSource,UITableViewDelegate>
+
 
 @end
