@@ -15,12 +15,17 @@
 #import "UIImageView+WebCache.h"
 #import "PetModel.h"
 #define headImageHeigh 70
+#define petNameIsNullMessage @"昵称不能为空"
+#define time 1.5
 @interface AddPetViewController ()
 {
     UITableView *_tableView;
     NSArray *_array;
     NSDictionary *_petDIC;
     NSArray *_kindArr;
+    
+    UIImage *_petImage;
+    BOOL _isAddPet;
 }
 @end
 
@@ -31,8 +36,13 @@
 //        如果存在，则说明是修改,不存在则为新添
         if (dic) {
             _petDIC = dic;
+            self.title = @"修改宠物信息";
+            _isAddPet = NO;
         }else{
+            self.title = @"添加宠物";
+            _isAddPet = YES;
             _petDIC = [[NSDictionary alloc]initWithObjectsAndKeys:
+                       @"",@"petId",
                        @"",@"petName",
                        @"",@"petHeadImage",
                        @"",@"petBirthday",
@@ -59,7 +69,6 @@
     bgView.layer.cornerRadius = 13;
     [self.view addSubview:bgView];
     
-    self.title = @"添加宠物";
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(20, 100, 280 , 44*5 + headImageHeigh) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -82,7 +91,91 @@
 #pragma mark Action
 //提交
 -(void)submitAction{
+//添加宠物信息
+    if ([self.model.petName  isEqualToString:@""]) {
+        [self showHudInBottom:petNameIsNullMessage];
+        [self performSelector:@selector(removeHUD) withObject:nil afterDelay:2];
+        return;
+    }
     
+    NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+    [params setObject: [[NSUserDefaults standardUserDefaults] stringForKey:UD_userID_Str] forKey:@"userId"];
+    [params setObject:_model.petName forKey:@"petName"];
+    if ([_model.petSex intValue] == 0) {
+        [params setObject:@(0) forKey:@"petSex"];
+        
+    }else{
+        [params setObject:_model.petSex forKey:@"petSex"];
+    }
+    if ([_model.petKind intValue] == 0) {
+        [params setObject:@(0) forKey:@"petKind"];
+    }else{
+        [params setObject:_model.petKind forKey:@"petKind"];
+        
+    }
+    
+    if (![_model.petVariety isEqualToString:@""]) {
+        [params setObject:_model.petVariety forKey:@"petVariety"];
+    }
+    if (![_model.petBirthday isEqualToString:@""]) {
+        [params setObject:_model.petBirthday forKey:@"petBirthday"];
+    }
+    
+    //    修改宠物
+    if (!_isAddPet) {
+        int petId = [_model.petId intValue];
+        
+        [params setObject:[NSString stringWithFormat:@"%d",petId] forKey:@"petId"];
+    }
+    //    提示图片上传中
+    [self showHudInBottom:@"上传中。。"];
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
+    [manager POST:[BASE_URL stringByAppendingPathComponent:URL_addPetInfo_Post] parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        if (_petImage) {//图片存在
+            //        需要上传的图片
+            [formData appendPartWithFileData:UIImagePNGRepresentation(_petImage) name:@"petHeadImage" fileName:@"petHead.png" mimeType:@"image/png"];
+        }
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        if ([[responseObject objectForKey:@"code"] intValue]==0 ) {//成功
+            [self removeHUD];
+            NSArray *petArr = [responseObject objectForKey:@"pet"];
+            NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+            [user removeObjectForKey:UD_pet_Array];
+            [user setObject:petArr forKey:UD_pet_Array];
+            [user synchronize];
+            if (_isAddPet) {
+                [self showHudInBottom:@"添加成功"];
+            }else{
+                [self showHudInBottom:@"修改成功"];
+            }
+            [self performSelector:@selector(popVC) withObject:nil afterDelay:time];
+        }else if([[responseObject objectForKey:@"code"] intValue]==1001){//失败
+            [self removeHUD];
+            if (_isAddPet) {
+                [self showHudInBottom:@"添加失败"];
+            }else{
+                [self showHudInBottom:@"修改失败"];
+            }
+            [self performSelector:@selector(removeHUD) withObject:nil afterDelay:time];
+            return ;
+        }
+        [self performSelector:@selector(removeHUD) withObject:nil afterDelay:time];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        _po([error localizedDescription]);
+        [self removeHUD];
+        if (_isAddPet) {
+            [self showHudInBottom:@"添加失败"];
+        }else{
+            [self showHudInBottom:@"修改失败"];
+        }
+        [self performSelector:@selector(removeHUD) withObject:nil afterDelay:time];
+    }];
+
+    
+}
+-(void)popVC {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 #pragma mark -
 #pragma mark UITableViewDelegate
@@ -100,7 +193,7 @@
             [self.navigationController pushViewController:[[PetBirthdayViewController alloc ]init] animated:YES];
             break;
         case 3:
-            [self.navigationController pushViewController:[[PetSexViewController alloc]init] animated:YES];
+            [self.navigationController pushViewController:[[PetSexViewController alloc]initWithType:0] animated:YES];
             break;
         case 4:
             [self.navigationController pushViewController:[[PetKindViewController alloc]init] animated:YES];
@@ -146,10 +239,10 @@
     {
 
         if (![_model.petHeadImage isEqualToString:@""]) {
-                UIImageView *imageView = [[UIImageView alloc]init];
-                [imageView setImageWithURL:[NSURL URLWithString:self.model.petHeadImage]];
-                cell.accessoryView = imageView;
-                cell.accessoryType = UITableViewCellAccessoryNone;
+            UIImageView *imageView = [[UIImageView alloc]init];
+            [imageView setImageWithURL:[NSURL URLWithString:self.model.petHeadImage]];
+            cell.accessoryView = imageView;
+            cell.accessoryType = UITableViewCellAccessoryNone;
         }
         return cell;
     }
@@ -168,25 +261,19 @@
     }
     else if(indexPath.row == 3)//性别
     {
-        if (![self.model.petSex isEqualToString:@""]) {
-            if ([self.model.petSex isEqualToString:@"1"]) {
+        if ([self.model.petSex intValue] == 1 ) {
                 label.text = @"母";
-            }else{
-                label.text = @"公";
-            }
+        }else{
+            label.text = @"公";
         }
     }
     else if(indexPath.row == 4)//种类
     {
-        if (![self.model.petKind isEqualToString:@""]) {
             label.text = _kindArr[[self.model.petKind intValue]];
-        }
     }
     else if(indexPath.row == 5)//品种
     {
-        if (![self.model.petVariety isEqualToString:@""]) {
-            label.text = self.model.petVariety;
-        }
+        label.text = self.model.petVariety;
     }
     
     [label sizeToFit];
@@ -244,6 +331,7 @@
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
         UITableViewCell *cell = [_tableView cellForRowAtIndexPath: indexPath];
         cell.accessoryView = [[UIImageView alloc]initWithImage:petImage];
+        _petImage = petImage;
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
 }
@@ -258,6 +346,7 @@
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
         UITableViewCell *cell = [_tableView cellForRowAtIndexPath: indexPath];
         cell.accessoryView = [[UIImageView alloc]initWithImage:image];
+        _petImage = image;
         cell.accessoryType = UITableViewCellAccessoryNone;
     }
 }
