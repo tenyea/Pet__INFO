@@ -5,7 +5,7 @@
 //  Created by tenyea on 14-7-11.
 //  Copyright (c) 2014年 zzw. All rights reserved.
 //
-
+#import "OpenUDID.h"
 #import "LoginViewController.h"
 #define parametersLost @"请输入完整信息"
 #define wrongInformation @"用户名或密码错误"
@@ -33,6 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [userNameTF becomeFirstResponder];
     // Do any additional setup after loading the view from its nib.
     passwordTF.delegate=self;
     userNameTF.delegate=self;
@@ -93,8 +94,14 @@
 
 - (IBAction)loginBtnAction:(id)sender {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
-    [dic setValue:userNameTF.text forKey:@"username"];
-    [dic setValue:passwordTF.text forKey:@"password"];
+    [dic setObject:userNameTF.text forKey:@"username"];
+    [dic setObject:passwordTF.text forKey:@"password"];
+    [dic setObject:[OpenUDID value] forKey:@"deviceId"];
+    NSDictionary *dicLocationnow =  [[NSUserDefaults standardUserDefaults]dictionaryForKey:UD_Locationnow_DIC];
+    if (dicLocationnow) {
+        [dic setObject:[dicLocationnow objectForKey:@"longitude"]  forKey:@"longitude"];
+        [dic setObject:[dicLocationnow objectForKey:@"latitude"] forKey:@"latitude"];
+    }
     [self getDate:URL_Login andParams:dic andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSString *code =[responseObject objectForKey:@"code"];
         NSLog(@"%@",code);
@@ -103,6 +110,13 @@
         if(a==0)
         {
             [self showResult:responseObject];
+            NSDictionary *userDic = [responseObject objectForKey:@"user"];
+            [[NSUserDefaults standardUserDefaults]setObject:userDic forKey:UD_userInfo_DIC];
+            [[NSUserDefaults standardUserDefaults]setObject: [userDic objectForKey:@"userId"] forKey:UD_userID_Str];
+            [[NSUserDefaults standardUserDefaults]setObject: [userDic objectForKey:@"userNickname"] forKey:UD_userName_Str];
+            [[NSUserDefaults standardUserDefaults]setObject: [responseObject objectForKey:@"pet"] forKey:UD_pet_Array];
+            [[NSUserDefaults standardUserDefaults]synchronize];
+            [self.navigationController popViewControllerAnimated:YES];
             NSLog(@"登录成功");
         }else if(a==1001)
         {

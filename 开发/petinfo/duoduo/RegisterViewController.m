@@ -145,6 +145,7 @@
                 if(a==0)
                 {
                     [self showHudInBottom:@"注册成功"];
+#warning 未登录
                     [self performSelector:@selector(timerFiredSuccess:) withObject:nil afterDelay:1.5];
                     return ;
                 }else if(a==1001)
