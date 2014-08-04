@@ -11,5 +11,5 @@
 @interface PetNameAndVarietyViewController : TenyeaBaseViewController<UITextFieldDelegate>
 @property (nonatomic,assign) int type;
 
--(id)initWithType:(int)type;
+-(id)initWithType:(int)type; //0昵称 1种类 代表宠物 2代表用户昵称
 @end

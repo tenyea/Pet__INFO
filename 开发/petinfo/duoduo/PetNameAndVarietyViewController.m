@@ -13,6 +13,7 @@
 {
     NSString *_keyName;
     NSString *_content;
+    NSString *_userDefaults_name;
 }
 @property (strong, nonatomic) IBOutlet UITextField *textField;
 
@@ -30,13 +31,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if (_type) {
+    if (_type==1) {
         self.title = @"品种";
         _keyName = @"petVariety";
-
+        _userDefaults_name = UD_petInfo_temp_PetModel;
     }else{
         self.title = @"昵称";
-        _keyName = @"petName";
+        if (_type == 0) {//type = 0
+            _keyName = @"petName";
+            _userDefaults_name = UD_petInfo_temp_PetModel;
+        }else {
+            _keyName = @"userNickname";
+            _userDefaults_name = UD_userInfo_temp_DIC;
+        }
 
     }
     [_textField becomeFirstResponder];
@@ -47,12 +54,13 @@
     button.titleLabel.font = [UIFont boldSystemFontOfSize:15];
     [button setTitle:@"确定" forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
-    
-    
-    NSString *str =[[[NSUserDefaults standardUserDefaults]dictionaryForKey:UD_petInfo_temp_PetModel] objectForKey:_keyName];
+
+    NSString *str =[[[NSUserDefaults standardUserDefaults]dictionaryForKey:_userDefaults_name] objectForKey:_keyName];
     _textField.text = str;
     _content = str;
+    
 }
+
 -(void)returnAction{
     [self popVC];
 }
@@ -63,11 +71,14 @@
 -(void)popVC {
     _content = _textField.text;
 
-    NSDictionary *dic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:UD_petInfo_temp_PetModel ];
+    
+    NSDictionary *dic = [[NSUserDefaults standardUserDefaults] dictionaryForKey:_userDefaults_name ];
     NSMutableDictionary *muDic = [NSMutableDictionary dictionaryWithDictionary:dic];
     [muDic setValue:_content forKey:_keyName];
-    [[NSUserDefaults standardUserDefaults]setValue:muDic forKeyPath:UD_petInfo_temp_PetModel];
+    [[NSUserDefaults standardUserDefaults]setValue:muDic forKeyPath:_userDefaults_name];
     [[NSUserDefaults standardUserDefaults]synchronize];
+    
+    
     //    返回上一级菜单
     [self.navigationController popViewControllerAnimated:YES];
     
