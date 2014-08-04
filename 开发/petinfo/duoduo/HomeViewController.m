@@ -156,7 +156,7 @@
                 bview.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
                 [cell addSubview:bview];
             }
-            cell.accessoryType = UITableViewCellAccessoryNone;
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
             return cell;
             
         }else{
@@ -253,7 +253,7 @@
         }else{
             static NSString *cellName2_content = @"cellName2_content";
             // 声明cell并去复用池中找是否有对应标签的闲置cell
-            StoryCell *cell = [tableView dequeueReusableCellWithIdentifier:cellName2_content];
+            StoryCell *cell = (StoryCell *)[tableView dequeueReusableCellWithIdentifier:cellName2_content];
             if(cell == nil)
             {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"StoryCell" owner:self options:nil] lastObject];
