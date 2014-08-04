@@ -14,4 +14,5 @@
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *authorLabel;
 
+@property (strong, nonatomic) NSDictionary *dic ;
 @end

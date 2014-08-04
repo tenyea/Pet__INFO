@@ -7,7 +7,8 @@
 //
 
 #import "LatestAskCell.h"
-
+#import "UIImageView+WebCache.h"
+#import "DataCenter.h"
 @implementation LatestAskCell
 
 - (void)awakeFromNib
@@ -17,6 +18,17 @@
     self.imageV.layer.cornerRadius = 25;
 }
 
-
+-(void)setDic:(NSDictionary *)dic{
+    if (_dic != dic) {
+        _dic = dic;
+        [_imageV setImageWithURL:[NSURL URLWithString:[_dic objectForKey:@"userHead"]]];
+        NSString *date = [dic objectForKey:@"postTime"];
+        _timeLabel.text = [DataCenter  intervalSinceNow:date];
+        _titleLabel.text = [dic objectForKey:@"postTitle"];
+        _authorLabel.text = [dic objectForKey:@"userName"];
+    }
+    
+    
+}
 
 @end
