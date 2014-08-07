@@ -9,7 +9,7 @@
 #import "MyInfoViewController.h"
 #import "PetNameAndVarietyViewController.h"
 #import "PetSexViewController.h"
-#import "UpdatePasswordViewController.h"
+#import "UpdatePasswordVC.h"
 #import "UIImageView+WebCache.h"
 #import "DataCenter.h"
 #import "AFHTTPRequestOperationManager.h"
@@ -146,11 +146,13 @@
         case 5:
             break;
         case 6:
-            [self.navigationController pushViewController:[[UpdatePasswordViewController alloc]init] animated:YES];
+            [self.navigationController pushViewController:[[UpdatePasswordVC alloc]init] animated:YES];
             break;
-        case 7:
+        case 7://推送
             break;
         case 8:
+            [[DataCenter sharedCenter] cleanCache];
+            [tableView reloadRowsAtIndexPaths: [NSArray arrayWithObject: indexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
             break;
         case 9:
             [self logoutAction];

@@ -49,6 +49,11 @@
 //    下拉
     [_tableView addFooterWithTarget:self action:@selector(footerRereshing)];
 }
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [_tableView headerEndRefreshing];
+    [_tableView footerEndRefreshing];
+}
 #pragma mark -
 #pragma mark MJRefresh
 //上拉 刷新

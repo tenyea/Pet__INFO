@@ -5,7 +5,11 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
+<<<<<<< HEAD
 	<string>F8B5C3BC-1FD4-4748-9105-99F285F04ADF</string>
+=======
+	<string>CDF5BA83-5FA3-4C1D-82D2-4C3599D02AAD</string>
+>>>>>>> FETCH_HEAD
 	<key>IDESourceControlProjectName</key>
 	<string>宠信</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
