@@ -124,6 +124,18 @@
 		EB77AD181988D43B00FD13E8 /* MyPostDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB77AD161988D43B00FD13E8 /* MyPostDetailCell.m */; };
 		EB77AD191988D43B00FD13E8 /* MyPostDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB77AD171988D43B00FD13E8 /* MyPostDetailCell.xib */; };
 		EB7DCB5B198350FF00D323C6 /* InquiryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB7DCB5A198350FF00D323C6 /* InquiryModel.m */; };
+		EB876A24199363EA00C6D4BF /* ADWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB876A1D199363EA00C6D4BF /* ADWebViewController.m */; };
+		EB876A25199363EA00C6D4BF /* ADWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB876A1E199363EA00C6D4BF /* ADWebViewController.xib */; };
+		EB876A26199363EA00C6D4BF /* PetClassificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB876A20199363EA00C6D4BF /* PetClassificationViewController.m */; };
+		EB876A27199363EA00C6D4BF /* StoryContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB876A22199363EA00C6D4BF /* StoryContentViewController.m */; };
+		EB876A28199363EA00C6D4BF /* StoryContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB876A23199363EA00C6D4BF /* StoryContentViewController.xib */; };
+		EB876A2B1993642600C6D4BF /* PetKnowledgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB876A2A1993642600C6D4BF /* PetKnowledgeViewController.m */; };
+		EB876A2F1993645700C6D4BF /* LikePetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB876A2D1993645700C6D4BF /* LikePetCell.m */; };
+		EB876A301993645700C6D4BF /* LikePetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB876A2E1993645700C6D4BF /* LikePetCell.xib */; };
+		EB876A341993650900C6D4BF /* ShowPetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB876A321993650900C6D4BF /* ShowPetCell.m */; };
+		EB876A351993650900C6D4BF /* ShowPetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB876A331993650900C6D4BF /* ShowPetCell.xib */; };
+		EB876A38199365B900C6D4BF /* story_browse.png in Resources */ = {isa = PBXBuildFile; fileRef = EB876A36199365B900C6D4BF /* story_browse.png */; };
+		EB876A39199365B900C6D4BF /* story_red_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = EB876A37199365B900C6D4BF /* story_red_heart.png */; };
 		EB8F814718E1175900EED294 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8F814618E1175900EED294 /* Foundation.framework */; };
 		EB8F814918E1175900EED294 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8F814818E1175900EED294 /* CoreGraphics.framework */; };
 		EB8F814B18E1175900EED294 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8F814A18E1175900EED294 /* UIKit.framework */; };
@@ -497,6 +509,24 @@
 		EB77AD171988D43B00FD13E8 /* MyPostDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPostDetailCell.xib; sourceTree = "<group>"; };
 		EB7DCB59198350FF00D323C6 /* InquiryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InquiryModel.h; sourceTree = "<group>"; };
 		EB7DCB5A198350FF00D323C6 /* InquiryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InquiryModel.m; sourceTree = "<group>"; };
+		EB876A1C199363EA00C6D4BF /* ADWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADWebViewController.h; sourceTree = "<group>"; };
+		EB876A1D199363EA00C6D4BF /* ADWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADWebViewController.m; sourceTree = "<group>"; };
+		EB876A1E199363EA00C6D4BF /* ADWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ADWebViewController.xib; sourceTree = "<group>"; };
+		EB876A1F199363EA00C6D4BF /* PetClassificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetClassificationViewController.h; sourceTree = "<group>"; };
+		EB876A20199363EA00C6D4BF /* PetClassificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetClassificationViewController.m; sourceTree = "<group>"; };
+		EB876A21199363EA00C6D4BF /* StoryContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryContentViewController.h; sourceTree = "<group>"; };
+		EB876A22199363EA00C6D4BF /* StoryContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryContentViewController.m; sourceTree = "<group>"; };
+		EB876A23199363EA00C6D4BF /* StoryContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoryContentViewController.xib; sourceTree = "<group>"; };
+		EB876A291993642600C6D4BF /* PetKnowledgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetKnowledgeViewController.h; sourceTree = "<group>"; };
+		EB876A2A1993642600C6D4BF /* PetKnowledgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetKnowledgeViewController.m; sourceTree = "<group>"; };
+		EB876A2C1993645700C6D4BF /* LikePetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikePetCell.h; sourceTree = "<group>"; };
+		EB876A2D1993645700C6D4BF /* LikePetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikePetCell.m; sourceTree = "<group>"; };
+		EB876A2E1993645700C6D4BF /* LikePetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LikePetCell.xib; sourceTree = "<group>"; };
+		EB876A311993650900C6D4BF /* ShowPetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowPetCell.h; sourceTree = "<group>"; };
+		EB876A321993650900C6D4BF /* ShowPetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowPetCell.m; sourceTree = "<group>"; };
+		EB876A331993650900C6D4BF /* ShowPetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowPetCell.xib; sourceTree = "<group>"; };
+		EB876A36199365B900C6D4BF /* story_browse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = story_browse.png; sourceTree = "<group>"; };
+		EB876A37199365B900C6D4BF /* story_red_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = story_red_heart.png; sourceTree = "<group>"; };
 		EB8F814318E1175900EED294 /* 宠信.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "宠信.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB8F814618E1175900EED294 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EB8F814818E1175900EED294 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -764,6 +794,14 @@
 				EB5BB1ED196B9FC90027B590 /* StoryCell.h */,
 				EB5BB1EE196B9FC90027B590 /* StoryCell.m */,
 				EB5BB1EF196B9FC90027B590 /* StoryCell.xib */,
+				EB876A1F199363EA00C6D4BF /* PetClassificationViewController.h */,
+				EB876A20199363EA00C6D4BF /* PetClassificationViewController.m */,
+				EB876A21199363EA00C6D4BF /* StoryContentViewController.h */,
+				EB876A22199363EA00C6D4BF /* StoryContentViewController.m */,
+				EB876A23199363EA00C6D4BF /* StoryContentViewController.xib */,
+				EB876A1C199363EA00C6D4BF /* ADWebViewController.h */,
+				EB876A1D199363EA00C6D4BF /* ADWebViewController.m */,
+				EB876A1E199363EA00C6D4BF /* ADWebViewController.xib */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -771,8 +809,16 @@
 		EB25A7F9196B862E00987F0B /* Story */ = {
 			isa = PBXGroup;
 			children = (
+				EB876A2C1993645700C6D4BF /* LikePetCell.h */,
+				EB876A2D1993645700C6D4BF /* LikePetCell.m */,
+				EB876A2E1993645700C6D4BF /* LikePetCell.xib */,
 				EB25A7FD196B867A00987F0B /* StoryViewController.h */,
 				EB25A7FE196B867A00987F0B /* StoryViewController.m */,
+				EB876A291993642600C6D4BF /* PetKnowledgeViewController.h */,
+				EB876A2A1993642600C6D4BF /* PetKnowledgeViewController.m */,
+				EB876A311993650900C6D4BF /* ShowPetCell.h */,
+				EB876A321993650900C6D4BF /* ShowPetCell.m */,
+				EB876A331993650900C6D4BF /* ShowPetCell.xib */,
 			);
 			name = Story;
 			sourceTree = "<group>";
@@ -1176,6 +1222,8 @@
 		EB76418B196E702B00972EED /* story */ = {
 			isa = PBXGroup;
 			children = (
+				EB876A36199365B900C6D4BF /* story_browse.png */,
+				EB876A37199365B900C6D4BF /* story_red_heart.png */,
 				EB764196196E725B00972EED /* story_near@2x.png */,
 				EB764197196E725B00972EED /* story_sentiment@2x.png */,
 				EB764198196E725B00972EED /* story_image@2x.png */,
@@ -1705,10 +1753,12 @@
 				EB5C0F5C197E4492008113A8 /* ask_yellow_start.png in Resources */,
 				EB38F48A19820AB40016DD90 /* MyPostDetailViewController.xib in Resources */,
 				546A9A59197CE24A00C34E0D /* password.png in Resources */,
+				EB876A39199365B900C6D4BF /* story_red_heart.png in Resources */,
 				EB76419B196E725B00972EED /* story_sentiment@2x.png in Resources */,
 				EB5188AD18E1540E0086BAE6 /* 37x-Checkmark.png in Resources */,
 				EB606A621970FD24008F47E8 /* home_horn.png in Resources */,
 				EBC76120197FB92C00D6E3CE /* DoctorCell.xib in Resources */,
+				EB876A28199363EA00C6D4BF /* StoryContentViewController.xib in Resources */,
 				EB606A641970FD2D008F47E8 /* main_top.png in Resources */,
 				EBC7610B197FAFCD00D6E3CE /* ask_user@2x.png in Resources */,
 				EBFCB2CE198B3B94000974BB /* my_petlogo@2x.png in Resources */,
@@ -1733,6 +1783,7 @@
 				EBF843791977B29300DE6835 /* AboutViewController.xib in Resources */,
 				EBB9BC8219762B15005776FB /* PetBirthdayViewController.xib in Resources */,
 				EB76419A196E725B00972EED /* story_near@2x.png in Resources */,
+				EB876A38199365B900C6D4BF /* story_browse.png in Resources */,
 				EB77AD191988D43B00FD13E8 /* MyPostDetailCell.xib in Resources */,
 				EBF8437A1977B29300DE6835 /* agreement.html in Resources */,
 				EBB65828197DFFCE00A72876 /* AskOnlineViewController.xib in Resources */,
@@ -1758,6 +1809,8 @@
 				EB02FAF61991D4040028A6AD /* ForgetPasswordViewController.xib in Resources */,
 				EBFF222519861D0000F6ACAC /* MyAskDetailCell.xib in Resources */,
 				EB7641A1196E733B00972EED /* story_edit@2x.png in Resources */,
+				EB876A301993645700C6D4BF /* LikePetCell.xib in Resources */,
+				EB876A351993650900C6D4BF /* ShowPetCell.xib in Resources */,
 				EBBBA51B198C817F0061C996 /* main_my.png in Resources */,
 				EBBBA51D198C817F0061C996 /* main_story.png in Resources */,
 				EB38F47E1981F8930016DD90 /* my_goodcount.png in Resources */,
@@ -1771,6 +1824,7 @@
 				EBB6581D197DF12B00A72876 /* my_sex_woman@2x.png in Resources */,
 				546A9A5A197CE24A00C34E0D /* register_backgroundg.png in Resources */,
 				EB38F4851981FBC20016DD90 /* MyAskDetailViewController.xib in Resources */,
+				EB876A25199363EA00C6D4BF /* ADWebViewController.xib in Resources */,
 				EBBA762E1980A845007FA9AE /* EquipCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1792,6 +1846,7 @@
 			files = (
 				EB51883218E152090086BAE6 /* BaseModel.m in Sources */,
 				EBF6A59F197A693600493C26 /* HospitalListCell.m in Sources */,
+				EB876A24199363EA00C6D4BF /* ADWebViewController.m in Sources */,
 				EB9B4CFA197F524B00DF7AC0 /* PetHosDetailView.m in Sources */,
 				EB6D3E94196CD12800128DE3 /* UIScrollView+Extension.m in Sources */,
 				EBFF222419861D0000F6ACAC /* MyAskDetailCell.m in Sources */,
@@ -1811,6 +1866,7 @@
 				EB51887718E152400086BAE6 /* NSData+GIF.m in Sources */,
 				EB38F4721981F5250016DD90 /* MyPostViewController.m in Sources */,
 				EB7DCB5B198350FF00D323C6 /* InquiryModel.m in Sources */,
+				EB876A2B1993642600C6D4BF /* PetKnowledgeViewController.m in Sources */,
 				EB51887C18E152400086BAE6 /* SDWebImageDownloaderOperation.m in Sources */,
 				EB51888218E152400086BAE6 /* UIImage+MultiFormat.m in Sources */,
 				EB51887A18E152400086BAE6 /* SDWebImageDecoder.m in Sources */,
@@ -1824,6 +1880,7 @@
 				EBB9BC70197617A5005776FB /* UIProgressView+AFNetworking.m in Sources */,
 				EB8F815718E1175900EED294 /* AppDelegate.mm in Sources */,
 				EB5188A118E1527B0086BAE6 /* FMDatabase.m in Sources */,
+				EB876A2F1993645700C6D4BF /* LikePetCell.m in Sources */,
 				EBB9BC6C197617A5005776FB /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				EBB9BC8119762B15005776FB /* PetBirthdayViewController.m in Sources */,
 				EBBA762D1980A845007FA9AE /* EquipCell.m in Sources */,
@@ -1843,6 +1900,7 @@
 				EBC76115197FB85C00D6E3CE /* HospNewsViewController.m in Sources */,
 				EBB9BC7919762ACE005776FB /* AddPetViewController.m in Sources */,
 				EBC7611B197FB8FE00D6E3CE /* EquipViewController.m in Sources */,
+				EB876A341993650900C6D4BF /* ShowPetCell.m in Sources */,
 				EB8F818A18E1214D00EED294 /* Reachability.m in Sources */,
 				EBB9BC6B197617A5005776FB /* AFNetworkActivityIndicatorManager.m in Sources */,
 				EB51889018E1524F0086BAE6 /* WXHLGlobalUICommon.m in Sources */,
@@ -1860,6 +1918,7 @@
 				EB5509301980D997003CFC69 /* EnvironmentCell.m in Sources */,
 				EBF6A593197A07BE00493C26 /* LatestAskCell.m in Sources */,
 				EB51888B18E152480086BAE6 /* UIView+Additions.m in Sources */,
+				EB876A26199363EA00C6D4BF /* PetClassificationViewController.m in Sources */,
 				EBFFEEB0198A16530089C9EC /* MyViewCell.m in Sources */,
 				EB51887518E152400086BAE6 /* XLCycleScrollView.m in Sources */,
 				EB51887618E152400086BAE6 /* MKAnnotationView+WebCache.m in Sources */,
@@ -1870,6 +1929,7 @@
 				EB02FAF51991D4040028A6AD /* ForgetPasswordViewController.m in Sources */,
 				EB8F818918E1214D00EED294 /* OpenUDID.m in Sources */,
 				EBF6A59B197A68CA00493C26 /* HospitalDetailViewController.m in Sources */,
+				EB876A27199363EA00C6D4BF /* StoryContentViewController.m in Sources */,
 				EB6D3E91196CD12800128DE3 /* MJRefreshConst.m in Sources */,
 				EB5188A218E1527B0086BAE6 /* FMDatabaseAdditions.m in Sources */,
 				EBB9BC72197617A5005776FB /* UIWebView+AFNetworking.m in Sources */,
