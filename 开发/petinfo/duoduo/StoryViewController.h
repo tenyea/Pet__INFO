@@ -13,4 +13,6 @@
     UITableView *_tableView;
 }
 @property (strong,nonatomic) UITableView *tableView;
+
+-(void)loadData;
 @end

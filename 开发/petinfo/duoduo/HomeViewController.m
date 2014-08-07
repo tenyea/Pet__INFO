@@ -8,19 +8,29 @@
 
 #import "HomeViewController.h"
 #import "StoryCell.h"
+#import "StoryContentViewController.h"
+#import "PetClassificationViewController.h"
+#import "UIImageView+WebCache.h"
+#import "ADWebViewController.h"
 #define XLCycleHeight 130
 @interface HomeViewController ()
 {
     float _heigh;
     NSArray *array;
+    
 }
 @end
 
 @implementation HomeViewController
+@synthesize result=result;
+@synthesize result1=result1;
+@synthesize petEveryday=petEveryday;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+    
+ _po(@"222");
     }
     return self;
 }
@@ -28,9 +38,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+       _po(@"111");
     
+    petPhotoId = [result objectForKey:@"petPhotoId"];
+    petPhotoPathMin =[result objectForKey:@"petPhotoPathMin"];
+    petPhotoTitle = [result objectForKey:@"petPhotoTitle"];
+    petPhotoDes = [result objectForKey:@"petPhotoDes"];
+    petPhotoGood = [result objectForKey:@"petPhotoGood"];
+ 
     array=[[NSArray alloc]init];
-    array=@[@"推荐医院",@"寻宠招领",@"狗狗训练",@"求医问药",@"公益领养",@"宠物美容"];
+    array=@[@"新手课堂",@"专家讲堂",@"预防护理",@"日常饲养",@"就医指南",@"宠物美容"];
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight) style:UITableViewStylePlain];
     tableView.dataSource = self;
     tableView.delegate = self;
@@ -41,7 +58,8 @@
     // tableView.scrollEnabled=NO;
     // 取消tableview的row的横线
     // tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
-    
+  
+
     [self _loadDate];
 }
 
@@ -68,7 +86,7 @@
         return 2;
     }else
     {
-        return 4;
+        return 5;
     }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -100,30 +118,21 @@
         {
             // 实例化新的cell并且加上标签
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellName_button] ;
-            UIImageView *igv=[[UIImageView alloc]init];
-            igv.frame=CGRectMake(10, 10, 100, 60);
-            igv.image=[UIImage imageNamed:@"main_pedia.png"];
-//            [cell addSubview:igv];
             
-            UILabel *imageLabel = [[UILabel alloc]initWithFrame:CGRectMake(45, 10, 30, 40)];
-            imageLabel.text = @"宠信百科";
-            imageLabel.numberOfLines = 2;
-            imageLabel.textColor = [UIColor colorWithRed:0.84 green:0.99 blue:0.18 alpha:1];
-            imageLabel.font = [UIFont boldSystemFontOfSize:14];
-//            [igv addSubview:imageLabel];
             
             int m=0;
             for (int i=0; i<2; i++) {
                 for (int j=0; j<3; j++) {
                     
                     UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
-                    btn.frame=CGRectMake(110+j*70, 15+30*i, 60, 20);
+                    btn.frame=CGRectMake(20+j*110, 15+30*i, 60, 20);
                     [btn setTitle:[array objectAtIndex:m] forState:UIControlStateNormal];
                     btn.titleLabel.font = [UIFont systemFontOfSize: 12.0];
                     btn.titleLabel.textAlignment=NSTextAlignmentCenter;
                     //  btn.titleLabel.textColor=[UIColor colorWithRed:0.67f green:0.67f blue:0.67f alpha:1.00f];
                     btn.tag=i*10+j;
                     btn.layer.cornerRadius=4;
+                    [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
                     btn.backgroundColor=[UIColor colorWithRed:0.4 green:0.75 blue:0.62 alpha:1];
                     [cell addSubview:btn];
                     m++;
@@ -157,6 +166,7 @@
                 [cell addSubview:bview];
             }
             cell.accessoryType = UITableViewCellAccessoryNone;
+             cell.selectionStyle=UITableViewCellSelectionStyleNone;
             return cell;
             
         }else{
@@ -174,6 +184,7 @@
                 label.font=[UIFont boldSystemFontOfSize:15];
                 label.textColor=[UIColor colorWithRed:0.36 green:0.62 blue:0.11 alpha:1];
                 label.tag = 100;
+                
                 [cell addSubview:label];
                 //            内容
                 UILabel *desc = [[UILabel alloc]initWithFrame:CGRectMake(100, 10, 210, 80)];
@@ -193,8 +204,11 @@
                 UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, 80, 80)];
                 imageView.layer.masksToBounds = YES;
                 imageView.layer.cornerRadius = 13;
-                imageView.backgroundColor = [UIColor redColor];
+                
                 imageView.tag = 103;
+                NSURL *url = [NSURL URLWithString:petPhotoPathMin];
+                [imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"register_backgroundg.png"]];
+                
                 [cell addSubview:imageView];
                 
                 //            图片
@@ -206,21 +220,21 @@
                 igv1.frame=CGRectMake(260, 70, 15, 15);
                 igv1.image=[UIImage imageNamed:@"main_praise.png"];
                 [cell addSubview:igv1];
+             //   UILabel *label = (UILabel *)VIEWWITHTAG(tableView, 100);
+                label.text= petPhotoTitle;
                 
+              //  UILabel *desc = (UILabel *)VIEWWITHTAG(tableView, 101);
+                desc.text = petPhotoDes;
+                
+             //   UILabel *label1 = (UILabel *)VIEWWITHTAG(tableView, 104);
+                NSString *stringInt = [NSString stringWithFormat:@"%@",petPhotoGood];
+                label1.text=stringInt ;
+               
+
+
             }
             
             
-            UILabel *label = (UILabel *)VIEWWITHTAG(cell, 100);
-            label.text= @"小于宝宝和露露";
-            
-            UILabel *desc = (UILabel *)VIEWWITHTAG(cell, 101);
-            desc.text = @"宠物对我们而言或许只是孤单一时的陪伴，可在宠物眼里我们却是他的整个世界";
-            
-            UILabel *label1 = (UILabel *)VIEWWITHTAG(cell, 104);
-            label1.text=@"7788";
-            
-            UIImageView *image = (UIImageView *)VIEWWITHTAG(cell, 103);
-            image.image = [UIImage imageNamed:@"main_praise.png"];
             
             
             cell.selectionStyle=UITableViewCellSelectionStyleNone;
@@ -257,18 +271,68 @@
             if(cell == nil)
             {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"StoryCell" owner:self options:nil] lastObject];
+                for (int i=0; i<[petEveryday count]; i++) {
+                    petDay = [petEveryday objectAtIndex:i];
+                    petPhotoId1 = [petDay objectForKey:@"petPhotoId"];
+                    petPhotoTime = [petDay objectForKey:@"petPhotoTime"];
+                    petPhotoTitle1 = [petDay objectForKey:@"petPhotoTitle"];
+                    userName = [petDay objectForKey:@"userName"];
+                    userHead = [petDay objectForKey:@"userHead"];
+                    if (indexPath.row==i+1) {
+                        cell.TitleLabel.text=petPhotoTitle1;
+                        cell.TimeLabel.text=petPhotoTime;
+                        cell.UserNameLabel.text=userName;
+                        NSURL *url = [NSURL URLWithString:userHead];
+                        [cell.imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"register_backgroundg.png"]];
+                    }
+                   
+                }
+               
+                
             }
             cell.selectionStyle=UITableViewCellSelectionStyleNone;
             return cell;
         }
         
     }
-    
-    
-    
-    
-    
+   
 }
+
+
+-(void)btnAction:(UIButton *)btn
+{
+    switch (btn.tag) {
+        case 0:
+             [self.navigationController pushViewController:[[PetClassificationViewController alloc] init] animated:YES];
+            _po(@"1");
+            break;
+        case 1:
+             [self.navigationController pushViewController:[[PetClassificationViewController alloc] init] animated:YES];
+            _po(@"2");
+            break;
+        case 2:
+             [self.navigationController pushViewController:[[PetClassificationViewController alloc] init] animated:YES];
+            _po(@"3");
+            break;
+        case 10:
+             [self.navigationController pushViewController:[[PetClassificationViewController alloc] init] animated:YES];
+            _po(@"4");
+            break;
+        case 11:
+             [self.navigationController pushViewController:[[PetClassificationViewController alloc] init] animated:YES];
+            _po(@"5");
+            break;
+        case 12:
+             [self.navigationController pushViewController:[[PetClassificationViewController alloc] init] animated:YES];
+            _po(@"6");
+            break;
+        default:
+            break;
+    }
+
+}
+
+
 #pragma mark -
 #pragma mark UITableViewDelegate
 // 设置行高(默认为44px)
@@ -301,14 +365,33 @@
 
 - (UIView *)pageAtIndex:(NSInteger)index
 {
+   
+        NSDictionary *ad = [result1 objectAtIndex:index];
+        NSString *adId = [ad objectForKey:@"adId"];
+        NSString *adTitle = [ad objectForKey:@"adTitle"];
+        NSString *adImage = [ad objectForKey:@"adImage"];
+        NSString *adUrl = [ad objectForKey:@"adUrl"];
+       
+       
+    
     UIImageView *imgaeView =[[UIImageView alloc]init];
-    imgaeView.image = [UIImage imageNamed:@"1.png"];
+    NSURL *url = [NSURL URLWithString:adImage];
+    [imgaeView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"register_backgroundg.png"]];
+    // imgaeView.image = [UIImage imageNamed:@"1.png"];
     imgaeView.frame = CGRectMake(0,0, ScreenWidth - 16*2, XLCycleHeight - 11 * 2);
     imgaeView.backgroundColor = [UIColor yellowColor];
     return imgaeView;
+
 }
 - (void)didClickPage:(XLCycleScrollView *)csView atIndex:(NSInteger)index{
-    
+    NSDictionary *ad = [result1 objectAtIndex:index];
+    NSString *adId = [ad objectForKey:@"adId"];
+    NSString *adTitle = [ad objectForKey:@"adTitle"];
+    NSString *adImage = [ad objectForKey:@"adImage"];
+    NSString *adUrl = [ad objectForKey:@"adUrl"];
+    ADWebViewController *advc=[[ADWebViewController alloc]init];
+    advc.url=adUrl;
+     [self.navigationController pushViewController:advc animated:YES];
 }
 #pragma mark XLCycleScrollViewDatasource
 -(void)PageExchange:(NSInteger)index{
@@ -317,7 +400,7 @@
 }
 - (NSInteger)numberOfPages
 {
-    return 4;
+    return 3;
 }
 #pragma mark -
 #pragma mark UI
@@ -325,7 +408,7 @@
 
 
 -(void)_initUI{
-    //    轮播图
+//    轮播图
     view = [[UIView alloc]initWithFrame:CGRectMake(0,0,ScreenWidth, XLCycleHeight)];
     UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(14, 9, ScreenWidth - 14 * 2 , XLCycleHeight - 9 * 2)];
     bgView.backgroundColor = [UIColor colorWithRed:0.48 green:0.89 blue:0.87 alpha:1];
@@ -356,12 +439,120 @@
         pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:0.9 green:0.55 blue:0.13 alpha:1];
     }
     pageControl.userInteractionEnabled = NO;
-    pageControl.numberOfPages = 4;
+    pageControl.numberOfPages = 3;
     pageControl.currentPage= 0;
     [pageControlBg addSubview:pageControl];
     
     
 }
+
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+  
+        
+    if (indexPath.section==2&&indexPath.row!=0)
+    {
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+        [dic setValue:petPhotoId forKey:@"petPhotoId"];
+        [dic setValue:UD_userID_Str forKey:@"userId"];
+        
+        
+        [self getDate:URL_Pet_Photo andParams:dic andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSString *code =[responseObject objectForKey:@"code"];
+            NSLog(@"%@",code);
+           
+            int a = [code intValue];
+            if(a==0)
+            {
+                NSDictionary *dic=[responseObject objectForKey:@"petPhoto"];
+                StoryContentViewController *scvc =[[StoryContentViewController alloc] init];
+                
+                scvc.petImageViewURL=[dic objectForKey:@"petPhotoImg"];
+                scvc.petPresentation=[dic objectForKey:@"petPhotoText"];
+                [self.navigationController pushViewController:scvc animated:YES];
+                
+                NSLog(@"登录成功");
+            }else if(a==1001)
+            {
+               // 去登陆  缺少userID
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: %@", error);
+        }];
+       
+    }else if (indexPath.section==3&&indexPath.row!=0)
+    {
+        
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+        [dic setValue:[[petEveryday objectAtIndex:indexPath.row] objectForKey:@"petPhotoId"]  forKey:@"petPhotoId"];
+        [dic setValue:UD_userID_Str forKey:@"userId"];
+        
+        
+        [self getDate:URL_Pet_Photo andParams:dic andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSString *code =[responseObject objectForKey:@"code"];
+            NSLog(@"%@",code);
+            
+            int a = [code intValue];
+            if(a==0)
+            {
+                NSDictionary *dic=[responseObject objectForKey:@"petPhoto"];
+                StoryContentViewController *scvc =[[StoryContentViewController alloc] init];
+                
+                scvc.petImageViewURL=[dic objectForKey:@"petPhotoImg"];
+                scvc.petPresentation=[dic objectForKey:@"petPhotoText"];
+                [self.navigationController pushViewController:scvc animated:YES];
+                
+                NSLog(@"登录成功");
+            }else if(a==1001)
+            {
+                // 去登陆  缺少userID
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: %@", error);
+        }];
+
+    
+    }
+        
+    
+        
+    
+}
+
+// 解析数据存储在 NSUserDefaults
+-(void)showResult:(NSDictionary *)resultobject
+{
+    //解析数据
+  //  result =[resultobject objectForKey:@"weekPetPhoto"];
+    petPhotoId = [result objectForKey:@"petPhotoId"];
+    petPhotoPathMin =[result objectForKey:@"petPhotoPathMin"];
+    petPhotoTitle = [result objectForKey:@"petPhotoTitle"];
+    petPhotoDes = [result objectForKey:@"petPhotoDes"];
+    petPhotoGood = [result objectForKey:@"petPhotoGood"];
+   
+   
+ //  petEveryday = [resultobject objectForKey:@"petPhotoList"];
+    NSDictionary *petDay = [petEveryday objectAtIndex:0];
+    NSString *petPhotoId1 = [petDay objectForKey:@"petPhotoId"];
+    NSString *petPhotoTime = [petDay objectForKey:@"petPhotoTime"];
+    NSString *petPhotoTitle1 = [petDay objectForKey:@"petPhotoTitle"];
+    NSString *userName = [petDay objectForKey:@"userName"];
+    NSString *userHead = [petDay objectForKey:@"userHead"];
+    
+
+    
+ //   result1 =[resultobject objectForKey:@"ad"];
+    NSDictionary *ad = [result1 objectAtIndex:1];
+    NSString *adId = [ad objectForKey:@"adId"];
+    NSString *adTitle = [ad objectForKey:@"adTitle"];
+    NSString *adImage = [ad objectForKey:@"adImage"];
+    NSString *adUrl = [ad objectForKey:@"adUrl"];
+  
+    
+}
+
 #pragma mark -
 #pragma mark LoadDate
 -(void)_loadDate{

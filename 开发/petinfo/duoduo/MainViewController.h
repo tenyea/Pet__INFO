@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "TenyeaBaseNavigationViewController.h"
+#import "AFHTTPRequestOperation.h"
+#import "AFHTTPRequestOperationManager.h"
 #import <CoreLocation/CoreLocation.h>
 
 @interface MainViewController : UITabBarController<CLLocationManagerDelegate,UINavigationControllerDelegate>

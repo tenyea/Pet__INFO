@@ -14,20 +14,48 @@
 @interface MainViewController ()
 {
     int _tabbar_button_select ;
+    NSDictionary *main_result ;
+ 
+    NSArray *main_petEveryday ;
+ 
+    NSArray *main_result1 ;
+    
+    NSDictionary *story_result;
+    
+    StoryViewController *story;
 }
 @end
 
 @implementation MainViewController
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+ 
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //初始化子控制器
-    [self _initController];
-    //初始化tabbar
-    [self _initTabbarView];
 
-//    定位
-    [self Location];
+    [self getDate:URL_Ao andParams:nil andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSString *code =[responseObject objectForKey:@"code"];
+        
+        int a = [code intValue];
+        if(a==0)
+        {
+            [self showResult:responseObject];
+            NSLog(@"登录成功");
+            //初始化子控制器
+            [self _initController];
+            //初始化tabbar
+            [self _initTabbarView];
+            
+            //    定位
+            [self Location];
+
+        }
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 #pragma mark Location
 //定位
@@ -49,15 +77,54 @@
     
 
 }
+//访问网络获取数据
+//cachePolicyType 0:只读本地数据 。NSURLRequestReturnCacheDataDontLoad 只使用cache数据，如果不存在cache，请求失败;用于没有建立网络连接离线模式;
+//                1:本地于与网络比较。NSURLRequestReloadRevalidatingCacheData验证本地数据与远程数据是否相同，如果不同则下载远程数据，否则使用本地数据。
+-(void)getDate: (NSString *)url andParams:(NSDictionary *)param  andcachePolicy:(int)cachePolicyType success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
+    
+    NSString *baseurl = [BASE_URL stringByAppendingPathComponent:url];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
+    switch (cachePolicyType) {
+        case 0:
+            manager.requestSerializer.cachePolicy = NSURLRequestReturnCacheDataDontLoad;
+            
+            break;
+        case 1:
+            manager.requestSerializer.cachePolicy = NSURLRequestReloadRevalidatingCacheData;
+            break;
+        default:
+            break;
+    }
+    [manager GET:baseurl parameters:param success:success failure:failure ];
+}
 
 
+-(void)showResult:(NSDictionary *)resultobject
+{
+    //解析数据
+    main_result =[resultobject objectForKey:@"weekPetPhoto"];
+    
+    main_petEveryday = [resultobject objectForKey:@"petPhotoList"];
+   
+    main_result1 =[resultobject objectForKey:@"ad"];
+    
+    
+}
 
 #pragma mark -
 #pragma mark init
 //初始化子控制器
 -(void)_initController{
+   
     HomeViewController *home=[[HomeViewController alloc]init];
-    StoryViewController *story=[[StoryViewController alloc]init];
+    home.result=main_result;
+    home.petEveryday=main_petEveryday;
+    home.result1=main_result1;
+
+    story=[[StoryViewController alloc]init];
+     [story loadData];
     AskViewController *ask=[[AskViewController alloc]init];
     MyViewController *my=[[MyViewController alloc]init] ;
     
@@ -147,6 +214,12 @@
     int site = button.tag - 100;
     button.selected = YES;
     self.selectedIndex = site;
+    if (site==1) {
+       // button.selected=YES;
+       // story.rowHeigh=89;
+        _po(@"111");
+        [story loadData];
+    }
 }
 
 #pragma mark -
