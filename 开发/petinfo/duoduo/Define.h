@@ -11,7 +11,7 @@
 #define itunesappid 123124124
 #pragma mark -
 #pragma mark URL
-#define BASE_URL @"http://192.168.1.145:8090/nen/"
+#define BASE_URL @"http://192.168.1.145:8090/petInfo/"
 //#define BASE_URL @"http://app.nen.com.cn/"
 #define URL_Post_uploadPetImage @""
 
@@ -46,6 +46,14 @@
 #define URL_RegisterServlet @"AppRegister"
 // 登录
 #define URL_Login @"AppLogin"
+// 首页
+#define URL_Ao @"AppAo"
+// 故事页
+#define URL_Story @"AppStory"
+// 故事页 4合1
+#define URL_Story_Four_To_One @"AppPetPhotoList"
+// 宠物萌照详细
+#define URL_Pet_Photo @"AppPetPhoto"
 
 #pragma mark color
 #define TextColor COLOR(247, 247, 247)
