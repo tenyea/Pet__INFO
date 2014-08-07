@@ -177,7 +177,7 @@
             NSLog(@"locality,%@",place.locality);               // 市
             NSLog(@"subLocality,%@",place.subLocality);         //区
             _po(place.administrativeArea); //省
-            [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@-%@",place.location,place.subLocality] forKey:UD_nowPosition_Str];
+            [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@-%@",place.locality,place.subLocality] forKey:UD_nowPosition_Str];
             [[NSUserDefaults standardUserDefaults] setObject:
                             @{@"latitude": [NSNumber numberWithFloat:location.coordinate.latitude],
                               @"longitude":[NSNumber numberWithFloat:location.coordinate.longitude]}
@@ -198,7 +198,7 @@
             NSLog(@"locality,%@",place.locality);               // 市
             NSLog(@"subLocality,%@",place.subLocality);         //区
             _po(place.administrativeArea); //省
-            [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@-%@",place.location,place.subLocality] forKey:UD_nowPosition_Str];
+            [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@-%@",place.locality,place.subLocality] forKey:UD_nowPosition_Str];
             [[NSUserDefaults standardUserDefaults] setObject:
              @{@"latitude": [NSNumber numberWithFloat:location.coordinate.latitude],
                @"longitude":[NSNumber numberWithFloat:location.coordinate.longitude]}
