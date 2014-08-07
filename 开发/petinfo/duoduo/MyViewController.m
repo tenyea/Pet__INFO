@@ -149,7 +149,8 @@
         _addressLabel.textColor = [UIColor colorWithRed:0.48 green:0.4 blue:0.09 alpha:1];
         _addressLabel.font = [UIFont boldSystemFontOfSize:13];
         [_bgView addSubview:_addressLabel];
-        _addressLabel.text = @"辽宁|沈阳|铁西区";
+        _addressLabel.text = [[NSUserDefaults standardUserDefaults ]objectForKey:UD_nowPosition_Str];
+        _po( [[NSUserDefaults standardUserDefaults ]objectForKey:UD_nowPosition_Str]);
         //        读取宠物信息
         _petArr = [[NSUserDefaults standardUserDefaults]arrayForKey:UD_pet_Array];
         

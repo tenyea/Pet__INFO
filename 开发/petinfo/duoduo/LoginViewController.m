@@ -7,6 +7,7 @@
 //
 #import "OpenUDID.h"
 #import "LoginViewController.h"
+#import "ForgetPasswordViewController.h"
 #define parametersLost @"请输入完整信息"
 #define wrongInformation @"用户名或密码错误"
 
@@ -66,12 +67,7 @@
     
 }
 
-// 解析数据存储在 NSUserDefaults
--(void)showResult:(NSDictionary *)resultobject
-{
-    //解析数据
-    
-}
+
 // 登录失败取消HUD
 -(void)timerFiredFailure:(NSTimer *)timer{
     [hudLabel removeFromSuperview];
@@ -101,6 +97,10 @@
     if (dicLocationnow) {
         [dic setObject:[dicLocationnow objectForKey:@"longitude"]  forKey:@"longitude"];
         [dic setObject:[dicLocationnow objectForKey:@"latitude"] forKey:@"latitude"];
+    }else{
+        [dic setObject:@"0"  forKey:@"longitude"];
+        [dic setObject:@"0" forKey:@"latitude"];
+
     }
     [self getDate:URL_Login andParams:dic andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSString *code =[responseObject objectForKey:@"code"];
@@ -109,7 +109,6 @@
         int a = [code intValue];
         if(a==0)
         {
-            [self showResult:responseObject];
             NSDictionary *userDic = [responseObject objectForKey:@"user"];
             [[NSUserDefaults standardUserDefaults]setObject:userDic forKey:UD_userInfo_DIC];
             [[NSUserDefaults standardUserDefaults]setObject: [userDic objectForKey:@"userId"] forKey:UD_userID_Str];
@@ -140,5 +139,9 @@
     [userNameTF resignFirstResponder];
     [passwordTF resignFirstResponder];
     
+}
+
+- (IBAction)forgetPasswordAction:(id)sender {
+    [self.navigationController pushViewController:[[ForgetPasswordViewController alloc] init] animated:YES];
 }
 @end

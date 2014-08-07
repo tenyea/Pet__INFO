@@ -55,7 +55,7 @@
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 120 + 150 , ScreenWidth, ScreenHeight - 120 - 150- 49) style:UITableViewStylePlain];
     _tableView.dataSource = self;
     _tableView.delegate = self;
-
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tableView];
 }
 #pragma mark - 

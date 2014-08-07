@@ -14,6 +14,12 @@
 		546A9A5D197CE24A00C34E0D /* login_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 546A9A57197CE24A00C34E0D /* login_background.png */; };
 		546A9A5E197CE24A00C34E0D /* register.png in Resources */ = {isa = PBXBuildFile; fileRef = 546A9A58197CE24A00C34E0D /* register.png */; };
 		546A9A60197CE41F00C34E0D /* libBPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 546A9A5F197CE41F00C34E0D /* libBPush.a */; };
+		EB02FAF51991D4040028A6AD /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02FAF31991D4040028A6AD /* ForgetPasswordViewController.m */; };
+		EB02FAF61991D4040028A6AD /* ForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB02FAF41991D4040028A6AD /* ForgetPasswordViewController.xib */; };
+		EB02FAFB1991D6AD0028A6AD /* UpdatePasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02FAF91991D6AD0028A6AD /* UpdatePasswordVC.m */; };
+		EB02FAFC1991D6AD0028A6AD /* UpdatePasswordVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB02FAFA1991D6AD0028A6AD /* UpdatePasswordVC.xib */; };
+		EB02FB001991D74B0028A6AD /* SecurityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02FAFE1991D74B0028A6AD /* SecurityViewController.m */; };
+		EB02FB011991D74B0028A6AD /* SecurityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB02FAFF1991D74B0028A6AD /* SecurityViewController.xib */; };
 		EB0635521979049900A4A005 /* MyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0635511979049900A4A005 /* MyInfoViewController.m */; };
 		EB25A7FF196B867A00987F0B /* StoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB25A7FE196B867A00987F0B /* StoryViewController.m */; };
 		EB25A802196B86CD00987F0B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB25A801196B86CD00987F0B /* MainViewController.m */; };
@@ -251,6 +257,18 @@
 		546A9A57197CE24A00C34E0D /* login_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_background.png; sourceTree = "<group>"; };
 		546A9A58197CE24A00C34E0D /* register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = register.png; sourceTree = "<group>"; };
 		546A9A5F197CE41F00C34E0D /* libBPush.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBPush.a; sourceTree = "<group>"; };
+		EB02FAEF1991D01A0028A6AD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/MyAskDetailTopCell.xib"; sourceTree = "<group>"; };
+		EB02FAF01991D01A0028A6AD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		EB02FAF11991D01A0028A6AD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		EB02FAF21991D4040028A6AD /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
+		EB02FAF31991D4040028A6AD /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
+		EB02FAF41991D4040028A6AD /* ForgetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetPasswordViewController.xib; sourceTree = "<group>"; };
+		EB02FAF81991D6AD0028A6AD /* UpdatePasswordVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdatePasswordVC.h; sourceTree = "<group>"; };
+		EB02FAF91991D6AD0028A6AD /* UpdatePasswordVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdatePasswordVC.m; sourceTree = "<group>"; };
+		EB02FAFA1991D6AD0028A6AD /* UpdatePasswordVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdatePasswordVC.xib; sourceTree = "<group>"; };
+		EB02FAFD1991D74B0028A6AD /* SecurityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecurityViewController.h; sourceTree = "<group>"; };
+		EB02FAFE1991D74B0028A6AD /* SecurityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecurityViewController.m; sourceTree = "<group>"; };
+		EB02FAFF1991D74B0028A6AD /* SecurityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecurityViewController.xib; sourceTree = "<group>"; };
 		EB0635501979049900A4A005 /* MyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInfoViewController.h; sourceTree = "<group>"; };
 		EB0635511979049900A4A005 /* MyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInfoViewController.m; sourceTree = "<group>"; };
 		EB25A7FD196B867A00987F0B /* StoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryViewController.h; sourceTree = "<group>"; };
@@ -469,7 +487,6 @@
 		EB7641A0196E733B00972EED /* story_edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "story_edit@2x.png"; sourceTree = "<group>"; };
 		EB7641A2196E770100972EED /* home_cell_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_cell_line.png; sourceTree = "<group>"; };
 		EB7641A4196E783600972EED /* home_item_date@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_item_date@2x.png"; sourceTree = "<group>"; };
-		EB77AD0B19888ADF00FD13E8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MyAskDetailTopCell.xib; sourceTree = "<group>"; };
 		EB77AD0D1988A12F00FD13E8 /* PostModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostModel.h; sourceTree = "<group>"; };
 		EB77AD0E1988A12F00FD13E8 /* PostModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostModel.m; sourceTree = "<group>"; };
 		EB77AD101988D42200FD13E8 /* MyPostTopCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPostTopCell.h; sourceTree = "<group>"; };
@@ -485,7 +502,6 @@
 		EB8F814818E1175900EED294 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		EB8F814A18E1175900EED294 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		EB8F814E18E1175900EED294 /* 宠信-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "宠信-Info.plist"; sourceTree = "<group>"; };
-		EB8F815018E1175900EED294 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EB8F815218E1175900EED294 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EB8F815418E1175900EED294 /* 宠信-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "宠信-Prefix.pch"; sourceTree = "<group>"; };
 		EB8F815518E1175900EED294 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -494,7 +510,6 @@
 		EB8F815E18E1175900EED294 /* 宠信Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "宠信Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB8F815F18E1175900EED294 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		EB8F816718E1175900EED294 /* duoduoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "duoduoTests-Info.plist"; sourceTree = "<group>"; };
-		EB8F816918E1175900EED294 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EB8F816B18E1175900EED294 /* duoduoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = duoduoTests.m; sourceTree = "<group>"; };
 		EB8F817718E1214D00EED294 /* BPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPush.h; sourceTree = "<group>"; };
 		EB8F817A18E1214D00EED294 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
@@ -699,14 +714,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB02FAF71991D4080028A6AD /* forgetpassword */ = {
+			isa = PBXGroup;
+			children = (
+				EB02FAF21991D4040028A6AD /* ForgetPasswordViewController.h */,
+				EB02FAF31991D4040028A6AD /* ForgetPasswordViewController.m */,
+				EB02FAF41991D4040028A6AD /* ForgetPasswordViewController.xib */,
+				EB02FAFD1991D74B0028A6AD /* SecurityViewController.h */,
+				EB02FAFE1991D74B0028A6AD /* SecurityViewController.m */,
+				EB02FAFF1991D74B0028A6AD /* SecurityViewController.xib */,
+				EB28F7AA197CFA6E0084BE84 /* UpdatePasswordViewController.h */,
+				EB28F7AB197CFA6E0084BE84 /* UpdatePasswordViewController.m */,
+				EB28F7AC197CFA6E0084BE84 /* UpdatePasswordViewController.xib */,
+				EB02FAF81991D6AD0028A6AD /* UpdatePasswordVC.h */,
+				EB02FAF91991D6AD0028A6AD /* UpdatePasswordVC.m */,
+				EB02FAFA1991D6AD0028A6AD /* UpdatePasswordVC.xib */,
+			);
+			name = forgetpassword;
+			sourceTree = "<group>";
+		};
 		EB06354F1979047E00A4A005 /* myInfo */ = {
 			isa = PBXGroup;
 			children = (
 				EB0635501979049900A4A005 /* MyInfoViewController.h */,
 				EB0635511979049900A4A005 /* MyInfoViewController.m */,
-				EB28F7AA197CFA6E0084BE84 /* UpdatePasswordViewController.h */,
-				EB28F7AB197CFA6E0084BE84 /* UpdatePasswordViewController.m */,
-				EB28F7AC197CFA6E0084BE84 /* UpdatePasswordViewController.xib */,
 			);
 			name = myInfo;
 			sourceTree = "<group>";
@@ -768,6 +799,7 @@
 				EBB9BC9C19764AA1005776FB /* LoginViewController.h */,
 				EBB9BC9D19764AA1005776FB /* LoginViewController.m */,
 				EBB9BC9E19764AA1005776FB /* LoginViewController.xib */,
+				EB02FAF71991D4080028A6AD /* forgetpassword */,
 				EBC6E6B8196FE2DB0056E817 /* RegisterViewController.h */,
 				EBC6E6B9196FE2DB0056E817 /* RegisterViewController.m */,
 				EBC6E6BA196FE2DB0056E817 /* RegisterViewController.xib */,
@@ -1639,6 +1671,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = EB8F813A18E1175800EED294;
 			productRefGroup = EB8F814418E1175900EED294 /* Products */;
@@ -1664,6 +1697,7 @@
 				EB38F4771981F5700016DD90 /* MyAskCell.xib in Resources */,
 				EB28F76C197CC1550084BE84 /* mapapi.bundle in Resources */,
 				EB28F7AE197CFA6E0084BE84 /* UpdatePasswordViewController.xib in Resources */,
+				EB02FB011991D74B0028A6AD /* SecurityViewController.xib in Resources */,
 				EBB9BCA019764AA1005776FB /* LoginViewController.xib in Resources */,
 				EBBBA51A198C817F0061C996 /* main_my_selected.png in Resources */,
 				EBB6582E197DFFEE00A72876 /* PetHospitalViewController.xib in Resources */,
@@ -1706,6 +1740,7 @@
 				EBFCB2D2198B4465000974BB /* load_headimg_bg.png in Resources */,
 				546A9A5B197CE24A00C34E0D /* username.png in Resources */,
 				EB77AD0A19888ADF00FD13E8 /* MyAskDetailTopCell.xib in Resources */,
+				EB02FAFC1991D6AD0028A6AD /* UpdatePasswordVC.xib in Resources */,
 				EB606A661970FD36008F47E8 /* main_pedia.png in Resources */,
 				EBB6581F197DF1A700A72876 /* my_addpet@2x.png in Resources */,
 				EB8F815918E1175900EED294 /* Images.xcassets in Resources */,
@@ -1720,6 +1755,7 @@
 				EBC76107197F9F1200D6E3CE /* UserCommentCell.xib in Resources */,
 				EBBBA517198C817F0061C996 /* main_home.png in Resources */,
 				EB38F47C1981F5800016DD90 /* MyPostCell.xib in Resources */,
+				EB02FAF61991D4040028A6AD /* ForgetPasswordViewController.xib in Resources */,
 				EBFF222519861D0000F6ACAC /* MyAskDetailCell.xib in Resources */,
 				EB7641A1196E733B00972EED /* story_edit@2x.png in Resources */,
 				EBBBA51B198C817F0061C996 /* main_my.png in Resources */,
@@ -1778,6 +1814,7 @@
 				EB51887C18E152400086BAE6 /* SDWebImageDownloaderOperation.m in Sources */,
 				EB51888218E152400086BAE6 /* UIImage+MultiFormat.m in Sources */,
 				EB51887A18E152400086BAE6 /* SDWebImageDecoder.m in Sources */,
+				EB02FB001991D74B0028A6AD /* SecurityViewController.m in Sources */,
 				EBFF2229198625EA00F6ACAC /* MyAskDetailTopCell.m in Sources */,
 				EB51887818E152400086BAE6 /* SDImageCache.m in Sources */,
 				EBFF222D1986260800F6ACAC /* MyAskDocView.m in Sources */,
@@ -1798,6 +1835,7 @@
 				EB51887918E152400086BAE6 /* SDWebImageCompat.m in Sources */,
 				EB28F7AD197CFA6E0084BE84 /* UpdatePasswordViewController.m in Sources */,
 				EB8F818718E1214D00EED294 /* GzipCompressor.m in Sources */,
+				EB02FAFB1991D6AD0028A6AD /* UpdatePasswordVC.m in Sources */,
 				EBB9BC62197617A5005776FB /* AFHTTPRequestOperation.m in Sources */,
 				EB77AD181988D43B00FD13E8 /* MyPostDetailCell.m in Sources */,
 				EBB9BC65197617A5005776FB /* AFNetworkReachabilityManager.m in Sources */,
@@ -1829,6 +1867,7 @@
 				EB0635521979049900A4A005 /* MyInfoViewController.m in Sources */,
 				EBF843781977B29300DE6835 /* AboutViewController.m in Sources */,
 				EB51888418E152400086BAE6 /* UIImageView+WebCache.m in Sources */,
+				EB02FAF51991D4040028A6AD /* ForgetPasswordViewController.m in Sources */,
 				EB8F818918E1214D00EED294 /* OpenUDID.m in Sources */,
 				EBF6A59B197A68CA00493C26 /* HospitalDetailViewController.m in Sources */,
 				EB6D3E91196CD12800128DE3 /* MJRefreshConst.m in Sources */,
@@ -1897,7 +1936,7 @@
 		EB77AD0C19888ADF00FD13E8 /* MyAskDetailTopCell.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EB77AD0B19888ADF00FD13E8 /* en */,
+				EB02FAEF1991D01A0028A6AD /* zh-Hans */,
 			);
 			name = MyAskDetailTopCell.xib;
 			sourceTree = "<group>";
@@ -1905,7 +1944,7 @@
 		EB8F814F18E1175900EED294 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EB8F815018E1175900EED294 /* en */,
+				EB02FAF01991D01A0028A6AD /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1913,7 +1952,7 @@
 		EB8F816818E1175900EED294 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EB8F816918E1175900EED294 /* en */,
+				EB02FAF11991D01A0028A6AD /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
