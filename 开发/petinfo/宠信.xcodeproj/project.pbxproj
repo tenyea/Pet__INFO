@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		546A24C1197E2E4000BA70E8 /* ShowPetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 546A24C0197E2E4000BA70E8 /* ShowPetCell.m */; };
+		546A24C3197E2E5B00BA70E8 /* ShowPetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 546A24C2197E2E5B00BA70E8 /* ShowPetCell.xib */; };
+		546A24C6197E4F7B00BA70E8 /* LikePetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 546A24C5197E4F7B00BA70E8 /* LikePetCell.m */; };
+		546A24C8197E4F8F00BA70E8 /* LikePetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 546A24C7197E4F8F00BA70E8 /* LikePetCell.xib */; };
+		546A24CC197E5E6400BA70E8 /* StoryContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 546A24CA197E5E6400BA70E8 /* StoryContentViewController.m */; };
+		546A24CD197E5E6400BA70E8 /* StoryContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 546A24CB197E5E6400BA70E8 /* StoryContentViewController.xib */; };
 		546A9A59197CE24A00C34E0D /* password.png in Resources */ = {isa = PBXBuildFile; fileRef = 546A9A53197CE24A00C34E0D /* password.png */; };
 		546A9A5A197CE24A00C34E0D /* register_backgroundg.png in Resources */ = {isa = PBXBuildFile; fileRef = 546A9A54197CE24A00C34E0D /* register_backgroundg.png */; };
 		546A9A5B197CE24A00C34E0D /* username.png in Resources */ = {isa = PBXBuildFile; fileRef = 546A9A55197CE24A00C34E0D /* username.png */; };
@@ -14,6 +20,12 @@
 		546A9A5D197CE24A00C34E0D /* login_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 546A9A57197CE24A00C34E0D /* login_background.png */; };
 		546A9A5E197CE24A00C34E0D /* register.png in Resources */ = {isa = PBXBuildFile; fileRef = 546A9A58197CE24A00C34E0D /* register.png */; };
 		546A9A60197CE41F00C34E0D /* libBPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 546A9A5F197CE41F00C34E0D /* libBPush.a */; };
+		547002CF19920C880082413C /* story_browse.png in Resources */ = {isa = PBXBuildFile; fileRef = 547002CE19920C880082413C /* story_browse.png */; };
+		5470831C198F828000C8E2EF /* ADWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5470831A198F828000C8E2EF /* ADWebViewController.m */; };
+		5470831D198F828000C8E2EF /* ADWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5470831B198F828000C8E2EF /* ADWebViewController.xib */; };
+		5470E5D91980FBE500E001FD /* PetKnowledgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5470E5D81980FBE500E001FD /* PetKnowledgeViewController.m */; };
+		5470E5DC1980FBFC00E001FD /* PetClassificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5470E5DB1980FBFC00E001FD /* PetClassificationViewController.m */; };
+		547ED9C219931681005902F1 /* story_red_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 547ED9C119931681005902F1 /* story_red_heart.png */; };
 		EB0635521979049900A4A005 /* MyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0635511979049900A4A005 /* MyInfoViewController.m */; };
 		EB25A7FF196B867A00987F0B /* StoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB25A7FE196B867A00987F0B /* StoryViewController.m */; };
 		EB25A802196B86CD00987F0B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB25A801196B86CD00987F0B /* MainViewController.m */; };
@@ -174,6 +186,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		546A24BF197E2E4000BA70E8 /* ShowPetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowPetCell.h; sourceTree = "<group>"; };
+		546A24C0197E2E4000BA70E8 /* ShowPetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowPetCell.m; sourceTree = "<group>"; };
+		546A24C2197E2E5B00BA70E8 /* ShowPetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowPetCell.xib; sourceTree = "<group>"; };
+		546A24C4197E4F7B00BA70E8 /* LikePetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikePetCell.h; sourceTree = "<group>"; };
+		546A24C5197E4F7B00BA70E8 /* LikePetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikePetCell.m; sourceTree = "<group>"; };
+		546A24C7197E4F8F00BA70E8 /* LikePetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LikePetCell.xib; sourceTree = "<group>"; };
+		546A24C9197E5E6400BA70E8 /* StoryContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryContentViewController.h; sourceTree = "<group>"; };
+		546A24CA197E5E6400BA70E8 /* StoryContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoryContentViewController.m; sourceTree = "<group>"; };
+		546A24CB197E5E6400BA70E8 /* StoryContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoryContentViewController.xib; sourceTree = "<group>"; };
 		546A9A53197CE24A00C34E0D /* password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = password.png; sourceTree = "<group>"; };
 		546A9A54197CE24A00C34E0D /* register_backgroundg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = register_backgroundg.png; sourceTree = "<group>"; };
 		546A9A55197CE24A00C34E0D /* username.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = username.png; sourceTree = "<group>"; };
@@ -181,7 +202,15 @@
 		546A9A57197CE24A00C34E0D /* login_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_background.png; sourceTree = "<group>"; };
 		546A9A58197CE24A00C34E0D /* register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = register.png; sourceTree = "<group>"; };
 		546A9A5F197CE41F00C34E0D /* libBPush.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBPush.a; sourceTree = "<group>"; };
-		546A9A61197CE51F00C34E0D /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		547002CE19920C880082413C /* story_browse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = story_browse.png; sourceTree = "<group>"; };
+		54708319198F828000C8E2EF /* ADWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADWebViewController.h; sourceTree = "<group>"; };
+		5470831A198F828000C8E2EF /* ADWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADWebViewController.m; sourceTree = "<group>"; };
+		5470831B198F828000C8E2EF /* ADWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ADWebViewController.xib; sourceTree = "<group>"; };
+		5470E5D71980FBE500E001FD /* PetKnowledgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetKnowledgeViewController.h; sourceTree = "<group>"; };
+		5470E5D81980FBE500E001FD /* PetKnowledgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetKnowledgeViewController.m; sourceTree = "<group>"; };
+		5470E5DA1980FBFC00E001FD /* PetClassificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetClassificationViewController.h; sourceTree = "<group>"; };
+		5470E5DB1980FBFC00E001FD /* PetClassificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetClassificationViewController.m; sourceTree = "<group>"; };
+		547ED9C119931681005902F1 /* story_red_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = story_red_heart.png; sourceTree = "<group>"; };
 		EB0635501979049900A4A005 /* MyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInfoViewController.h; sourceTree = "<group>"; };
 		EB0635511979049900A4A005 /* MyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInfoViewController.m; sourceTree = "<group>"; };
 		EB25A7FD196B867A00987F0B /* StoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoryViewController.h; sourceTree = "<group>"; };
@@ -538,7 +567,6 @@
 		EB25A7F7196B857500987F0B /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				546A9A61197CE51F00C34E0D /* Header.h */,
 				EB25A800196B86CD00987F0B /* MainViewController.h */,
 				EB25A801196B86CD00987F0B /* MainViewController.m */,
 				EB25A7F9196B862E00987F0B /* Story */,
@@ -558,6 +586,19 @@
 				EB5BB1ED196B9FC90027B590 /* StoryCell.h */,
 				EB5BB1EE196B9FC90027B590 /* StoryCell.m */,
 				EB5BB1EF196B9FC90027B590 /* StoryCell.xib */,
+				546A24BF197E2E4000BA70E8 /* ShowPetCell.h */,
+				546A24C0197E2E4000BA70E8 /* ShowPetCell.m */,
+				546A24C2197E2E5B00BA70E8 /* ShowPetCell.xib */,
+				546A24C4197E4F7B00BA70E8 /* LikePetCell.h */,
+				546A24C5197E4F7B00BA70E8 /* LikePetCell.m */,
+				546A24C7197E4F8F00BA70E8 /* LikePetCell.xib */,
+				5470E5D71980FBE500E001FD /* PetKnowledgeViewController.h */,
+				5470E5D81980FBE500E001FD /* PetKnowledgeViewController.m */,
+				5470E5DA1980FBFC00E001FD /* PetClassificationViewController.h */,
+				5470E5DB1980FBFC00E001FD /* PetClassificationViewController.m */,
+				54708319198F828000C8E2EF /* ADWebViewController.h */,
+				5470831A198F828000C8E2EF /* ADWebViewController.m */,
+				5470831B198F828000C8E2EF /* ADWebViewController.xib */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -567,6 +608,9 @@
 			children = (
 				EB25A7FD196B867A00987F0B /* StoryViewController.h */,
 				EB25A7FE196B867A00987F0B /* StoryViewController.m */,
+				546A24C9197E5E6400BA70E8 /* StoryContentViewController.h */,
+				546A24CA197E5E6400BA70E8 /* StoryContentViewController.m */,
+				546A24CB197E5E6400BA70E8 /* StoryContentViewController.xib */,
 			);
 			name = Story;
 			sourceTree = "<group>";
@@ -907,6 +951,8 @@
 		EB76418B196E702B00972EED /* story */ = {
 			isa = PBXGroup;
 			children = (
+				547ED9C119931681005902F1 /* story_red_heart.png */,
+				547002CE19920C880082413C /* story_browse.png */,
 				EB764196196E725B00972EED /* story_near@2x.png */,
 				EB764197196E725B00972EED /* story_sentiment@2x.png */,
 				EB764198196E725B00972EED /* story_image@2x.png */,
@@ -1304,6 +1350,7 @@
 				EB76419B196E725B00972EED /* story_sentiment@2x.png in Resources */,
 				EB5188AD18E1540E0086BAE6 /* 37x-Checkmark.png in Resources */,
 				EB606A621970FD24008F47E8 /* home_horn.png in Resources */,
+				5470831D198F828000C8E2EF /* ADWebViewController.xib in Resources */,
 				EB606A641970FD2D008F47E8 /* main_top.png in Resources */,
 				EB7641A3196E770100972EED /* home_cell_line.png in Resources */,
 				EB5BB1F1196B9FC90027B590 /* StoryCell.xib in Resources */,
@@ -1312,6 +1359,7 @@
 				EB76419D196E725B00972EED /* story_star@2x.png in Resources */,
 				546A9A5E197CE24A00C34E0D /* register.png in Resources */,
 				EB8F815118E1175900EED294 /* InfoPlist.strings in Resources */,
+				547002CF19920C880082413C /* story_browse.png in Resources */,
 				546A9A5D197CE24A00C34E0D /* login_background.png in Resources */,
 				EBF6A594197A07BE00493C26 /* LatestAskCell.xib in Resources */,
 				EBF843791977B29300DE6835 /* AboutViewController.xib in Resources */,
@@ -1320,16 +1368,19 @@
 				EB25A81A196B88D600987F0B /* main_home@2x.png in Resources */,
 				EBF8437A1977B29300DE6835 /* agreement.html in Resources */,
 				EB5188AF18E1540E0086BAE6 /* MBProgressHUD.bundle in Resources */,
+				547ED9C219931681005902F1 /* story_red_heart.png in Resources */,
 				546A9A5B197CE24A00C34E0D /* username.png in Resources */,
 				EB25A81E196B88D700987F0B /* main_my_selected@2x.png in Resources */,
 				EB25A818196B88D600987F0B /* main_story_selected@2x.png in Resources */,
 				EB606A661970FD36008F47E8 /* main_pedia.png in Resources */,
 				EB8F815918E1175900EED294 /* Images.xcassets in Resources */,
 				EBF8437C1977B41200DE6835 /* about.html in Resources */,
+				546A24C8197E4F8F00BA70E8 /* LikePetCell.xib in Resources */,
 				EB7641A5196E783600972EED /* home_item_date@2x.png in Resources */,
 				EB8F819D18E14AD800EED294 /* BPushConfig.plist in Resources */,
 				EBDF7257196BCA4D00B818EF /* nav_background7.png in Resources */,
 				EB606A681970FD3A008F47E8 /* main_praise.png in Resources */,
+				546A24CD197E5E6400BA70E8 /* StoryContentViewController.xib in Resources */,
 				EB25A81C196B88D600987F0B /* main_ask_selected@2x.png in Resources */,
 				EB7641A1196E733B00972EED /* story_edit@2x.png in Resources */,
 				EB76419C196E725B00972EED /* story_image@2x.png in Resources */,
@@ -1338,6 +1389,7 @@
 				EB43DB351977991300A3B8B0 /* nav_back.png in Resources */,
 				546A9A5A197CE24A00C34E0D /* register_backgroundg.png in Resources */,
 				EB25A81F196B88D700987F0B /* main_ask@2x.png in Resources */,
+				546A24C3197E2E5B00BA70E8 /* ShowPetCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1362,6 +1414,7 @@
 				EB51887F18E152400086BAE6 /* SDWebImagePrefetcher.m in Sources */,
 				EB25A7FF196B867A00987F0B /* StoryViewController.m in Sources */,
 				EB6D3E92196CD12800128DE3 /* MJRefreshFooterView.m in Sources */,
+				546A24C6197E4F7B00BA70E8 /* LikePetCell.m in Sources */,
 				EBB9BC9F19764AA1005776FB /* LoginViewController.m in Sources */,
 				EB5BB1F0196B9FC90027B590 /* StoryCell.m in Sources */,
 				EB25A802196B86CD00987F0B /* MainViewController.m in Sources */,
@@ -1385,6 +1438,7 @@
 				EB51887918E152400086BAE6 /* SDWebImageCompat.m in Sources */,
 				EB8F818718E1214D00EED294 /* GzipCompressor.m in Sources */,
 				EBB9BC62197617A5005776FB /* AFHTTPRequestOperation.m in Sources */,
+				5470831C198F828000C8E2EF /* ADWebViewController.m in Sources */,
 				EBB9BC65197617A5005776FB /* AFNetworkReachabilityManager.m in Sources */,
 				EB51887E18E152400086BAE6 /* SDWebImageManager.m in Sources */,
 				EBB9BC7919762ACE005776FB /* AddPetViewController.m in Sources */,
@@ -1392,11 +1446,13 @@
 				EBB9BC6B197617A5005776FB /* AFNetworkActivityIndicatorManager.m in Sources */,
 				EB51889018E1524F0086BAE6 /* WXHLGlobalUICommon.m in Sources */,
 				EB51887D18E152400086BAE6 /* SDWebImageManager+MJ.m in Sources */,
+				5470E5D91980FBE500E001FD /* PetKnowledgeViewController.m in Sources */,
 				EB606A601970FA61008F47E8 /* HomeViewController.m in Sources */,
 				EB51885118E1522F0086BAE6 /* NSString+URLEncoding.m in Sources */,
 				EBB9BC69197617A5005776FB /* AFURLResponseSerialization.m in Sources */,
 				EB25A807196B874C00987F0B /* MyViewController.m in Sources */,
 				EBB9BC66197617A5005776FB /* AFSecurityPolicy.m in Sources */,
+				546A24CC197E5E6400BA70E8 /* StoryContentViewController.m in Sources */,
 				EB51888C18E152480086BAE6 /* UIViewExt.m in Sources */,
 				EBF6A593197A07BE00493C26 /* LatestAskCell.m in Sources */,
 				EB51888B18E152480086BAE6 /* UIView+Additions.m in Sources */,
@@ -1416,7 +1472,9 @@
 				EBB9BC9719762C08005776FB /* PetNameAndVarietyViewController.m in Sources */,
 				EB25A80A196B875500987F0B /* AskViewController.m in Sources */,
 				EB51888018E152400086BAE6 /* UIButton+WebCache.m in Sources */,
+				546A24C1197E2E4000BA70E8 /* ShowPetCell.m in Sources */,
 				EB6D3E90196CD12800128DE3 /* MJRefreshBaseView.m in Sources */,
+				5470E5DC1980FBFC00E001FD /* PetClassificationViewController.m in Sources */,
 				EBB9BC71197617A5005776FB /* UIRefreshControl+AFNetworking.m in Sources */,
 				EB5188A318E1527B0086BAE6 /* FMDatabasePool.m in Sources */,
 				EB6D3E95196CD12800128DE3 /* UIScrollView+MJRefresh.m in Sources */,
