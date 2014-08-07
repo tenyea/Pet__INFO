@@ -85,6 +85,22 @@
 
 
 
+
+#pragma mark Servlet
+// 注册
+#define URL_RegisterServlet @"AppRegister"
+// 登录
+#define URL_Login @"AppLogin"
+// 首页
+#define URL_Ao @"AppAo"
+// 故事页
+#define URL_Story @"AppStory"
+// 故事页 4合1
+#define URL_Story_Four_To_One @"AppPetPhotoList"
+// 宠物萌照详细
+#define URL_Pet_Photo @"AppPetPhoto"
+
+
 #pragma mark color
 #define TextColor COLOR(247, 247, 247)
 
