@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5428209F19936FCC00F73541 /* libBPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5428209E19936FCC00F73541 /* libBPush.a */; };
+		542820A11993703000F73541 /* libbaidumapapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 542820A01993703000F73541 /* libbaidumapapi.a */; };
 		546A9A59197CE24A00C34E0D /* password.png in Resources */ = {isa = PBXBuildFile; fileRef = 546A9A53197CE24A00C34E0D /* password.png */; };
 		546A9A5A197CE24A00C34E0D /* register_backgroundg.png in Resources */ = {isa = PBXBuildFile; fileRef = 546A9A54197CE24A00C34E0D /* register_backgroundg.png */; };
 		546A9A5B197CE24A00C34E0D /* username.png in Resources */ = {isa = PBXBuildFile; fileRef = 546A9A55197CE24A00C34E0D /* username.png */; };
 		546A9A5C197CE24A00C34E0D /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 546A9A56197CE24A00C34E0D /* login.png */; };
 		546A9A5D197CE24A00C34E0D /* login_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 546A9A57197CE24A00C34E0D /* login_background.png */; };
 		546A9A5E197CE24A00C34E0D /* register.png in Resources */ = {isa = PBXBuildFile; fileRef = 546A9A58197CE24A00C34E0D /* register.png */; };
-		546A9A60197CE41F00C34E0D /* libBPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 546A9A5F197CE41F00C34E0D /* libBPush.a */; };
+		547478F31995EC12002C0B3A /* NearPetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 547478F11995EC12002C0B3A /* NearPetViewController.m */; };
+		547478F41995EC12002C0B3A /* NearPetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 547478F21995EC12002C0B3A /* NearPetViewController.xib */; };
+		5474F4BB1998AFAB00D532A7 /* ShowShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5474F4B91998AFAB00D532A7 /* ShowShowViewController.m */; };
+		5474F4BC1998AFAB00D532A7 /* ShowShowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5474F4BA1998AFAB00D532A7 /* ShowShowViewController.xib */; };
 		EB02FAF51991D4040028A6AD /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02FAF31991D4040028A6AD /* ForgetPasswordViewController.m */; };
 		EB02FAF61991D4040028A6AD /* ForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB02FAF41991D4040028A6AD /* ForgetPasswordViewController.xib */; };
 		EB02FAFB1991D6AD0028A6AD /* UpdatePasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02FAF91991D6AD0028A6AD /* UpdatePasswordVC.m */; };
@@ -26,7 +31,6 @@
 		EB25A807196B874C00987F0B /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB25A806196B874C00987F0B /* MyViewController.m */; };
 		EB25A80A196B875500987F0B /* AskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB25A809196B875500987F0B /* AskViewController.m */; };
 		EB25A80D196B87C400987F0B /* TenyeaBaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB25A80C196B87C400987F0B /* TenyeaBaseNavigationViewController.m */; };
-		EB28F76B197CC1550084BE84 /* libbaidumapapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EB28F769197CC1550084BE84 /* libbaidumapapi.a */; };
 		EB28F76C197CC1550084BE84 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB28F76A197CC1550084BE84 /* mapapi.bundle */; };
 		EB28F7AD197CFA6E0084BE84 /* UpdatePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB28F7AB197CFA6E0084BE84 /* UpdatePasswordViewController.m */; };
 		EB28F7AE197CFA6E0084BE84 /* UpdatePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB28F7AC197CFA6E0084BE84 /* UpdatePasswordViewController.xib */; };
@@ -262,13 +266,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5428209E19936FCC00F73541 /* libBPush.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBPush.a; sourceTree = "<group>"; };
+		542820A01993703000F73541 /* libbaidumapapi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbaidumapapi.a; path = inc/libbaidumapapi.a; sourceTree = "<group>"; };
 		546A9A53197CE24A00C34E0D /* password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = password.png; sourceTree = "<group>"; };
 		546A9A54197CE24A00C34E0D /* register_backgroundg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = register_backgroundg.png; sourceTree = "<group>"; };
 		546A9A55197CE24A00C34E0D /* username.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = username.png; sourceTree = "<group>"; };
 		546A9A56197CE24A00C34E0D /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		546A9A57197CE24A00C34E0D /* login_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_background.png; sourceTree = "<group>"; };
 		546A9A58197CE24A00C34E0D /* register.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = register.png; sourceTree = "<group>"; };
-		546A9A5F197CE41F00C34E0D /* libBPush.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBPush.a; sourceTree = "<group>"; };
+		547478F01995EC12002C0B3A /* NearPetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearPetViewController.h; sourceTree = "<group>"; };
+		547478F11995EC12002C0B3A /* NearPetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearPetViewController.m; sourceTree = "<group>"; };
+		547478F21995EC12002C0B3A /* NearPetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearPetViewController.xib; sourceTree = "<group>"; };
+		5474F4B81998AFAB00D532A7 /* ShowShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowShowViewController.h; sourceTree = "<group>"; };
+		5474F4B91998AFAB00D532A7 /* ShowShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowShowViewController.m; sourceTree = "<group>"; };
+		5474F4BA1998AFAB00D532A7 /* ShowShowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowShowViewController.xib; sourceTree = "<group>"; };
 		EB02FAEF1991D01A0028A6AD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/MyAskDetailTopCell.xib"; sourceTree = "<group>"; };
 		EB02FAF01991D01A0028A6AD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		EB02FAF11991D01A0028A6AD /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -352,7 +363,6 @@
 		EB28F766197CC1550084BE84 /* BMKUserLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKUserLocation.h; sourceTree = "<group>"; };
 		EB28F767197CC1550084BE84 /* BMKUtilsComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKUtilsComponent.h; sourceTree = "<group>"; };
 		EB28F768197CC1550084BE84 /* BMKVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKVersion.h; sourceTree = "<group>"; };
-		EB28F769197CC1550084BE84 /* libbaidumapapi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbaidumapapi.a; sourceTree = "<group>"; };
 		EB28F76A197CC1550084BE84 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
 		EB28F7AA197CFA6E0084BE84 /* UpdatePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdatePasswordViewController.h; sourceTree = "<group>"; };
 		EB28F7AB197CFA6E0084BE84 /* UpdatePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdatePasswordViewController.m; sourceTree = "<group>"; };
@@ -711,13 +721,13 @@
 				EBE19239198F353E00B221CF /* MessageUI.framework in Frameworks */,
 				EB8F81D218E14EC000EED294 /* Security.framework in Frameworks */,
 				EB5FBB52197CC1CA0082917D /* CoreLocation.framework in Frameworks */,
+				542820A11993703000F73541 /* libbaidumapapi.a in Frameworks */,
 				EB8F819718E1360B00EED294 /* SystemConfiguration.framework in Frameworks */,
-				546A9A60197CE41F00C34E0D /* libBPush.a in Frameworks */,
-				EB28F76B197CC1550084BE84 /* libbaidumapapi.a in Frameworks */,
 				EB6AC0F318E1643400B84E34 /* MobileCoreServices.framework in Frameworks */,
 				EB6AC10318E165FC00B84E34 /* libxml2.2.dylib in Frameworks */,
 				EB6AC0F118E1642900B84E34 /* CFNetwork.framework in Frameworks */,
 				EB6AC0EB18E163E200B84E34 /* QuartzCore.framework in Frameworks */,
+				5428209F19936FCC00F73541 /* libBPush.a in Frameworks */,
 				EB8F819918E1361F00EED294 /* CoreTelephony.framework in Frameworks */,
 				EB6AC0F518E1643D00B84E34 /* libxml2.dylib in Frameworks */,
 				EB8F81D618E14ED700EED294 /* libz.1.2.5.dylib in Frameworks */,
@@ -794,11 +804,10 @@
 				EB5BB1ED196B9FC90027B590 /* StoryCell.h */,
 				EB5BB1EE196B9FC90027B590 /* StoryCell.m */,
 				EB5BB1EF196B9FC90027B590 /* StoryCell.xib */,
+				EB876A291993642600C6D4BF /* PetKnowledgeViewController.h */,
+				EB876A2A1993642600C6D4BF /* PetKnowledgeViewController.m */,
 				EB876A1F199363EA00C6D4BF /* PetClassificationViewController.h */,
 				EB876A20199363EA00C6D4BF /* PetClassificationViewController.m */,
-				EB876A21199363EA00C6D4BF /* StoryContentViewController.h */,
-				EB876A22199363EA00C6D4BF /* StoryContentViewController.m */,
-				EB876A23199363EA00C6D4BF /* StoryContentViewController.xib */,
 				EB876A1C199363EA00C6D4BF /* ADWebViewController.h */,
 				EB876A1D199363EA00C6D4BF /* ADWebViewController.m */,
 				EB876A1E199363EA00C6D4BF /* ADWebViewController.xib */,
@@ -809,16 +818,23 @@
 		EB25A7F9196B862E00987F0B /* Story */ = {
 			isa = PBXGroup;
 			children = (
+				EB876A21199363EA00C6D4BF /* StoryContentViewController.h */,
+				EB876A22199363EA00C6D4BF /* StoryContentViewController.m */,
+				EB876A23199363EA00C6D4BF /* StoryContentViewController.xib */,
 				EB876A2C1993645700C6D4BF /* LikePetCell.h */,
 				EB876A2D1993645700C6D4BF /* LikePetCell.m */,
 				EB876A2E1993645700C6D4BF /* LikePetCell.xib */,
 				EB25A7FD196B867A00987F0B /* StoryViewController.h */,
 				EB25A7FE196B867A00987F0B /* StoryViewController.m */,
-				EB876A291993642600C6D4BF /* PetKnowledgeViewController.h */,
-				EB876A2A1993642600C6D4BF /* PetKnowledgeViewController.m */,
 				EB876A311993650900C6D4BF /* ShowPetCell.h */,
 				EB876A321993650900C6D4BF /* ShowPetCell.m */,
 				EB876A331993650900C6D4BF /* ShowPetCell.xib */,
+				547478F01995EC12002C0B3A /* NearPetViewController.h */,
+				547478F11995EC12002C0B3A /* NearPetViewController.m */,
+				547478F21995EC12002C0B3A /* NearPetViewController.xib */,
+				5474F4B81998AFAB00D532A7 /* ShowShowViewController.h */,
+				5474F4B91998AFAB00D532A7 /* ShowShowViewController.m */,
+				5474F4BA1998AFAB00D532A7 /* ShowShowViewController.xib */,
 			);
 			name = Story;
 			sourceTree = "<group>";
@@ -889,7 +905,7 @@
 			isa = PBXGroup;
 			children = (
 				EB28F72D197CC1550084BE84 /* inc */,
-				EB28F769197CC1550084BE84 /* libbaidumapapi.a */,
+				542820A01993703000F73541 /* libbaidumapapi.a */,
 				EB28F76A197CC1550084BE84 /* mapapi.bundle */,
 			);
 			name = map;
@@ -1372,7 +1388,7 @@
 			isa = PBXGroup;
 			children = (
 				EB8F817718E1214D00EED294 /* BPush.h */,
-				546A9A5F197CE41F00C34E0D /* libBPush.a */,
+				5428209E19936FCC00F73541 /* libBPush.a */,
 				EB8F817918E1214D00EED294 /* opensource */,
 			);
 			path = lib;
@@ -1753,6 +1769,7 @@
 				EB5C0F5C197E4492008113A8 /* ask_yellow_start.png in Resources */,
 				EB38F48A19820AB40016DD90 /* MyPostDetailViewController.xib in Resources */,
 				546A9A59197CE24A00C34E0D /* password.png in Resources */,
+				5474F4BC1998AFAB00D532A7 /* ShowShowViewController.xib in Resources */,
 				EB876A39199365B900C6D4BF /* story_red_heart.png in Resources */,
 				EB76419B196E725B00972EED /* story_sentiment@2x.png in Resources */,
 				EB5188AD18E1540E0086BAE6 /* 37x-Checkmark.png in Resources */,
@@ -1771,6 +1788,7 @@
 				EBFF222F1986271E00F6ACAC /* MyAskDocView.xib in Resources */,
 				EB5509311980D997003CFC69 /* EnvironmentCell.xib in Resources */,
 				EB76419D196E725B00972EED /* story_star@2x.png in Resources */,
+				547478F41995EC12002C0B3A /* NearPetViewController.xib in Resources */,
 				546A9A5E197CE24A00C34E0D /* register.png in Resources */,
 				EB9B4CFC197F5B4F00DF7AC0 /* ask_hospital@2x.png in Resources */,
 				EB8F815118E1175900EED294 /* InfoPlist.strings in Resources */,
@@ -1867,6 +1885,7 @@
 				EB38F4721981F5250016DD90 /* MyPostViewController.m in Sources */,
 				EB7DCB5B198350FF00D323C6 /* InquiryModel.m in Sources */,
 				EB876A2B1993642600C6D4BF /* PetKnowledgeViewController.m in Sources */,
+				5474F4BB1998AFAB00D532A7 /* ShowShowViewController.m in Sources */,
 				EB51887C18E152400086BAE6 /* SDWebImageDownloaderOperation.m in Sources */,
 				EB51888218E152400086BAE6 /* UIImage+MultiFormat.m in Sources */,
 				EB51887A18E152400086BAE6 /* SDWebImageDecoder.m in Sources */,
@@ -1876,6 +1895,7 @@
 				EBFF222D1986260800F6ACAC /* MyAskDocView.m in Sources */,
 				EB5C0F56197E36E8008113A8 /* HospitalModel.m in Sources */,
 				EB38F4841981FBC20016DD90 /* MyAskDetailViewController.m in Sources */,
+				547478F31995EC12002C0B3A /* NearPetViewController.m in Sources */,
 				EB77AD131988D42200FD13E8 /* MyPostTopCell.m in Sources */,
 				EBB9BC70197617A5005776FB /* UIProgressView+AFNetworking.m in Sources */,
 				EB8F815718E1175900EED294 /* AppDelegate.mm in Sources */,
@@ -2109,6 +2129,7 @@
 					"/Users/tenyea/项目/duoduo/duoduo/duoduo/ios_api/universal-bin",
 					"$(PROJECT_DIR)/duoduo",
 					"/Users/guidapeng/Desktop/Pet__INFO/开发/petinfo/duoduo/lib",
+					"/Users/guidapeng/Desktop/Pet__INFO/开发/petinfo/duoduo/inc",
 				);
 				PRODUCT_NAME = "宠信";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2133,6 +2154,7 @@
 					"/Users/tenyea/项目/duoduo/duoduo/duoduo/ios_api/universal-bin",
 					"$(PROJECT_DIR)/duoduo",
 					"/Users/guidapeng/Desktop/Pet__INFO/开发/petinfo/duoduo/lib",
+					"/Users/guidapeng/Desktop/Pet__INFO/开发/petinfo/duoduo/inc",
 				);
 				PRODUCT_NAME = "宠信";
 				TARGETED_DEVICE_FAMILY = 1;

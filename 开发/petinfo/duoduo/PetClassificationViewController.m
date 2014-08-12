@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320,160) style:UITableViewStylePlain];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320,270) style:UITableViewStylePlain];
     tableView.dataSource = self;
     tableView.delegate = self;
     tableView.scrollEnabled=NO;
@@ -44,7 +44,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return 2;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -58,9 +58,19 @@
         // 实例化新的cell并且加上标签
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellName] ;
         if (indexPath.row==0) {
-            cell.textLabel.text=@"猫";
-        }else
-            cell.textLabel.text=@"狗";
+            cell.textLabel.text=@"猫猫";
+        }else if(indexPath.row==1)
+        {
+            cell.textLabel.text=@"狗狗";
+        }else if(indexPath.row==2)
+        {
+            cell.textLabel.text=@"兔兔";
+        }else if(indexPath.row==3)
+        {
+            cell.textLabel.text=@"鼠鼠";
+        }
+
+        
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         // 设置cell被选中样式
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
