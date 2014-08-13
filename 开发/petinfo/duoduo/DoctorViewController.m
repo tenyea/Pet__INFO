@@ -10,6 +10,7 @@
 #import "UIImageView+WebCache.h"
 #import "DoctorCell.h"
 #import "DoctorModel.h"
+#import "DoctorDetailViewController.h"
 @interface DoctorViewController ()
 {
     UITableView *_tableView;
@@ -61,7 +62,7 @@
         _po([error localizedDescription]);
         UILabel *label = [[UILabel alloc]init];
         label.frame = CGRectMake(50, 200, ScreenWidth - 50 *2, 20);
-        label.text = @"出错了。。请稍后再试";
+        label.text = Tenyea_str_load_error;
         label.textAlignment = NSTextAlignmentCenter;
         [self.view addSubview:label];
         return ;
@@ -97,7 +98,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 80;
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *dId = ((DoctorModel *)self.dataArr[indexPath.row]).docId;
+    [self.navigationController pushViewController:[[DoctorDetailViewController alloc] initWithDoctorId:dId] animated:YES];
+}
 
 
 
