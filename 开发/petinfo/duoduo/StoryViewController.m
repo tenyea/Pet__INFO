@@ -34,7 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    rowHeigh=89;
+    rowHeigh=88;
     [self _initView];
     
 }
@@ -309,14 +309,15 @@
         StoryCell *cell = [tableView dequeueReusableCellWithIdentifier:storyCellIdentifier];
         if (cell == nil) {
             cell = [[[NSBundle mainBundle]loadNibNamed:@"StoryCell" owner:self options:nil]lastObject];
-            if ([story_data objectAtIndex:indexPath.row]) {
-                cell.TimeLabel.text=[[story_data objectAtIndex:indexPath.row] objectForKey:@"petPhotoTime"];
-                cell.TitleLabel.text=[[story_data objectAtIndex:indexPath.row] objectForKey:@"petPhotoTitle"];
-                cell.UserNameLabel.text=[[story_data objectAtIndex:indexPath.row] objectForKey:@"userName"];
-                NSURL *url = [NSURL URLWithString:[[story_data objectAtIndex:indexPath.row] objectForKey:@"userHead"]];
-                [cell.ImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"register_backgroundg.png"]];
-                
-            }
+            
+        }
+        if ([story_data objectAtIndex:indexPath.row]) {
+            cell.TimeLabel.text=[[story_data objectAtIndex:indexPath.row] objectForKey:@"petPhotoTime"];
+            cell.TitleLabel.text=[[story_data objectAtIndex:indexPath.row] objectForKey:@"petPhotoTitle"];
+            cell.UserNameLabel.text=[[story_data objectAtIndex:indexPath.row] objectForKey:@"userName"];
+            NSURL *url = [NSURL URLWithString:[[story_data objectAtIndex:indexPath.row] objectForKey:@"userHead"]];
+            [cell.ImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"register_backgroundg.png"]];
+            
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -326,19 +327,20 @@
         LikePetCell *cell = [tableView dequeueReusableCellWithIdentifier:storyCellIdentifier];
         if (cell == nil) {
             cell = [[[NSBundle mainBundle]loadNibNamed:@"LikePetCell" owner:self options:nil]lastObject];
-            if ([story_star objectAtIndex:indexPath.row]) {
-                cell.titleLable.text=[[story_star objectAtIndex:indexPath.row] objectForKey:@"petPhotoTitle"];
-                cell.contentLabel.text=[[story_star objectAtIndex:indexPath.row] objectForKey:@"petPhotoDes"];
-                NSString *stringInt = [NSString stringWithFormat:@"%@",[[story_star objectAtIndex:indexPath.row] objectForKey:@"petPhotoGood"]];
-                NSString *stringInt1 = [NSString stringWithFormat:@"%@",[[story_star objectAtIndex:indexPath.row] objectForKey:@"petPhotoView"]];
-                
-                
-                cell.lookLabel.text=stringInt;
-                cell.likeLabel.text=stringInt1;
-                
-                NSURL *url = [NSURL URLWithString:[[story_star objectAtIndex:indexPath.row] objectForKey:@"petPhotoImg"]];
-                [cell.imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"register_backgroundg.png"]];
-                            }
+        }
+        if ([story_star objectAtIndex:indexPath.row]) {
+            cell.titleLable.text=[[story_star objectAtIndex:indexPath.row] objectForKey:@"petPhotoTitle"];
+            cell.contentLabel.text=[[story_star objectAtIndex:indexPath.row] objectForKey:@"petPhotoDes"];
+            NSString *stringInt = [NSString stringWithFormat:@"%@",[[story_star objectAtIndex:indexPath.row] objectForKey:@"petPhotoGood"]];
+            NSString *stringInt1 = [NSString stringWithFormat:@"%@",[[story_star objectAtIndex:indexPath.row] objectForKey:@"petPhotoView"]];
+            
+            
+            cell.lookLabel.text=stringInt;
+            cell.likeLabel.text=stringInt1;
+            
+            NSURL *url = [NSURL URLWithString:[[story_star objectAtIndex:indexPath.row] objectForKey:@"petPhotoImg"]];
+            [cell.imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"register_backgroundg.png"]];
+            
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -347,19 +349,20 @@
         LikePetCell *cell = [tableView dequeueReusableCellWithIdentifier:likePetCellIdentifier];
         if (cell == nil) {
             cell = [[[NSBundle mainBundle]loadNibNamed:@"LikePetCell" owner:self options:nil]lastObject];
-            if ([story_show_pet objectAtIndex:indexPath.row]) {
-                cell.titleLable.text=[[story_show_pet objectAtIndex:indexPath.row] objectForKey:@"petPhotoTitle"];
-                cell.contentLabel.text=[[story_show_pet objectAtIndex:indexPath.row] objectForKey:@"petPhotoDes"];
-                NSString *stringInt = [NSString stringWithFormat:@"%@",[[story_show_pet objectAtIndex:indexPath.row] objectForKey:@"petPhotoGood"]];
-                NSString *stringInt1 = [NSString stringWithFormat:@"%@",[[story_show_pet objectAtIndex:indexPath.row] objectForKey:@"petPhotoView"]];
-
-                
-                cell.lookLabel.text=stringInt;
-                cell.likeLabel.text=stringInt1;
-
-                NSURL *url = [NSURL URLWithString:[[story_show_pet objectAtIndex:indexPath.row] objectForKey:@"petPhotoImg"]];
-                [cell.imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"register_backgroundg.png"]];
-            }
+            
+        }
+        if ([story_show_pet objectAtIndex:indexPath.row]) {
+            cell.titleLable.text=[[story_show_pet objectAtIndex:indexPath.row] objectForKey:@"petPhotoTitle"];
+            cell.contentLabel.text=[[story_show_pet objectAtIndex:indexPath.row] objectForKey:@"petPhotoDes"];
+            NSString *stringInt = [NSString stringWithFormat:@"%@",[[story_show_pet objectAtIndex:indexPath.row] objectForKey:@"petPhotoGood"]];
+            NSString *stringInt1 = [NSString stringWithFormat:@"%@",[[story_show_pet objectAtIndex:indexPath.row] objectForKey:@"petPhotoView"]];
+            
+            
+            cell.lookLabel.text=stringInt;
+            cell.likeLabel.text=stringInt1;
+            
+            NSURL *url = [NSURL URLWithString:[[story_show_pet objectAtIndex:indexPath.row] objectForKey:@"petPhotoImg"]];
+            [cell.imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"register_backgroundg.png"]];
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -564,15 +567,15 @@
         if(a==0)
         {
            story_data=[responseObject objectForKey:@"petPhotoList"];
-            _po(story_data);
+            rowHeigh=88;
+            [_tableView reloadData];
+
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
 
-    rowHeigh=88;
-    [_tableView reloadData];
 
 }
 @end
