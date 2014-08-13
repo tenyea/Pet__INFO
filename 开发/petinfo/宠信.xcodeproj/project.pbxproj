@@ -227,6 +227,9 @@
 		EBC7611B197FB8FE00D6E3CE /* EquipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC7611A197FB8FE00D6E3CE /* EquipViewController.m */; };
 		EBC7611F197FB92C00D6E3CE /* DoctorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBC7611D197FB92C00D6E3CE /* DoctorCell.m */; };
 		EBC76120197FB92C00D6E3CE /* DoctorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBC7611E197FB92C00D6E3CE /* DoctorCell.xib */; };
+		EBCD101F19948097004D99C2 /* DoctorDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCD101E19948097004D99C2 /* DoctorDetailViewController.m */; };
+		EBCD10241994A9C8004D99C2 /* 640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = EBCD10221994A9C8004D99C2 /* 640x960.png */; };
+		EBCD10251994A9C8004D99C2 /* 640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = EBCD10231994A9C8004D99C2 /* 640x1136.png */; };
 		EBDF7257196BCA4D00B818EF /* nav_background7.png in Resources */ = {isa = PBXBuildFile; fileRef = EBDF7256196BCA4D00B818EF /* nav_background7.png */; };
 		EBE19239198F353E00B221CF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBE19238198F353E00B221CF /* MessageUI.framework */; };
 		EBE1923B198F354600B221CF /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBE1923A198F354600B221CF /* OpenGLES.framework */; };
@@ -669,6 +672,10 @@
 		EBC7611C197FB92C00D6E3CE /* DoctorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorCell.h; sourceTree = "<group>"; };
 		EBC7611D197FB92C00D6E3CE /* DoctorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorCell.m; sourceTree = "<group>"; };
 		EBC7611E197FB92C00D6E3CE /* DoctorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DoctorCell.xib; sourceTree = "<group>"; };
+		EBCD101D19948097004D99C2 /* DoctorDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoctorDetailViewController.h; sourceTree = "<group>"; };
+		EBCD101E19948097004D99C2 /* DoctorDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoctorDetailViewController.m; sourceTree = "<group>"; };
+		EBCD10221994A9C8004D99C2 /* 640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 640x960.png; sourceTree = "<group>"; };
+		EBCD10231994A9C8004D99C2 /* 640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 640x1136.png; sourceTree = "<group>"; };
 		EBDF7256196BCA4D00B818EF /* nav_background7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_background7.png; sourceTree = "<group>"; };
 		EBE19238198F353E00B221CF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		EBE1923A198F354600B221CF /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -796,6 +803,8 @@
 				EB5BB1EF196B9FC90027B590 /* StoryCell.xib */,
 				EB876A1F199363EA00C6D4BF /* PetClassificationViewController.h */,
 				EB876A20199363EA00C6D4BF /* PetClassificationViewController.m */,
+				EB876A291993642600C6D4BF /* PetKnowledgeViewController.h */,
+				EB876A2A1993642600C6D4BF /* PetKnowledgeViewController.m */,
 				EB876A21199363EA00C6D4BF /* StoryContentViewController.h */,
 				EB876A22199363EA00C6D4BF /* StoryContentViewController.m */,
 				EB876A23199363EA00C6D4BF /* StoryContentViewController.xib */,
@@ -814,8 +823,6 @@
 				EB876A2E1993645700C6D4BF /* LikePetCell.xib */,
 				EB25A7FD196B867A00987F0B /* StoryViewController.h */,
 				EB25A7FE196B867A00987F0B /* StoryViewController.m */,
-				EB876A291993642600C6D4BF /* PetKnowledgeViewController.h */,
-				EB876A2A1993642600C6D4BF /* PetKnowledgeViewController.m */,
 				EB876A311993650900C6D4BF /* ShowPetCell.h */,
 				EB876A321993650900C6D4BF /* ShowPetCell.m */,
 				EB876A331993650900C6D4BF /* ShowPetCell.xib */,
@@ -872,6 +879,8 @@
 		EB25A80F196B88B400987F0B /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				EBCD10221994A9C8004D99C2 /* 640x960.png */,
+				EBCD10231994A9C8004D99C2 /* 640x1136.png */,
 				EBBBA50E198C817F0061C996 /* main_home_selected.png */,
 				EBBBA50F198C817F0061C996 /* main_home.png */,
 				EBBBA510198C817F0061C996 /* main_ask_selected.png */,
@@ -1552,6 +1561,8 @@
 				EBC7611C197FB92C00D6E3CE /* DoctorCell.h */,
 				EBC7611D197FB92C00D6E3CE /* DoctorCell.m */,
 				EBC7611E197FB92C00D6E3CE /* DoctorCell.xib */,
+				EBCD101D19948097004D99C2 /* DoctorDetailViewController.h */,
+				EBCD101E19948097004D99C2 /* DoctorDetailViewController.m */,
 			);
 			name = doctor;
 			sourceTree = "<group>";
@@ -1808,9 +1819,11 @@
 				EB38F47C1981F5800016DD90 /* MyPostCell.xib in Resources */,
 				EB02FAF61991D4040028A6AD /* ForgetPasswordViewController.xib in Resources */,
 				EBFF222519861D0000F6ACAC /* MyAskDetailCell.xib in Resources */,
+				EBCD10241994A9C8004D99C2 /* 640x960.png in Resources */,
 				EB7641A1196E733B00972EED /* story_edit@2x.png in Resources */,
 				EB876A301993645700C6D4BF /* LikePetCell.xib in Resources */,
 				EB876A351993650900C6D4BF /* ShowPetCell.xib in Resources */,
+				EBCD10251994A9C8004D99C2 /* 640x1136.png in Resources */,
 				EBBBA51B198C817F0061C996 /* main_my.png in Resources */,
 				EBBBA51D198C817F0061C996 /* main_story.png in Resources */,
 				EB38F47E1981F8930016DD90 /* my_goodcount.png in Resources */,
@@ -1896,6 +1909,7 @@
 				EBB9BC62197617A5005776FB /* AFHTTPRequestOperation.m in Sources */,
 				EB77AD181988D43B00FD13E8 /* MyPostDetailCell.m in Sources */,
 				EBB9BC65197617A5005776FB /* AFNetworkReachabilityManager.m in Sources */,
+				EBCD101F19948097004D99C2 /* DoctorDetailViewController.m in Sources */,
 				EB51887E18E152400086BAE6 /* SDWebImageManager.m in Sources */,
 				EBC76115197FB85C00D6E3CE /* HospNewsViewController.m in Sources */,
 				EBB9BC7919762ACE005776FB /* AddPetViewController.m in Sources */,
