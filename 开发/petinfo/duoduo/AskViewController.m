@@ -12,6 +12,7 @@
 #import "AskOnlineViewController.h"
 #import "MJRefresh.h"
 #import "MyAskDetailViewController.h"
+#import "LoginViewController.h"
 @interface AskViewController ()
 {
     NSArray *_titleArr;
@@ -104,8 +105,6 @@
 }
 #pragma mark -
 #pragma mark UITableViewDataSource
-
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 0) {
         return [_titleArr count];
@@ -170,11 +169,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0 ) {
-        if (indexPath.row == 0) {
-            [self.navigationController pushViewController:[[AskOnlineViewController alloc] init] animated:YES];
+        if ([[NSUserDefaults standardUserDefaults] objectForKey:UD_userID_Str]) {
+            if (indexPath.row == 0) {
+                [self.navigationController pushViewController:[[AskOnlineViewController alloc] init] animated:YES];
+            }else{
+                [self.navigationController pushViewController:[[PetHospitalViewController alloc ]init] animated:YES];
+            }
         }else{
-            [self.navigationController pushViewController:[[PetHospitalViewController alloc ]init] animated:YES];
+            [self.navigationController pushViewController:[[LoginViewController alloc ]init] animated:YES];
         }
+        
     }else{
         NSDictionary *dic = _dataArr[indexPath.row];
         [self.navigationController pushViewController:[[MyAskDetailViewController alloc] initWithId:[dic objectForKey:@"postId"]] animated:YES];
