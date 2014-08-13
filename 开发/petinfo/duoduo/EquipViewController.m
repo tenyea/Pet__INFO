@@ -49,11 +49,7 @@
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         _po([error localizedDescription]);
-        UILabel *label = [[UILabel alloc]init];
-        label.frame = CGRectMake(50, 200, ScreenWidth - 50 *2, 20);
-        label.text = @"出错了。。请稍后再试";
-        label.textAlignment = NSTextAlignmentCenter;
-        [self.view addSubview:label];
+        self.bgStr = Tenyea_str_load_error;
         return ;
 
     }];
