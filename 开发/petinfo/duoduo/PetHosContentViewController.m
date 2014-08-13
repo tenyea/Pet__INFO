@@ -11,6 +11,8 @@
 @interface PetHosContentViewController ()
 {
     NSString *_key;
+    float heigh ;
+    UIScrollView *scView;
 }
 @end
 
@@ -38,7 +40,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    heigh = 0;
     
     NSDictionary *dic = @{_key: _hosId};
     [self getDate:_url  andParams:dic andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -46,46 +48,63 @@
             //            防止table便宜
             UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
             [self.view addSubview:view];
-            UIScrollView *scView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight)];
+            scView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 64, ScreenWidth, ScreenHeight)];
             [self.view addSubview:scView];
-            NSDictionary *dic ;
+            
             if ([_key isEqualToString:@"hosInfoListId"]) {
-                dic = [responseObject objectForKey:@"hosInfo"][0];
-            }else{
-                dic = [responseObject objectForKey:@"hosDes"][0];
+                NSArray *arr  = [responseObject objectForKey:@"hosInfo"];
+                if (arr.count > 0 ) {
+                    for (NSDictionary *dic  in arr) {
+                        [self outPutViews:dic];
+                    }
+                }else{
+                    self.bgStr = Tenyea_str_load_error;
 
-            }
-            float heigh = 0;
-//            有图片
-            if ([dic objectForKey:@"hosInfoImg"]) {
-                UIImageView *topImageView = [[UIImageView alloc]initWithFrame:CGRectMake(80, 0, ScreenWidth - 80 *2 , 90)];
-                [topImageView setImageWithURL:[NSURL URLWithString:[dic objectForKey:@"hosInfoImg"]]];
-                heigh += 90 ;
-                [scView addSubview:topImageView];
-            }
-            if ([dic objectForKey:@"hosInfoText"]) {
-                UITextView *text = [[UITextView alloc]initWithFrame: CGRectMake(0, heigh, ScreenWidth, 0)];
-                text.text = [dic objectForKey:@"hosInfoText"];
-                [text sizeToFit];
-                heigh += text.height;
-                [scView addSubview:text];
+                }
+            }else{
+                NSArray *arr  = [responseObject objectForKey:@"hosDes"];
+                if (arr.count > 0 ) {
+                    for (NSDictionary *dic  in arr) {
+                        [self outPutViews:dic];
+                    }
+                }else {
+                    self.bgStr = Tenyea_str_load_error;
+
+                }
             }
             if (heigh > ScreenHeight) {
                 scView.contentSize = CGSizeMake(ScreenWidth , heigh);
             }
             
             
+        }else if ([[responseObject objectForKey:@"code"] intValue] == 1001){
+            self.bgStr = Tenyea_str_load_error;
+
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         _po([error localizedDescription]);
-        UILabel *label = [[UILabel alloc]init];
-        label.frame = CGRectMake(50, 200, ScreenWidth - 50 *2, 20);
-        label.text = @"出错了。。请稍后再试";
-        label.textAlignment = NSTextAlignmentCenter;
-        [self.view addSubview:label];
+        self.bgStr = Tenyea_str_load_error;
         return ;
     }];
 }
 
+-(void)outPutViews :(NSDictionary *)dic {
+    //            有图片
+    if ([dic objectForKey:@"hosInfoImg"]) {
+        UIImageView *topImageView = [[UIImageView alloc]initWithFrame:CGRectMake(80, heigh, ScreenWidth - 80 *2 , 90)];
+        [topImageView setImageWithURL:[NSURL URLWithString:[dic objectForKey:@"hosInfoImg"]]];
+        heigh += 90 ;
+        [scView addSubview:topImageView];
+    }
+    if ([dic objectForKey:@"hosInfoText"]) {
+        UITextView *text = [[UITextView alloc]initWithFrame: CGRectMake(0, heigh, ScreenWidth, 0)];
+        text.userInteractionEnabled = NO;
+        text.text = [dic objectForKey:@"hosInfoText"];
+        [text sizeToFit];
+        heigh += text.height;
+        [scView addSubview:text];
+    }
+
+}
 
 @end
