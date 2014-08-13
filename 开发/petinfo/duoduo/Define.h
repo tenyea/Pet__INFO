@@ -13,6 +13,7 @@
 #pragma mark URL
 #define Host @"www.baidu.com"
 #define BASE_URL @"http://192.168.1.145:8090/petInfo/"
+
 //#define BASE_URL @"http://app.nen.com.cn/"
 #define URL_Post_uploadPetImage @""
 // 注册
@@ -20,11 +21,13 @@
 // 登录
 #define URL_Login @"AppLogin"
 //修改密码
-#define URL_UpdatePassword @""
+#define URL_UpdatePassword @"AppUpdatePassword"
 //获取医院列表
 #define URL_getHospitalList @"AppHosList"
 //获取医生列表
 #define URL_getDoctorList @"AppDocList"
+//获取医生详情
+#define URL_getDoctorInfo @"AppDocInfo"
 //医院信息列表接口
 #define URL_getHosInfoList @"AppHosInfoList"
 //医院信息图文内容
@@ -50,10 +53,15 @@
 #define URL_deletePet @"AppDelPet"
 //修改用户信息
 #define URL_updateUserInfo_Post @"AppUpdateUser"
+//获取验证码
+#define URL_getSecurity @"AppSendCode"
+//修改密码
+#define URL_updatePassWoreBySecurity @"AppFindPassword"
 //上传用户头像
 #define URL_uploadUserImage_Post @"AppUpdateHead"
 //在线问诊
 #define URL_AskOnline_Post @"AppAddInquiry"
+
 
 #pragma mark -
 #pragma mark 百度
@@ -106,4 +114,6 @@
 
 #pragma mark String
 
-#define button_loading @"正在加载"
+#define Tenyea_str_button_loading @"正在加载"
+#define Tenyea_str_load_error @"出错了..请稍后再试."
+#define Tenyea_str_userNameIsNo @"用户名不存在,请重新输入"
