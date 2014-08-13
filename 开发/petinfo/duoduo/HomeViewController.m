@@ -275,25 +275,21 @@
             if(cell == nil)
             {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"StoryCell" owner:self options:nil] lastObject];
-                for (int i=0; i<[petEveryday count]; i++) {
-                    petDay = [petEveryday objectAtIndex:i];
-                    petPhotoId1 = [petDay objectForKey:@"petPhotoId"];
-                    petPhotoTime = [petDay objectForKey:@"petPhotoTime"];
-                    petPhotoTitle1 = [petDay objectForKey:@"petPhotoTitle"];
-                    userName = [petDay objectForKey:@"userName"];
-                    userHead = [petDay objectForKey:@"userHead"];
-                    if (indexPath.row==i+1) {
-                        cell.TitleLabel.text=petPhotoTitle1;
-                        cell.TimeLabel.text=petPhotoTime;
-                        cell.UserNameLabel.text=userName;
-                        NSURL *url = [NSURL URLWithString:userHead];
-                        [cell.imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"register_backgroundg.png"]];
-                    }
-                   
-                }
-               
-                
             }
+            if (petEveryday.count > 0 ) {
+                petDay = [petEveryday objectAtIndex: (indexPath.row - 1)];
+                petPhotoId1 = [petDay objectForKey:@"petPhotoId"];
+                petPhotoTime = [petDay objectForKey:@"petPhotoTime"];
+                petPhotoTitle1 = [petDay objectForKey:@"petPhotoTitle"];
+                userName = [petDay objectForKey:@"userName"];
+                userHead = [petDay objectForKey:@"userHead"];
+                cell.TitleLabel.text=petPhotoTitle1;
+                cell.TimeLabel.text=petPhotoTime;
+                cell.UserNameLabel.text=userName;
+                NSURL *url = [NSURL URLWithString:userHead];
+                [cell.ImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"my_petlogo.png"]];
+            }
+
             cell.selectionStyle=UITableViewCellSelectionStyleNone;
             return cell;
         }
