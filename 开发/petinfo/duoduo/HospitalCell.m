@@ -15,7 +15,7 @@
 {
 //    [super awakeFromNib ];
     self.leftImageView.layer.masksToBounds = YES;
-    self.leftImageView.layer.cornerRadius = 39;
+    self.leftImageView.layer.cornerRadius = 38;
     
     UIImageView *grayImageView = [[UIImageView alloc]initWithFrame:CGRectMake(253, 64, 50, 12)];
     [grayImageView setImage:[UIImage imageNamed:@"ask_gray_start.png"]];
