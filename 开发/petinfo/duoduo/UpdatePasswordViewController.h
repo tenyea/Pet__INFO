@@ -20,4 +20,5 @@
 @property (strong, nonatomic) IBOutlet UITextField *firstPass;
 @property (strong, nonatomic) IBOutlet UITextField *secondPass;
 
+-(id)initWithuserName:(NSString *)userName ;
 @end

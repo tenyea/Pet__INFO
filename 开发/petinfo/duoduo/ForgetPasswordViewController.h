@@ -9,7 +9,7 @@
 #import "TenyeaBaseViewController.h"
 
 @interface ForgetPasswordViewController : TenyeaBaseViewController <UITextFieldDelegate>
-@property (strong, nonatomic) IBOutlet UILabel *emailMes;
-@property (strong, nonatomic) IBOutlet UITextField *emalLabel;
+@property (strong, nonatomic) IBOutlet UILabel *userNameMes;
+@property (strong, nonatomic) IBOutlet UITextField *userNameTextField;
 
 @end

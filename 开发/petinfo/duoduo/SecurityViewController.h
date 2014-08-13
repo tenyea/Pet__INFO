@@ -13,8 +13,12 @@
     UITextField *securityText;
     UILabel *securityLabel;
 }
+@property (strong, nonatomic) IBOutlet UILabel *infoLabel;
 @property (strong, nonatomic) IBOutlet UILabel *emailLabel;
 @property (strong, nonatomic) IBOutlet UILabel *securityLabel;
 @property (strong, nonatomic) IBOutlet UITextField *securityText;
--(id)initWithEmail:(NSString *)email;
+-(id)initWithUserName:(NSString *)userName;
+- (IBAction)reloadAction:(id)sender;
+
+
 @end
