@@ -14,6 +14,9 @@
 #import "LikePetCell.h"
 #import "StoryContentViewController.h"
 #import "UIImageView+WebCache.h"
+#import "LoginViewController.h"
+#import "NearPetViewController.h"
+#import "ShowShowViewController.h"
 #define offsetY 64
 
 @interface StoryViewController ()
@@ -155,6 +158,7 @@
         case 100:
         {
             
+            
             _po(@"111");
             NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
             [dic setValue:@"1" forKey:@"type"];
@@ -162,20 +166,21 @@
 
             [self getDate:URL_Story_Four_To_One andParams:dic andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSString *code =[responseObject objectForKey:@"code"];
+                 rowHeigh=89;
                 
                 int a = [code intValue];
                 if(a==0)
                 {
                     story_star=[responseObject objectForKey:@"petPhotoList"];
-                    
+                   [_tableView reloadData];
                 }
                 
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 NSLog(@"Error: %@", error);
             }];
-            _po(story_star);
-            rowHeigh=89;
-            [_tableView reloadData];
+         
+            
+            
 
            
         }
@@ -188,21 +193,22 @@
             _po(@"222");
             [self getDate:URL_Story_Four_To_One andParams:dic andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSString *code =[responseObject objectForKey:@"code"];
+                rowHeigh=190;
                 
                 int a = [code intValue];
                 if(a==0)
                 {
                     story_popularity=[responseObject objectForKey:@"petPhotoList"];
-                    _po(story_popularity);
-                    _pn([story_popularity count]);
+                   
+                    [_tableView reloadData];
                 }
                 
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 NSLog(@"Error: %@", error);
             }];
 
-            rowHeigh=190;
-            [_tableView reloadData];}
+            
+            }
 
             break;
         case 102:
@@ -213,22 +219,24 @@
             _po(@"333");
             [self getDate:URL_Story_Four_To_One andParams:dic andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSString *code =[responseObject objectForKey:@"code"];
+                rowHeigh=90;
                 
                 int a = [code intValue];
                 if(a==0)
                 {
                     story_show_pet=[responseObject objectForKey:@"petPhotoList"];
-                    
+                     [_tableView reloadData];
                 }
                 
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 NSLog(@"Error: %@", error);
             }];
             _po(story_show_pet);
-            rowHeigh=90;
-            [_tableView reloadData];}
+            
+           }
             break;
         case 103:_po(@"444");
+            [self.navigationController pushViewController:[[NearPetViewController alloc] init] animated:YES];
             break;
         default:
             break;
@@ -236,7 +244,8 @@
 }
 //编辑按钮事件
 -(void)EditAction{
-    _po(@"1231");
+    [self.navigationController pushViewController:[[ShowShowViewController alloc] init] animated:YES];
+
 }
 #pragma mark -
 #pragma mark UIScrollViewDelegate
@@ -309,6 +318,7 @@
         StoryCell *cell = [tableView dequeueReusableCellWithIdentifier:storyCellIdentifier];
         if (cell == nil) {
             cell = [[[NSBundle mainBundle]loadNibNamed:@"StoryCell" owner:self options:nil]lastObject];
+<<<<<<< HEAD
             
         }
         if ([story_data objectAtIndex:indexPath.row]) {
@@ -318,6 +328,18 @@
             NSURL *url = [NSURL URLWithString:[[story_data objectAtIndex:indexPath.row] objectForKey:@"userHead"]];
             [cell.ImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"register_backgroundg.png"]];
             
+=======
+            if ([story_data objectAtIndex:indexPath.row]) {
+                cell.TimeLabel.text=[[story_data objectAtIndex:indexPath.row] objectForKey:@"petPhotoTime"];
+                cell.TitleLabel.text=[[story_data objectAtIndex:indexPath.row] objectForKey:@"petPhotoTitle"];
+                cell.UserNameLabel.text=[[story_data objectAtIndex:indexPath.row] objectForKey:@"userName"];
+                NSURL *url = [NSURL URLWithString:[[story_data objectAtIndex:indexPath.row] objectForKey:@"userHead"]];
+                [cell.ImageView setImageWithURL:url placeholderImage:nil];
+                cell.imageView.layer.masksToBounds = YES;
+                cell.imageView.layer.cornerRadius=25;
+                
+            }
+>>>>>>> FETCH_HEAD
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -327,6 +349,7 @@
         LikePetCell *cell = [tableView dequeueReusableCellWithIdentifier:storyCellIdentifier];
         if (cell == nil) {
             cell = [[[NSBundle mainBundle]loadNibNamed:@"LikePetCell" owner:self options:nil]lastObject];
+<<<<<<< HEAD
         }
         if ([story_star objectAtIndex:indexPath.row]) {
             cell.titleLable.text=[[story_star objectAtIndex:indexPath.row] objectForKey:@"petPhotoTitle"];
@@ -341,7 +364,25 @@
             NSURL *url = [NSURL URLWithString:[[story_star objectAtIndex:indexPath.row] objectForKey:@"petPhotoImg"]];
             [cell.imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"register_backgroundg.png"]];
             
+=======
+            if ([story_star objectAtIndex:indexPath.row]) {
+                cell.titleLable.text=[[story_star objectAtIndex:indexPath.row] objectForKey:@"petPhotoTitle"];
+                cell.contentLabel.text=[[story_star objectAtIndex:indexPath.row] objectForKey:@"petPhotoDes"];
+                NSString *stringInt = [NSString stringWithFormat:@"%@",[[story_star objectAtIndex:indexPath.row] objectForKey:@"petPhotoGood"]];
+                NSString *stringInt1 = [NSString stringWithFormat:@"%@",[[story_star objectAtIndex:indexPath.row] objectForKey:@"petPhotoView"]];
+                
+                
+                cell.lookLabel.text=stringInt;
+                cell.likeLabel.text=stringInt1;
+                
+                NSURL *url = [NSURL URLWithString:[[story_star objectAtIndex:indexPath.row] objectForKey:@"petPhotoImg"]];
+                [cell.imageView setImageWithURL:url placeholderImage:nil];
+                cell.imageView.layer.masksToBounds = YES;
+                cell.imageView.layer.cornerRadius=25;
+                            }
+>>>>>>> FETCH_HEAD
         }
+       
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }else if(indexPath.section==1&&rowHeigh==90){
@@ -349,6 +390,7 @@
         LikePetCell *cell = [tableView dequeueReusableCellWithIdentifier:likePetCellIdentifier];
         if (cell == nil) {
             cell = [[[NSBundle mainBundle]loadNibNamed:@"LikePetCell" owner:self options:nil]lastObject];
+<<<<<<< HEAD
             
         }
         if ([story_show_pet objectAtIndex:indexPath.row]) {
@@ -363,6 +405,23 @@
             
             NSURL *url = [NSURL URLWithString:[[story_show_pet objectAtIndex:indexPath.row] objectForKey:@"petPhotoImg"]];
             [cell.imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"register_backgroundg.png"]];
+=======
+            if ([story_show_pet objectAtIndex:indexPath.row]) {
+                cell.titleLable.text=[[story_show_pet objectAtIndex:indexPath.row] objectForKey:@"petPhotoTitle"];
+                cell.contentLabel.text=[[story_show_pet objectAtIndex:indexPath.row] objectForKey:@"petPhotoDes"];
+                NSString *stringInt = [NSString stringWithFormat:@"%@",[[story_show_pet objectAtIndex:indexPath.row] objectForKey:@"petPhotoGood"]];
+                NSString *stringInt1 = [NSString stringWithFormat:@"%@",[[story_show_pet objectAtIndex:indexPath.row] objectForKey:@"petPhotoView"]];
+
+                
+                cell.lookLabel.text=stringInt1;
+                cell.likeLabel.text=stringInt;
+
+                NSURL *url = [NSURL URLWithString:[[story_show_pet objectAtIndex:indexPath.row] objectForKey:@"petPhotoImg"]];
+                [cell.imageView setImageWithURL:url placeholderImage:nil];
+                cell.imageView.layer.masksToBounds = YES;
+                cell.imageView.layer.cornerRadius=30;
+            }
+>>>>>>> FETCH_HEAD
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
@@ -383,7 +442,7 @@
                 [goodArray addObject:stringInt];
                
             }
-            _po(goodArray);
+         
 
             for (int i=0; i<[story_popularity count]/5; i++) {
                 if (indexPath.row==i) {
@@ -451,7 +510,43 @@
         _pn(sender.view.tag);
         for (int i=0; i<[story_popularity count]; i++) {
             if (sender.view.tag==1000+i) {
-                [self.navigationController pushViewController:[[StoryContentViewController alloc] init] animated:YES];
+              //  [self.navigationController pushViewController:[[StoryContentViewController alloc] init] animated:YES];
+                
+                NSUserDefaults *myUserDefaults = [NSUserDefaults standardUserDefaults];
+                
+                // 读取
+                NSNumber *readCount = [myUserDefaults objectForKey:UD_userID_Str];
+                NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+                [dic setValue:[[story_popularity objectAtIndex:i] objectForKey:@"petPhotoId"]  forKey:@"petPhotoId"];
+                [dic setValue:readCount forKey:@"userId"];
+                
+                
+                [self getDate:URL_Pet_Photo andParams:dic andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                    NSString *code =[responseObject objectForKey:@"code"];
+                    NSLog(@"%@",code);
+                    
+                    int a = [code intValue];
+                    if(a==0)
+                    {
+                        NSDictionary *dic=[responseObject objectForKey:@"petPhoto"];
+                        StoryContentViewController *scvc =[[StoryContentViewController alloc] init];
+                        
+                        scvc.petImageViewURL=[dic objectForKey:@"petPhotoImg"];
+                        scvc.petPresentation=[dic objectForKey:@"petPhotoText"];
+                        scvc.photoID=[[story_popularity objectAtIndex:i] objectForKey:@"petPhotoId"];
+                        [self.navigationController pushViewController:scvc animated:YES];
+                        
+                        NSLog(@"登录成功");
+                    }else if(a==1001)
+                    {
+                        // 去登陆  缺少userID
+                        [self.navigationController pushViewController:[[LoginViewController alloc] init] animated:YES];
+                        
+                    }
+                } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                    NSLog(@"Error: %@", error);
+                }];
+
             }
         }
     
@@ -465,10 +560,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 {
     if (rowHeigh==88&&indexPath.section==1) {
+    
+        
+        NSUserDefaults *myUserDefaults = [NSUserDefaults standardUserDefaults];
+        
+        // 读取
+        NSNumber *readCount = [myUserDefaults objectForKey:UD_userID_Str];
         NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
         [dic setValue:[[story_data objectAtIndex:indexPath.row] objectForKey:@"petPhotoId"]  forKey:@"petPhotoId"];
-        [dic setValue:UD_userID_Str forKey:@"userId"];
-        
+        [dic setValue:readCount forKey:@"userId"];
+
         
         [self getDate:URL_Pet_Photo andParams:dic andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSString *code =[responseObject objectForKey:@"code"];
@@ -482,23 +583,31 @@
                 
                 scvc.petImageViewURL=[dic objectForKey:@"petPhotoImg"];
                 scvc.petPresentation=[dic objectForKey:@"petPhotoText"];
+                scvc.photoID=[[story_data objectAtIndex:indexPath.row] objectForKey:@"petPhotoId"];
                 [self.navigationController pushViewController:scvc animated:YES];
                 
                 NSLog(@"登录成功");
             }else if(a==1001)
             {
                 // 去登陆  缺少userID
+                [self.navigationController pushViewController:[[LoginViewController alloc] init] animated:YES];
+
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
         }];
     
     }else if (rowHeigh==89&&indexPath.section==1) {
+        
+        NSUserDefaults *myUserDefaults = [NSUserDefaults standardUserDefaults];
+        
+        // 读取
+        NSNumber *readCount = [myUserDefaults objectForKey:UD_userID_Str];
         NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
         [dic setValue:[[story_star objectAtIndex:indexPath.row] objectForKey:@"petPhotoId"]  forKey:@"petPhotoId"];
-        [dic setValue:UD_userID_Str forKey:@"userId"];
+        [dic setValue:readCount forKey:@"userId"];
         
-        
+
         [self getDate:URL_Pet_Photo andParams:dic andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSString *code =[responseObject objectForKey:@"code"];
             NSLog(@"%@",code);
@@ -511,22 +620,30 @@
                 
                 scvc.petImageViewURL=[dic objectForKey:@"petPhotoImg"];
                 scvc.petPresentation=[dic objectForKey:@"petPhotoText"];
+                scvc.photoID=[[story_star objectAtIndex:indexPath.row] objectForKey:@"petPhotoId"];
                 [self.navigationController pushViewController:scvc animated:YES];
                 
                 NSLog(@"登录成功");
             }else if(a==1001)
             {
                 // 去登陆  缺少userID
+                [self.navigationController pushViewController:[[LoginViewController alloc] init] animated:YES];
+
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
         }];
         
     }else if (rowHeigh==90&&indexPath.section==1) {
+        NSUserDefaults *myUserDefaults = [NSUserDefaults standardUserDefaults];
+        
+        // 读取
+        NSNumber *readCount = [myUserDefaults objectForKey:UD_userID_Str];
         NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
         [dic setValue:[[story_show_pet objectAtIndex:indexPath.row] objectForKey:@"petPhotoId"]  forKey:@"petPhotoId"];
-        [dic setValue:UD_userID_Str forKey:@"userId"];
+        [dic setValue:readCount forKey:@"userId"];
         
+
         
         [self getDate:URL_Pet_Photo andParams:dic andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSString *code =[responseObject objectForKey:@"code"];
@@ -540,12 +657,15 @@
                 
                 scvc.petImageViewURL=[dic objectForKey:@"petPhotoImg"];
                 scvc.petPresentation=[dic objectForKey:@"petPhotoText"];
+                scvc.photoID=[[story_show_pet objectAtIndex:indexPath.row] objectForKey:@"petPhotoId"];
                 [self.navigationController pushViewController:scvc animated:YES];
                 
                 NSLog(@"登录成功");
             }else if(a==1001)
             {
                 // 去登陆  缺少userID
+                [self.navigationController pushViewController:[[LoginViewController alloc] init] animated:YES];
+
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
@@ -562,12 +682,11 @@
 {
     [self getDate:URL_Story andParams:nil andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSString *code =[responseObject objectForKey:@"code"];
-        
+        rowHeigh=88;
         int a = [code intValue];
         if(a==0)
         {
            story_data=[responseObject objectForKey:@"petPhotoList"];
-            rowHeigh=88;
             [_tableView reloadData];
 
         }

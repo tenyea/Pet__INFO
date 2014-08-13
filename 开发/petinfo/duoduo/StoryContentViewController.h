@@ -10,9 +10,14 @@
 
 @interface StoryContentViewController : TenyeaBaseViewController
 @property (strong, nonatomic) IBOutlet UIScrollView *backgroundScrollView;
-@property (strong, nonatomic) IBOutlet UILabel *contentLabel;
+
+@property (strong, nonatomic) IBOutlet UIButton *likeButton;
 @property (strong, nonatomic) IBOutlet UIImageView *contentImageView;
 @property (nonatomic,copy)NSString *petPresentation;
 @property (nonatomic,copy)NSString *petImageViewURL;
+@property (nonatomic,copy)NSString *photoID;
+- (IBAction)commentsButton:(id)sender;
+- (IBAction)likeButton:(id)sender;
+- (IBAction)shareButton:(id)sender;
 
 @end

@@ -107,7 +107,10 @@
 #define URL_Story_Four_To_One @"AppPetPhotoList"
 // 宠物萌照详细
 #define URL_Pet_Photo @"AppPetPhoto"
-
+// 发宠物萌照
+#define URL_Add_Pet_Photo @"AppAddPetPhoto"
+// 赞
+#define URL_Like @"AppLike"
 
 #pragma mark color
 #define TextColor COLOR(247, 247, 247)

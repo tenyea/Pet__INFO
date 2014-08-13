@@ -12,6 +12,9 @@
 #import "PetClassificationViewController.h"
 #import "UIImageView+WebCache.h"
 #import "ADWebViewController.h"
+#import "LoginViewController.h"
+#import "AskViewController.h"
+#import "TenyeaBaseNavigationViewController.h"
 #define XLCycleHeight 130
 @interface HomeViewController ()
 {
@@ -30,7 +33,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
     
- _po(@"222");
+ 
     }
     return self;
 }
@@ -38,7 +41,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-       _po(@"111");
+    
+    _po(petEveryday);
     
     petPhotoId = [result objectForKey:@"petPhotoId"];
     petPhotoPathMin =[result objectForKey:@"petPhotoPathMin"];
@@ -211,8 +215,8 @@
                 
                 imageView.tag = 103;
                 NSURL *url = [NSURL URLWithString:petPhotoPathMin];
-                [imageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"register_backgroundg.png"]];
-                
+                [imageView setImageWithURL:url placeholderImage:nil];
+              
                 [cell addSubview:imageView];
                 
                 //            图片
@@ -275,6 +279,7 @@
             if(cell == nil)
             {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"StoryCell" owner:self options:nil] lastObject];
+
             }
             if (petEveryday.count > 0 ) {
                 petDay = [petEveryday objectAtIndex: (indexPath.row - 1)];
@@ -319,7 +324,7 @@
             _po(@"4");
             break;
         case 11:
-             [self.navigationController pushViewController:[[PetClassificationViewController alloc] init] animated:YES];
+            [self.navigationController pushViewController:[[PetClassificationViewController alloc] init] animated:YES];
             _po(@"5");
             break;
         case 12:
@@ -366,11 +371,11 @@
 - (UIView *)pageAtIndex:(NSInteger)index
 {
    
-        NSDictionary *ad = [result1 objectAtIndex:index];
-        NSString *adId = [ad objectForKey:@"adId"];
-        NSString *adTitle = [ad objectForKey:@"adTitle"];
-        NSString *adImage = [ad objectForKey:@"adImage"];
-        NSString *adUrl = [ad objectForKey:@"adUrl"];
+        ad = [result1 objectAtIndex:index];
+        adId = [ad objectForKey:@"adId"];
+        adTitle = [ad objectForKey:@"adTitle"];
+        adImage = [ad objectForKey:@"adImage"];
+        adUrl = [ad objectForKey:@"adUrl"];
        
        
     
@@ -384,11 +389,11 @@
 
 }
 - (void)didClickPage:(XLCycleScrollView *)csView atIndex:(NSInteger)index{
-    NSDictionary *ad = [result1 objectAtIndex:index];
-    NSString *adId = [ad objectForKey:@"adId"];
-    NSString *adTitle = [ad objectForKey:@"adTitle"];
-    NSString *adImage = [ad objectForKey:@"adImage"];
-    NSString *adUrl = [ad objectForKey:@"adUrl"];
+    ad = [result1 objectAtIndex:index];
+    adId = [ad objectForKey:@"adId"];
+    adTitle = [ad objectForKey:@"adTitle"];
+    adImage = [ad objectForKey:@"adImage"];
+    adUrl = [ad objectForKey:@"adUrl"];
     ADWebViewController *advc=[[ADWebViewController alloc]init];
     advc.url=adUrl;
      [self.navigationController pushViewController:advc animated:YES];
@@ -454,9 +459,13 @@
         
     if (indexPath.section==2&&indexPath.row!=0)
     {
+        NSUserDefaults *myUserDefaults = [NSUserDefaults standardUserDefaults];
+        
+        // 读取
+        NSNumber *readCount = [myUserDefaults objectForKey:UD_userID_Str];
         NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
         [dic setValue:petPhotoId forKey:@"petPhotoId"];
-        [dic setValue:UD_userID_Str forKey:@"userId"];
+        [dic setValue:readCount forKey:@"userId"];
         
         
         [self getDate:URL_Pet_Photo andParams:dic andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -470,13 +479,17 @@
                 StoryContentViewController *scvc =[[StoryContentViewController alloc] init];
                 
                 scvc.petImageViewURL=[dic objectForKey:@"petPhotoImg"];
+                
                 scvc.petPresentation=[dic objectForKey:@"petPhotoText"];
+                scvc.photoID=petPhotoId;
                 [self.navigationController pushViewController:scvc animated:YES];
                 
                 NSLog(@"登录成功");
             }else if(a==1001)
             {
                // 去登陆  缺少userID
+                [self.navigationController pushViewController:[[LoginViewController alloc] init] animated:YES];
+
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
@@ -485,10 +498,15 @@
     }else if (indexPath.section==3&&indexPath.row!=0)
     {
         
-        NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
-        [dic setValue:[[petEveryday objectAtIndex:indexPath.row] objectForKey:@"petPhotoId"]  forKey:@"petPhotoId"];
-        [dic setValue:UD_userID_Str forKey:@"userId"];
+        NSUserDefaults *myUserDefaults = [NSUserDefaults standardUserDefaults];
         
+        // 读取
+        NSNumber *readCount = [myUserDefaults objectForKey:UD_userID_Str];
+        NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
+        
+        [dic setValue:[[petEveryday objectAtIndex:indexPath.row-1]objectForKey:@"petPhotoId"] forKey:@"petPhotoId"];
+        _pn(indexPath.row);
+        [dic setValue:readCount forKey:@"userId"];
         
         [self getDate:URL_Pet_Photo andParams:dic andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSString *code =[responseObject objectForKey:@"code"];
@@ -502,12 +520,15 @@
                 
                 scvc.petImageViewURL=[dic objectForKey:@"petPhotoImg"];
                 scvc.petPresentation=[dic objectForKey:@"petPhotoText"];
+                scvc.photoID=[[petEveryday objectAtIndex:indexPath.row-1]objectForKey:@"petPhotoId"];
                 [self.navigationController pushViewController:scvc animated:YES];
                 
                 NSLog(@"登录成功");
             }else if(a==1001)
             {
                 // 去登陆  缺少userID
+                [self.navigationController pushViewController:[[LoginViewController alloc] init] animated:YES];
+
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
@@ -534,23 +555,37 @@
    
    
  //  petEveryday = [resultobject objectForKey:@"petPhotoList"];
-    NSDictionary *petDay = [petEveryday objectAtIndex:0];
-    NSString *petPhotoId1 = [petDay objectForKey:@"petPhotoId"];
-    NSString *petPhotoTime = [petDay objectForKey:@"petPhotoTime"];
-    NSString *petPhotoTitle1 = [petDay objectForKey:@"petPhotoTitle"];
-    NSString *userName = [petDay objectForKey:@"userName"];
-    NSString *userHead = [petDay objectForKey:@"userHead"];
+    petDay = [petEveryday objectAtIndex:0];
+    petPhotoId1 = [petDay objectForKey:@"petPhotoId"];
+    petPhotoTime = [petDay objectForKey:@"petPhotoTime"];
+    petPhotoTitle1 = [petDay objectForKey:@"petPhotoTitle"];
+    userName = [petDay objectForKey:@"userName"];
+    userHead = [petDay objectForKey:@"userHead"];
     
 
     
  //   result1 =[resultobject objectForKey:@"ad"];
-    NSDictionary *ad = [result1 objectAtIndex:1];
-    NSString *adId = [ad objectForKey:@"adId"];
-    NSString *adTitle = [ad objectForKey:@"adTitle"];
-    NSString *adImage = [ad objectForKey:@"adImage"];
-    NSString *adUrl = [ad objectForKey:@"adUrl"];
+    ad = [result1 objectAtIndex:1];
+    adId = [ad objectForKey:@"adId"];
+    adTitle = [ad objectForKey:@"adTitle"];
+    adImage = [ad objectForKey:@"adImage"];
+    adUrl = [ad objectForKey:@"adUrl"];
   
     
+}
+//图片缩放到指定大小尺寸
+- (UIImage *)scaleToSize:(UIImage *)img size:(CGSize)size{
+    // 创建一个bitmap的context
+    // 并把它设置成为当前正在使用的context
+    UIGraphicsBeginImageContext(size);
+    // 绘制改变大小的图片
+    [img drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    // 从当前context中创建一个改变大小后的图片
+    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    // 使当前的context出堆栈
+    UIGraphicsEndImageContext();
+    // 返回新的改变大小后的图片
+    return scaledImage;
 }
 
 #pragma mark -
