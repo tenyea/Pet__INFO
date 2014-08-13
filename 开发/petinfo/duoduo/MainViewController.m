@@ -115,7 +115,6 @@
     home.result1=main_result1;
 
     story=[[StoryViewController alloc]init];
-     [story loadData];
     AskViewController *ask=[[AskViewController alloc]init];
     MyViewController *my=[[MyViewController alloc]init] ;
     
@@ -228,6 +227,7 @@
        // story.rowHeigh=89;
         _po(@"111");
         [story loadData];
+
     }
 }
 
