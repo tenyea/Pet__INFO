@@ -10,6 +10,10 @@
 #import "MainViewController.h"
 @implementation AppDelegate
 #pragma mark method
+- (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
+    sleep(1);
+    return YES;
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
