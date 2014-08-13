@@ -110,7 +110,7 @@
         if (title) {
             HUD.labelText = title;
         }else {
-            HUD.labelText = button_loading;
+            HUD.labelText = Tenyea_str_button_loading;
         }
         [HUD show:YES];
     }
