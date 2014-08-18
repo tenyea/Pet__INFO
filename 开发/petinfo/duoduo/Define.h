@@ -67,8 +67,6 @@
 #pragma mark -
 #pragma mark 通知
 #pragma mark NSNotificationCenter
-//取消删除按钮的通知
-#define NC_removeButton @"removeButtonNotification"
 
 #pragma mark - 
 #pragma mark userdefault

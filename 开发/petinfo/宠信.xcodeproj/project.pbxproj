@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5428209F19936FCC00F73541 /* libBPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5428209E19936FCC00F73541 /* libBPush.a */; };
-		542820A11993703000F73541 /* libbaidumapapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 542820A01993703000F73541 /* libbaidumapapi.a */; };
 		546A9A59197CE24A00C34E0D /* password.png in Resources */ = {isa = PBXBuildFile; fileRef = 546A9A53197CE24A00C34E0D /* password.png */; };
 		546A9A5A197CE24A00C34E0D /* register_backgroundg.png in Resources */ = {isa = PBXBuildFile; fileRef = 546A9A54197CE24A00C34E0D /* register_backgroundg.png */; };
 		546A9A5B197CE24A00C34E0D /* username.png in Resources */ = {isa = PBXBuildFile; fileRef = 546A9A55197CE24A00C34E0D /* username.png */; };
@@ -253,6 +251,8 @@
 		EBFF222D1986260800F6ACAC /* MyAskDocView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFF222C1986260800F6ACAC /* MyAskDocView.m */; };
 		EBFF222F1986271E00F6ACAC /* MyAskDocView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBFF222E1986271E00F6ACAC /* MyAskDocView.xib */; };
 		EBFFEEB0198A16530089C9EC /* MyViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFFEEAF198A16530089C9EC /* MyViewCell.m */; };
+		FEA4A3C319A230AE00E63532 /* libbaidumapapi.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA4A3C219A230AE00E63532 /* libbaidumapapi.a */; };
+		FEA4A3C519A230E800E63532 /* libBPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEA4A3C419A230E800E63532 /* libBPush.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -266,8 +266,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5428209E19936FCC00F73541 /* libBPush.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBPush.a; sourceTree = "<group>"; };
-		542820A01993703000F73541 /* libbaidumapapi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbaidumapapi.a; path = inc/libbaidumapapi.a; sourceTree = "<group>"; };
 		546A9A53197CE24A00C34E0D /* password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = password.png; sourceTree = "<group>"; };
 		546A9A54197CE24A00C34E0D /* register_backgroundg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = register_backgroundg.png; sourceTree = "<group>"; };
 		546A9A55197CE24A00C34E0D /* username.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = username.png; sourceTree = "<group>"; };
@@ -710,6 +708,8 @@
 		EBFF222E1986271E00F6ACAC /* MyAskDocView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyAskDocView.xib; sourceTree = "<group>"; };
 		EBFFEEAE198A16530089C9EC /* MyViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewCell.h; sourceTree = "<group>"; };
 		EBFFEEAF198A16530089C9EC /* MyViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewCell.m; sourceTree = "<group>"; };
+		FEA4A3C219A230AE00E63532 /* libbaidumapapi.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libbaidumapapi.a; sourceTree = "<group>"; };
+		FEA4A3C419A230E800E63532 /* libBPush.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBPush.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -721,13 +721,13 @@
 				EBE19239198F353E00B221CF /* MessageUI.framework in Frameworks */,
 				EB8F81D218E14EC000EED294 /* Security.framework in Frameworks */,
 				EB5FBB52197CC1CA0082917D /* CoreLocation.framework in Frameworks */,
-				542820A11993703000F73541 /* libbaidumapapi.a in Frameworks */,
+				FEA4A3C319A230AE00E63532 /* libbaidumapapi.a in Frameworks */,
 				EB8F819718E1360B00EED294 /* SystemConfiguration.framework in Frameworks */,
 				EB6AC0F318E1643400B84E34 /* MobileCoreServices.framework in Frameworks */,
 				EB6AC10318E165FC00B84E34 /* libxml2.2.dylib in Frameworks */,
 				EB6AC0F118E1642900B84E34 /* CFNetwork.framework in Frameworks */,
 				EB6AC0EB18E163E200B84E34 /* QuartzCore.framework in Frameworks */,
-				5428209F19936FCC00F73541 /* libBPush.a in Frameworks */,
+				FEA4A3C519A230E800E63532 /* libBPush.a in Frameworks */,
 				EB8F819918E1361F00EED294 /* CoreTelephony.framework in Frameworks */,
 				EB6AC0F518E1643D00B84E34 /* libxml2.dylib in Frameworks */,
 				EB8F81D618E14ED700EED294 /* libz.1.2.5.dylib in Frameworks */,
@@ -904,8 +904,8 @@
 		EB28F72C197CC1480084BE84 /* map */ = {
 			isa = PBXGroup;
 			children = (
+				FEA4A3C219A230AE00E63532 /* libbaidumapapi.a */,
 				EB28F72D197CC1550084BE84 /* inc */,
-				542820A01993703000F73541 /* libbaidumapapi.a */,
 				EB28F76A197CC1550084BE84 /* mapapi.bundle */,
 			);
 			name = map;
@@ -1388,7 +1388,7 @@
 			isa = PBXGroup;
 			children = (
 				EB8F817718E1214D00EED294 /* BPush.h */,
-				5428209E19936FCC00F73541 /* libBPush.a */,
+				FEA4A3C419A230E800E63532 /* libBPush.a */,
 				EB8F817918E1214D00EED294 /* opensource */,
 			);
 			path = lib;
@@ -2130,6 +2130,8 @@
 					"$(PROJECT_DIR)/duoduo",
 					"/Users/guidapeng/Desktop/Pet__INFO/开发/petinfo/duoduo/lib",
 					"/Users/guidapeng/Desktop/Pet__INFO/开发/petinfo/duoduo/inc",
+					"/Users/zhengzuowei/git\\ hub/Pet__INFO/开发/petinfo/duoduo",
+					"/Users/zhengzuowei/git\\ hub/Pet__INFO/开发/petinfo/duoduo/lib",
 				);
 				PRODUCT_NAME = "宠信";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2155,6 +2157,8 @@
 					"$(PROJECT_DIR)/duoduo",
 					"/Users/guidapeng/Desktop/Pet__INFO/开发/petinfo/duoduo/lib",
 					"/Users/guidapeng/Desktop/Pet__INFO/开发/petinfo/duoduo/inc",
+					"/Users/zhengzuowei/git\\ hub/Pet__INFO/开发/petinfo/duoduo",
+					"/Users/zhengzuowei/git\\ hub/Pet__INFO/开发/petinfo/duoduo/lib",
 				);
 				PRODUCT_NAME = "宠信";
 				TARGETED_DEVICE_FAMILY = 1;
