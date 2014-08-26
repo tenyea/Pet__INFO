@@ -7,7 +7,20 @@
 //
 
 #import "TenyeaBaseViewController.h"
-
+/**
+ 宠物知识vc
+ 
+ */
 @interface PetKnowledgeViewController : TenyeaBaseViewController<UITableViewDataSource,UITableViewDelegate>
 
+/**
+ *  <#Description#>
+ *
+ *  @param type   <#type description#>
+ *  @param kindId <#kindId description#>
+ *  @param board  board 0  不推送新页面 1推送新页面
+ *
+ *  @return <#return value description#>
+ */
+-(id)initWithType:(NSString *)type KindId:(NSString *)kindId board :(int) board;
 @end
