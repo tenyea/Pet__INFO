@@ -8,11 +8,13 @@
 
 #import "TenyeaBaseViewController.h"
 #import "BMapKit.h"
-
+/**
+ *  附近宠物的页面
+ */
 @interface NearPetViewController : TenyeaBaseViewController<BMKMapViewDelegate,BMKLocationServiceDelegate>
 {
     BMKMapView* baiduMapView;
-    BMKLocationService* _locService;
+
 }
 
 
