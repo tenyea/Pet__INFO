@@ -35,7 +35,7 @@
 }
 //初始化坐标
 -(void)beginFrame{
-    _label.frame = CGRectMake(0, 20, self.bounds.size.width, 20);
+    _label.frame = CGRectMake(5, 20, self.bounds.size.width - 5*2, 20);
     self.logoImageView.frame = CGRectMake(self.bounds.size.width /2 - 10, 0, 20, 20);
 }
 //开始结束状态动画
@@ -104,5 +104,39 @@
         //    _imageView.frame = CGRectMake(0, 10, 20, 20);
         isEnd = YES;
     }
+}
+
+
+-(void)buttonRun:(float)param{
+    _label.top = 20 + [self labelYPosition:param];
+    _label.left = 5 + [self labelXPosition:param];
+    
+    _logoImageView.top = 0 + [self imageYPosition:param];
+    _logoImageView.left = self.bounds.size.width /2 - 10 + [self imageXPosition:param]; //25
+    
+}
+//0~ -10
+-(float)labelYPosition:(float)param{
+    float result = 0.0;
+    result = param * 10  ;
+    return -result;
+}
+//0 ~ 10
+-(float)labelXPosition:(float)param{
+    float result = 0.0;
+    result = - param *param * 20  + 30 * param  ;
+    return result;
+}
+//0 ~10
+-(float)imageYPosition:(float)param{
+    float result = 0.0;
+    result = param * 10  ;
+    return result;
+}
+//0 ~ -25
+-(float)imageXPosition:(float)param{
+    float result = 0.0;
+    result = param *param * 45  - 70 * param  ;
+    return result;
 }
 @end

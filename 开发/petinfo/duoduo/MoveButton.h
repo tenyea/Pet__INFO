@@ -22,10 +22,16 @@
     
 }
 -(id)initWithFrame:(CGRect)frame LabelText:(NSString *)text ImageView:(NSString *)image;
-//动画
--(void)beginAnimation;
--(void)endAnimation;
+
+
 
 @property (strong,nonatomic) UILabel *label;
 @property (strong,nonatomic) UIImageView *logoImageView;
+
+-(void)buttonRun:(float)param;
+
+#pragma desertMethod
+//动画
+-(void)beginAnimation;
+-(void)endAnimation;
 @end
