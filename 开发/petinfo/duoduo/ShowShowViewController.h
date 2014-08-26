@@ -7,7 +7,7 @@
 //
 
 #import "TenyeaBaseViewController.h"
-
+/// 嗮萌宠，上传图片描述等
 @interface ShowShowViewController : TenyeaBaseViewController<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextView *textView;

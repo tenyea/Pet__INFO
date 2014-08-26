@@ -17,22 +17,18 @@ UIImage *_petImageTemp; //用于上传
 @implementation ShowShowViewController
 @synthesize textView;
 @synthesize addImageButton;
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-        self.title=@"晒一晒";
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-   
+    self.title=@"晒一晒";
+
     [textView becomeFirstResponder];
+    textView.scrollEnabled = NO;
+    /**
+     发帖按钮
+     */
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 30)];
     [button addTarget: self  action:@selector(submitAction) forControlEvents:UIControlEventTouchUpInside];
     button.titleLabel.font = [UIFont boldSystemFontOfSize:15];
@@ -41,37 +37,30 @@ UIImage *_petImageTemp; //用于上传
 
 }
 
-
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+/**
+ *  提交事件
+ */
 -(void)submitAction{
 
     if (!_petImageTemp) {
-        [self showHudInBottom:@"请加入图片"];
-        [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1];
+        [self showHudInBottom:@"请加入图片" autoHidden : YES];
         return;
         
     }
-    
     
     if ([textView.text isEqualToString:@""]) {
-        [self showHudInBottom:@"说点什么吧"];
-        [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1];
+        [self showHudInBottom:@"说点什么吧" autoHidden : YES];
         return;
         
     }
+    //添加参数
     NSString *userMemberId = [[NSUserDefaults standardUserDefaults] objectForKey:UD_userID_Str];
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
     
     [params setObject:userMemberId forKey:@"userId"];
     [params setObject:textView.text forKey:@"petPhotoText"];
    
-    
+//    上传图片 提交信息
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
     //    提示图片上传中
@@ -85,26 +74,28 @@ UIImage *_petImageTemp; //用于上传
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([[responseObject objectForKey:@"code"] intValue]==0 ) {//成功
             [self removeHUD];
-            [self showHudInBottom:@"提交成功"];
+            [self showHudInBottom:@"提交成功" autoHidden: NO];
             [self performSelector:@selector(popViewController) withObject:nil afterDelay:1];
         }
         [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         _po([error localizedDescription]);
         [self removeHUD];
-        [self showHudInBottom:@"提交失败"];
-        [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1];
+        [self showHudInBottom:@"提交失败" autoHidden: YES];
     }];
 
     
 }
+//退出当前页面
 -(void)popViewController{
     [self.navigationController popViewControllerAnimated:YES];
 }
+//上传头像事件
 - (IBAction)addImage:(id)sender {
     UIActionSheet *as=[[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle: nil otherButtonTitles:@"马上照一张",@"从手机相册选择", nil ];
     [as showInView:self.view];
 }
+
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
     NSLog(@"用户点击的是第%d个按钮",buttonIndex);
 //    if (actionSheet.tag == 1000) {//选择宠物
@@ -176,7 +167,14 @@ UIImage *_petImageTemp; //用于上传
     }
 }
 
-//图片缩放到指定大小尺寸
+/**
+ *  图片缩放到指定大小尺寸
+ *
+ *  @param img  原始图片
+ *  @param size 新图片大小
+ *
+ *  @return 新的图片
+ */
 - (UIImage *)scaleToSize:(UIImage *)img size:(CGSize)size{
     // 创建一个bitmap的context
     // 并把它设置成为当前正在使用的context
