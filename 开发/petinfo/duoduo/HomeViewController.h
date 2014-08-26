@@ -8,6 +8,10 @@
 
 #import "TenyeaBaseViewController.h"
 #import "XLCycleScrollView.h"
+
+/**
+ *  主页面
+ */
 @interface HomeViewController : TenyeaBaseViewController<XLCycleScrollViewDatasource,XLCycleScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>
 {
     
@@ -22,13 +26,7 @@
     NSString *petPhotoGood ;
     
     
-    NSArray *petEveryday ;
     NSDictionary *petDay ;
-    NSString *petPhotoId1 ;
-    NSString *petPhotoTime ;
-    NSString *petPhotoTitle1 ;
-    NSString *userName ;
-    NSString *userHead ;
     
     
     

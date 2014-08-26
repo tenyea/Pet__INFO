@@ -15,12 +15,18 @@
 #import "LoginViewController.h"
 #import "AskViewController.h"
 #import "TenyeaBaseNavigationViewController.h"
+#import "MJRefresh.h"
+#import "sys/utsname.h"
+#import "OpenUDID.h"
+#import "PetKnowledgeViewController.h"
 #define XLCycleHeight 130
 @interface HomeViewController ()
 {
     float _heigh;
     NSArray *array;
     
+    UITableView *_tableView;
+    BOOL isloginType;
 }
 @end
 
@@ -42,31 +48,32 @@
 {
     [super viewDidLoad];
     
-    _po(petEveryday);
-    
-    petPhotoId = [result objectForKey:@"petPhotoId"];
-    petPhotoPathMin =[result objectForKey:@"petPhotoPathMin"];
-    petPhotoTitle = [result objectForKey:@"petPhotoTitle"];
-    petPhotoDes = [result objectForKey:@"petPhotoDes"];
-    petPhotoGood = [result objectForKey:@"petPhotoGood"];
- 
     array=[[NSArray alloc]init];
     array=@[@"新手课堂",@"专家讲堂",@"预防护理",@"日常饲养",@"就医指南",@"宠物美容"];
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight) style:UITableViewStylePlain];
-    tableView.dataSource = self;
-    tableView.delegate = self;
-    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.view addSubview:tableView];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight) style:UITableViewStylePlain];
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.view addSubview:_tableView];
     
     self.view.backgroundColor=  [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
     // tableView.scrollEnabled=NO;
     // 取消tableview的row的横线
     // tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
   
+    //    上拉
+    [_tableView addHeaderWithTarget:self action:@selector(headerRereshing)];
 
+    [_tableView headerBeginRefreshing];
+    isloginType = YES;
+//    [self _loadDate];
+}
+#pragma mark -
+#pragma mark MJRefresh
+//上拉 刷新
+-(void)headerRereshing{
     [self _loadDate];
 }
-
 #pragma mark -
 #pragma mark UITableViewDataSource
 // 设置一个表单中有多少分组(非正式协议如果不实现该方法则默认只有一个分组)
@@ -90,12 +97,12 @@
         return 2;
     }else
     {
-        return 5;
+        return [petEveryday count] + 1;
     }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+//    顶部视图
     if(indexPath.section==0)
     {
         static NSString *cellName_top = @"cell_top";
@@ -112,6 +119,7 @@
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         return cell;
     }
+//    按钮
     else if(indexPath.section==1)
     {
         static NSString *cellName_button = @"cellName_button";
@@ -147,6 +155,7 @@
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         return cell;
     }
+//    本周萌宠
     else if(indexPath.section==2)
     {
         if (indexPath.row == 0) {
@@ -169,11 +178,8 @@
                 bview.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
                 [cell addSubview:bview];
             }
-
-            cell.selectionStyle=UITableViewCellSelectionStyleNone;
-
             cell.accessoryType = UITableViewCellAccessoryNone;
-             cell.selectionStyle=UITableViewCellSelectionStyleNone;
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
 
             return cell;
             
@@ -214,8 +220,7 @@
                 imageView.layer.cornerRadius = 13;
                 
                 imageView.tag = 103;
-                NSURL *url = [NSURL URLWithString:petPhotoPathMin];
-                [imageView setImageWithURL:url placeholderImage:nil];
+                
               
                 [cell addSubview:imageView];
                 
@@ -228,21 +233,24 @@
                 igv1.frame=CGRectMake(260, 70, 15, 15);
                 igv1.image=[UIImage imageNamed:@"main_praise.png"];
                 [cell addSubview:igv1];
-             //   UILabel *label = (UILabel *)VIEWWITHTAG(tableView, 100);
-                label.text= petPhotoTitle;
-                
-              //  UILabel *desc = (UILabel *)VIEWWITHTAG(tableView, 101);
-                desc.text = petPhotoDes;
-                
-             //   UILabel *label1 = (UILabel *)VIEWWITHTAG(tableView, 104);
-                NSString *stringInt = [NSString stringWithFormat:@"%@",petPhotoGood];
-                label1.text=stringInt ;
+            
                
 
 
             }
             
+            UILabel *label = (UILabel *)VIEWWITHTAG(cell, 100);
+            label.text= petPhotoTitle;
             
+            UILabel *desc = (UILabel *)VIEWWITHTAG(cell, 101);
+            desc.text = petPhotoDes;
+            UIImageView *imageView = (UIImageView *)VIEWWITHTAG(cell, 103);
+            NSURL *url = [NSURL URLWithString:petPhotoPathMin];
+            [imageView setImageWithURL:url placeholderImage:nil];
+            
+            UILabel *label1 = (UILabel *)VIEWWITHTAG(cell, 104);
+            NSString *stringInt = [NSString stringWithFormat:@"%@",petPhotoGood];
+            label1.text=stringInt ;
             
             
             cell.selectionStyle=UITableViewCellSelectionStyleNone;
@@ -251,6 +259,7 @@
     
         
     }
+//    每日一宠
     else
     {
         if (indexPath.row == 0) {
@@ -283,16 +292,7 @@
             }
             if (petEveryday.count > 0 ) {
                 petDay = [petEveryday objectAtIndex: (indexPath.row - 1)];
-                petPhotoId1 = [petDay objectForKey:@"petPhotoId"];
-                petPhotoTime = [petDay objectForKey:@"petPhotoTime"];
-                petPhotoTitle1 = [petDay objectForKey:@"petPhotoTitle"];
-                userName = [petDay objectForKey:@"userName"];
-                userHead = [petDay objectForKey:@"userHead"];
-                cell.TitleLabel.text=petPhotoTitle1;
-                cell.TimeLabel.text=petPhotoTime;
-                cell.UserNameLabel.text=userName;
-                NSURL *url = [NSURL URLWithString:userHead];
-                [cell.ImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"my_petlogo.png"]];
+                cell.dic = petDay;
             }
 
             cell.selectionStyle=UITableViewCellSelectionStyleNone;
@@ -307,29 +307,23 @@
 -(void)btnAction:(UIButton *)btn
 {
     switch (btn.tag) {
-        case 0:
-             [self.navigationController pushViewController:[[PetClassificationViewController alloc] init] animated:YES];
-            _po(@"1");
+        case 0://新手课堂
+             [self.navigationController pushViewController:[[PetClassificationViewController alloc] initWithType:@"1" ] animated:YES];
             break;
-        case 1:
-             [self.navigationController pushViewController:[[PetClassificationViewController alloc] init] animated:YES];
-            _po(@"2");
+        case 1://专家讲堂
+             [self.navigationController pushViewController:[[PetKnowledgeViewController alloc] initWithType:@"0" KindId:nil board:0] animated:YES];
             break;
-        case 2:
-             [self.navigationController pushViewController:[[PetClassificationViewController alloc] init] animated:YES];
-            _po(@"3");
+        case 2://预防护理
+             [self.navigationController pushViewController:[[PetClassificationViewController alloc] initWithType:@"2"] animated:YES];
             break;
-        case 10:
-             [self.navigationController pushViewController:[[PetClassificationViewController alloc] init] animated:YES];
-            _po(@"4");
+        case 10://日常饲养
+             [self.navigationController pushViewController:[[PetClassificationViewController alloc] initWithType:@"5" secondType:YES] animated:YES];
             break;
-        case 11:
-            [self.navigationController pushViewController:[[PetClassificationViewController alloc] init] animated:YES];
-            _po(@"5");
+        case 11://就医指南
+            [self.appDelegate.mainVC updateSelectedIndex:2];
             break;
-        case 12:
-             [self.navigationController pushViewController:[[PetClassificationViewController alloc] init] animated:YES];
-            _po(@"6");
+        case 12://宠物美容
+             [self.navigationController pushViewController:[[PetClassificationViewController alloc] initWithType:@"4"] animated:YES];
             break;
         default:
             break;
@@ -363,11 +357,43 @@
     
     
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+    if (indexPath.section==2&&indexPath.row!=0)
+    {
+        if ([[NSUserDefaults standardUserDefaults]objectForKey:UD_userID_Str]) {
+            [self.navigationController pushViewController:[[StoryContentViewController alloc] initWithID:petPhotoId hasComments:YES] animated:YES];
+            
+        }else{
+            [self.navigationController pushViewController:[[LoginViewController alloc]init] animated:YES];
+        }
+    }else if (indexPath.section==3&&indexPath.row!=0)
+    {
+        
+        if ([[NSUserDefaults standardUserDefaults]objectForKey:UD_userID_Str]) {
+            [self.navigationController pushViewController:[[StoryContentViewController alloc] initWithID:[[petEveryday objectAtIndex:indexPath.row-1]objectForKey:@"petPhotoId"] hasComments:YES] animated:YES];
+            
+        }else{
+            [self.navigationController pushViewController:[[LoginViewController alloc]init] animated:YES];
+        }
+    }
+    
+    
+    
+    
+}
 
 
 #pragma mark XLCycleScrollViewDelegate
-
+/**
+ *  轮播图显示
+ *
+ *  @param index 第几个
+ *
+ *  @return 需要显示的视图
+ */
 - (UIView *)pageAtIndex:(NSInteger)index
 {
    
@@ -388,6 +414,12 @@
     return imgaeView;
 
 }
+/**
+ *  轮播图点击事件代理
+ *
+ *  @param csView <#csView description#>
+ *  @param index  <#index description#>
+ */
 - (void)didClickPage:(XLCycleScrollView *)csView atIndex:(NSInteger)index{
     ad = [result1 objectAtIndex:index];
     adId = [ad objectForKey:@"adId"];
@@ -410,10 +442,11 @@
 #pragma mark -
 #pragma mark UI
 
-
-
+/**
+ *  初始化视图
+ */
 -(void)_initUI{
-//    轮播图
+//    轮播图背景图
     view = [[UIView alloc]initWithFrame:CGRectMake(0,0,ScreenWidth, XLCycleHeight)];
     UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(14, 9, ScreenWidth - 14 * 2 , XLCycleHeight - 9 * 2)];
     bgView.backgroundColor = [UIColor colorWithRed:0.48 green:0.89 blue:0.87 alpha:1];
@@ -422,7 +455,7 @@
     bgView.layer.cornerRadius = 13;
     [view addSubview:bgView];
     
-    
+    //轮播图控件
     XLCycleScrollView *xlCycleScrollView = [[XLCycleScrollView alloc]initWithFrame:CGRectMake(2 , 2, ScreenWidth - 16*2, XLCycleHeight - 11 * 2)];
     xlCycleScrollView.layer.masksToBounds = YES;
     xlCycleScrollView.layer.cornerRadius = 13;
@@ -453,127 +486,15 @@
 
 
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
-{
-  
-        
-    if (indexPath.section==2&&indexPath.row!=0)
-    {
-        NSUserDefaults *myUserDefaults = [NSUserDefaults standardUserDefaults];
-        
-        // 读取
-        NSNumber *readCount = [myUserDefaults objectForKey:UD_userID_Str];
-        NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
-        [dic setValue:petPhotoId forKey:@"petPhotoId"];
-        [dic setValue:readCount forKey:@"userId"];
-        
-        
-        [self getDate:URL_Pet_Photo andParams:dic andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSString *code =[responseObject objectForKey:@"code"];
-            NSLog(@"%@",code);
-           
-            int a = [code intValue];
-            if(a==0)
-            {
-                NSDictionary *dic=[responseObject objectForKey:@"petPhoto"];
-                StoryContentViewController *scvc =[[StoryContentViewController alloc] init];
-                
-                scvc.petImageViewURL=[dic objectForKey:@"petPhotoImg"];
-                
-                scvc.petPresentation=[dic objectForKey:@"petPhotoText"];
-                scvc.photoID=petPhotoId;
-                [self.navigationController pushViewController:scvc animated:YES];
-                
-                NSLog(@"登录成功");
-            }else if(a==1001)
-            {
-               // 去登陆  缺少userID
-                [self.navigationController pushViewController:[[LoginViewController alloc] init] animated:YES];
 
-            }
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"Error: %@", error);
-        }];
-       
-    }else if (indexPath.section==3&&indexPath.row!=0)
-    {
-        
-        NSUserDefaults *myUserDefaults = [NSUserDefaults standardUserDefaults];
-        
-        // 读取
-        NSNumber *readCount = [myUserDefaults objectForKey:UD_userID_Str];
-        NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
-        
-        [dic setValue:[[petEveryday objectAtIndex:indexPath.row-1]objectForKey:@"petPhotoId"] forKey:@"petPhotoId"];
-        _pn(indexPath.row);
-        [dic setValue:readCount forKey:@"userId"];
-        
-        [self getDate:URL_Pet_Photo andParams:dic andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSString *code =[responseObject objectForKey:@"code"];
-            NSLog(@"%@",code);
-            
-            int a = [code intValue];
-            if(a==0)
-            {
-                NSDictionary *dic=[responseObject objectForKey:@"petPhoto"];
-                StoryContentViewController *scvc =[[StoryContentViewController alloc] init];
-                
-                scvc.petImageViewURL=[dic objectForKey:@"petPhotoImg"];
-                scvc.petPresentation=[dic objectForKey:@"petPhotoText"];
-                scvc.photoID=[[petEveryday objectAtIndex:indexPath.row-1]objectForKey:@"petPhotoId"];
-                [self.navigationController pushViewController:scvc animated:YES];
-                
-                NSLog(@"登录成功");
-            }else if(a==1001)
-            {
-                // 去登陆  缺少userID
-                [self.navigationController pushViewController:[[LoginViewController alloc] init] animated:YES];
-
-            }
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"Error: %@", error);
-        }];
-
-    
-    }
-        
-    
-        
-    
-}
-
-// 解析数据存储在 NSUserDefaults
--(void)showResult:(NSDictionary *)resultobject
-{
-    //解析数据
-  //  result =[resultobject objectForKey:@"weekPetPhoto"];
-    petPhotoId = [result objectForKey:@"petPhotoId"];
-    petPhotoPathMin =[result objectForKey:@"petPhotoPathMin"];
-    petPhotoTitle = [result objectForKey:@"petPhotoTitle"];
-    petPhotoDes = [result objectForKey:@"petPhotoDes"];
-    petPhotoGood = [result objectForKey:@"petPhotoGood"];
-   
-   
- //  petEveryday = [resultobject objectForKey:@"petPhotoList"];
-    petDay = [petEveryday objectAtIndex:0];
-    petPhotoId1 = [petDay objectForKey:@"petPhotoId"];
-    petPhotoTime = [petDay objectForKey:@"petPhotoTime"];
-    petPhotoTitle1 = [petDay objectForKey:@"petPhotoTitle"];
-    userName = [petDay objectForKey:@"userName"];
-    userHead = [petDay objectForKey:@"userHead"];
-    
-
-    
- //   result1 =[resultobject objectForKey:@"ad"];
-    ad = [result1 objectAtIndex:1];
-    adId = [ad objectForKey:@"adId"];
-    adTitle = [ad objectForKey:@"adTitle"];
-    adImage = [ad objectForKey:@"adImage"];
-    adUrl = [ad objectForKey:@"adUrl"];
-  
-    
-}
-//图片缩放到指定大小尺寸
+/**
+ *  图片缩放到指定大小尺寸
+ *
+ *  @param img  原始图片
+ *  @param size 新图片大小
+ *
+ *  @return 新的图片
+ */
 - (UIImage *)scaleToSize:(UIImage *)img size:(CGSize)size{
     // 创建一个bitmap的context
     // 并把它设置成为当前正在使用的context
@@ -590,7 +511,74 @@
 
 #pragma mark -
 #pragma mark LoadDate
+/**
+ *  获取数据，填充
+ */
 -(void)_loadDate{
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
     
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:UD_userID_Str]) {
+        if (isloginType) {
+            [dic setObject:@"1" forKey:@"isLogin"];
+            struct utsname systemInfo;
+            uname(&systemInfo);
+            NSString *deviceString = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+            [dic setObject:[[NSUserDefaults standardUserDefaults] objectForKey:UD_userID_Str] forKey:@"userId"];
+            [dic setObject:[[NSUserDefaults standardUserDefaults] objectForKey:UD_userName_Str] forKey:@"username"];
+            [dic setObject:[OpenUDID value] forKey:@"deviceId"];
+            NSDictionary *dicLocationnow =  [[NSUserDefaults standardUserDefaults]dictionaryForKey:UD_Locationnow_DIC];
+            if (dicLocationnow) {
+                [dic setObject:[dicLocationnow objectForKey:@"longitude"]  forKey:@"longitude"];
+                [dic setObject:[dicLocationnow objectForKey:@"latitude"] forKey:@"latitude"];
+            }else{
+                [dic setObject:@"0"  forKey:@"longitude"];
+                [dic setObject:@"0" forKey:@"latitude"];
+                
+            }
+            [dic setObject:deviceString forKey:@"device"];
+            [dic setObject:[[UIDevice currentDevice] systemVersion] forKey:@"system"];
+            [dic setObject:[[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey] forKey:@"version"];
+            [dic setObject:[NSString stringWithFormat:@"%f*%f",ScreenWidth,ScreenHeight] forKey:@"dpi"];
+            [dic setObject:[Network  getConnectionAvailable] forKey:@"gprs"];
+            [dic setObject:@"0" forKey:@"type"];
+        }else{
+            [dic setObject:@"0" forKey:@"isLogin"];
+
+        }
+        
+    }else{
+        [dic setObject:@"0" forKey:@"isLogin"];
+    }
+    isloginType = NO;
+
+   
+    
+    
+    [self getDate:URL_Ao andParams:dic andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSString *code =[responseObject objectForKey:@"code"];
+        
+        int a = [code intValue];
+        if(a==0)
+        {
+            
+            //解析数据
+            self.result =[responseObject objectForKey:@"weekPetPhoto"];
+            self.petEveryday = [responseObject objectForKey:@"petPhotoList"];
+            self.result1 =[responseObject objectForKey:@"ad"];
+            
+            petPhotoId = [result objectForKey:@"petPhotoId"];
+            petPhotoPathMin =[result objectForKey:@"petPhotoPathMin"];
+            petPhotoTitle = [result objectForKey:@"petPhotoTitle"];
+            petPhotoDes = [result objectForKey:@"petPhotoDes"];
+            petPhotoGood = [result objectForKey:@"petPhotoGood"];
+            [_tableView reloadData];
+        }
+        [_tableView headerEndRefreshing];
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", [error localizedDescription]);
+        [_tableView headerEndRefreshing];
+
+    }];
 }
 @end
