@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+/// 故事页排名视图
 @interface StoryCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *ImageView;
 @property (strong, nonatomic) IBOutlet UILabel *TitleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *TimeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *UserNameLabel;
 
+
+@property (nonatomic ,strong) NSDictionary *dic ;
 @end

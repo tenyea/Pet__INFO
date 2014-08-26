@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+/// 人气排名视图
 @interface LikePetCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UILabel *titleLable;
@@ -15,4 +16,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lookLabel;
 @property (strong, nonatomic) IBOutlet UILabel *likeLabel;
 
+
+
+@property (nonatomic ,strong) NSDictionary *dic ;
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "StoryCell.h"
-
+#import "UIImageView+WebCache.h"
 @implementation StoryCell
 
 - (void)awakeFromNib
@@ -17,7 +17,7 @@
 }
 -(void)_init{
     _ImageView.layer.masksToBounds = YES;
-    _ImageView.layer.cornerRadius = 38.5;
+    _ImageView.layer.cornerRadius = 38;
 }
 /*
 -(void)drawRect:(CGRect)rect{
@@ -37,5 +37,18 @@
 
 }
 */
+
+
+-(void)setDic:(NSDictionary *)dic {
+    if (_dic != dic) {
+        _dic = dic;
+        self.TimeLabel.text=[_dic objectForKey:@"petPhotoTime"];
+        self.TitleLabel.text=[_dic objectForKey:@"petPhotoTitle"];
+        self.UserNameLabel.text=[_dic objectForKey:@"userName"];
+        NSURL *url = [NSURL URLWithString:[_dic objectForKey:@"userHead"]];
+        [self.ImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"register_backgroundg.png"]];
+
+    }
+}
 
 @end
