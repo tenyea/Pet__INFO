@@ -7,9 +7,42 @@
 //
 
 #import "AppDelegate.h"
-#import "MainViewController.h"
+#import <ShareSDK/ShareSDK.h>
+#import "WXApi.h"
+#import "WeiboSDK.h"
+#import <TencentOpenAPI/QQApiInterface.h>
+#import <TencentOpenAPI/TencentOAuth.h>
 @implementation AppDelegate
+
 #pragma mark method
+/**
+ *  注册sharesdk 相关组件
+ */
+-(void)regShareSdk{
+    //参数为ShareSDK官网中添加应用后得到的AppKey
+    [ShareSDK registerApp: shareSdkAppID];
+    
+    //当使用新浪微博客户端分享的时候需要按照下面的方法来初始化新浪的平台
+    [ShareSDK  connectSinaWeiboWithAppKey:@"568898243"
+                                appSecret:@"38a4f8204cc784f81f9f0daaf31e02e3"
+                              redirectUri:@"http://www.sharesdk.cn"
+                              weiboSDKCls:[WeiboSDK class]];
+    //添加QQ空间应用  注册网址  http://connect.qq.com/intro/login/
+    [ShareSDK connectQZoneWithAppKey:@"100371282"
+                           appSecret:@"aed9b0303e3ed1e27bae87c33761161d"
+                   qqApiInterfaceCls:[QQApiInterface class]
+                     tencentOAuthCls:[TencentOAuth class]];
+    //添加QQ应用  注册网址  http://mobile.qq.com/api/
+    [ShareSDK connectQQWithQZoneAppKey:@"100371282"
+                     qqApiInterfaceCls:[QQApiInterface class]
+                       tencentOAuthCls:[TencentOAuth class]];
+    //添加微信应用 注册网址 http://open.weixin.qq.com
+    [ShareSDK connectWeChatWithAppId:@"wx4868b35061f87885"
+                           wechatCls:[WXApi class]];
+}
+
+#pragma mark -
+#pragma mark Appdelegate
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
     sleep(1);
     return YES;
@@ -40,7 +73,6 @@
 //            [userdefaults synchronize];
 //            [self performSelector:@selector(pushmodel) withObject:nil afterDelay:6];
 //        }
-//        
 //    }
 
     //    地图
@@ -49,9 +81,12 @@
     if (!ret) {
         NSLog(@"manager start failed!");
     }
+    
+    [self regShareSdk];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [[MainViewController alloc]init];
+    self.mainVC = [[MainViewController alloc]init];
+    self.window.rootViewController = self.mainVC;
     [self.window makeKeyAndVisible];
     
 
@@ -197,7 +232,30 @@
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+/**
+ *  用于sharesdk打开应用
+ *
+ *  @param application <#application description#>
+ *  @param url         <#url description#>
+ *
+ *  @return <#return value description#>
+ */
+- (BOOL)application:(UIApplication *)application  handleOpenURL:(NSURL *)url
+{
+    return [ShareSDK handleOpenURL:url
+                        wxDelegate:self];
+}
 
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    return [ShareSDK handleOpenURL:url
+                 sourceApplication:sourceApplication
+                        annotation:annotation
+                        wxDelegate:self];
+}
 #pragma mark -
 #pragma mark BMKGeneralDelegate
 

@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "BMapKit.h"
+#import "MainViewController.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate,BMKGeneralDelegate>
 {
     BMKMapManager* _mapManager;
 }
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) MainViewController *mainVC;
 @end
