@@ -11,6 +11,7 @@
 #import "StoryViewController.h"
 #import "AskViewController.h"
 #import "MyViewController.h"
+#define pageVersion 1
 @interface MainViewController ()
 {
     int _tabbar_button_select ;
@@ -23,54 +24,138 @@
     NSDictionary *story_result;
     
     StoryViewController *story;
+    /**
+     *  引导页视图
+     */
+    UIScrollView *_scrollView;
 }
 @end
 
 @implementation MainViewController
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
- 
-}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //初始化子控制器
+    [self _initController];
+    //初始化tabbar
+    [self _initTabbarView];
+    //    定位
+    [self Location];
+    /**
+     *  当userdefaults中的pageversion与当前不符时，显示引导图
+     */
+    if ([[NSUserDefaults standardUserDefaults] integerForKey:UD_pageVersion] != pageVersion) {
+        //    引导图
+        [self _initBootView];
+    }
+    
+    
+}
+#pragma mark boot
+/**
+ *  实例化引导图
+ */
+-(void)_initBootView{
+    NSMutableArray *imageNameArray = [[NSMutableArray alloc]init];
+    for ( int i = 1 ; i < 4; i ++ ) {
+        NSString *imageName = [NSString stringWithFormat:@"%dx%d-%d.png",(int)(ScreenWidth*2),(int)(ScreenHeight*2),i];
+        [imageNameArray addObject:imageName];
+    }
+    //引导页
+    _scrollView = [[UIScrollView alloc] init];
+    _scrollView.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
+    _scrollView.contentSize = CGSizeMake(320 *imageNameArray.count , ScreenHeight);
+    _scrollView.pagingEnabled = YES;
+    _scrollView.showsVerticalScrollIndicator = NO;
+    _scrollView.showsHorizontalScrollIndicator = NO;
+    _scrollView.bounces = NO;
+    _scrollView.delegate = self;
+    
+    //增加引导页图片
+    for (int i = 0 ; i < imageNameArray.count  ; i++) {
+        UIImageView *imageView = [[UIImageView alloc] init];
+        imageView.frame = CGRectMake(i*320 , 0, ScreenWidth, ScreenHeight);
+        [imageView setImage:[UIImage imageNamed:imageNameArray[i]]];
+        [_scrollView addSubview:imageView];
+    }
+    //进入主界面按钮
+    UIButton *button = [[UIButton alloc]init];
+    button.titleLabel.numberOfLines = 2;
+    button.backgroundColor = CLEARCOLOR;
+    button.titleLabel.backgroundColor = CLEARCOLOR;
+    [button setImage:[UIImage imageNamed:@"go_main.png"] forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(enter) forControlEvents:UIControlEventTouchUpInside];
+    button.frame = CGRectMake(320*imageNameArray.count - 160 - 136/2, ScreenHeight-50, 136, 37);
+    [_scrollView addSubview:button];
+    
+    [self.view addSubview:_scrollView];
+    
+    //增加pageview
+    UIPageControl *pageControl = [[UIPageControl alloc]init];
+    pageControl.frame = CGRectMake((ScreenWidth-100)/2, ScreenHeight -80, 100, 30);
+    pageControl.tag = 1300;
+    pageControl.pageIndicatorTintColor = [UIColor grayColor];
+    pageControl.currentPageIndicatorTintColor = COLOR(0, 229, 223);
+    pageControl.currentPage = 0 ;
+    pageControl.numberOfPages = imageNameArray.count;
+    pageControl.backgroundColor = [UIColor clearColor];
+    [pageControl addTarget:self action:@selector(pageindex:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:pageControl];
+}
 
-    [self getDate:URL_Ao andParams:nil andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSString *code =[responseObject objectForKey:@"code"];
-        
-        int a = [code intValue];
-        if(a==0)
-        {
-            [self showResult:responseObject];
-            NSLog(@"登录成功");
-            //初始化子控制器
-            [self _initController];
-            //初始化tabbar
-            [self _initTabbarView];
-            
-            //    定位
-            [self Location];
-
+#pragma mark scrolldelegate
+/**
+ *  引导图滚动事件
+ *
+ *  @param scrollView 当前引导图
+ */
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    int pageindex = scrollView.contentOffset.x / 320 ;
+    UIPageControl *pageControl = (UIPageControl *) [self.view viewWithTag:1300];
+    pageControl.currentPage = pageindex;
+}
+#pragma mark 按钮事件
+/**
+ *  最后一张引导图的按钮时间。点击后隐藏引导图
+ */
+- (void)enter{
+    UIPageControl *pageControl = (UIPageControl *)[self.view viewWithTag:1300] ;
+    [UIView animateWithDuration:0.5 animations:^{
+        _scrollView.alpha = 0 ;
+        pageControl.alpha = 0 ;
+    } completion:^(BOOL finished) {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:pageVersion] forKey:UD_pageVersion];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        if (finished) {
+            [pageControl removeFromSuperview];
+            [_scrollView removeFromSuperview];
         }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
     }];
 }
+/**
+ *  pagecontrol 事件
+ *
+ *  @param pagecontrol <#pagecontrol description#>
+ */
+- (void)pageindex:(UIPageControl *)pagecontrol{
+    CGRect frame = CGRectMake(pagecontrol.currentPage* ScreenWidth, 0, ScreenWidth, ScreenHeight);
+    [_scrollView scrollRectToVisible:frame animated:YES];
+}
 #pragma mark Location
-//定位
+/**
+ *  开始定位，定位完成后需要将代理设置为空
+ */
 -(void)Location {
-
-    
     _locService =  [[BMKLocationService alloc]init];
     _locService.delegate = self;
     [_locService startUserLocationService];
-//    [_locService stopUserLocationService];
-
 }
-//访问网络获取数据
-//cachePolicyType 0:只读本地数据 。NSURLRequestReturnCacheDataDontLoad 只使用cache数据，如果不存在cache，请求失败;用于没有建立网络连接离线模式;
-//                1:本地于与网络比较。NSURLRequestReloadRevalidatingCacheData验证本地数据与远程数据是否相同，如果不同则下载远程数据，否则使用本地数据。
+/**
+ * 访问网络获取数据
+ * cachePolicyType 0:只读本地数据 。NSURLRequestReturnCacheDataDontLoad 只使用cache数据，如果不存在cache，请求失败;用于没有建立网络连接离线模式;
+ *                 1:本地于与网络比较。NSURLRequestReloadRevalidatingCacheData验证本地数据与远程数据是否相同，如果不同则下载远程数据，否则使用本地数据。
+ */
 -(void)getDate: (NSString *)url andParams:(NSDictionary *)param  andcachePolicy:(int)cachePolicyType success:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure{
     
     NSString *baseurl = [BASE_URL stringByAppendingPathComponent:url];
@@ -92,28 +177,12 @@
 }
 
 
--(void)showResult:(NSDictionary *)resultobject
-{
-    //解析数据
-    main_result =[resultobject objectForKey:@"weekPetPhoto"];
-    
-    main_petEveryday = [resultobject objectForKey:@"petPhotoList"];
-   
-    main_result1 =[resultobject objectForKey:@"ad"];
-    
-    
-}
-
 #pragma mark -
 #pragma mark init
 //初始化子控制器
 -(void)_initController{
    
     HomeViewController *home=[[HomeViewController alloc]init];
-    home.result=main_result;
-    home.petEveryday=main_petEveryday;
-    home.result1=main_result1;
-
     story=[[StoryViewController alloc]init];
     AskViewController *ask=[[AskViewController alloc]init];
     MyViewController *my=[[MyViewController alloc]init] ;
@@ -165,11 +234,8 @@
 {
     NSLog(@"heading is %@",userLocation.heading);
 
-    _pf(userLocation.location.coordinate.latitude);
-    _pf(userLocation.location.coordinate.longitude);
     [_locService stopUserLocationService];
     CLLocation *location = userLocation.location;
-    
     CLGeocoder *geocoder = [[CLGeocoder alloc]init];
     [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
         for (CLPlacemark *place in placemarks) {
@@ -178,12 +244,14 @@
             _po(place.administrativeArea); //省
             [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@-%@",place.locality,place.subLocality] forKey:UD_nowPosition_Str];
             [[NSUserDefaults standardUserDefaults] setObject:
-                            @{@"latitude": [NSNumber numberWithFloat:location.coordinate.latitude],
-                              @"longitude":[NSNumber numberWithFloat:location.coordinate.longitude]}
+                            @{@"latitude": [NSNumber numberWithDouble:location.coordinate.latitude],
+                              @"longitude":[NSNumber numberWithDouble:location.coordinate.longitude]}
                                                       forKey:UD_Locationnow_DIC];
             [[NSUserDefaults standardUserDefaults]synchronize];
-        }
+//            [[NSNotificationCenter defaultCenter]postNotificationName:NC_location_Success object:nil userInfo:nil];
+            _locService.delegate = nil;
 
+        }
     }];
 }
 //处理位置坐标更新
@@ -199,19 +267,29 @@
             _po(place.administrativeArea); //省
             [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%@-%@",place.locality,place.subLocality] forKey:UD_nowPosition_Str];
             [[NSUserDefaults standardUserDefaults] setObject:
-             @{@"latitude": [NSNumber numberWithFloat:location.coordinate.latitude],
-               @"longitude":[NSNumber numberWithFloat:location.coordinate.longitude]}
+             @{@"latitude": [NSNumber numberWithDouble :location.coordinate.latitude],
+               @"longitude":[NSNumber numberWithDouble:location.coordinate.longitude]}
                                                       forKey:UD_Locationnow_DIC];
             [[NSUserDefaults standardUserDefaults]synchronize];
+//            [[NSNotificationCenter defaultCenter]postNotificationName:NC_location_Success object:nil userInfo:nil];
+            _locService.delegate = nil;
+
         }
-        
     }];
 
 }
+//定位失败
+- (void)didFailToLocateUserWithError:(NSError *)error{
+    _po([error localizedDescription]);
+    [_locService stopUserLocationService];
+//    [[NSNotificationCenter defaultCenter]postNotificationName:NC_location_Fail object:nil userInfo:nil];
+    _locService.delegate = nil;
 
+}
 #pragma mark -
 #pragma mark 按钮事件
 //tabbar选中事件
+//当第二个按钮点击是。刷新其页面的数据
 -(void)selectedTab:(UIButton *)button
 {
     if (_tabbar_button_select) {
@@ -222,26 +300,56 @@
     int site = button.tag - 100;
     button.selected = YES;
     self.selectedIndex = site;
+//    当第二个按钮点击是。刷新其页面的数据
     if (site==1) {
        // button.selected=YES;
        // story.rowHeigh=89;
         _po(@"111");
-        [story loadData];
+        [story refreshData];
 
     }
 }
-
+/**
+ *  更新选中页
+ *
+ *  @param selectedIndex 选中页ID
+ */
+-(void)updateSelectedIndex:(NSUInteger)selectedIndex{
+    if (_tabbar_button_select) {
+        UIButton *button = (UIButton *)VIEWWITHTAG(_tabbarView, _tabbar_button_select);
+        button.selected = NO;
+    }
+    _tabbar_button_select = 100 + selectedIndex;
+    UIButton *button = (UIButton *)VIEWWITHTAG(_tabbarView, _tabbar_button_select);
+    button.selected = YES;
+    self.selectedIndex = selectedIndex;
+}
 #pragma mark -
 #pragma mark method
--(void)setTabbarShow:(BOOL)isshow{
-    if (isshow) {
-        [UIView animateWithDuration:.3 animations:^{
-            _tabbarView.transform = CGAffineTransformIdentity;
-        }];
+/**
+ *  设置tabbar是否显示
+ *
+ *  @param isshow  yes ：显示 no：不显示
+ *  @param animate yes ：有动画 no ： 没动画
+ */
+-(void)setTabbarShow:(BOOL)isshow animate:(BOOL)animate{
+    if (animate) {
+        if (isshow) {
+            [UIView animateWithDuration:.3 animations:^{
+                _tabbarView.transform = CGAffineTransformIdentity;
+            }];
+        }else{
+            [UIView animateWithDuration:.3 animations:^{
+                _tabbarView.transform = CGAffineTransformTranslate(_tabbarView.transform, 0, _tabbarView.height);
+            }];
+        }
     }else{
-        [UIView animateWithDuration:.3 animations:^{
+        if (isshow) {
+            _tabbarView.transform = CGAffineTransformIdentity;
+        }else{
             _tabbarView.transform = CGAffineTransformTranslate(_tabbarView.transform, 0, _tabbarView.height);
-        }];
+        }
     }
+    
 }
 @end
