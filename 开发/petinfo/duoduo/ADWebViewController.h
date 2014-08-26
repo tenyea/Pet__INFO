@@ -7,7 +7,7 @@
 //
 
 #import "TenyeaBaseViewController.h"
-
+/// web视图
 @interface ADWebViewController : TenyeaBaseViewController
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 @property (nonatomic,copy)NSString *url;
