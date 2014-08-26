@@ -9,10 +9,12 @@
 #ifndef duoduo_Define_h
 #define duoduo_Define_h
 #define itunesappid 123124124
+#define shareSdkAppID @"2db22b1a5954"
 #pragma mark -
 #pragma mark URL
 #define Host @"www.baidu.com"
-#define BASE_URL @"http://192.168.1.145:8090/petInfo/"
+//#define BASE_URL @"http://192.168.1.145:8090/petInfo/"
+#define BASE_URL @"http://www.tysoft.cn:8099/"
 
 //#define BASE_URL @"http://app.nen.com.cn/"
 #define URL_Post_uploadPetImage @""
@@ -38,7 +40,10 @@
 #define URL_UserToHosDis @"AppUserToHosDis"
 //医院评论列表
 #define URL_getHosDisList @"AppHosDis"
-
+//帖子回复详情接口
+#define URL_getDisList @"AppPetPhotoDis"
+//回帖
+#define URL_AddDis @"AppAddDis"
 //显示用户问诊列表
 #define URL_getInquiryList @"AppInquiryList"
 //问诊详细内容
@@ -62,7 +67,12 @@
 //在线问诊
 #define URL_AskOnline_Post @"AppAddInquiry"
 
-
+//获取宠物种类
+#define URL_getPetKind @"AppPetList"
+//日常知识列表接口
+#define URL_getKnowledgeList @"AppKnowledgeList"
+//日常饲养详情
+#define URL_getFeed @"AppFeed"
 #pragma mark -
 #pragma mark 百度
 //百度统计信息
@@ -77,6 +87,9 @@
 #pragma mark NSNotificationCenter
 //取消删除按钮的通知
 #define NC_removeButton @"removeButtonNotification"
+#define NC_location_Success @"locationSuccessNotification"
+#define NC_location_Fail @"locationFailNotification"
+
 
 #pragma mark - 
 #pragma mark userdefault
@@ -88,7 +101,7 @@
 #define UD_petInfo_temp_PetModel @"UD_petInfo_temp"//临时宠物信息。用于新增宠物的
 #define UD_Locationnow_DIC @"UD_Locationnow"//本次登陆的位置
 #define UD_nowPosition_Str @"UD_nowPosition"//当前位置
-
+#define UD_pageVersion @"pageVersion"//用于显示引导图
 #endif
 
 
@@ -103,6 +116,8 @@
 #define URL_Ao @"AppAo"
 // 故事页
 #define URL_Story @"AppStory"
+//附近宠物
+#define URL_getNearPet @"AppNearPet"
 // 故事页 4合1
 #define URL_Story_Four_To_One @"AppPetPhotoList"
 // 宠物萌照详细
