@@ -1,0 +1,4 @@
+Documentation set was installed to Xcode!
+
+Path: /Users/tenyea/Library/Developer/Shared/Documentation/DocSets/com.ompany-id.petinfo.petInfo.docset
+Time: 2014-08-26 03:51:04 +0000
