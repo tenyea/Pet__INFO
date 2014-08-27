@@ -57,19 +57,26 @@
     _tableView.delegate = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tableView];
+    
+    
+    UIButton *button = [[UIButton alloc]init];
+    button.frame = CGRectMake(0, 0, 40, 40);
+    [button addTarget:self action:@selector(callPhoneAction) forControlEvents:UIControlEventTouchUpInside];
+    [button setImage:[UIImage imageNamed:@"ask_callPhone.png"] forState:UIControlStateNormal];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:button];
+    self.navigationItem.rightBarButtonItem = item;
+
 }
 #pragma mark - 
 #pragma mark Action 
 -(void)submitAction{
     [_textView resignFirstResponder];
     if ([_textView.text isEqualToString:@"说点什么吧"]) {
-        [self showHudInBottom:@"说点什么吧"];
-        [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1];
+        [self showHudInBottom:@"说点什么吧"  autoHidden : YES];
         return;
     }
     if (countStar == 0 ) {
-        [self showHudInBottom:@"帮忙评个分吧"];
-        [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1];
+        [self showHudInBottom:@"帮忙评个分吧"  autoHidden : YES];
         return;
     }
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
@@ -81,20 +88,19 @@
     [self getDate:URL_UserToHosDis andParams:params andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([[responseObject objectForKey:@"code"] intValue]==0 ) {//成功
             [self removeHUD];
-            [self showHudInBottom:@"评论成功"];
+            [self showHudInBottom:@"评论成功"  autoHidden : NO];
         }else if ([[responseObject objectForKey:@"code"] intValue]==1010){
             [self removeHUD];
-            [self showHudInBottom:@"您已评论过了"];
+            [self showHudInBottom:@"您已评论过了"  autoHidden : NO];
         }else{
             [self removeHUD];
-            [self showHudInBottom:@"评论失败"];
+            [self showHudInBottom:@"评论失败"  autoHidden : NO];
         }
         [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1.5];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         _po([error localizedDescription]);
         [self removeHUD];
-        [self showHudInBottom:@"评论失败"];
-        [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1];
+        [self showHudInBottom:@"评论失败"  autoHidden : YES];
     }];
     
 }
@@ -112,7 +118,17 @@
     button.selected = YES;
     countStar = button.tag - 500 + 1;
 }
+-(void)callPhoneAction{
+    
+    NSString *phone = model.hosPhone;
+    
+    if (phone != nil) {
+        NSString *telUrl = [NSString stringWithFormat:@"tel:%@",phone];
+        NSURL *url = [[NSURL alloc] initWithString:telUrl];
+        [[UIApplication sharedApplication] openURL:url];
+    }
 
+}
 #pragma mark - 
 #pragma mark PetHosDetailViewDelegate
 -(void)selectedAction:(int)tag{
