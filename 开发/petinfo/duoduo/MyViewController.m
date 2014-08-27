@@ -188,8 +188,6 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:NC_removeButton object:nil userInfo:nil];
     [super viewWillDisappear:animated];
 }
 #pragma mark -
@@ -259,8 +257,7 @@
         NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
         [params setObject:[[NSUserDefaults standardUserDefaults] stringForKey:UD_userID_Str] forKey:@"userId"];
         [params setObject:[petDic objectForKey:@"petId"] forKey:@"petId"];
-        
-        [self showHudInBottom:@"删除中"];
+        [self showHudInBottom:@"删除中" autoHidden:NO];
         [self getDate:URL_deletePet andParams:params andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
             if ([[responseObject objectForKey:@"code"] intValue]==0 ) {//成功
                 [self removeHUD];
@@ -273,8 +270,8 @@
                 [_tableView reloadData];
             }else if([[responseObject objectForKey:@"code"] intValue]==1001){//失败
                 [self removeHUD];
-                [self showHudInBottom:@"删除失败"];
-                [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1];
+                [self showHudInBottom:@"删除失败" autoHidden:YES];
+
                 return ;
             }
             [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1];
@@ -282,8 +279,7 @@
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             _po([error localizedDescription]);
             [self removeHUD];
-            [self showHudInBottom:@"删除失败"];
-            [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1];
+            [self showHudInBottom:@"删除失败" autoHidden:YES];
         }];
         
     }
