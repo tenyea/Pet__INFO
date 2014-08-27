@@ -19,6 +19,7 @@
 #import "UIButton+WebCache.h"
 #import "MyInfoViewController.h"
 #import "AFHTTPRequestOperationManager.h"
+#import "MyViewCell.h"
 
 #define bgTabelViewTag 100
 @interface MyViewController ()
@@ -252,6 +253,43 @@
 
 #pragma mark -
 #pragma mark UITableViewDataSource
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSDictionary *petDic = _petArr[indexPath.row];
+        NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
+        [params setObject:[[NSUserDefaults standardUserDefaults] stringForKey:UD_userID_Str] forKey:@"userId"];
+        [params setObject:[petDic objectForKey:@"petId"] forKey:@"petId"];
+        
+        [self showHudInBottom:@"删除中"];
+        [self getDate:URL_deletePet andParams:params andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            if ([[responseObject objectForKey:@"code"] intValue]==0 ) {//成功
+                [self removeHUD];
+                NSArray *petArr = [responseObject objectForKey:@"pet"];
+                NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
+                [user removeObjectForKey:UD_pet_Array];
+                [user setObject:petArr forKey:UD_pet_Array];
+                [user synchronize];
+                _petArr = petArr;
+                [_tableView reloadData];
+            }else if([[responseObject objectForKey:@"code"] intValue]==1001){//失败
+                [self removeHUD];
+                [self showHudInBottom:@"删除失败"];
+                [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1];
+                return ;
+            }
+            [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1];
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            _po([error localizedDescription]);
+            [self removeHUD];
+            [self showHudInBottom:@"删除失败"];
+            [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1];
+        }];
+        
+    }
+    
+}
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath{
     if (_userName) {
         if ( _petArr.count > 0 ) {
@@ -289,14 +327,12 @@
                 static NSString *myFirstCellIdentifier = @"myFirstCellIdentifier";
                 MyViewCell *cell = (MyViewCell *)[tableView dequeueReusableCellWithIdentifier:myFirstCellIdentifier];
                 if (cell == nil) {
-                    cell = [[MyViewCell alloc]initWithEditStyle:UITableViewCellStyleDefault reuseIdentifier:myFirstCellIdentifier IndexPath:indexPath];
+                    cell = [[MyViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:myFirstCellIdentifier ];
                     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(250-14, 0, 44, 44)];
                     [button setImage:[UIImage imageNamed:@"my_addpet@2x.png"] forState:UIControlStateNormal];
                     [button addTarget:self action:@selector(addPetAction:) forControlEvents:UIControlEventTouchUpInside];
-//                    cell.accessoryView =button;
                     [cell.contentView addSubview:button];
                 }
-                cell.eventDelegate = self;
 
                 UILabel *label = (UILabel *)VIEWWITHTAG(cell.contentView, 101);
                 UIImageView *imageView = (UIImageView *)VIEWWITHTAG(cell.contentView, 100);
@@ -304,7 +340,6 @@
                 if (_petArr.count == 0 ) {
                     label.text = @"添加宠物";
                     imageView.image = [UIImage imageNamed:@"my_petlogo.png"];
-                    cell.isEdited = NO;
                 }//已经有宠物
                 else{
                     NSDictionary *dic = _petArr[indexPath.row];
@@ -319,10 +354,9 @@
                 static NSString *myCellIdentifier = @"myCellIdentifier";
                 MyViewCell *cell = (MyViewCell *)[tableView dequeueReusableCellWithIdentifier:myCellIdentifier];
                 if (cell == nil) {
-                    cell = [[MyViewCell alloc]initWithEditStyle:UITableViewCellStyleDefault reuseIdentifier:myCellIdentifier IndexPath:indexPath];
+                    cell = [[MyViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:myCellIdentifier ];
                 }
                 
-                cell.eventDelegate = self;
                 UILabel *label = (UILabel *)VIEWWITHTAG(cell.contentView, 101);
                 UIImageView *imageView = (UIImageView *)VIEWWITHTAG(cell.contentView, 100);
                 cell.accessoryType = UITableViewCellAccessoryNone;
@@ -553,36 +587,4 @@
     return scaledImage;
 }
 
-#pragma mark - 
-#pragma mark EditDelegate
--(void)deleteAction :(NSIndexPath *)indexPath{
-    NSDictionary *petDic = _petArr[indexPath.row];
-    NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
-    [params setObject:[[NSUserDefaults standardUserDefaults] stringForKey:UD_userID_Str] forKey:@"userId"];
-    [params setObject:[petDic objectForKey:@"petId"] forKey:@"petId"];
-    
-    [self showHudInBottom:@"删除中" autoHidden: NO];
-    [self getDate:URL_deletePet andParams:params andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        if ([[responseObject objectForKey:@"code"] intValue]==0 ) {//成功
-            [self removeHUD];
-            NSArray *petArr = [responseObject objectForKey:@"pet"];
-            NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
-            [user removeObjectForKey:UD_pet_Array];
-            [user setObject:petArr forKey:UD_pet_Array];
-            [user synchronize];
-            _petArr = petArr;
-            [_tableView reloadData];
-        }else if([[responseObject objectForKey:@"code"] intValue]==1001){//失败
-            [self removeHUD];
-            [self showHudInBottom:@"删除失败"  autoHidden : YES];
-            return ;
-        }
-        [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1];
-
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        _po([error localizedDescription]);
-        [self removeHUD];
-        [self showHudInBottom:@"删除失败"  autoHidden : YES];
-    }];
-}
 @end
