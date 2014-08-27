@@ -77,8 +77,7 @@
         [self getDate:URL_updatePassWoreBySecurity andParams:dic andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
             int code = [[responseObject objectForKey:@"code"]intValue];
             if (code == 0 ) {
-                [self showHudInBottom:@"修改成功"];
-                [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1];
+                [self showHudInBottom:@"修改成功"  autoHidden : YES];
                 [self performSelector:@selector(popVC) withObject:nil afterDelay:1];
             }else if(code == 1001){
                 self.bgStr = Tenyea_str_load_error;

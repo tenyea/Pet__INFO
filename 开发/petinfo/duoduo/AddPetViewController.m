@@ -93,8 +93,7 @@
 -(void)submitAction{
 //添加宠物信息
     if ([self.model.petName  isEqualToString:@""]) {
-        [self showHudInBottom:petNameIsNullMessage];
-        [self performSelector:@selector(removeHUD) withObject:nil afterDelay:2];
+        [self showHudInBottom:petNameIsNullMessage autoHidden:YES];
         return;
     }
     
@@ -128,7 +127,7 @@
         [params setObject:[NSString stringWithFormat:@"%d",petId] forKey:@"petId"];
     }
     //    提示图片上传中
-    [self showHudInBottom:@"上传中。。"];
+    [self showHudInBottom:@"上传中。。" autoHidden:NO];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
     [manager POST:[BASE_URL stringByAppendingPathComponent:URL_addPetInfo_Post] parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -145,17 +144,17 @@
             [user setObject:petArr forKey:UD_pet_Array];
             [user synchronize];
             if (_isAddPet) {
-                [self showHudInBottom:@"添加成功"];
+                [self showHudInBottom:@"添加成功" autoHidden:NO ];
             }else{
-                [self showHudInBottom:@"修改成功"];
+                [self showHudInBottom:@"修改成功" autoHidden:NO];
             }
             [self performSelector:@selector(popVC) withObject:nil afterDelay:time];
         }else if([[responseObject objectForKey:@"code"] intValue]==1001){//失败
             [self removeHUD];
             if (_isAddPet) {
-                [self showHudInBottom:@"添加失败"];
+                [self showHudInBottom:@"添加失败" autoHidden:NO];
             }else{
-                [self showHudInBottom:@"修改失败"];
+                [self showHudInBottom:@"修改失败" autoHidden:NO];
             }
             [self performSelector:@selector(removeHUD) withObject:nil afterDelay:time];
             return ;
@@ -165,9 +164,9 @@
         _po([error localizedDescription]);
         [self removeHUD];
         if (_isAddPet) {
-            [self showHudInBottom:@"添加失败"];
+            [self showHudInBottom:@"添加失败" autoHidden:NO];
         }else{
-            [self showHudInBottom:@"修改失败"];
+            [self showHudInBottom:@"修改失败" autoHidden:NO];
         }
         [self performSelector:@selector(removeHUD) withObject:nil afterDelay:time];
     }];
@@ -351,7 +350,14 @@
     }
 }
 
-//图片缩放到指定大小尺寸
+/**
+ *  图片缩放到指定大小尺寸
+ *
+ *  @param img  原始图片
+ *  @param size 新图片大小
+ *
+ *  @return 新的图片
+ */
 - (UIImage *)scaleToSize:(UIImage *)img size:(CGSize)size{
     // 创建一个bitmap的context
     // 并把它设置成为当前正在使用的context

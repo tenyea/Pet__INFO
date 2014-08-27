@@ -76,26 +76,22 @@
     [dic setValue:firstPass.text forKey:@"password"];
     [dic setValue:originalPass.text forKey:@"oldPassword"];
     [dic setValue:[[NSUserDefaults standardUserDefaults] stringForKey:UD_userID_Str] forKey:@"userId"];
-    [self showHudInBottom:@"提交中。"];
+    [self showHudInBottom:@"提交中。"  autoHidden : NO];
     [self getDate:URL_UpdatePassword andParams:dic andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [self removeHUD];
         int code =[[responseObject objectForKey:@"code"] intValue];
         if ( code == 0) {
-            [self showHudInBottom:@"修改成功"];
-            [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1.5];
-            [self performSelector:@selector(popVC) withObject:nil afterDelay:1.5];
+            [self showHudInBottom:@"修改成功" autoHidden:YES];
         }else if(code == 1011){
             originalLabel.text = @"原密码错误";
         }else if(code == 1000){
             [self removeHUD];
-            [self showHudInBottom:@"修改失败"];
-            [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1.5];
+            [self showHudInBottom:@"修改失败" autoHidden:YES];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         _po([error localizedDescription]);
         [self removeHUD];
-        [self showHudInBottom:@"修改失败"];
-        [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1.5];
+        [self showHudInBottom:@"修改失败" autoHidden:YES];
         //            [self popVC];
     }];
     

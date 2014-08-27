@@ -81,7 +81,7 @@
 }
 -(void)_initData{
     _noLoginNameArr = @[@[@"我的问诊",@"我的帖子",@"个人资料"],@[@"打个分,鼓励一下"],@[@"用户协议",@"关于我们"]];
-    _noLoginImageArr = @[@[@"my_ask.png",@"my_dynamic.png",@"my_myInfo.png"],@[@"my_score@.png"],@[@"my_agreement.png",@"my_about.png"]];
+    _noLoginImageArr = @[@[@"my_ask.png",@"my_dynamic.png",@"my_myInfo.png"],@[@"my_score.png"],@[@"my_agreement.png",@"my_about.png"]];
     
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -191,7 +191,7 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:NC_removeButton object:nil userInfo:nil];
     [super viewWillDisappear:animated];
 }
-#pragma mark =
+#pragma mark -
 #pragma mark Action
 //上传用户头像
 -(void)uploadHeadAction{
@@ -492,7 +492,7 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
     //    提示图片上传中
-    [self showHudInBottom:@"上传中。。"];
+    [self showHudInBottom:@"上传中。。"  autoHidden : NO];
     //    发送请求
     NSString *userMemberId = [[NSUserDefaults standardUserDefaults] objectForKey:UD_userID_Str];
     [manager POST:[BASE_URL stringByAppendingPathComponent:URL_uploadUserImage_Post] parameters:@{@"userId":userMemberId} constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -503,7 +503,7 @@
             NSString *newHeadImage = [[responseObject objectForKey:@"user"] objectForKey:@"userHeadMin"];
             [_headButton setImageWithURL:[NSURL URLWithString:newHeadImage] forState:UIControlStateNormal placeholderImage:image];
             [self removeHUD];
-            [self showHudInBottom:@"上传成功"];
+            [self showHudInBottom:@"上传成功" autoHidden: NO];
             //            更新本地userdefaults
             NSDictionary *userDic = [responseObject objectForKey:@"user"];
             [[NSUserDefaults standardUserDefaults] setObject:userDic forKey:UD_userInfo_DIC];
@@ -514,8 +514,7 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         _po([error localizedDescription]);
         [self removeHUD];
-        [self showHudInBottom:@"上传失败"];
-        [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1];
+        [self showHudInBottom:@"上传失败" autoHidden: YES];
     }];
 
 }
@@ -532,7 +531,14 @@
     }
 }
 
-//图片缩放到指定大小尺寸
+/**
+ *  图片缩放到指定大小尺寸
+ *
+ *  @param img  原始图片
+ *  @param size 新图片大小
+ *
+ *  @return 新的图片
+ */
 - (UIImage *)scaleToSize:(UIImage *)img size:(CGSize)size{
     // 创建一个bitmap的context
     // 并把它设置成为当前正在使用的context
@@ -555,7 +561,7 @@
     [params setObject:[[NSUserDefaults standardUserDefaults] stringForKey:UD_userID_Str] forKey:@"userId"];
     [params setObject:[petDic objectForKey:@"petId"] forKey:@"petId"];
     
-    [self showHudInBottom:@"删除中"];
+    [self showHudInBottom:@"删除中" autoHidden: NO];
     [self getDate:URL_deletePet andParams:params andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([[responseObject objectForKey:@"code"] intValue]==0 ) {//成功
             [self removeHUD];
@@ -568,8 +574,7 @@
             [_tableView reloadData];
         }else if([[responseObject objectForKey:@"code"] intValue]==1001){//失败
             [self removeHUD];
-            [self showHudInBottom:@"删除失败"];
-            [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1];
+            [self showHudInBottom:@"删除失败"  autoHidden : YES];
             return ;
         }
         [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1];
@@ -577,8 +582,7 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         _po([error localizedDescription]);
         [self removeHUD];
-        [self showHudInBottom:@"删除失败"];
-        [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1];
+        [self showHudInBottom:@"删除失败"  autoHidden : YES];
     }];
 }
 @end

@@ -223,7 +223,7 @@
             int a = [code intValue];
             if(a==0)
             {
-                [self showHudInBottom:@"注册成功"];
+                [self showHudInBottom:@"注册成功" autoHidden : NO];
                 [self performSelector:@selector(timerFiredSuccess:) withObject:nil afterDelay:1.5];
                 return ;
             }else if(a==1001)

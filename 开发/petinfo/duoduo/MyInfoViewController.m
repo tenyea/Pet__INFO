@@ -89,7 +89,7 @@
     [params setObject:[_userDic objectForKey:@"userSex"] forKey:@"userSex"];
     
     //    提示图片上传中
-    [self showHudInBottom:@"修改中。。"];
+    [self showHudInBottom:@"修改中。。" autoHidden : NO];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
     [manager POST:[BASE_URL stringByAppendingPathComponent:URL_updateUserInfo_Post] parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -104,11 +104,11 @@
             NSUserDefaults *user = [NSUserDefaults standardUserDefaults];
             [user setObject:userDic forKey:UD_userInfo_DIC];
             [user synchronize];
-            [self showHudInBottom:@"修改成功"];
+            [self showHudInBottom:@"修改成功" autoHidden : NO];
             [self performSelector:@selector(popVC) withObject:nil afterDelay:time];
         }else if([[responseObject objectForKey:@"code"] intValue]==1001){//失败
             [self removeHUD];
-            [self showHudInBottom:@"修改失败"];
+            [self showHudInBottom:@"修改失败"  autoHidden : NO];
             [self performSelector:@selector(removeHUD) withObject:nil afterDelay:time];
             return ;
         }
@@ -116,7 +116,7 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         _po([error localizedDescription]);
         [self removeHUD];
-        [self showHudInBottom:@"修改失败"];
+        [self showHudInBottom:@"修改失败"  autoHidden : NO];
         [self performSelector:@selector(removeHUD) withObject:nil afterDelay:time];
     }];
     
@@ -355,7 +355,14 @@
     }
 }
 
-//图片缩放到指定大小尺寸
+/**
+ *  图片缩放到指定大小尺寸
+ *
+ *  @param img  原始图片
+ *  @param size 新图片大小
+ *
+ *  @return 新的图片
+ */
 - (UIImage *)scaleToSize:(UIImage *)img size:(CGSize)size{
     // 创建一个bitmap的context
     // 并把它设置成为当前正在使用的context

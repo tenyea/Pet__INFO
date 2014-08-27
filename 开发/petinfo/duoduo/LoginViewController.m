@@ -8,6 +8,8 @@
 #import "OpenUDID.h"
 #import "LoginViewController.h"
 #import "ForgetPasswordViewController.h"
+#import "sys/utsname.h"
+
 #define parametersLost @"请输入完整信息"
 #define wrongInformation @"用户名或密码错误"
 
@@ -102,6 +104,17 @@
         [dic setObject:@"0" forKey:@"latitude"];
 
     }
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    NSString *deviceString = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+
+    [dic setObject:deviceString forKey:@"device"];
+    [dic setObject:[[UIDevice currentDevice] systemVersion] forKey:@"system"];
+    [dic setObject:[[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey] forKey:@"version"];
+    [dic setObject:[NSString stringWithFormat:@"%f*%f",ScreenWidth,ScreenHeight] forKey:@"dpi"];
+    [dic setObject:[Network  getConnectionAvailable] forKey:@"gprs"];
+    [dic setObject:@"0" forKey:@"type"];
+
     [self getDate:URL_Login andParams:dic andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSString *code =[responseObject objectForKey:@"code"];
         NSLog(@"%@",code);

@@ -13,7 +13,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeButton) name:NC_removeButton object:nil];
-        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 2, 40, 40)];
+        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 7, 40, 30)];
         imageView.tag = 100;
         [self.contentView addSubview:imageView];
         
@@ -32,7 +32,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(removeButton) name:NC_removeButton object:nil];
-        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 2, 40, 40)];
+        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 7, 40, 30)];
         imageView.tag = 100;
         [self.contentView addSubview:imageView];
         
