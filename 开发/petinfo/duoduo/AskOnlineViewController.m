@@ -53,13 +53,11 @@
 }
 -(void)submitAction{
     if (!_selectPetId) {
-        [self showHudInBottom:@"请选择宠物"];
-        [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1];
+        [self showHudInBottom:@"请选择宠物"  autoHidden : YES];
         return;
     }
     if ([textView.text isEqualToString:@""]) {
-        [self showHudInBottom:@"说点什么吧"];
-        [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1];
+        [self showHudInBottom:@"说点什么吧"  autoHidden : YES];
         return;
 
     }
@@ -75,7 +73,7 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
     //    提示图片上传中
-    [self showHudInBottom:@"上传中。。"];
+    [self showHudInBottom:@"上传中。。"  autoHidden : NO];
     //    发送请求
     [manager POST:[BASE_URL stringByAppendingPathComponent:URL_AskOnline_Post] parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         if (_petImageTemp) {
@@ -85,15 +83,14 @@
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if ([[responseObject objectForKey:@"code"] intValue]==0 ) {//成功
             [self removeHUD];
-            [self showHudInBottom:@"提交成功"];
+            [self showHudInBottom:@"提交成功"  autoHidden : YES];
             [self performSelector:@selector(popViewController) withObject:nil afterDelay:1];
         }
         [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         _po([error localizedDescription]);
         [self removeHUD];
-        [self showHudInBottom:@"提交失败"];
-        [self performSelector:@selector(removeHUD) withObject:nil afterDelay:1];
+        [self showHudInBottom:@"提交失败"  autoHidden : YES];
     }];
 
 }
@@ -197,7 +194,14 @@
     }
 }
 
-//图片缩放到指定大小尺寸
+/**
+ *  图片缩放到指定大小尺寸
+ *
+ *  @param img  原始图片
+ *  @param size 新图片大小
+ *
+ *  @return 新的图片
+ */
 - (UIImage *)scaleToSize:(UIImage *)img size:(CGSize)size{
     // 创建一个bitmap的context
     // 并把它设置成为当前正在使用的context
