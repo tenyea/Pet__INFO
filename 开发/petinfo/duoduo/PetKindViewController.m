@@ -35,6 +35,8 @@
     _select = kindStr== nil?0:[kindStr intValue];
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 30)];
     [button addTarget: self  action:@selector(submitAction) forControlEvents:UIControlEventTouchUpInside];
+    [button setTitleColor:[UIColor colorWithRed:0.42 green:0.78 blue:0.99 alpha:1] forState:UIControlStateNormal];
+
     button.titleLabel.font = [UIFont boldSystemFontOfSize:15];
     [button setTitle:@"确定" forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];

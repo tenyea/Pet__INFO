@@ -8,9 +8,9 @@
 
 #import "HomeViewController.h"
 #import "StoryCell.h"
-#import "StoryContentViewController.h"
+#import "MyPostDetailViewController.h"
 #import "PetClassificationViewController.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+AFNetworking.h"
 #import "ADWebViewController.h"
 #import "LoginViewController.h"
 #import "AskViewController.h"
@@ -47,15 +47,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     array=[[NSArray alloc]init];
     array=@[@"新手课堂",@"专家讲堂",@"预防护理",@"日常饲养",@"就医指南",@"宠物美容"];
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 10) style:UITableViewStylePlain];
     _tableView.dataSource = self;
     _tableView.delegate = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tableView];
-    
+    _tableView.showsVerticalScrollIndicator = NO;
     self.view.backgroundColor=  [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
     // tableView.scrollEnabled=NO;
     // 取消tableview的row的横线
@@ -68,6 +67,7 @@
     isloginType = YES;
 //    [self _loadDate];
 }
+
 #pragma mark -
 #pragma mark MJRefresh
 //上拉 刷新
@@ -79,6 +79,9 @@
 // 设置一个表单中有多少分组(非正式协议如果不实现该方法则默认只有一个分组)
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    if (result == nil) {
+        return 3;
+    }
     return 4;
 }
 
@@ -93,11 +96,15 @@
     {
         return 1;
     }else if(section==2)
+        
     {
-        return 2;
+        if (result == nil) {
+            return [petEveryday count];
+        }
+        return 1;
     }else
     {
-        return [petEveryday count] + 1;
+        return [petEveryday count] ;
     }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -137,15 +144,14 @@
                 for (int j=0; j<3; j++) {
                     
                     UIButton *btn=[UIButton buttonWithType:UIButtonTypeCustom];
-                    btn.frame=CGRectMake(20+j*110, 15+30*i, 60, 20);
+                    btn.frame=CGRectMake(30+j*100, 15+30*i, 60, 20);
                     [btn setTitle:[array objectAtIndex:m] forState:UIControlStateNormal];
-                    btn.titleLabel.font = [UIFont systemFontOfSize: 12.0];
+                    btn.titleLabel.font = FONT(12);
                     btn.titleLabel.textAlignment=NSTextAlignmentCenter;
                     //  btn.titleLabel.textColor=[UIColor colorWithRed:0.67f green:0.67f blue:0.67f alpha:1.00f];
                     btn.tag=i*10+j;
-                    btn.layer.cornerRadius=4;
                     [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
-                    btn.backgroundColor=[UIColor colorWithRed:0.4 green:0.75 blue:0.62 alpha:1];
+                    btn.backgroundColor= [UIColor colorWithRed:0.42 green:0.78 blue:0.99 alpha:1];
                     [cell addSubview:btn];
                     m++;
                 }
@@ -158,146 +164,66 @@
 //    本周萌宠
     else if(indexPath.section==2)
     {
-        if (indexPath.row == 0) {
-            static NSString *cellName1_title = @"cellName1_title";
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellName1_title];
-            if (cell == nil) {
-                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName1_title];
-                UIImageView *igv=[[UIImageView alloc]init];
-                igv.frame=CGRectMake(10, 2, 25, 25);
-                igv.image=[UIImage imageNamed:@"home_horn.png"];
-                [cell addSubview:igv];
-                UILabel *label = [[UILabel alloc]init];
-                label.frame=CGRectMake(40, 0, 300, 30);
-                label.font=[UIFont boldSystemFontOfSize:13];
-                label.textColor=COLOR(59, 193, 151);
-                label.text=@"本周萌宠";
-                [cell addSubview:label];
-                
-                UIView *bview = [[UIView alloc]initWithFrame:CGRectMake(10, 29, 300, 1)];
-                bview.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
-                [cell addSubview:bview];
-            }
-            cell.accessoryType = UITableViewCellAccessoryNone;
-            cell.selectionStyle=UITableViewCellSelectionStyleNone;
-
-            return cell;
-            
-        }else{
-            static NSString *cellName1_content = @"cellName1_content";
-            // 声明cell并去复用池中找是否有对应标签的闲置cell
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellName1_content];
-            // 如果没找到可复用的cell
-            if(cell == nil)
-            {
-                // 实例化新的cell并且加上标签
-                //            标题
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName1_content] ;
-                UILabel *label = [[UILabel alloc]init];
-                label.frame=CGRectMake(100, 5, 200, 30);
-                label.font=[UIFont boldSystemFontOfSize:15];
-                label.textColor=[UIColor colorWithRed:0.36 green:0.62 blue:0.11 alpha:1];
-                label.tag = 100;
-                
-                [cell addSubview:label];
-                //            内容
-                UILabel *desc = [[UILabel alloc]initWithFrame:CGRectMake(100, 10, 210, 80)];
-                desc.numberOfLines = 2;
-                desc.tag = 101;
-                desc.textColor = [UIColor colorWithRed:0.69 green:0.69 blue:0.69 alpha:1];
-                [cell addSubview:desc];
-                //            赞数
-                UILabel *label1 = [[UILabel alloc]init];
-                label1.tag = 104;
-                label1.frame=CGRectMake(280, 70,40, 15);
-                label1.font=[UIFont boldSystemFontOfSize:12];
-                label1.textColor=[UIColor colorWithRed:0.76 green:0.76 blue:0.76 alpha:1];
-                [cell addSubview:label1];
-                
-                //            左侧图
-                UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 10, 80, 80)];
-                imageView.layer.masksToBounds = YES;
-                imageView.layer.cornerRadius = 13;
-                
-                imageView.tag = 103;
-                
-              
-                [cell addSubview:imageView];
-                
-                //            图片
-                UIImageView *igv=[[UIImageView alloc]init];
-                igv.frame=CGRectMake(283, -7, 30, 30);
-                igv.image=[UIImage imageNamed:@"main_top.png"];
-                [cell addSubview:igv];
-                UIImageView *igv1=[[UIImageView alloc]init];
-                igv1.frame=CGRectMake(260, 70, 15, 15);
-                igv1.image=[UIImage imageNamed:@"main_praise.png"];
-                [cell addSubview:igv1];
-            
-               
-
-
-            }
-            
-            UILabel *label = (UILabel *)VIEWWITHTAG(cell, 100);
-            label.text= petPhotoTitle;
-            
-            UILabel *desc = (UILabel *)VIEWWITHTAG(cell, 101);
-            desc.text = petPhotoDes;
-            UIImageView *imageView = (UIImageView *)VIEWWITHTAG(cell, 103);
-            NSURL *url = [NSURL URLWithString:petPhotoPathMin];
-            [imageView setImageWithURL:url placeholderImage:nil];
-            
-            UILabel *label1 = (UILabel *)VIEWWITHTAG(cell, 104);
-            NSString *stringInt = [NSString stringWithFormat:@"%@",petPhotoGood];
-            label1.text=stringInt ;
-            
-            
-            cell.selectionStyle=UITableViewCellSelectionStyleNone;
-            return cell;
-        }
-    
         
-    }
-//    每日一宠
-    else
-    {
-        if (indexPath.row == 0) {
-            static NSString *cellName2_title = @"cellName2_title";
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellName2_title];
-            
-            if (cell == nil) {
-                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellName2_title];
-                UILabel *label = [[UILabel alloc]init];
-                label.frame=CGRectMake(20, 5, 300, 30);
-                label.font=[UIFont boldSystemFontOfSize:13];
-                [cell addSubview:label];
-                label.text=@"每日一宠";
-                label.textColor=COLOR(59, 193, 151);
-                UIView *bview = [[UIView alloc]initWithFrame:CGRectMake(10, 29, 300, 1)];
-                bview.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1];
-                [cell addSubview:bview];
-            }
-            cell.selectionStyle=UITableViewCellSelectionStyleNone;
-            return cell;
-            
-        }else{
+        if (result == nil) {
             static NSString *cellName2_content = @"cellName2_content";
             // 声明cell并去复用池中找是否有对应标签的闲置cell
             StoryCell *cell = (StoryCell *)[tableView dequeueReusableCellWithIdentifier:cellName2_content];
             if(cell == nil)
             {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"StoryCell" owner:self options:nil] lastObject];
-
+                
             }
             if (petEveryday.count > 0 ) {
-                petDay = [petEveryday objectAtIndex: (indexPath.row - 1)];
+                petDay = [petEveryday objectAtIndex: (indexPath.row )];
                 cell.dic = petDay;
             }
-
+            
             cell.selectionStyle=UITableViewCellSelectionStyleNone;
             return cell;
         }
+        static NSString *cellName1_content = @"cellName1_content";
+        // 声明cell并去复用池中找是否有对应标签的闲置cell
+        StoryCell *cell = (StoryCell *)[tableView dequeueReusableCellWithIdentifier:cellName1_content];
+
+        // 如果没找到可复用的cell
+        if(cell == nil)
+        {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"StoryCell" owner:self options:nil] lastObject];
+            cell.isShowHot = YES;
+            
+            
+        }
+        
+        if (result.count > 0 ) {
+            cell.dic = result;
+        }
+        
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        return cell;
+
+    
+        
+    }
+//    每日一宠
+    else
+    {
+
+        static NSString *cellName2_content = @"cellName2_content";
+        // 声明cell并去复用池中找是否有对应标签的闲置cell
+        StoryCell *cell = (StoryCell *)[tableView dequeueReusableCellWithIdentifier:cellName2_content];
+        if(cell == nil)
+        {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"StoryCell" owner:self options:nil] lastObject];
+            
+        }
+        if (petEveryday.count > 0 ) {
+            petDay = [petEveryday objectAtIndex: (indexPath.row )];
+            cell.dic = petDay;
+        }
+        
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        return cell;
         
     }
    
@@ -344,15 +270,9 @@
         return 80;
     }else if(indexPath.section==2)
     {
-        if (indexPath.row == 0 ) {
-            return 30;
-        }
-        return 100;
+        return [StoryCell getCellHeigh:result];
     }else{
-        if (indexPath.row == 0 ) {
-            return 30;
-        }
-        return 90;
+        return [StoryCell getCellHeigh:petEveryday[indexPath.row]];
     }
     
     
@@ -361,20 +281,28 @@
 {
     
     
-    if (indexPath.section==2&&indexPath.row!=0)
+    if (indexPath.section==2)
     {
+        if (result == nil) {
+            if ([[NSUserDefaults standardUserDefaults]objectForKey:UD_userID_Str]) {
+                
+                [self.navigationController pushViewController:[[MyPostDetailViewController alloc] initWithId:[[petEveryday objectAtIndex:indexPath.row]objectForKey:@"petPhotoId"]] animated:YES];
+            }else{
+                [self.navigationController pushViewController:[[LoginViewController alloc]init] animated:YES];
+            }
+        }
         if ([[NSUserDefaults standardUserDefaults]objectForKey:UD_userID_Str]) {
-            [self.navigationController pushViewController:[[StoryContentViewController alloc] initWithID:petPhotoId hasComments:YES] animated:YES];
+            [self.navigationController pushViewController:[[MyPostDetailViewController alloc] initWithId:petPhotoId] animated:YES];
             
         }else{
             [self.navigationController pushViewController:[[LoginViewController alloc]init] animated:YES];
         }
-    }else if (indexPath.section==3&&indexPath.row!=0)
+    }else if (indexPath.section==3)
     {
         
         if ([[NSUserDefaults standardUserDefaults]objectForKey:UD_userID_Str]) {
-            [self.navigationController pushViewController:[[StoryContentViewController alloc] initWithID:[[petEveryday objectAtIndex:indexPath.row-1]objectForKey:@"petPhotoId"] hasComments:YES] animated:YES];
-            
+
+            [self.navigationController pushViewController:[[MyPostDetailViewController alloc] initWithId:[[petEveryday objectAtIndex:indexPath.row]objectForKey:@"petPhotoId"]] animated:YES];
         }else{
             [self.navigationController pushViewController:[[LoginViewController alloc]init] animated:YES];
         }
@@ -407,10 +335,8 @@
     
     UIImageView *imgaeView =[[UIImageView alloc]init];
     NSURL *url = [NSURL URLWithString:adImage];
-    [imgaeView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"register_backgroundg.png"]];
-    // imgaeView.image = [UIImage imageNamed:@"1.png"];
-    imgaeView.frame = CGRectMake(0,0, ScreenWidth - 16*2, XLCycleHeight - 11 * 2);
-    imgaeView.backgroundColor = [UIColor yellowColor];
+    [imgaeView setImageWithURL:url  ];
+    imgaeView.frame = CGRectMake(0,0, ScreenWidth  , XLCycleHeight );
     return imgaeView;
 
 }
@@ -448,23 +374,16 @@
 -(void)_initUI{
 //    轮播图背景图
     view = [[UIView alloc]initWithFrame:CGRectMake(0,0,ScreenWidth, XLCycleHeight)];
-    UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(14, 9, ScreenWidth - 14 * 2 , XLCycleHeight - 9 * 2)];
-    bgView.backgroundColor = [UIColor colorWithRed:0.48 green:0.89 blue:0.87 alpha:1];
-//    图片弧度
-    bgView.layer.masksToBounds = YES;
-    bgView.layer.cornerRadius = 13;
-    [view addSubview:bgView];
+
     
     //轮播图控件
-    XLCycleScrollView *xlCycleScrollView = [[XLCycleScrollView alloc]initWithFrame:CGRectMake(2 , 2, ScreenWidth - 16*2, XLCycleHeight - 11 * 2)];
-    xlCycleScrollView.layer.masksToBounds = YES;
-    xlCycleScrollView.layer.cornerRadius = 13;
+    XLCycleScrollView *xlCycleScrollView = [[XLCycleScrollView alloc]initWithFrame:CGRectMake(0 ,0, ScreenWidth , XLCycleHeight )];
     xlCycleScrollView.delegate = self;
     xlCycleScrollView.datasource = self;
     [xlCycleScrollView.pageControl setHidden:YES];
-    [bgView addSubview:xlCycleScrollView];
+    [view addSubview:xlCycleScrollView];
     
-    UIView *pageControlBg = [[UIView alloc]initWithFrame:CGRectMake(240 - 12 * 4 - 5, 85, 12 * 4 + 10*2, 15)];
+    UIView *pageControlBg = [[UIView alloc]initWithFrame:CGRectMake(300 - 12 * 4 - 5, XLCycleHeight - 20, 12 * 4 + 10*2, 15)];
     pageControlBg.layer.masksToBounds = YES;
     pageControlBg.layer.cornerRadius = 8;
     pageControlBg.backgroundColor = [UIColor colorWithRed:0.22 green:0.24 blue:0.23 alpha:.8];
@@ -562,7 +481,10 @@
         {
             
             //解析数据
-            self.result =[responseObject objectForKey:@"weekPetPhoto"];
+            if ([responseObject objectForKey:@"weekPetPhoto"]  != [NSNull null]) {
+                self.result =[responseObject objectForKey:@"weekPetPhoto"];
+
+            }
             self.petEveryday = [responseObject objectForKey:@"petPhotoList"];
             self.result1 =[responseObject objectForKey:@"ad"];
             
@@ -571,12 +493,15 @@
             petPhotoTitle = [result objectForKey:@"petPhotoTitle"];
             petPhotoDes = [result objectForKey:@"petPhotoDes"];
             petPhotoGood = [result objectForKey:@"petPhotoGood"];
-            [_tableView reloadData];
+            if (petEveryday.count > 0) {
+                [_tableView reloadData];
+
+            }
         }
         [_tableView headerEndRefreshing];
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", [error localizedDescription]);
+        DLOG(@"Error: %@", [error localizedDescription]);
         [_tableView headerEndRefreshing];
 
     }];

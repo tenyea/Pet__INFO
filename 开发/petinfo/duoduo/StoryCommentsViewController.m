@@ -55,7 +55,7 @@
     [_bottomButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_bottomButton setTitle:@"写回帖" forState:UIControlStateNormal];
     _bottomButton.backgroundColor = [UIColor grayColor];
-    [_bottomButton addTarget:self action:@selector(commentsAction) forControlEvents:UIControlEventTouchUpInside];
+    [_bottomButton addTarget:self action:@selector(commentsAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_bottomButton];
     
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64-35, ScreenWidth, ScreenHeight -64 +35 -50 ) style:UITableViewStyleGrouped];
@@ -138,6 +138,10 @@
 }
 #pragma mark -
 #pragma mark Action
+-(void)commentsAction:(UIButton *)button {
+    self.bottomViewTitle.text = @"写回帖";
+    [self commentsAction];
+}
 /**
  *  评论事件
  */
@@ -167,11 +171,11 @@
         _textView.delegate = self;
         [_bottomView addSubview:_textView];
         
-        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(120, 10, ScreenWidth - 240, 30)];
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(60, 10, ScreenWidth - 120, 30)];
         label.font = [UIFont boldSystemFontOfSize:20];
         label.text = @"写回帖";
         label.textAlignment = NSTextAlignmentCenter;
-        [_bottomView addSubview:label];
+        [_bottomView addSubview:self.bottomViewTitle];
         
         UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(20, 10, 40, 30)];
         [button setTitle:@"取消" forState:UIControlStateNormal];
@@ -273,6 +277,14 @@
     return [StoryCommentsCell  getCommentHeight:[_dateArr[indexPath.row ] objectForKey:@"petPhotoDisText"]];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSDictionary *dic = _dateArr[indexPath.row];
+    NSString *content = [dic objectForKey:@"petPhotoDisId"];
+    NSString *userName = [dic objectForKey:@"petPhotoDisUserName"];
+    self.bottomViewTitle.text = [NSString stringWithFormat:@"回复:%@",userName];
+    [self commentsAction];
+}
+
 #pragma mark -
 #pragma mark Notification
 //当键盘出现或改变时调用
@@ -316,5 +328,15 @@
     _bottomView.bottom = keyboardHeight;
     [UIView commitAnimations];
 }
-
+#pragma -
+#pragma mark @property
+-(UILabel *)bottomViewTitle{
+    if (!_bottomViewTitle) {
+        _bottomViewTitle = [[UILabel alloc]initWithFrame:CGRectMake(60, 10, ScreenWidth - 120, 30)];
+        _bottomViewTitle.font = [UIFont boldSystemFontOfSize:20];
+        _bottomViewTitle.text = @"写回帖";
+        _bottomViewTitle.textAlignment = NSTextAlignmentCenter;
+    }
+    return _bottomViewTitle;
+}
 @end

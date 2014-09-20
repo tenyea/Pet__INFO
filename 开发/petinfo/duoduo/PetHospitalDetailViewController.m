@@ -7,7 +7,7 @@
 //
 
 #import "PetHospitalDetailViewController.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+AFNetworking.h"
 #import "HospitalModel.h"
 #import "UserCommentCell.h"
 #import "PetHosContentViewController.h"
@@ -286,7 +286,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.textColor = [UIColor colorWithRed:0.56 green:0.56 blue:0.56 alpha:1];
-        cell.textLabel.font = [UIFont systemFontOfSize:13];
+        cell.textLabel.font = FONT(13);
         return cell;
 
     }else if (_selected == 1){

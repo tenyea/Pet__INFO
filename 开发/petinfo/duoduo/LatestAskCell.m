@@ -7,7 +7,7 @@
 //
 
 #import "LatestAskCell.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+AFNetworking.h"
 #import "DataCenter.h"
 @implementation LatestAskCell
 

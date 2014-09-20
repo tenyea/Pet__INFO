@@ -12,7 +12,7 @@
                 <outlet property="passwordAgainTF" destination="JQi-iM-PNV" id="Cir-zD-PEi"/>
                 <outlet property="passwordLabel" destination="WRM-kM-Grn" id="Dpq-zw-n6k"/>
                 <outlet property="passwordTF" destination="hWs-3D-aP9" id="Akf-MC-rc2"/>
-                <outlet property="registerBackground" destination="c0x-ol-uz4" id="W9l-yk-9e4"/>
+                <outlet property="registerButton" destination="LlX-vQ-jCT" id="oPx-E8-Tpt"/>
                 <outlet property="userNameLabel" destination="n0w-cV-rXj" id="2HV-fv-tiB"/>
                 <outlet property="userNameTF" destination="hFu-TO-xQQ" id="BVW-GJ-j0Q"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -23,39 +23,36 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="register_backgroundg.png" translatesAutoresizingMaskIntoConstraints="NO" id="c0x-ol-uz4">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                </imageView>
-                <textField opaque="NO" clipsSubviews="YES" tag="90001" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="    用户名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hFu-TO-xQQ">
-                    <rect key="frame" x="60" y="71" width="200" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" tag="90001" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="            用户名" minimumFontSize="17" background="register_textfield_Bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="hFu-TO-xQQ">
+                    <rect key="frame" x="0.0" y="71" width="320" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" returnKeyType="next"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" tag="90002" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="    邮箱" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6tl-C4-8Su">
-                    <rect key="frame" x="60" y="121" width="200" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" tag="90002" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="            邮箱" minimumFontSize="17" background="register_textfield_Bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="6tl-C4-8Su">
+                    <rect key="frame" x="0.0" y="121" width="320" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" returnKeyType="next"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" tag="90003" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="    密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hWs-3D-aP9">
-                    <rect key="frame" x="60" y="171" width="200" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" tag="90003" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="            密码" minimumFontSize="17" background="register_textfield_Bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="hWs-3D-aP9">
+                    <rect key="frame" x="0.0" y="171" width="320" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" returnKeyType="next"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" tag="90004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="    确认密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JQi-iM-PNV">
-                    <rect key="frame" x="60" y="221" width="200" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" tag="90004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="            确认密码" minimumFontSize="17" background="register_textfield_Bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="JQi-iM-PNV">
+                    <rect key="frame" x="0.0" y="221" width="320" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LlX-vQ-jCT">
-                    <rect key="frame" x="110" y="294" width="100" height="35"/>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LlX-vQ-jCT">
+                    <rect key="frame" x="20" y="294" width="280" height="35"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="register.png">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="1" green="0.25490196079999999" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="注册">
+                        <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="registerBtn:" destination="-1" eventType="touchUpInside" id="AEd-lN-N6r"/>
@@ -96,7 +93,6 @@
         </view>
     </objects>
     <resources>
-        <image name="register.png" width="100" height="39"/>
-        <image name="register_backgroundg.png" width="367" height="482"/>
+        <image name="register_textfield_Bg.png" width="2" height="44"/>
     </resources>
 </document>

@@ -8,6 +8,11 @@
 
 #import "TenyeaBaseViewController.h"
 /**
+ 暂时遗弃
+ 
+ */
+
+/**
  附近宠物详细页面
  
  :param: idinitWithuserInfo 用户的信息

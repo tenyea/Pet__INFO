@@ -89,13 +89,13 @@
 #pragma mark UI
 -(void)setTitle:(NSString *)title{
     [super setTitle:title];
-    UILabel *titlelabel=[[UILabel alloc]initWithFrame:CGRectZero];
-    titlelabel.font=[UIFont boldSystemFontOfSize:18.0f];
-    titlelabel.backgroundColor= CLEARCOLOR;
-    titlelabel.text=title;
-    titlelabel.textColor=TextColor;
-    [titlelabel sizeToFit];
-    self.navigationItem.titleView = titlelabel;
+//    UILabel *titlelabel=[[UILabel alloc]initWithFrame:CGRectZero];
+//    titlelabel.font=[UIFont boldSystemFontOfSize:18.0f];
+//    titlelabel.backgroundColor= CLEARCOLOR;
+//    titlelabel.text=title;
+//    titlelabel.textColor=TextColor;
+//    [titlelabel sizeToFit];
+//    self.navigationItem.titleView = titlelabel;
 }
 //显示加载提示
 -(void)showHUDinView:(NSString *)title{

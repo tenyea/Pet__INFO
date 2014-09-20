@@ -7,7 +7,7 @@
 //
 
 #import "MyAskDocView.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation MyAskDocView
 -(void)awakeFromNib{

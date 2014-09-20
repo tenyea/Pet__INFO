@@ -36,6 +36,7 @@
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 30)];
     [button addTarget: self  action:@selector(submitAction) forControlEvents:UIControlEventTouchUpInside];
     button.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button setTitle:@"完成" forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
 }
@@ -82,6 +83,7 @@
         int code =[[responseObject objectForKey:@"code"] intValue];
         if ( code == 0) {
             [self showHudInBottom:@"修改成功" autoHidden:YES];
+            [self performSelector:@selector(popVC) withObject:nil afterDelay:1];
         }else if(code == 1011){
             originalLabel.text = @"原密码错误";
         }else if(code == 1000){

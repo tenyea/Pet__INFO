@@ -7,7 +7,7 @@
 //
 
 #import "PetHosContentViewController.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+AFNetworking.h"
 @interface PetHosContentViewController ()
 {
     NSString *_key;

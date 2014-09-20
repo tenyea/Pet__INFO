@@ -10,7 +10,7 @@
 #import "MyAskDetailCell.h"
 #import "MyAskDetailTopCell.h"
 #import "MyAskDocView.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+AFNetworking.h"
 @interface MyAskDetailViewController ()
 {
     NSString *_askId;

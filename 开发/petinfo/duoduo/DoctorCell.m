@@ -9,7 +9,7 @@
 #import "DoctorCell.h"
 #import "DoctorModel.h"
 #import "AskOnlineViewController.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+AFNetworking.h"
 @implementation DoctorCell
 
 - (void)awakeFromNib

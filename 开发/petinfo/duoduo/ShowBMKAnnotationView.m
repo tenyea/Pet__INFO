@@ -23,7 +23,7 @@
         
         _label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 35, 25)];
         _label.textAlignment = NSTextAlignmentCenter;
-        _label.font = [UIFont systemFontOfSize:12];
+        _label.font = FONT(12);
         _label.textColor = [UIColor whiteColor];
         [self addSubview:_label];
 

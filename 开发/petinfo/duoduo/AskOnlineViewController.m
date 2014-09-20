@@ -45,19 +45,23 @@
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 30)];
     [button addTarget: self  action:@selector(submitAction) forControlEvents:UIControlEventTouchUpInside];
     button.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+    [button setTitleColor:COLOR(100, 100, 100) forState:UIControlStateNormal ];
     [button setTitle:@"提交" forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
     
     [textView becomeFirstResponder];
     textView.scrollEnabled = NO;
+    textView.delegate = self;
 }
 -(void)submitAction{
     if (!_selectPetId) {
         [self showHudInBottom:@"请选择宠物"  autoHidden : YES];
+
         return;
     }
     if ([textView.text isEqualToString:@""]) {
         [self showHudInBottom:@"说点什么吧"  autoHidden : YES];
+        [textView  becomeFirstResponder];
         return;
 
     }
@@ -120,6 +124,17 @@
 }
 -(void)popViewController{
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - 
+#pragma mark UITextViewDelegate
+- (BOOL)textView: (UITextView *)textview shouldChangeTextInRange: (NSRange)range replacementText: (NSString *)text {
+    if ([text isEqualToString:@"\n"]) {
+        [self.textView resignFirstResponder];
+        [self submitAction];
+    }
+    
+    return YES;
 }
 #pragma -
 #pragma mark UIActionSheetDelegate

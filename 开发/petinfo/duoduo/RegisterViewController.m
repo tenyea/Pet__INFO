@@ -34,7 +34,7 @@
     passwordTF.delegate=self;
     passwordAgainTF.delegate=self;
     emailTF.delegate=self;
-    
+
     userNameTF.clearButtonMode=UITextFieldViewModeWhileEditing;
     passwordTF.clearButtonMode=UITextFieldViewModeWhileEditing;
     passwordAgainTF.clearButtonMode=UITextFieldViewModeWhileEditing;
@@ -49,11 +49,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+    self.registerButton.layer.masksToBounds = YES;
+    self.registerButton.layer.cornerRadius = 4;
     
     passwordTF.secureTextEntry=YES;
     passwordAgainTF.secureTextEntry=YES;
 }
+
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
     if(userNameTF.text.length<4||userNameTF.text.length>10)
     {
@@ -64,32 +66,39 @@
     {
         userNameLabel.text=nil;
     }
-    if(![self validateEmail:emailTF.text])
-    {
-        NSLog(@"邮箱不合法");
-        emailLabel.text=emailRules;
-        return NO;
-    }else
-    {
-        emailLabel.text=nil;
+    if (emailTF.text.length > 0) {
+        if(![self validateEmail:emailTF.text])
+        {
+            NSLog(@"邮箱不合法");
+            emailLabel.text=emailRules;
+            return NO;
+        }else
+        {
+            emailLabel.text=nil;
+        }
+    }
+    if (passwordTF.text.length > 0) {
+        if (passwordTF.text.length<6||passwordTF.text.length>16)
+        {
+            passwordLabel.text=passwordRules;
+            return NO;
+        }else
+        {
+            passwordLabel.text=nil;
+        }
+
+    }
+    if (passwordAgainTF.text.length > 0 ) {
+        if (![passwordTF.text isEqualToString:passwordAgainTF.text])
+        {
+            passwordAgainLabel.text=passwordAgainRules;
+            return NO;
+        }else
+        {
+            passwordAgainLabel.text=nil;
+        }
     }
     
-    if (passwordTF.text.length<6||passwordTF.text.length>16)
-    {
-        passwordLabel.text=passwordRules;
-        return NO;
-    }else
-    {
-        passwordLabel.text=nil;
-    }
-    if (![passwordTF.text isEqualToString:passwordAgainTF.text])
-    {
-        passwordAgainLabel.text=passwordAgainRules;
-        return NO;
-    }else
-    {
-        passwordAgainLabel.text=nil;
-    }
     return YES;
 }
 // 键盘下一步，返回操作
@@ -107,6 +116,8 @@
             userNameLabel.text=nil;
         }
         [emailTF becomeFirstResponder];
+        return YES;
+
     }else if(textField.tag==90002)
     {
         if(![self validateEmail:emailTF.text])
@@ -120,6 +131,8 @@
         }
         
         [passwordTF becomeFirstResponder];
+        return YES;
+
     }
     
     else if (textField.tag==90003)
@@ -133,6 +146,8 @@
             passwordLabel.text=nil;
         }
         [passwordAgainTF becomeFirstResponder];
+        return YES;
+
     }else if (textField.tag==90004)
     {
         if (![passwordTF.text isEqualToString:passwordAgainTF.text])
@@ -146,7 +161,8 @@
         
         [passwordAgainTF resignFirstResponder];
         [self submit];
-    }    return YES;
+    }
+    return YES;
 }
 // 邮箱格式判断
 - (BOOL) validateEmail: (NSString *) candidate {
@@ -163,7 +179,7 @@
 // 注册成功取消HUD,跳转界面
 -(void)timerFiredSuccess:(NSTimer *)timer{
     [self removeHUD];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

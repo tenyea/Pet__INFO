@@ -7,7 +7,7 @@
 //
 
 #import "DoctorDetailViewController.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+AFNetworking.h"
 #import "AskOnlineViewController.h"
 @interface DoctorDetailViewController ()
 {
@@ -53,7 +53,7 @@
                 UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, heigh, ScreenWidth - 20, 15)];
                 label.text = [NSString stringWithFormat:@"姓名:%@",[dic objectForKey:@"docName"] ];
                 label.textColor = [UIColor colorWithRed:0.56 green:0.56 blue:0.56 alpha:1];
-                label.font = [UIFont systemFontOfSize:15];
+                label.font = FONT(15);
                 [label sizeToFit];
                 [bgScView addSubview:label];
                 
@@ -64,7 +64,7 @@
                 UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, heigh, ScreenWidth - 20, 15)];
                 label.text = [NSString stringWithFormat:@"职务:%@",[dic objectForKey:@"docTitle"] ];
                 label.textColor = [UIColor colorWithRed:0.56 green:0.56 blue:0.56 alpha:1];
-                label.font = [UIFont systemFontOfSize:15];
+                label.font = FONT(15);
                 [label sizeToFit];
                 [bgScView addSubview:label];
                 
@@ -75,7 +75,7 @@
                 UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, heigh, ScreenWidth - 20, 15)];
                 label.text = [NSString stringWithFormat:@"专长:%@",[dic objectForKey:@"docSpec"] ];
                 label.textColor = [UIColor colorWithRed:0.56 green:0.56 blue:0.56 alpha:1];
-                label.font = [UIFont systemFontOfSize:15];
+                label.font = FONT(15);
                 [label sizeToFit];
                 [bgScView addSubview:label];
                 
@@ -87,7 +87,7 @@
                 UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, heigh, ScreenWidth - 20, 300)];
                 label.text = [NSString stringWithFormat:@"简介:%@",[dic objectForKey:@"docDes"] ];
                 label.textColor = [UIColor colorWithRed:0.56 green:0.56 blue:0.56 alpha:1];
-                label.font = [UIFont systemFontOfSize:15];
+                label.font = FONT(15);
                 [label sizeToFit];
                 [bgScView addSubview:label];
                 

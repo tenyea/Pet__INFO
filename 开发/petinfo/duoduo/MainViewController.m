@@ -216,6 +216,9 @@
         }
         [button setImage:[UIImage imageNamed:backImage] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:backgroud_selected[i]] forState:UIControlStateSelected];
+        [button setImage:[UIImage imageNamed:backgroud_selected[i]] forState:UIControlStateHighlighted];
+
+
         [button addTarget:self action:@selector(selectedTab:) forControlEvents:UIControlEventTouchUpInside];
         //设置高亮
 //        [button setShowsTouchWhenHighlighted:YES];
@@ -301,13 +304,12 @@
     button.selected = YES;
     self.selectedIndex = site;
 //    当第二个按钮点击是。刷新其页面的数据
-    if (site==1) {
-       // button.selected=YES;
-       // story.rowHeigh=89;
-        _po(@"111");
-        [story refreshData];
-
-    }
+//    if (site==1) {
+//       // button.selected=YES;
+//       // story.rowHeigh=89;
+//        [story refreshData];
+//
+//    }
 }
 /**
  *  更新选中页

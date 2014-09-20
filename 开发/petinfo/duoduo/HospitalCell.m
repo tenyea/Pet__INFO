@@ -7,7 +7,7 @@
 //
 
 #import "HospitalCell.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+AFNetworking.h"
 #import "HospitalModel.h"
 @implementation HospitalCell
 

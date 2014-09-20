@@ -9,7 +9,8 @@
 #import "LoginViewController.h"
 #import "ForgetPasswordViewController.h"
 #import "sys/utsname.h"
-
+#import <QuartzCore/QuartzCore.h>
+#import "RegisterViewController.h"
 #define parametersLost @"请输入完整信息"
 #define wrongInformation @"用户名或密码错误"
 
@@ -26,7 +27,7 @@
     if (self) {
         // Custom initialization
         
-        [[UINavigationBar appearance] setBarTintColor:[UIColor orangeColor]];
+//        [[UINavigationBar appearance] setBarTintColor:[UIColor orangeColor]];
         self.title=@"登录";
         
     }
@@ -43,9 +44,64 @@
     userNameTF.clearButtonMode=UITextFieldViewModeWhileEditing;
     passwordTF.clearButtonMode=UITextFieldViewModeWhileEditing;
     passwordTF.secureTextEntry=YES;
+    _loginButton.layer.masksToBounds = YES;
+    _loginButton.layer.cornerRadius = 4;
+    self.view.backgroundColor = COLOR(239, 239, 244);
+    
+    //  编辑按钮
+    UIButton *button = [[UIButton alloc]init];
+    button.frame = CGRectMake(0, 0, 40, 40);
+    [button addTarget:self action:@selector(registerAction) forControlEvents:UIControlEventTouchUpInside];
+    [button setTitle:@"注册" forState:UIControlStateNormal];
+    [button setTitleColor:COLOR(139, 139, 139) forState:UIControlStateNormal];
+    button.titleLabel.font = FONT(13);
+    UIBarButtonItem *item = [[UIBarButtonItem alloc]initWithCustomView:button];
+    self.navigationItem.rightBarButtonItem = item;
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [userNameTF becomeFirstResponder];
+}
+#pragma makr -
+#pragma mark UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0 ) {
+        static NSString *userNameIdentifier = @"userNameIdentifier";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:userNameIdentifier];
+        if (cell == nil ) {
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:userNameIdentifier];
+        }
+        return cell;
+        
+    }else{
+        static NSString *passwordIdentifier = @"passwordIdentifier";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:passwordIdentifier];
+        if (cell == nil ) {
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:passwordIdentifier];
+
+        }
+        return cell;
+        
+    }
 }
 
-
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 2;
+}
+#pragma makr -
+#pragma mark UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0) {
+        [passwordTF resignFirstResponder];
+        [userNameTF becomeFirstResponder];
+    }else{
+        [userNameTF resignFirstResponder];
+        [passwordTF becomeFirstResponder];
+    }
+}
 // 键盘下一步，返回事件
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -82,14 +138,16 @@
         hudLabel.backgroundColor = [UIColor grayColor];
         hudLabel.textAlignment = NSTextAlignmentCenter;
         hudLabel.textColor = [UIColor whiteColor];
-        hudLabel.font = [UIFont boldSystemFontOfSize:14];
+        hudLabel.font = FONT(14);
         hudLabel.hidden = YES;
         [self.view addSubview:hudLabel];
     }
     hudLabel.text = title;
     hudLabel.hidden = NO;
 }
-
+-(void)registerAction{
+    [self.navigationController pushViewController:[[RegisterViewController alloc] init] animated:YES];
+}
 - (IBAction)loginBtnAction:(id)sender {
     NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
     [dic setObject:userNameTF.text forKey:@"username"];

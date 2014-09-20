@@ -7,8 +7,8 @@
 //
 
 #import "CustomView.h"
-#import "NearPetDetailVC.h"
-#import "UIImageView+WebCache.h"
+#import "UserInfoDetailViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation CustomView
 
@@ -39,7 +39,7 @@
 
 - (void)pushAction:(UITapGestureRecognizer *)sender {
     if (_userInfo) {
-        [self.viewController.navigationController pushViewController:[[NearPetDetailVC alloc]initWithuserInfo:_userInfo] animated:YES];
+        [self.viewController.navigationController pushViewController:[[UserInfoDetailViewController alloc]initWithUserId:[_userInfo objectForKey:@"userId"]] animated:YES];
     }
 }
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "PetKnowledgeCell.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+AFNetworking.h"
 @implementation PetKnowledgeCell
 
 - (void)awakeFromNib

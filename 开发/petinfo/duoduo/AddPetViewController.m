@@ -12,7 +12,7 @@
 #import "PetSexViewController.h"
 #import "PetKindViewController.h"
 #import "AFHTTPRequestOperationManager.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+AFNetworking.h"
 #import "PetModel.h"
 #define headImageHeigh 70
 #define petNameIsNullMessage @"昵称不能为空"
@@ -64,22 +64,20 @@
     [[NSUserDefaults standardUserDefaults]synchronize];
 
     UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(20 - 1, 100- 1, 280 + 2, 44*5 + headImageHeigh + 2)];
-    bgView.backgroundColor = [UIColor blackColor];
-    bgView.layer.masksToBounds = YES;
-    bgView.layer.cornerRadius = 13;
+
     [self.view addSubview:bgView];
     
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(20, 100, 280 , 44*5 + headImageHeigh) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    _tableView.layer.masksToBounds = YES;
-    _tableView.layer.cornerRadius = 13;
     [self.view addSubview: _tableView];
  
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 30)];
     [button addTarget: self  action:@selector(submitAction) forControlEvents:UIControlEventTouchUpInside];
     button.titleLabel.font = [UIFont boldSystemFontOfSize:15];
     [button setTitle:@"提交" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor colorWithRed:0.42 green:0.78 blue:0.99 alpha:1] forState:UIControlStateNormal];
+
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
 }
 -(void)viewWillAppear:(BOOL)animated{

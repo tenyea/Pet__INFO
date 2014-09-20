@@ -7,7 +7,7 @@
 //
 
 #import "PetHosDetailView.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+AFNetworking.h"
 #import "HospitalModel.h"
 @implementation PetHosDetailView
 

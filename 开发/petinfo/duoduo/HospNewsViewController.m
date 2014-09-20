@@ -8,7 +8,7 @@
 
 #import "HospNewsViewController.h"
 #import "PetHosContentViewController.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+AFNetworking.h"
 @interface HospNewsViewController ()
 
 @end
@@ -82,7 +82,7 @@
         UILabel *textLabel = [[UILabel alloc]initWithFrame:CGRectMake(70, 40, 240, 20)];
         textLabel.textColor = [UIColor grayColor];
         textLabel.tag = 1002;
-        textLabel.font = [UIFont systemFontOfSize: 12];
+        textLabel.font = FONT(12);
         [cell.contentView addSubview:textLabel];
         
     }

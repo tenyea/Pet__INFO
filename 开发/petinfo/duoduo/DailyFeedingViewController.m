@@ -14,6 +14,9 @@
     UIView *_topView;
     UITextView *_bottomTextView;
     NSArray *_contentArr;
+    UIScrollView *_bottomScrollview;
+    
+    UIView *_slider;
 }
 @end
 
@@ -48,7 +51,7 @@
             NSString *feedProg = [dic objectForKey:@"feedProg"];
             _contentArr = @[feedCause,feedClinic,feedExa,feedDiag,feedCure,feedProg];
             
-            _topView = [[UIView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, 40)];
+            _topView = [[UIView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, 50)];
             [self.view addSubview: _topView];
             
             for (int i = 0 ; i < nameArr.count; i ++ ) {
@@ -59,12 +62,30 @@
                 [button addTarget: self  action:@selector(selectAction:) forControlEvents:UIControlEventTouchUpInside];
                 [_topView addSubview:button];
             }
-            UIView *bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, 64 +40, ScreenWidth, ScreenHeight - 40 -64)];
-            [self.view addSubview:bottomView];
-            _bottomTextView = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 40 -64)];
-            [bottomView addSubview:_bottomTextView];
-            _bottomTextView.text = _contentArr[0];
-            _bottomTextView.delegate = self;
+            
+            _slider = [[UIView alloc]initWithFrame:CGRectMake(0, 40, ScreenWidth/nameArr.count, 5)];
+            _slider.backgroundColor = [UIColor colorWithRed:0.19 green:0.79 blue:0.61 alpha:1];
+            [_topView addSubview:_slider];
+            
+            _bottomScrollview = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 64 + 50, ScreenWidth, ScreenHeight- 50-64)];
+            _bottomScrollview.contentSize = CGSizeMake(nameArr.count*ScreenWidth, ScreenHeight- 50-64);
+            _bottomScrollview.pagingEnabled = YES;
+            for (int i = 0 ; i < _contentArr.count ; i ++   ) {
+                UIView *bottomView = [[UIView alloc]initWithFrame:CGRectMake( ScreenWidth*i, 0, ScreenWidth, ScreenHeight - 50 -64)];
+                [_bottomScrollview addSubview:bottomView];
+                _bottomTextView = [[UITextView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight - 50 -64)];
+                [bottomView addSubview:_bottomTextView];
+                _bottomTextView.text = _contentArr[i];
+                _bottomTextView.delegate = self;
+                bottomView.backgroundColor = [UIColor redColor];
+
+            }
+            _bottomScrollview.showsHorizontalScrollIndicator = NO;
+            _bottomScrollview.showsVerticalScrollIndicator = NO;
+            [self.view addSubview:_bottomScrollview];
+            _bottomScrollview.delegate = self;
+            
+            
         }else{
             self.bgStr = Tenyea_str_load_error;
         }
@@ -75,7 +96,16 @@
 }
 -(void)selectAction:(UIButton *)button {
     int selectId = button.tag - 100;
-    _bottomTextView.text  = _contentArr [selectId];
+    _bottomScrollview.contentOffset = CGPointMake(selectId * ScreenWidth, 0);
+    [UIView animateWithDuration:.2 animations:^{
+        _slider.left = selectId*ScreenWidth/_contentArr.count;
+    }];
+}
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    int selectId = _bottomScrollview.contentOffset.x/ScreenWidth;
+    [UIView animateWithDuration:.2 animations:^{
+        _slider.left = selectId*ScreenWidth/_contentArr.count;
+    }];
 }
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {

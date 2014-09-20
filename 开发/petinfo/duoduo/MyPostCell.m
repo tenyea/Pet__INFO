@@ -8,7 +8,7 @@
 
 #import "MyPostCell.h"
 #import "PostModel.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+AFNetworking.h"
 @implementation MyPostCell
 
 - (void)awakeFromNib
@@ -22,11 +22,11 @@
     
     _askCountLabel = [[UILabel alloc]initWithFrame: CGRectMake(261, 53, 60, 15)];
     _askCountLabel.textColor = [UIColor colorWithRed:0.75 green:0.75 blue:0.75 alpha:1];
-    _askCountLabel.font = [UIFont systemFontOfSize:12];
+    _askCountLabel.font = FONT(12);
     [self.contentView addSubview:_askCountLabel];
     _goodCountLabel = [[UILabel alloc]initWithFrame: CGRectMake(293, 53, 60, 15)];
     _goodCountLabel.textColor = [UIColor colorWithRed:0.75 green:0.75 blue:0.75 alpha:1];
-    _goodCountLabel.font = [UIFont systemFontOfSize:12];
+    _goodCountLabel.font = FONT(12);
     [self.contentView addSubview:_goodCountLabel];
 }
 

@@ -29,15 +29,15 @@
         self.bgStr = @"当前无网络,请稍后再试";
         return ;
     }
+    self.title = @"我的帖子";
+
     
-    //            防止table偏移
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
-    [self.view addSubview:view];
-    
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 64-35, ScreenWidth, ScreenHeight -64 + 35 -15) style:UITableViewStyleGrouped];
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight) style:UITableViewStyleGrouped];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.backgroundColor = [UIColor whiteColor];
+    _tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, _tableView.bounds.size.width, 0.01f)];
+    _tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectMake(0.0f, 0.0f, _tableView.width, 0.01f)];
     [self.view addSubview:_tableView];
     NSDictionary *dic = @{@"userId": [[NSUserDefaults standardUserDefaults]stringForKey:UD_userID_Str] };
     [self getDate:URL_getPostList andParams:dic andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {

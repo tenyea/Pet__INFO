@@ -7,7 +7,7 @@
 //
 
 #import "ShowPetCell.h"
-#import "UIButton+WebCache.h"
+#import "UIButton+AFNetworking.h"
 #import "StoryContentViewController.h"
 @implementation ShowPetCell
 - (void)awakeFromNib
@@ -24,7 +24,6 @@
     return self;
 }
 -(void)_initView{
-    self.backgroundColor = [UIColor colorWithRed:0.95 green:0.99 blue:1 alpha:1];
     for (int i = 0 ; i < 3;  i ++ ) {
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0 + i *ScreenWidth/ 3, 0, 105, 88)];
         button.tag = 100 + i;
@@ -44,7 +43,7 @@
         [bgView addSubview:imageView];
         
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(65, 7, 40, 21)];
-        label.font = [UIFont systemFontOfSize:14];
+        label.font = FONT(14);
         label.textColor = [UIColor grayColor];
         label.tag = 10 + i;
         [bgView addSubview:label];
@@ -69,7 +68,7 @@
         [bgView addSubview:imageView];
         
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(115, 7, 40, 21)];
-        label.font = [UIFont systemFontOfSize:14];
+        label.font = FONT(14);
         label.textColor = [UIColor whiteColor];
         label.tag = 13 + i;
         [bgView addSubview:label];
@@ -94,7 +93,8 @@
             UIView *bgView = (UIView *)VIEWWITHTAG(self.contentView, 1000 + i );
             bgView.hidden = NO;
             NSDictionary *dic = _dataArr[i];
-            [button setImageWithURL:[dic objectForKey:@"petPhotoImgMax"] forState:UIControlStateNormal];
+//            [button setImageWithURL:[dic objectForKey:@"petPhotoImgMax"] forState:UIControlStateNormal];
+            [button setImageForState:UIControlStateNormal withURL:[NSURL URLWithString:[dic objectForKey:@"petPhotoImgMax"]]];
             UILabel *label = (UILabel *)VIEWWITHTAG(bgView, 10 + i );
             label.text = [NSString stringWithFormat:@"%d", [[dic objectForKey:@"petPhotoGood"] intValue]];
         }

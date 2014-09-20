@@ -8,7 +8,7 @@
 
 #import "TenyeaBaseViewController.h"
 
-@interface AskOnlineViewController : TenyeaBaseViewController <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>{
+@interface AskOnlineViewController : TenyeaBaseViewController <UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate>{
     UITextView *textView;
 }
 @property (strong, nonatomic) IBOutlet UITextView *textView;

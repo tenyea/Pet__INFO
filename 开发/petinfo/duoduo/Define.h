@@ -8,7 +8,7 @@
 
 #ifndef duoduo_Define_h
 #define duoduo_Define_h
-#define itunesappid 123124124
+#define itunesappid 919808699
 #define shareSdkAppID @"2db22b1a5954"
 #pragma mark -
 #pragma mark URL
@@ -44,6 +44,8 @@
 #define URL_getDisList @"AppPetPhotoDis"
 //回帖
 #define URL_AddDis @"AppAddDis"
+//回复我的和我的回复
+#define URL_Reply @"AppHuiFuWoDe"
 //显示用户问诊列表
 #define URL_getInquiryList @"AppInquiryList"
 //问诊详细内容
@@ -73,6 +75,9 @@
 #define URL_getKnowledgeList @"AppKnowledgeList"
 //日常饲养详情
 #define URL_getFeed @"AppFeed"
+
+//查看其他用户信息
+#define URL_getUserInfo @"AppUserInfo"
 #pragma mark -
 #pragma mark 百度
 //百度统计信息
@@ -117,7 +122,7 @@
 // 故事页 4合1
 #define URL_Story_Four_To_One @"AppPetPhotoList"
 // 宠物萌照详细
-#define URL_Pet_Photo @"AppPetPhoto"
+#define URL_Pet_Photo @"AppKnowledge"
 // 发宠物萌照
 #define URL_Add_Pet_Photo @"AppAddPetPhoto"
 // 赞

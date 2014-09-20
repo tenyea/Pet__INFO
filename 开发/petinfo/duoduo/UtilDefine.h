@@ -101,7 +101,7 @@ otherButtonTitles:nil];  \
 #pragma mark --------字体
 
 //方正黑体简体字体定义
-#define FONT(F) [UIFont fontWithName:@"FZHTJW--GB1-0" size:F]
+#define FONT(F) [UIFont fontWithName:@"Helvetica-Bold" size:F]
 
 
 

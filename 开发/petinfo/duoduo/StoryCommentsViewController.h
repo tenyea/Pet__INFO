@@ -13,5 +13,6 @@
 @interface StoryCommentsViewController : TenyeaNoBarVC <UITextViewDelegate,UITableViewDataSource,UITableViewDelegate>
 
 @property (strong, nonatomic) UITextView *textView;
+@property (strong, nonatomic) UILabel *bottomViewTitle;
 -(id)initWithPetId:(NSString *)petPhotoId;
 @end

@@ -12,7 +12,7 @@
  
  :param: idinitWithKnowledgeListId id
  */
-@interface DailyFeedingViewController : TenyeaBaseViewController <UITextViewDelegate>
+@interface DailyFeedingViewController : TenyeaBaseViewController <UITextViewDelegate,UIScrollViewDelegate>
 
 -(id)initWithKnowledgeListId:(NSString *)KnowledgeListId;
 @end

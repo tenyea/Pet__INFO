@@ -33,17 +33,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.view.left = 2;
     NSString *aboutPath = [[NSBundle mainBundle] pathForResource: _fileName ofType: @"html"];
     NSError *error = nil;
     NSStringEncoding encoding;
     NSString *htmlString = [NSString stringWithContentsOfFile: aboutPath usedEncoding: &encoding error: &error];
-//    添加版本号
-    NSArray *array = [htmlString componentsSeparatedByString:@"</BODY>"];
-    NSString *curversion = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];
-    NSString *centerString = [NSString stringWithFormat:@"<center>Version %@</center>",curversion];
-    NSString *newhtmlString = [array componentsJoinedByString:centerString];
-    [_webView loadHTMLString: newhtmlString baseURL: nil];
+    if ([_fileName isEqualToString:@"about"]) {
+        //    添加版本号
+        NSArray *array = [htmlString componentsSeparatedByString:@"</BODY>"];
+        NSString *curversion = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];
+        
+        
+        NSString *imagePath = [[NSBundle mainBundle] resourcePath];
+        imagePath = [imagePath stringByReplacingOccurrencesOfString:@"/" withString:@"//"];
+        
+        NSString *centerString = [NSString stringWithFormat:@"<center><img src=\"file:/%@/logo@2x.png\"></center><br><center>宠信 for iphone %@</center> <br/><center>敬请关注新版本</center><br><center>联系电话:024-25855585</center>",imagePath ,curversion];
+        
+        NSString *newhtmlString = [array componentsJoinedByString:centerString];
+        [_webView loadHTMLString: newhtmlString baseURL: nil];
+    }else{
+        [_webView loadHTMLString:htmlString baseURL:nil];
+    }
+
     
 }
 

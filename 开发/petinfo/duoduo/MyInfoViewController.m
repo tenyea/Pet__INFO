@@ -9,8 +9,7 @@
 #import "MyInfoViewController.h"
 #import "PetNameAndVarietyViewController.h"
 #import "PetSexViewController.h"
-#import "UpdatePasswordVC.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+AFNetworking.h"
 #import "DataCenter.h"
 #import "AFHTTPRequestOperationManager.h"
 
@@ -19,20 +18,25 @@
 @interface MyInfoViewController ()
 {
     UITableView *_tableView;
-    NSArray *_array;
+    NSArray *_arrayFirst;
+    NSArray *_arraySecond;
+    NSArray *_title;
     NSDictionary *_userDic ;
     
     UIImage *_headImage;
+    
 }
 @end
 
 @implementation MyInfoViewController
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _array = @[@"头像",@"昵称",@"性别",@"位置",@"邮箱",@"用户名",@"修改密码",@"推送消息",@"清除缓存",@""];
+
+    _arrayFirst = @[@"用户名",@"邮箱",@"位置"];
+    _arraySecond = @[@"头像",@"昵称",@"性别"];
+    _title = @[@"账户信息",@"个人信息"];
     NSDictionary *dic = [[NSUserDefaults standardUserDefaults]objectForKey:UD_userInfo_DIC];
     _userDic = [[NSDictionary alloc]initWithDictionary:dic];
     [[NSUserDefaults standardUserDefaults]setValue:_userDic forKey:UD_userInfo_temp_DIC];
@@ -42,13 +46,18 @@
     [self.view addSubview:bgView];
     
     self.title = @"个人设置";
+    
+    _tableView = [[UITableView alloc]init];
+    
     float heigh = 0.0;
-    if ((44* ([_array count] - 1) + headImageHeigh)>ScreenHeight - 66 -49) {
-        heigh = ScreenHeight - 66 - 49;
+//    适配4s
+    if ((44* ([_arrayFirst count] + [_arraySecond count] - 1) + headImageHeigh + 20 * [_title count])>ScreenHeight - 64 ) {
+        heigh = ScreenHeight - 64 ;
     }else{
-        heigh = 44* ([_array count] - 1) + headImageHeigh;
+        heigh = 44* ([_arrayFirst count]+ [_arraySecond count] - 1) + headImageHeigh + 20 * [_title count];
+        _tableView.bounces = NO;
     }
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 66, ScreenWidth , heigh) style:UITableViewStylePlain];
+    _tableView.frame = CGRectMake(0, 66, ScreenWidth , heigh) ;
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview: _tableView];
@@ -56,6 +65,7 @@
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 30)];
     [button addTarget: self  action:@selector(submitAction) forControlEvents:UIControlEventTouchUpInside];
     button.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [button setTitle:@"提交" forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
     
@@ -72,15 +82,7 @@
     [[NSUserDefaults standardUserDefaults]synchronize];
     [super returnAction];
 }
-//登出
--(void)logoutAction{
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:UD_userInfo_DIC];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:UD_userID_Str];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:UD_userName_Str];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:UD_pet_Array];
-    [[NSUserDefaults standardUserDefaults]synchronize];
-    [self.navigationController popViewControllerAnimated:YES];
-}
+
 //提交
 -(void)submitAction{
     NSMutableDictionary *params = [[NSMutableDictionary alloc]init];
@@ -127,116 +129,125 @@
 #pragma mark -
 #pragma mark UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    switch (indexPath.row) {
-        case 0:{
-            UIActionSheet *as=[[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"马上照一张" otherButtonTitles:@"从手机相册选择", nil ];
-            [as showInView:self.view];
+    if (indexPath.section == 0 ) {
+        
+    }else{
+        switch (indexPath.row) {
+            case 0:{
+                UIActionSheet *as=[[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"马上照一张" otherButtonTitles:@"从手机相册选择", nil ];
+                [as showInView:self.view];
+            }
+                break;
+            case 1:
+                [self.navigationController pushViewController:[[PetNameAndVarietyViewController alloc]initWithType:2 ] animated:YES];
+                break;
+            case 2:
+                [self.navigationController pushViewController:[[PetSexViewController alloc]initWithType:1] animated:YES];
+                break;
+
+            default:
+                break;
         }
-            break;
-        case 1:
-            [self.navigationController pushViewController:[[PetNameAndVarietyViewController alloc]initWithType:2 ] animated:YES];
-            break;
-        case 2:
-            [self.navigationController pushViewController:[[PetSexViewController alloc]initWithType:1] animated:YES];
-            break;
-        case 3:
-            break;
-        case 4:
-            break;
-        case 5:
-            break;
-        case 6:
-            [self.navigationController pushViewController:[[UpdatePasswordVC alloc]init] animated:YES];
-            break;
-        case 7://推送
-            break;
-        case 8:
-            [[DataCenter sharedCenter] cleanCache];
-            [tableView reloadRowsAtIndexPaths: [NSArray arrayWithObject: indexPath] withRowAnimation: UITableViewRowAnimationAutomatic];
-            break;
-        case 9:
-            [self logoutAction];
-            break;
-        default:
-            break;
+        
     }
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 0 ) {
+    if (indexPath.section == 1 && indexPath.row == 0 ) {
         return headImageHeigh;
     }else{
         return 44;
     }
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 20;
+}
 #pragma mark -
 #pragma mark UITableViewDataSource
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [_array count];
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return _title[section];
 }
-
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (section == 0 ) {
+        return [_arrayFirst count];
+    }else{
+        return [_arraySecond count];
+    }
+    return 0 ;
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return [_title count];
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row < (_array.count - 1)) {
+    
+    static NSString *editUserInfoIdentifier = @"editUserInfoIdentifier" ;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:editUserInfoIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:editUserInfoIdentifier];
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(120, 13, 0, 20)];
+        label.font = [UIFont boldSystemFontOfSize:15];
+        label.textColor = [UIColor grayColor];
+        label.tag = 100;
+        label.textAlignment = NSTextAlignmentLeft;
+        [cell.contentView addSubview:label];
         
-        static NSString *editUserInfoIdentifier = @"editUserInfoIdentifier" ;
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:editUserInfoIdentifier];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:editUserInfoIdentifier];
-            UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(200, 13, 0, 20)];
-            label.font = [UIFont boldSystemFontOfSize:15];
-            label.textColor = [UIColor grayColor];
-            label.tag = 100;
-            [cell.contentView addSubview:label];
-        }
-        cell.textLabel.textColor = [UIColor colorWithRed:0.69 green:0.69 blue:0.69 alpha:1];
-        cell.textLabel.text = _array[indexPath.row];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        if (indexPath.row == 3|| indexPath.row == 4 ||indexPath.row ==5 || indexPath.row > 6) {
-            cell.accessoryType = UITableViewCellAccessoryNone;
-        }else{
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        }
-        UILabel *label = (UILabel *)VIEWWITHTAG(cell.contentView, 100);
+        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(120, 10, headImageHeigh - 20, headImageHeigh - 20)];
+        imageView.tag = 101;
+        [cell.contentView addSubview:imageView];
+        imageView.hidden = YES;
+    }
+    cell.textLabel.textColor = [UIColor colorWithRed:0.69 green:0.69 blue:0.69 alpha:1];
+    if (indexPath.section == 0 ) {
+        cell.textLabel.text = _arrayFirst[indexPath.row];
+    }else{
+        cell.textLabel.text = _arraySecond[indexPath.row];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    UILabel *label = (UILabel *)VIEWWITHTAG(cell.contentView, 100);
+    
+    if (indexPath.section == 0 ) {
+        cell.accessoryType = UITableViewCellAccessoryNone;
         
-        if (indexPath.row == 8) {
-            NSUInteger cacheSize = [[DataCenter sharedCenter] cacheSize];
-            if (cacheSize < 1024)
-            {
-                label.text = [NSString stringWithFormat: @"%u B", cacheSize];
+        if(indexPath.row == 0)//用户名
+        {
+            if (![ [_userDic objectForKey:@"userName"] isEqualToString:@""]) {
+                label.text = [_userDic objectForKey:@"userName"];
             }
-            else if (cacheSize < 1024 * 1024)
-            {
-                label.text = [NSString stringWithFormat: @"%.2f KB", (cacheSize * 1.0f) / 1024];
+        }else if(indexPath.row == 1)//邮箱
+        {
+            if (![ [_userDic objectForKey:@"userEmail"] isEqualToString:@""]) {
+                label.text = [_userDic objectForKey:@"userEmail"];
             }
-            else if (cacheSize < 1024 * 1024 * 1024)
-            {
-                label.text = [NSString stringWithFormat: @"%.2f MB", (cacheSize * 1.0f) / (1024 * 1024)];
-            }
-            else
-            {
-                label.text = [NSString stringWithFormat: @"%.2f GB", (cacheSize * 1.0f) / (1024 * 1024 * 1024)];
-            }
+        }else if(indexPath.row == 2)//位置
+        {
+            label.text = [[NSUserDefaults standardUserDefaults] stringForKey:UD_nowPosition_Str];
         }
-        else  if (indexPath.row == 0)
-            {
-
-                if (![ [_userDic objectForKey: @"userHeadMin"] isEqualToString:@""]) {
-                    UIImageView *imageView = [[UIImageView alloc]init];
-                    NSString *url = [_userDic objectForKey: @"userHeadMin"];
-                    [imageView setImageWithURL:[NSURL URLWithString: url]];
-                    cell.accessoryView = imageView;
-                    cell.accessoryType = UITableViewCellAccessoryNone;
-                }
-                return cell;
+    }else{
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
+        if (indexPath.row == 0)//头像
+        {
+            
+            if (![ [_userDic objectForKey: @"userHeadMin"] isEqualToString:@""]) {
+                //                    UIImageView *imageView = [[UIImageView alloc]init];
+                NSString *url = [_userDic objectForKey: @"userHeadMin"];
+                UIImageView *imageView = (UIImageView *)VIEWWITHTAG(cell.contentView, 101);
+                imageView.hidden = NO;
+                [imageView setImageWithURL:[NSURL URLWithString: url]];
+                //                    cell.accessoryView = imageView;
+                cell.accessoryType = UITableViewCellAccessoryNone;
             }
-        else if(indexPath.row == 1)//昵称
+            return cell;
+        }else if(indexPath.row == 1)//昵称
         {
             if (![ [_userDic objectForKey:@"userNickname"] isEqualToString:@""]) {
                 label.text = [_userDic objectForKey:@"userNickname"];
             }
-
-        }
-        else if(indexPath.row == 2)//性别
+            
+        }else if(indexPath.row == 2)//性别
         {
             int sexTag = [[_userDic objectForKey:@"userSex"] intValue];
             if (sexTag == 0) {
@@ -245,43 +256,12 @@
                 label.text =  @"女";
             }
         }
-        else if(indexPath.row == 3)//位置
-        {
-            label.text = [[NSUserDefaults standardUserDefaults] stringForKey:UD_nowPosition_Str];
-        }
-        else if(indexPath.row == 4)//邮箱
-        {
-            if (![ [_userDic objectForKey:@"userEmail"] isEqualToString:@""]) {
-                label.text = [_userDic objectForKey:@"userEmail"];
-            }
-        }
-        else if(indexPath.row == 5)//用户名
-        {
-            if (![ [_userDic objectForKey:@"userName"] isEqualToString:@""]) {
-                label.text = [_userDic objectForKey:@"userName"];
-            }
-        }
-        
-        [label sizeToFit];
-        label.right = 240;
-        
-        return cell;
-    }else{
-        static NSString *logoutIdentifier = @"logoutIdentifier" ;
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:logoutIdentifier];
-        if ( cell == nil) {
-            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:logoutIdentifier];
-            UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(15, 5, ScreenWidth - 30, 44 - 10)];
-            button.backgroundColor = [UIColor redColor];
-            button.layer.masksToBounds = YES;
-            button.layer.cornerRadius = 8;
-            [button setTitle:@"退出登录" forState:UIControlStateNormal ];
-            [button addTarget: self  action:@selector(logoutAction) forControlEvents:UIControlEventTouchUpInside];
-            [cell.contentView addSubview:button];
-        }
-        
-        return cell;
     }
+    
+    [label sizeToFit];
+    
+    return cell;
+
 
 }
 #pragma mark ----------ActionSheet 按钮点击-------------

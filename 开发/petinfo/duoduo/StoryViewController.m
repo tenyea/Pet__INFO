@@ -11,17 +11,18 @@
 #import "StoryCell.h"
 #import "MoveButton.h"
 #import "LikePetCell.h"
-#import "StoryContentViewController.h"
-#import "UIImageView+WebCache.h"
+//#import "StoryContentViewController.h"
+#import "MyPostDetailViewController.h"
+#import "UIImageView+AFNetworking.h"
 #import "LoginViewController.h"
 #import "NearPetViewController.h"
 #import "ShowShowViewController.h"
 #define offsetY 64
 /*
  rowHeigh 
- 88 故事
- 89 明星
- 90 人气
+ 73 故事
+ 74 明星
+ 75 人气
  190 嗮萌宠
  */
 @interface StoryViewController ()
@@ -42,8 +43,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    rowHeigh=88;
+    rowHeigh=74;
+    params = [[NSMutableDictionary alloc]init];
+    [params setValue:@"1" forKey:@"type"];
+
     [self _initView];
+    [_tableView  headerBeginRefreshing];
     
 }
 #pragma mark -
@@ -52,21 +57,17 @@
  *  初始化视图
  */
 -(void)_initView{
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight )];
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 100 +20 , ScreenWidth, ScreenHeight- 100 -20 ) ];
     [self.view addSubview:_tableView];
     _tableView.dataSource = self;
     _tableView.delegate = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    _tableView.backgroundColor = [UIColor colorWithRed:0.95 green:0.99 blue:1 alpha:1];
+    _tableView.backgroundColor = [UIColor whiteColor];
     _tableView.showsVerticalScrollIndicator = NO;
     /**
      头部视图
      */
     [self _initTOPView];
-
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 120)];
-    _tableView.tableHeaderView = headerView;
-    _tableView.tableHeaderView.backgroundColor = [UIColor colorWithRed:0.95 green:0.99 blue:1 alpha:1];
     
 //  编辑按钮
     UIButton *button = [[UIButton alloc]init];
@@ -80,7 +81,7 @@
     [_tableView addHeaderWithTarget:self action:@selector(headerRereshing)];
     //    下拉
     [_tableView addFooterWithTarget:self action:@selector(footerRereshing)];
-    [_tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:nil];
+//    [_tableView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionOld|NSKeyValueObservingOptionNew context:nil];
 }
 /**
  *  监听tableview的高度，来调整按钮的位置
@@ -90,6 +91,7 @@
  *  @param change  <#change description#>
  *  @param context <#context description#>
  */
+/*
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     if ([keyPath isEqualToString:@"contentOffset"]) {
         NSValue *value = [change objectForKey:@"new"];
@@ -139,6 +141,8 @@
         }
     }
 }
+ */
+
 /**
  *   初始化顶部4个按钮
  */
@@ -146,17 +150,36 @@
     
     NSArray *nameArr = @[@"宠物明星",@"晒萌宠",@"人气萌宠",@"附近宠物"];
     NSArray *imageArr = @[@"story_star.png",@"story_image.png",@"story_sentiment.png",@"story_near.png"];
-    _topView = [[UIView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, (nameArr.count/2)*60 )];
-    _topView.backgroundColor = [UIColor colorWithRed:0.95 green:0.99 blue:1 alpha:1];
-    for (int i = nameArr.count-1; i >= 0; i --) {
-        MoveButton *button = [[MoveButton alloc]initWithFrame:CGRectMake(45 + i%2 *160, (i/2 )*60 +10 , 70, 40) LabelText:nameArr[i] ImageView:imageArr[i]];
-        button.backgroundColor = [UIColor colorWithRed:0.36 green:0.68 blue:0.89 alpha:1];
-        button.tag = i +100;
-        [button addTarget:self action:@selector(TouchAction:) forControlEvents:UIControlEventTouchUpInside];
-    
+    _topView = [[UIView alloc]initWithFrame:CGRectMake(0, 64, ScreenWidth, (imageArr.count/2)*60 )];
+    _topView.backgroundColor = [UIColor whiteColor];
+    for (int i = 0 ; i < imageArr.count ; i ++ ) {
+        UIButton *button = [[UIButton alloc]init];
+        button.frame = CGRectMake(0 + 80 * i , 0, 80, 100);
+        button.tag = 100 + i ;
+
+        [button addTarget: self  action:@selector(TouchAction:) forControlEvents:UIControlEventTouchUpInside];
+        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 20, 60, 60)];
+        imageView.image =[UIImage imageNamed:[imageArr objectAtIndex:i]];
+        [button addSubview:imageView];
+
+        UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(10, 90, 60, 15)];
+        label.text = nameArr[i];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.font = [UIFont boldSystemFontOfSize:13];
+        [button addSubview:label];
         [_topView addSubview:button];
     }
+    
+    //    for (int i = nameArr.count-1; i >= 0; i --) {
+//        MoveButton *button = [[MoveButton alloc]initWithFrame:CGRectMake(45 + i%2 *160, (i/2 )*60 +10 , 70, 40) LabelText:nameArr[i] ImageView:imageArr[i]];
+//        button.backgroundColor = [UIColor colorWithRed:0.36 green:0.68 blue:0.89 alpha:1];
+//        button.tag = i +100;
+//        [button addTarget:self action:@selector(TouchAction:) forControlEvents:UIControlEventTouchUpInside];
+//    
+//        [_topView addSubview:button];
+//    }
     [self.view addSubview:_topView];
+    
 }
 
 #pragma mark -
@@ -235,7 +258,7 @@
         case 100: //宠物明星
         {
             [params setValue:@"1" forKey:@"type"];
-            rowHeigh = 89;
+            rowHeigh = 74;
             [self loadData:NO];
         }
             break;
@@ -250,13 +273,18 @@
         case 102://人气萌宠
         {
             [params setValue:@"2" forKey:@"type"];
-            rowHeigh = 90;
+            rowHeigh = 75;
             [self loadData:NO];
             
         }
             break;
         case 103:_po(@"444");
-            [self.navigationController pushViewController:[[NearPetViewController alloc] init] animated:YES];
+            if ([[NSUserDefaults standardUserDefaults] stringForKey:UD_userID_Str]) {
+                [self.navigationController pushViewController:[[NearPetViewController alloc] init] animated:YES];
+            }else{
+                [self.navigationController pushViewController: [[LoginViewController alloc] init] animated:YES];
+            }
+            
             break;
         default:
             break;
@@ -282,21 +310,7 @@
 
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(rowHeigh==88)//故事
-    {
-        static NSString *storyCellIdentifier = @"storyCellIdentifier1";
-        StoryCell *cell = [tableView dequeueReusableCellWithIdentifier:storyCellIdentifier];
-        if (cell == nil) {
-            cell = [[[NSBundle mainBundle]loadNibNamed:@"StoryCell" owner:self options:nil]lastObject];
-            
-        }
-        if ([_dataArr objectAtIndex:indexPath.row]) {
-            cell.dic = [_dataArr objectAtIndex:indexPath.row];
-        }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return cell;
-    }
-    else if(rowHeigh==89)//明星
+    if(rowHeigh==74)//明星
     {
         static NSString *likePetCellIdentifier = @"LikePetCellIdentifier";
         LikePetCell *cell = [tableView dequeueReusableCellWithIdentifier:likePetCellIdentifier];
@@ -309,7 +323,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
-    else if(rowHeigh==90)//人气
+    else if(rowHeigh==75)//人气
     {
         static NSString *likePetCellIdentifier = @"LikePetCellIdentifier";
         LikePetCell *cell = [tableView dequeueReusableCellWithIdentifier:likePetCellIdentifier];
@@ -355,7 +369,7 @@
         NSNumber *readCount = [myUserDefaults objectForKey:UD_userID_Str];
         if (readCount) {
             NSString *petPhotoId = [_dataArr[indexPath.row]  objectForKey:@"petPhotoId"];
-            StoryContentViewController *scvc =[[StoryContentViewController alloc] initWithID:petPhotoId hasComments:YES];
+            MyPostDetailViewController *scvc =[[MyPostDetailViewController alloc]initWithId:petPhotoId];
             [self.navigationController pushViewController:scvc animated:YES];
         }else{
             // 去登陆  缺少userID
@@ -425,7 +439,7 @@
  */
 -(void)refreshData : (BOOL)isEndRefreshing{
     params = [[NSMutableDictionary alloc]init];
-    rowHeigh=88;
+    rowHeigh=73;
     [self showHUDwithLabel:@"加载中" inView: self.view];
     [self getDate:URL_Story andParams:nil andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSString *code =[responseObject objectForKey:@"code"];
@@ -460,16 +474,13 @@
 #pragma mark MJRefresh
 //上拉 刷新
 -(void)headerRereshing{
-    if (rowHeigh == 88) {
-        [self refreshData:YES];
-    }else{
-        [self loadData:YES];
-    }
+
+    [self loadData:YES];
 }
 //下拉 加载
 -(void)footerRereshing{
 //  故事
-    if (rowHeigh == 88) {
+    if (rowHeigh == 73) {
         NSMutableDictionary *rereshingParams = [[NSMutableDictionary alloc]init];
         if (_dataArr.count > 0) {
             NSDictionary *dic = [_dataArr lastObject];
@@ -609,6 +620,6 @@
  *  @param petPhotoId 选择的图片id
  */
 -(void)pushVC:(NSString *)petPhotoId{
-    [self.navigationController pushViewController:[[StoryContentViewController alloc] initWithID:petPhotoId hasComments:YES] animated:YES];
+    [self.navigationController pushViewController:[[MyPostDetailViewController alloc] initWithId:petPhotoId] animated:YES];
 }
 @end

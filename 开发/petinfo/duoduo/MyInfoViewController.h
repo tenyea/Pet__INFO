@@ -6,8 +6,8 @@
 //  Copyright (c) 2014年 zzw. All rights reserved.
 //
 
-#import "TenyeaBaseViewController.h"
+#import "TenyeaNoBarVC.h"
 
-@interface MyInfoViewController : TenyeaBaseViewController<UITableViewDelegate,UITableViewDataSource,UINavigationBarDelegate,UINavigationControllerDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate>
+@interface MyInfoViewController : TenyeaNoBarVC<UITableViewDelegate,UITableViewDataSource,UINavigationBarDelegate,UINavigationControllerDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate>
 
 @end

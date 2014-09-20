@@ -7,7 +7,7 @@
 //
 
 #import "MyAskDetailTopCell.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+AFNetworking.h"
 @implementation MyAskDetailTopCell
 
 - (void)awakeFromNib
@@ -16,7 +16,7 @@
     [self.contentView addSubview:_bottomView];
 
     _titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(81, 10, 184, 15)];
-    _titleLabel.font = [UIFont systemFontOfSize:12];
+    _titleLabel.font = FONT(12);
     _titleLabel.numberOfLines = 0;
     [self.contentView addSubview:_titleLabel];
     
@@ -27,15 +27,15 @@
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 33, 14)];
     label.text = @"宠物:";
     label.textColor = [UIColor grayColor];
-    label.font = [UIFont systemFontOfSize:12];
+    label.font = FONT(12);
     [_bottomView addSubview:label];
     
     _petName = [[UILabel alloc]initWithFrame:CGRectMake(38, 0, 61, 14)];
-    _petName.font = [UIFont systemFontOfSize:12];
+    _petName.font = FONT(12);
     [_bottomView addSubview:_petName];
     
     _askTime = [[UILabel alloc]initWithFrame:CGRectMake(169, 3, 70, 10)];
-    _askTime.font = [UIFont systemFontOfSize:12];
+    _askTime.font = FONT(12);
     [_bottomView addSubview:_askTime];
 }
 
@@ -57,7 +57,7 @@
     _titleLabel.text = [_dic objectForKey:@"postText"];
     str = _titleLabel.text;
     
-    CGSize size = [str  boundingRectWithSize:CGSizeMake(184, 0) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12]} context:nil].size;
+    CGSize size = [str  boundingRectWithSize:CGSizeMake(184, 0) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: FONT(12)} context:nil].size;
     _titleLabel.height = size.height + 5;
     _petName.text =  [_dic objectForKey:@"petName"];
     [_petName sizeToFit];
@@ -82,15 +82,15 @@
 +(float) getCellHeight : (NSDictionary *)dic{
     if (dic) {
         NSString *content = [dic objectForKey:@"postText"];
-        CGSize size = [content  boundingRectWithSize:CGSizeMake(184, 0) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12]} context:nil].size;
+        CGSize size = [content  boundingRectWithSize:CGSizeMake(184, 0) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: FONT(12)} context:nil].size;
         
         float height = 10 + size.height + 5 ;
         height = height + 2 + 15 + 2;
         if ([[dic objectForKey:@"postImg"] isEqualToString:@""]) {
-            return height;
+            return ceilf(height);
         }else{
             height += 96;
-            return height;
+            return ceilf(height);
         }
     }else{
         return 0;

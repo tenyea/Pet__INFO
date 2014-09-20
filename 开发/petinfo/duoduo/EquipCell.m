@@ -7,7 +7,7 @@
 //
 
 #import "EquipCell.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+AFNetworking.h"
 #import "PetHosContentViewController.h"
 @implementation EquipCell
 

@@ -7,7 +7,7 @@
 //
 
 #import "DoctorViewController.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+AFNetworking.h"
 #import "DoctorCell.h"
 #import "DoctorModel.h"
 #import "DoctorDetailViewController.h"

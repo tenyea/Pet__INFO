@@ -22,7 +22,7 @@
         self.logoImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:image]];
         [self beginFrame];
         _label.text = text;
-        _label.font = [UIFont systemFontOfSize:13];
+        _label.font = FONT(13);
         _label.textAlignment = NSTextAlignmentCenter;
         _label.textColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
         [self addSubview:_label];

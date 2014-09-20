@@ -7,18 +7,16 @@
 //
 
 #import "StoryCell.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+AFNetworking.h"
+#import "DataCenter.h"
+#define spacing 2
 @implementation StoryCell
 
 - (void)awakeFromNib
 {
     [super awakeFromNib];
-    [self _init];
 }
--(void)_init{
-    _ImageView.layer.masksToBounds = YES;
-    _ImageView.layer.cornerRadius = 38;
-}
+
 /*
 -(void)drawRect:(CGRect)rect{
     
@@ -38,17 +36,56 @@
 }
 */
 
-
 -(void)setDic:(NSDictionary *)dic {
     if (_dic != dic) {
         _dic = dic;
-        self.TimeLabel.text=[_dic objectForKey:@"petPhotoTime"];
-        self.TitleLabel.text=[_dic objectForKey:@"petPhotoTitle"];
-        self.UserNameLabel.text=[_dic objectForKey:@"userName"];
-        NSURL *url = [NSURL URLWithString:[_dic objectForKey:@"userHead"]];
-        [self.ImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"register_backgroundg.png"]];
+//        时间
+        NSString *time = [_dic objectForKey:@"petPhotoTime"];
+        self.TimeLabel.text= [DataCenter intervalSinceNow:time];
+        [self.TimeLabel sizeToFit];
+//        标题
+        self.TitleLabel.text=[_dic objectForKey:@"petPhotoDes"];
+//        self.TitleLabel.text = @"123jflsdakjflasdkfj;asldkfj;alsdfjlkasdjfalsdkfj;afka;dsfjasl;dfjasdl;fkjsad;lkfjsaldkfjasldkfj;lajflds;kfjsldakjfs;ladkfjalskdjflaksdjfl;askdfjlasdkjfls;adkfjsldkafjasldkfj;askdfjlskadfjlasdkfjsldkfjsaldkfjsldkfjas;";
 
+        CGSize size = [self.TitleLabel.text boundingRectWithSize:CGSizeMake(252, 0) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: FONT(12)} context:nil].size;
+        self.TitleLabel.height = size.height;
+        self.contentBgVIew.height = size.height + 5 + 15 + 100 + 10 ;
+//        内容图片
+        self.contentImage.top = self.TimeLabel.height + 10;
+        
+//        用户名
+        self.UserNameLabel.text=[_dic objectForKey:@"userName"];
+        [self.UserNameLabel sizeToFit];
+//        是否显示hot
+        if (_isShowHot) {
+            self.hotImage.hidden = NO;
+            self.hotImage.left = self.UserNameLabel.right + 5;
+            [self.contentImage setImageWithURL: [NSURL URLWithString:[_dic objectForKey:@"petPhotoPathMax"]]];
+
+        }else{
+            [self.contentImage setImageWithURL: [NSURL URLWithString:[_dic objectForKey:@"petPhotoImgMax"]]];
+
+        }
+//        头像
+        NSURL *url = [NSURL URLWithString:[_dic objectForKey:@"userHead"]];
+        [self.ImageView setImageWithURL:url placeholderImage:[UIImage imageNamed:@"my_petlogo.png"]];
+        //        设置点赞和回复
+        self.returnMsgLabel.text = [NSString stringWithFormat:@"%@",[_dic objectForKey:@"petPhotoView"]];
+        [self.returnMsgLabel sizeToFit];
+        self.returnMsgLabel.right = self.goodAndReturnBg.width - spacing*3;
+        self.returnImage.right = self.returnMsgLabel.left - spacing;
+        self.goodLabel.text = [NSString stringWithFormat:@"%@",[_dic objectForKey:@"petPhotoGood"]];
+        [self.goodLabel sizeToFit];
+        self.goodLabel.right = self.returnImage.left - spacing *8;
+        self.goodImage.right = self.goodLabel.left - spacing;
+        self.goodAndReturnBg.top = self.contentBgVIew.height -15;
+        self.goodAndReturnBg.height = 15;
     }
 }
-
++(float)getCellHeigh:(NSDictionary *)dic{
+    float height = 0.0;
+    CGSize size = [[dic objectForKey:@"petPhotoTitle"] boundingRectWithSize:CGSizeMake(272, 0) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: FONT(12)} context:nil].size;
+    height = size.height + 5 + 15 + 100 + 31 + 5 + 10;
+    return height;
+}
 @end

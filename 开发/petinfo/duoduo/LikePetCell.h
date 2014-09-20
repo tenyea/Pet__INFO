@@ -10,11 +10,14 @@
 
 /// 人气排名视图
 @interface LikePetCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UILabel *titleLable;
 @property (strong, nonatomic) IBOutlet UILabel *contentLabel;
-@property (strong, nonatomic) IBOutlet UILabel *lookLabel;
+@property (strong, nonatomic) IBOutlet UILabel *returnLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *returnImage;
 @property (strong, nonatomic) IBOutlet UILabel *likeLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *likeImage;
 
 
 

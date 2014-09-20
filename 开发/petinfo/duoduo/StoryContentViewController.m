@@ -7,7 +7,7 @@
 //
 
 #import "StoryContentViewController.h"
-#import "UIImageView+WebCache.h"
+#import "UIImageView+AFNetworking.h"
 #import "LoginViewController.h"
 #import "StoryCommentsViewController.h"
 #import <ShareSDK/ShareSDK.h>
@@ -47,14 +47,12 @@
     [super viewDidLoad];
     
     
-    NSUserDefaults *myUserDefaults = [NSUserDefaults standardUserDefaults];
-    
     // 读取参数
-    NSNumber *readCount = [myUserDefaults objectForKey:UD_userID_Str];
+//    NSNumber *readCount = [myUserDefaults objectForKey:UD_userID_Str];
     NSMutableDictionary *dic = [[NSMutableDictionary alloc]init];
-    [dic setValue:petImageId forKey:@"petPhotoId"];
-    [dic setValue:readCount forKey:@"userId"];
-    _backgroundScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+    [dic setValue:petImageId forKey:@"knowledgeListId"];
+//    [dic setValue:readCount forKey:@"userId"];
+    _backgroundScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight+49)];
     [self.view addSubview:_backgroundScrollView];
 //    解析数据
     [self getDate:URL_Pet_Photo andParams:dic andcachePolicy:1 success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -62,15 +60,15 @@
         int a = [code intValue];
         if(a==0)
         {
-            height = 10;
-            NSDictionary *dic=[responseObject objectForKey:@"petPhoto"];
-            if (dic == [NSNull null]) {
+            height = 20;
+            NSArray *arr=[responseObject objectForKey:@"knowledge"];
+            if (arr == [NSNull null]) {
                 self.bgStr = Tenyea_str_load_error;
                 return ;
             }
-            self.petImageViewURL=[dic objectForKey:@"petPhotoImg"];
+            self.petImageViewURL=[arr[0] objectForKey:@"knowledgeImg"];
             
-            self.petPresentation=[dic objectForKey:@"petPhotoText"];
+            self.petPresentation=[arr[0] objectForKey:@"knowledgeText"];
 //            照片
             if (![_petImageViewURL isEqualToString:@""]) {
                 _contentImageView = [[UIImageView alloc]initWithFrame:CGRectMake(40, 20, ScreenWidth - 80, 120)];
@@ -83,13 +81,13 @@
                 // 根据内容大小设置label大小
                 contentLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, height, ScreenWidth - 40, 0)];
                 contentLabel.text=_petPresentation;
-                contentLabel.font=[UIFont systemFontOfSize:12];
+                contentLabel.font=FONT(12);
                 contentLabel.numberOfLines = 0;
 //                计算高度
-                CGSize size = [_petPresentation boundingRectWithSize:CGSizeMake(ScreenWidth - 40, 0) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:12]} context:nil].size;
+                CGSize size = [_petPresentation boundingRectWithSize:CGSizeMake(ScreenWidth - 40, 0) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: FONT(12)} context:nil].size;
                 contentLabel.height = size.height;
                 [_backgroundScrollView addSubview:contentLabel];
-                height += size.height + 20;
+                height += size.height + 40;
 
             }
 //            是否有评论
@@ -131,6 +129,11 @@
                 UIButton *button = (UIButton *)VIEWWITHTAG(_backgroundScrollView, 101);
                 [button setTitle:@"已喜欢" forState:UIControlStateNormal];
                 [button setBackgroundColor:[UIColor grayColor]];
+            }
+            if (height > ScreenHeight) {
+                _backgroundScrollView.contentSize = CGSizeMake(ScreenWidth, height);
+            }else{
+                _backgroundScrollView.height = ScreenHeight;
             }
         }else if(a==1001)
         {
@@ -260,7 +263,7 @@
     if (!_animateLabel) {
         UIButton *button = (UIButton *)VIEWWITHTAG(_backgroundScrollView, 101);
         _animateLabel =[[UILabel alloc]init];
-        _animateLabel.font = [UIFont systemFontOfSize:12];
+        _animateLabel.font = FONT(12);
         _animateLabel.textColor = [UIColor grayColor];
         _animateLabel.height = 13;
         _animateLabel.width = 12;

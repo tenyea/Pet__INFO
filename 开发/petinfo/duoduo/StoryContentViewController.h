@@ -9,7 +9,11 @@
 
 #import "TenyeaNoBarVC.h"
 /**
+ 遗弃
  *  故事页的内容页。主要显示图片和文字。有评论、喜欢、分享三个按钮
+ */
+/**
+ *  用于显示首页六个按钮的详细内容
  */
 @interface StoryContentViewController : TenyeaNoBarVC
 @property (strong, nonatomic)  UIScrollView *backgroundScrollView;

@@ -8,22 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MyPostTopCell : UITableViewCell
+@interface MyPostTopCell : UITableViewCell <UITextViewDelegate>
 
 
 @property (nonatomic,strong) NSDictionary *dic ;
 
 +(float) getCellHeight : (NSDictionary *)dic;
 
-@property (nonatomic,strong) UILabel *userNameLabel;
-@property (nonatomic,strong) UILabel *contentLabel;
-@property (nonatomic,strong) UIImageView *petImageView;
+- (IBAction)userInfoAction:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *userInfoButton;
+@property (nonatomic,strong) IBOutlet UILabel *userNameLabel;
+@property (nonatomic,strong) IBOutlet UITextView *contentTextView;
+@property (nonatomic,strong) IBOutlet UIImageView *petImageView;
 //底部视图
-@property (nonatomic,strong) UIView  *bottomView ;
+@property (nonatomic,strong) IBOutlet UIView  *bottomView ;
 
-@property (nonatomic,strong) UILabel *timeLabel;
-@property (nonatomic,strong) UIImageView *askCount;
-@property (nonatomic,strong) UILabel *askCountLabel;
-@property (nonatomic,strong) UIImageView *goodCount;
-@property (nonatomic,strong) UILabel *goodCountLabel;
+@property (nonatomic,strong) IBOutlet UILabel *timeLabel;
+@property (nonatomic,strong) IBOutlet UIImageView *askCount;
+@property (nonatomic,strong) IBOutlet UILabel *askCountLabel;
+@property (nonatomic,strong) IBOutlet UIImageView *goodCount;
+@property (nonatomic,strong) IBOutlet UILabel *goodCountLabel;
 @end

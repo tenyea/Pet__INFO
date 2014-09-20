@@ -53,6 +53,8 @@
     [button addTarget: self  action:@selector(submitAction) forControlEvents:UIControlEventTouchUpInside];
     button.titleLabel.font = [UIFont boldSystemFontOfSize:15];
     [button setTitle:@"确定" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor colorWithRed:0.42 green:0.78 blue:0.99 alpha:1] forState:UIControlStateNormal];
+
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
 
     NSString *str =[[[NSUserDefaults standardUserDefaults]dictionaryForKey:_userDefaults_name] objectForKey:_keyName];

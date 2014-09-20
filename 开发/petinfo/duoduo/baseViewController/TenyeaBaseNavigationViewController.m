@@ -17,7 +17,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self loadBackgroundImage];
+//    [self loadBackgroundImage];
 }
 
 //顶部navi栏

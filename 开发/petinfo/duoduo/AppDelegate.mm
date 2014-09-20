@@ -77,7 +77,7 @@
 
     //    地图
     _mapManager = [[BMKMapManager alloc]init];
-    BOOL ret = [_mapManager start:@"2OI1WuFGWufTPArmmnUtZ4wL"  generalDelegate:self];
+    BOOL ret = [_mapManager start:@"aaThj7IhbdakXe1MP8ri1yGb"  generalDelegate:self];
     if (!ret) {
         NSLog(@"manager start failed!");
     }
